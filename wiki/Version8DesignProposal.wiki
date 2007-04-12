@@ -6,9 +6,10 @@
 This document presents some of the high level goals for the next major
 release of Hackystat. (This is not the first time I've done this: for
 historical purposes, you might find it amusing to take a quick look at the
-[http://hackydev.ics.hawaii.edu/hackyDevSite/doc/VersionSeven.html Version
-7] and [http://hackydev.ics.hawaii.edu/hackyDevSite/doc/VersionSix.html
-Version 6] planning documents.
+[http://hackydev.ics.hawaii.edu/hackyDevSite/doc/VersionSeven.html Version 7] 
+and 
+[http://hackydev.ics.hawaii.edu/hackyDevSite/doc/VersionSix.html Version 6] 
+planning documents.
 
 
 = Details =
