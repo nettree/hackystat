@@ -18,7 +18,7 @@ like to begin by reviewing some of the things that the current version of
 Hackystat appears to get right.  For example, no system other than
 Hackystat can do the following:
 
-Versio4.jpg
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.fig1.jpg]
 
 This single chart illustrates many of the unique features of Hackystat. At
 one level, it shows how software project telemetry and software development
@@ -121,7 +121,7 @@ currently.
 In Version 7, the user interface initially presents a very long list of
 analysis names with their parameters, such as the following:
 
-Versio5.jpg
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.fig2.jpg]
 
 The results of any of these analysis are displayed after entering a legal
 combination of parameter values and clicking "Analyze".  This user
@@ -135,20 +135,19 @@ figuratively reverse the Hackystat relationship between parameters and
 results.  For example, the Weather widget initially displays a three day
 forecast by default:
 
-VersionEight.google.weather.png
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.google.weather.png]
 
 The "Results" are thus what is initially displayed in the user interface.
 If you don't like the default analysis results or presentation, you can use
 the down arrow to bring up a configuration page:
 
-VersionEight.google.weather.2.png
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.google.weather.2.png]
 
 The Version 8 user interface should emulate this user interface design
 principle, in which analyses whenever possible present themselves to the
 user initially in the form of "Results", not Parameters.
 
 ==4.3 Active, not passive==
-
 
 Analyses in Version 7 have an extremely "passive" feel to them. Users are
 required to continuously "poke" the interface in order to get it to do
@@ -183,8 +182,7 @@ interface display mechanisms, such as "ambient" interfaces like the
 or
 [http://www.nabaztag.com/en/index.html Nabaztag].
 
-VersionEight.orb180.jpg
-VersionEight.nabaztag.jpg
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.orb.jpg][http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.nabaztag.jpg]
 
 One obvious application of these devices is an ambient
 indication of project "vital signs". How to configure a
@@ -201,7 +199,7 @@ need for a deeper look at the information architecture of Hackystat and how
 to facilitate access to data at a variety of levels of
 abstraction. To see this, consider the following diagram:
 
-Version8.info.1.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.info.1.gif]
 
 This diagram provides one perspective on the way that information is
 represented and processed in Hackystat.
@@ -239,7 +237,7 @@ meta-data.  Currently, these information architecture components are
 encapsulated, or "bundled", within the Hackystat web application, as
 illustrated next:
 
-Version8.info.2.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.info.2.gif]
     
 There are a number of interesting limitations of this design. First, as
 you can see, there is one interface designed for tool-oriented manipulation
@@ -256,7 +254,7 @@ and extract all of the information components. Put another way, users would
 like Hackystat to be able to function as a component in a "chain" of tools
 that lead to the user:
 
-Version8.info.3.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.info.3.gif]
 
 The current information architecture is not particularly friendly to this
 goal. While we have put a fair amount of energy into making it easy to get
@@ -284,7 +282,7 @@ application; we could instead create the Hackystat system as a set of
 cooperating software services, which might be distributed across multiple
 machines and environments:
 
-Version8.services.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.services.gif]
 
 Notice that there is no longer a "box" around Hackystat, and
 that in fact the Hackystat "architecture" has become basically a
@@ -302,12 +300,10 @@ right either: the "Episode" abstraction is completely independent from the
 "DailyProjectData" abstraction, and this conceptual independence should be
 manifested physically.
 
+The following diagram illustrates the proposed system architecture for
+Hackystat Version 8:
 
-The following
-diagram illustrates the proposed system architecture for Hackystat
-Version 8:
-
-Version8.arch.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.arch.gif]
 
 In Version 8, Hackystat is composed of a set of cooperating services (which
 is popularly known as a "service oriented architecture, or SOA). There are
@@ -437,43 +433,39 @@ data, there is the real danger of descending into an information chaos in
 which each sensor sends data structured in an idiosyncratic manner that
 makes comparison and interpretation difficult or impossible.
 
-On
-the other hand, it is useful to allow some variability in sensor data to
+On the other hand, it is useful to allow some variability in sensor data to
 accommodate the differing behaviors of tools within the same application
 category. For example, the Eclipse editor provides more sophisticated
-support for refactoring than the JEdit editor, and so it would be useful for
-the DevEvent sensor data type to allow sensor data from Eclipse to include
-such information about developer refactoring behaviors that could not be
-captured in the JEdit editor.
+support for refactoring than the JEdit editor, and so it would be useful
+for the DevEvent sensor data type to allow sensor data from Eclipse to
+include such information about developer refactoring behaviors that could
+not be captured in the JEdit editor.
 
-In Hackystat, this tension between
-standardization and tool variation is resolved through the use of
-"required" vs. "optional" fields in sensor data type
-definitions. 
+In Hackystat, this tension between standardization and tool variation is
+resolved through the use of "required" vs. "optional" fields in sensor data
+type definitions.
 
-Required fields for a sensor data type must be provided
-by all tools sending data of that type, and these field values must obey the
-same semantics. Required fields thus define the minimum amount of
-information that all higher level analyses can rely upon when analyzing data
-of that type. 
+Required fields for a sensor data type must be provided by all tools
+sending data of that type, and these field values must obey the same
+semantics. Required fields thus define the minimum amount of information
+that all higher level analyses can rely upon when analyzing data of that
+type.
 
-However, sensor data of a given type can also include an
-unbounded amount of "optional" fields. These fields might
-not be present in all sensor data of that type, but support the ability to
-implement analyses specialized for tools providing this information.
+However, sensor data of a given type can also include an unbounded amount
+of "optional" fields. These fields might not be present in all sensor data
+of that type, but support the ability to implement analyses specialized for
+tools providing this information.
 
-In
-Version 7, Sensor Data Types are a kind of meta-data, just like Projects and
-Workspace Roots. However, while Projects and Workspace Root meta-data
+In Version 7, Sensor Data Types are a kind of meta-data, just like Projects
+and Workspace Roots. However, while Projects and Workspace Root meta-data
 are defined dynamically at run-time, Sensor Data Type meta-data is defined
 at build time. Build-time definition of the set of Sensor Data Types works
 well for an architecture where a single Java web application encapsulates
-the sensor data, abstraction, and presentation services. It is
-problematic in the Version 8 architecture, where these services are separate
-processes, potentially implemented in different languages.
+the sensor data, abstraction, and presentation services. It is problematic
+in the Version 8 architecture, where these services are separate processes,
+potentially implemented in different languages.
 
-We
-propose that sensor data type information in Version 8 be defined and
+We propose that sensor data type information in Version 8 be defined and
 managed dynamically, just as Projects, Workspace Roots, and other forms of
 sensor meta-data are currently managed in Version 7.
 
@@ -485,7 +477,7 @@ common fields. In Version 8, the set of common fields will be:
  * tool
  * type
  * URI
- *userkey
+ * userkey
 
 The timestamp required field is a UTC long that indicates the time at
 which the sensor data was generated. This value should be unique for each
@@ -536,6 +528,7 @@ However, this raises the question of how to identify sensor
 data as a member of a Project?
 
 ==7.4 Projects==
+
 In Version 7, Projects include the following characteristics:
 
   * A start day, and an end day (or null if no end day)
@@ -557,7 +550,7 @@ agree to keep their Hackystat code somewhere inside a top-level directory
 called "hackystat", then the following wildcard URI expression
 might suffice:
 
-  * !file://**/hackystat/**
+  * ![file://**/hackystat/**]
 
 This is clearly much more simple than the Workspace Root mechanism.
 It also supports an implicitly defined personal "default" Project
