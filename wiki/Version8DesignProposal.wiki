@@ -238,7 +238,8 @@ encapsulated, or "bundled", within the Hackystat web application, as
 illustrated next:
 
 [http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.info.2.gif]
-    
+
+
 There are a number of interesting limitations of this design. First, as
 you can see, there is one interface designed for tool-oriented manipulation
 (SOAP), and another interface designed for human-oriented manipulation (Web
@@ -268,7 +269,7 @@ incorporating a variety of Web Service interfaces into existing Hackystat
 web application, which would enable other tools to query the server for
 information at all levels of abstraction:
 
-Version8.info.4.gif
+[http://hackystat.googlecode.com/svn/wiki/Version8DesignProposal.info.4.gif]
 
 The dashed arrows show the new forms of information flow. Notice that the
 "Tool" is now on an even footing with the "User" with respect to
