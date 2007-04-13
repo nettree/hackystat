@@ -1,0 +1,24 @@
+#summary Conventions for Version 8 Google Projects
+#labels Featured
+
+To best support collaboration in the development of Hackystat Version 8 services, please observe the following conventions:
+
+Project Naming:
+  * Use all lower case letters.
+  * Name your project hackystat-<serviceflavor>-<service>.  <serviceflavor> is one of: sensor, sensorbase, analysis, or ui.  <service> should describe the specific service, for example, "eclipse", or "dailyprojectdata".  
+
+Examples: hackystat-sensor-eclipse, hackystat-ui-sensordataviewer, hackystat-analysis-dailyprojectdata.
+
+Links (Administrator page):
+ * Please define a link called "Hackystat Version 8" that points to http://code.google.com/p/hackystat/
+
+Blogs (Administrator page):
+ * Please provide a link to the Engineering Log associated with the developers of this service.
+
+Groups (Administrator page):
+ * Please associate your project with the following groups: hackystat-announce, hackystat-dev, hackystat-users, and hackystat-svn.
+
+Activity notifications:
+ * Please send SVN commit and Issue change notices to: hackystat-svn@googlegroups.com
+
+ 
