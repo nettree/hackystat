@@ -206,7 +206,7 @@ represented and processed in Hackystat.
 
 At the lowest level, there is Sensor Data and Sensor Meta-Data.
 Sensor data is collected by sensors and sent to the server
-automatically. Three examples of Sensor Data are FileMetric data,
+automatically. Three examples of Sensor Data are !FileMetric data,
 DevEvent data, and Commit data.
 
 Sensor Meta-Data is data that helps organize and provide useful
@@ -222,15 +222,15 @@ terminology, these can often (but not always) be interpreted as
 "measures" or "metrics". 
 
 For example, DailyProjectData refers a class of abstractions that compute
-some property of a Project for a specific day. For example, the FileMetric
+some property of a Project for a specific day. For example, the !FileMetric
 DailyProjectData abstraction represents the size of the Project source code
 on a specific day. This requires processing the Project sensor meta-data
-(in order to determine what FileMetric sensor data is of interest) and the
-FileMetric sensor data (in order to accumulate the required size data).  At
+(in order to determine what !FileMetric sensor data is of interest) and the
+!FileMetric sensor data (in order to accumulate the required size data).  At
 the highest level, sensor data, sensor meta-data, and intermediate
 abstractions are combined into Analyses which are presented to the
 developer for interpretation. For example, a Telemetry stream might show a
-sequence of DailyProjectData FileMetric abstractions for thirty days,
+sequence of DailyProjectData !FileMetric abstractions for thirty days,
 illustrating the trend in software size. While Analyses are often based
 upon Abstractions, they may also directly reference sensor data or sensor
 meta-data.  Currently, these information architecture components are
@@ -258,7 +258,7 @@ that lead to the user:
 
 The current information architecture is not particularly friendly to this
 goal. While we have put a fair amount of energy into making it easy to get
-data into Hackystat (such as the XmlDataSensor), we have not put an
+data into Hackystat (such as the !XmlDataSensor), we have not put an
 equivalent amount of energy into making it easy to get data out of
 Hackystat. Put another way, Hackystat Version 7 does not "Play Well With
 Others."
@@ -297,7 +297,7 @@ but in reality neither of them make much sense without the other. Second, a
 single box aggregates together all of the "Abstractions", and a single box
 aggregates together all of the "Analyses/User Interfaces".  This isn't
 right either: the "Episode" abstraction is completely independent from the
-"DailyProjectData" abstraction, and this conceptual independence should be
+"!DailyProjectData" abstraction, and this conceptual independence should be
 manifested physically.
 
 The following diagram illustrates the proposed system architecture for
@@ -307,15 +307,15 @@ Hackystat Version 8:
 
 In Version 8, Hackystat is composed of a set of cooperating services (which
 is popularly known as a "service oriented architecture, or SOA). There are
-four basic flavors of services: Sensor services, SensorBase services,
+four basic flavors of services: Sensor services, !SensorBase services,
 Analysis services, and User Interface (UI) services. The "boxology" in this
 diagram can be interpreted as follows:
 
  * Boxes are processes. Each box represents a physically distinct process. There is no architectural requirement for any two processes to be located on the same machine.
 
- * Arrows are APIs for information flow. Each arrow represents both an information flow and an API.  The arrow's direction indicates the flow of information from producer to consumer. Each arrow is numbered, where each number indicates a distinct API. For example, the arrows numbered (1) refer to the API that the chosen RDBMS must support in order to communicate successfully with a SensorBase Service. The arrows numbered (4) indicate the API that any SensorBase Service provides so that other services can query it for information. Unlike the SensorBase service, in which there is a standard API that all implementations must satisfy, each Analysis service can design and implement its own specialized API that is best suited to communicating its results to other services.
+ * Arrows are APIs for information flow. Each arrow represents both an information flow and an API.  The arrow's direction indicates the flow of information from producer to consumer. Each arrow is numbered, where each number indicates a distinct API. For example, the arrows numbered (1) refer to the API that the chosen RDBMS must support in order to communicate successfully with a !SensorBase Service. The arrows numbered (4) indicate the API that any !SensorBase Service provides so that other services can query it for information. Unlike the !SensorBase service, in which there is a standard API that all implementations must satisfy, each Analysis service can design and implement its own specialized API that is best suited to communicating its results to other services.
 
- * There can be arbitrary numbers of service instances. This diagram does not imply that Hackystat Version 8 consists of exactly 4 Sensor services, 1 SensorBase Service, 3 Analysis services, and 4 User Interface services.  Rather, it illustrates an example Version 8 configuration. In general, there is no limit to the number of Sensor, Analysis, UI, or SensorBase services that could be present in a Hackystat installation. 
+ * There can be arbitrary numbers of service instances. This diagram does not imply that Hackystat Version 8 consists of exactly 4 Sensor services, 1 !SensorBase Service, 3 Analysis services, and 4 User Interface services.  Rather, it illustrates an example Version 8 configuration. In general, there is no limit to the number of Sensor, Analysis, UI, or !SensorBase services that could be present in a Hackystat installation. 
 
 
 This architecture creates several new "degrees of freedom" for future
@@ -323,7 +323,7 @@ Hackystat development.
 
 First, with respect to the top-level user interface, the architecture is no
 longer strongly biased toward a Java webapp interface. Instead, by
-providing public APIs to the SensorBase and Analysis services, user
+providing public APIs to the !SensorBase and Analysis services, user
 interface services can be built using a variety of interface
 technologies. We hope this will enable new experimentation with alternative
 user interfaces that facilitate more effective and efficient use of
@@ -344,8 +344,8 @@ RDBMS system provided in Java 6, but will provide the ability to use an
 alternative RDBMS if an installation site prefers a different choice.
 
 Fourth, this architecture enables an Analysis service to access more than
-one SensorBase Service, which opens up the possibility of multiple
-SensorBase Services running as part of a single Hackystat installation, as
+one !SensorBase Service, which opens up the possibility of multiple
+!SensorBase Services running as part of a single Hackystat installation, as
 well as "community level" abstractions which gather and publish data from
 across a set of Hackystat installations. (Indeed, a natural candidate for
 an Analysis service is one that "sanitizes" the data for external
@@ -390,7 +390,6 @@ kind of infrastructure can make this communication simple as well as
 efficient and scalable?
 
 A promising candidate is the 
-
 [http://en.wikipedia.org/wiki/Representational_State_Transfer REST architectural style]
 in combination with the 
 [http://www.restlet.org/ Restlet framework for Java].  
@@ -437,7 +436,7 @@ On the other hand, it is useful to allow some variability in sensor data to
 accommodate the differing behaviors of tools within the same application
 category. For example, the Eclipse editor provides more sophisticated
 support for refactoring than the JEdit editor, and so it would be useful
-for the DevEvent sensor data type to allow sensor data from Eclipse to
+for the !DevEvent sensor data type to allow sensor data from Eclipse to
 include such information about developer refactoring behaviors that could
 not be captured in the JEdit editor.
 
@@ -485,9 +484,9 @@ sensor data entry.
 
 The runtime field, in contrast, is a field that is
 used to "bundle" related groups of sensor data together. For
-example, FileMetric and Coverage data occurs in "batches", each
+example, !FileMetric and Coverage data occurs in "batches", each
 corresponding to a single run of the tool. Given the possibility that
-tools generating FileMetric and Coverage data could be invoked multiple
+tools generating !FileMetric and Coverage data could be invoked multiple
 times per day, it is important to be able to distinguish sets of these
 sensor data instances generated at the same time. Although the runtime
 field is not always needed, its use is widespread enough that we want to
@@ -550,7 +549,7 @@ agree to keep their Hackystat code somewhere inside a top-level directory
 called "hackystat", then the following wildcard URI expression
 might suffice:
 
-  * ![file://**/hackystat/**]
+  * file://**/hackystat/**
 
 This is clearly much more simple than the Workspace Root mechanism.
 It also supports an implicitly defined personal "default" Project
@@ -634,7 +633,7 @@ It is infeasible, and also not necessary, to port all of the existing
 Hackystat infrastructure for an August delivery of 8.0. Here are a
 candidate set of 13 services:
 
-*A SensorBase Service.* This service is the heart of
+*A !SensorBase Service.* This service is the heart of
 Version 8, and a minimal version must be the first piece of Version 8.0 to
 be implemented. It will also require perhaps the most amount of new
 code of all of the services scheduled for 8.0. 
@@ -644,7 +643,7 @@ sensors to Version 8 will require minor modifications to the SensorShell
 code so that it sends sensor data RESTfully. More extensive changes
 will be necessary if Version 8 employs a different authentication mechanism
 than the userkey-based technique used in Version 7. Once the
-SensorBase service is available, these services should be made available and
+!SensorBase service is available, these services should be made available and
 bundled into an 8.0 compliant version of HackyInstaller. 
 
 *Analysis Services: DailyProjectData, Telemetry, SDSA/Zorro.*
@@ -654,9 +653,9 @@ possible.
 
 *User Interface Services.* An minimal initial set of UI services might include: 
 
-  * A *Registration service*, that enables a user to request a Hackystat account from a particular SensorBase service which will be received via email;
+  * A *Registration service*, that enables a user to request a Hackystat account from a particular !SensorBase service which will be received via email;
 
-  * A *Sensor Data Viewer*, which enables a user to see in "near real time" when sensor data from that user is received by a SensorBase service. An interesting approach to this would be to use existing "chat" infrastructure such as Jabber.
+  * A *Sensor Data Viewer*, which enables a user to see in "near real time" when sensor data from that user is received by a !SensorBase service. An interesting approach to this would be to use existing "chat" infrastructure such as Jabber.
 
   * A *Sensor Meta Data Editor*, which enables the user to create/read/update/delete meta-data such as Project definitions;
 
@@ -683,7 +682,7 @@ focus on other needs. Please let us know what you would like to see in the
 
 Version 8 will be developed as a collection of [http://code.google.com/hosting/ Google Project Hosting] projects. This has both pros and cons: 
 
-    Pros: 
+Pros: 
 
   * The 8.0 release will consist of 14 independent, but interrelated development projects. Creating infrastructure for each of these development projects internally would require significant resources.
 
