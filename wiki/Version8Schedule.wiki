@@ -20,10 +20,10 @@ May 15 - May 29
     * Continue work on !SensorBase (Philip)
 
 *May 29 (milestone)*
-    * TelemetryViewer-8.0.529 downloadable and installable for local review. (Pavel)
-    * SensorDataViewer-8.0.529 downloadable and installable for local review. (David)
-    * TimeLineViewer-8.0.529 downloadable and installable for local review. (Alexey)
-    * SensorBase-8.0.529 downloadable and installable for local review. (Philip)
+    * !TelemetryViewer 8.0.529 downloadable and installable for local review. (Pavel)
+    * !SensorDataViewer 8.0.529 downloadable and installable for local review. (David)
+    * !TimeLineViewer 8.0.529 downloadable and installable for local review. (Alexey)
+    * !SensorBase 8.0.529 downloadable and installable for local review. (Philip)
     * Eclipse, Ant, !XmlData 8.0 Beta1 services available (manual installation, Hongbing)
 
 May 29 - June 12
@@ -88,4 +88,3 @@ July 10 - July 24
 
 
  
-
