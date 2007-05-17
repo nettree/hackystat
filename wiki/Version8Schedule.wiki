@@ -11,7 +11,7 @@ April 11 - May 15:
     * Begin work on UI Services (Alexey, Pavel, David)
 
 *May 15 (milestone)*
-    *  !SensorBase 8.0 Beta1 available
+    *  !SensorBase 8.0.515 available
     * Mockups of UI services available
 
 May 15 - May 29
