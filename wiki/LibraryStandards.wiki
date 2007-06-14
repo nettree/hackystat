@@ -17,10 +17,9 @@ Hackystat services tend to use a set of common library files.  To facilitate dev
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME ||
 || [http://www.restlet.org/ Restlet] || 1.0.1 || RESTLET_HOME || 
 
-Note that if your service really needs to deviate from the standard version for some good reason, then the way to do it is to specify a service-specific environment variable. For example, if a Hackystat service named Foo needs to use a different version of Google Web Toolkit than the standard version listed above, then it should specify something like the following in its user guide:
+Note that if your service really needs to deviate from the standard version for some good reason, then the way to do it is to specify a service-specific environment variable. For example, if a Hackystat service named Foo needs to use a different version of Google Web Toolkit than the standard version listed above, then it should specify something like the following in its developer guide:
 
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.3 || FOO_GWT_HOME ||
-
 
 
 
