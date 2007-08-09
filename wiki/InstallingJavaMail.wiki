@@ -1,10 +1,10 @@
-#summary How to install !JavaMail
+#summary How to install JavaMail
 
 Some Hackystat Services, such as the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase], send emails in response to certain conditions.  To support this behavior in Java, you should install !JavaMail.  This page explains how to do this.
 
-== 1. Download the JavaMail 1.4 libraries. ==
+== 1. Download the !JavaMail 1.4 libraries. ==
 
-The JavaMail libraries are available at: [http://java.sun.com/products/javamail/ http://java.sun.com/products/javamail/].
+The !JavaMail libraries are available at: [http://java.sun.com/products/javamail/ http://java.sun.com/products/javamail/].
 
 After downloading and unzipping, you should obtain a directory such as the following:
 
@@ -43,4 +43,3 @@ Unfortunately, we don't currently have a simple way to verify that you have inst
 }}}
 
 So, one way to test your !JavaMail installation is to run the !SensorBase and see that this error message is not printed out.
-
