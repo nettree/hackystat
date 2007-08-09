@@ -1,0 +1,52 @@
+#summary How to install JAXB libraries in Java 5
+
+Hackystat Version 8 is intended primarily for a Java 6 environment, in which JAXB libraries are provided in the core distribution.  However, we currently provide backward compatibility with Java 5 as long as the JAXB libraries are installed into your Java 5.  This page explains how to do this. 
+
+== 1. Download the JAXB 2.0 libraries. ==
+
+The JAXB libraries are available at: [https://jaxb.dev.java.net/ https://jaxb.dev.java.net/].
+
+Please install a JAXB 2.0 release, not a JAXB 2.1 release, in order to be compatible with the version of JAXB distributed with Java 6.
+
+After downloading and unzipping, you should obtain a directory such as the following:
+
+{{{
+~/jaxb-ri-20070413/
+}}}
+
+It will contain a lib/ directory with the jar files that you will need to install.
+
+== 2. Copy JAXB jar files to the {java}/lib/ext directory ==
+
+To install JAXB, you need to copy the following four files from the JAXB/lib directory:
+
+ * activation.jar
+ * jaxb-api.jar
+ * jaxb-impl.jar
+ * jsr173_1.1_api.jar
+
+The location to which you copy these files depends upon your operating system.
+
+|| *OS* || *Typical location of lib/ext directory* ||
+|| Mac OS/X || System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/home/lib/ext  ||
+|| Windows || C:\Java\jre1.5.0_7\lib\ext ||
+
+Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory.
+
+== 3. Verifying your installation ==
+
+Unfortunately, we don't currently have a simple way to verify that you have installed JAXB correctly.  What we do know is that if you don't have JAXB installed, then Hackystat services like the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] will abort with the following error on startup:
+
+{{{
+admin01:~/svn-google/sensorbase-uh johnson$ java -jar sensorbase.jar 
+/Users/johnson/.hackystat/sensorbase/sensorbase.properties not found. Using default sensorbase properties.
+08/09 10:17:57  Derby: previously initialized.
+Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/JAXBContext
+        at org.hackystat.sensorbase.resource.sensordatatypes.SdtManager.<init>(SdtManager.java:87)
+        at org.hackystat.sensorbase.server.Server.newInstance(Server.java:94)
+        at org.hackystat.sensorbase.server.Server.main(Server.java:130)
+}}}
+
+So, one way to test your JAXB installation is to run the !SensorBase and see that this error does not occur.
+
+
