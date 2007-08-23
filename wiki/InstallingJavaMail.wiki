@@ -22,7 +22,7 @@ If you are using Java 6, this comes pre-installed.
 
 == 2. Copy !JavaMail jar files to the {java}/lib/ext directory ==
 
-To install JavaMail, you need to copy mail.jar to the lib/ext directory.
+To install !JavaMail, you need to copy mail.jar to the lib/ext directory.
 
 If you are using Java 5, you also need to copy activation.jar from the !JavaBeans Activation Framework library. 
 
