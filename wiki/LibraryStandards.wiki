@@ -9,9 +9,9 @@ Hackystat services tend to use a set of common library files.  To facilitate dev
 || [http://emma.sourceforge.net/ EMMA] || 2.0.5312 ||  EMMA_HOME || 
 || [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || 
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME ||
-|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || 8.0.710 || HACKYSTAT_UTILITIES_HOME ||
-|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || 8.0.710 || HACKYSTAT_SENSORBASE_HOME ||
-|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || 8.0.710 || HACKYSTAT_SENSORSHELL_HOME ||
+|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || (most recent milestone) || HACKYSTAT_UTILITIES_HOME ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || (most recent milestone) || HACKYSTAT_SENSORBASE_HOME ||
+|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || (most recent milestone) || HACKYSTAT_SENSORSHELL_HOME ||
 || [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || 
 || [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME ||
 || [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||
@@ -23,5 +23,3 @@ Hackystat services tend to use a set of common library files.  To facilitate dev
 Note that if your service really needs to deviate from the standard version for some good reason, then the way to do it is to specify a service-specific environment variable. For example, if a Hackystat service named Foo needs to use a different version of Google Web Toolkit than the standard version listed above, then it should specify something like the following in its developer guide:
 
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.3 || FOO_GWT_HOME ||
-
-
