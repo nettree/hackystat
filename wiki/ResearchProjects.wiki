@@ -1,4 +1,5 @@
 #summary Research project ideas using Hackystat
+#labels Featured
 
 The Hackystat Project provides a useful infrastructure for research projects in software engineering.  This page provides pointers to some research ideas.
 
