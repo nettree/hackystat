@@ -13,4 +13,6 @@ The Hackystat Project provides a useful infrastructure for research projects in 
 
  * [http://johnson-engineering-log.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web]
 
-If you have your own research ideas, feel free to send them to me, or edit this page directly to include them.  If you want to work on one of these, definitely let us know!
+If you have your own research ideas, feel free to send them to me, or edit this page directly to include them.  
+
+If you want to work on one of these ideas, definitely let us know!
