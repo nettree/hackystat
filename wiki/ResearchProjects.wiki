@@ -1,0 +1,15 @@
+#summary Research project ideas using Hackystat
+
+The Hackystat Project provides a useful infrastructure for research projects in software engineering.  This page provides pointers to some research ideas.
+
+ * [http://johnson-engineering-log.blogspot.com/2007/09/representation-of-developer-expertise.html Representation of Developer Expertise]
+
+ * [http://johnson-engineering-log.blogspot.com/2007/09/twitter-hackystat-and-solving-context.html Addressing the context switch problem using Hackystat and Twitter]
+
+ * [http://johnson-engineering-log.blogspot.com/2007/08/grid-computing-java-and-hackystat.html Grid computing with Hackystat]
+
+ * [http://johnson-engineering-log.blogspot.com/2007/08/project-proprioception.html Project Proprioception]
+
+ * [http://johnson-engineering-log.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web]
+
+If you have your own research ideas, feel free to send them to me, or edit this page directly to include them.  If you want to work on one of these, definitely let us know!
