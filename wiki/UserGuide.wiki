@@ -13,33 +13,33 @@ A typical Hackystat System Distribution is a zip file called hackystat-8.0.930.z
 
 {{{
 hackystat-8.0.930/
-                              README.html
-                              dist/
-                                     hackystat-sensor-ant-8.0.930.zip
-                                     hackystat-sensor-eclipse-8.0.930.zip
-                                     hackystat-sensor-emacs-8.0.930.zip
-                                     hackystat-sensor-shell-8.0.930.zip
-                                     hackystat-sensor-xmldata-8.0.930.zip
-                                     hackystat-sensorbase-uh-8.0.930.zip
-                                     hackystat-utilities-8.0.930.zip
-                              bin/
-                                     hackystat-sensor-ant/
-                                                                         antsensors.jar
-                                     hackystat-sensor-eclipse/
-                                                                               hackystat-sensor-eclipse-8.0.930.zip
-                                     hackystat-sensor-emacs/
-                                                                              sensor-package.el
-                                     hackystat-sensor-shell/
-                                                                            sensorshell.jar
-                                     hackystat-sensor-xmldata/
-                                                                                 xmldata-cli.jar
-                                     hackystat-sensorbase-uh/
-                                                                               sensorbase.jar
-                                                                               sensorbase.lib.jar
-                                     hackystat-utilities/
-                                                                    stacktrace.lib.jar
-                                                                    tstamp.lib.jar
-                                                                    uricache.lib.jar
+                 README.html
+                 dist/
+                     hackystat-sensor-ant-8.0.930.zip
+                     hackystat-sensor-eclipse-8.0.930.zip
+                     hackystat-sensor-emacs-8.0.930.zip
+                     hackystat-sensor-shell-8.0.930.zip
+                     hackystat-sensor-xmldata-8.0.930.zip
+                     hackystat-sensorbase-uh-8.0.930.zip
+                     hackystat-utilities-8.0.930.zip
+                 bin/
+                    hackystat-sensor-ant/
+                                        antsensors.jar
+                    hackystat-sensor-eclipse/
+                                            hackystat-sensor-eclipse-8.0.930.zip
+                    hackystat-sensor-emacs/
+                                          sensor-package.el
+                    hackystat-sensor-shell/
+                                          sensorshell.jar
+                    hackystat-sensor-xmldata/
+                                            xmldata-cli.jar
+                    hackystat-sensorbase-uh/
+                                           sensorbase.jar
+                                           sensorbase.lib.jar
+                    hackystat-utilities/
+                                       stacktrace.lib.jar
+                                       tstamp.lib.jar
+                                       uricache.lib.jar
 }}}
 
 As you can see.                                                                        
