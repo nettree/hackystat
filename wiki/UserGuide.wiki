@@ -3,12 +3,46 @@
 
 = Introduction =
 
-Add your content here.
+This page provides a guide to installing Hackystat from a "System Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
+
+A Hackystat "System Distribution" provides a snapshot of all current Hackystat sensors and services built at one time and tested against each other when possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users will find it more convenient and less failure-prone to download a System Distribution. 
+
+= Structure of the System Distribution =
+
+A typical Hackystat System Distribution is a zip file called hackystat-8.0.930.zip that expands into the following directory structure:
+
+{{{
+hackystat-8.0.930/
+                              README.html
+                              dist/
+                                     hackystat-sensor-ant-8.0.930.zip
+                                     hackystat-sensor-eclipse-8.0.930.zip
+                                     hackystat-sensor-emacs-8.0.930.zip
+                                     hackystat-sensor-shell-8.0.930.zip
+                                     hackystat-sensor-xmldata-8.0.930.zip
+                                     hackystat-sensorbase-uh-8.0.930.zip
+                                     hackystat-utilities-8.0.930.zip
+                              bin/
+                                     hackystat-sensor-ant/
+                                                                         antsensors.jar
+                                     hackystat-sensor-eclipse/
+                                                                               hackystat-sensor-eclipse-8.0.930.zip
+                                     hackystat-sensor-emacs/
+                                                                              sensor-package.el
+                                     hackystat-sensor-shell/
+                                                                            sensorshell.jar
+                                     hackystat-sensor-xmldata/
+                                                                                 xmldata-cli.jar
+                                     hackystat-sensorbase-uh/
+                                                                               sensorbase.jar
+                                                                               sensorbase.lib.jar
+                                     hackystat-utilities/
+                                                                    stacktrace.lib.jar
+                                                                    tstamp.lib.jar
+                                                                    uricache.lib.jar
+}}}
+
+As you can see.                                                                        
 
 
-= Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
