@@ -9,7 +9,7 @@ A Hackystat "System Distribution" provides a snapshot of all current Hackystat s
 
 = Structure of the System Distribution =
 
-A typical Hackystat System Distribution is a zip file called hackystat-8.0.930.zip that expands into the following directory structure:
+A typical Hackystat System Distribution is a zip file called hackystat-8.0.930.zip that might expand into the following set of directories and files:
 
 {{{
 hackystat-8.0.930/
@@ -42,7 +42,33 @@ hackystat-8.0.930/
                                        uricache.lib.jar
 }}}
 
-As you can see.                                                                        
+As you can see, at the top level, there is a README.html file (that does little more than point you to this page), and two directories: dist/ and bin/. The dist/ directory contains a set of .zip files containing distributions of all of the sensors and services included in this System Distribution. If you were to unzip one of these files, you would get the complete sources for given package and be able to rebuild it from scratch. 
+
+The bin/ directory contains a number of subdirectories, one for each sensor and service included in this System Distribution.  Inside each of these directories is one or more "binary" files associated with the given sensor or service.    
+
+Note that the version number, 8.0.930, indicates the major release (8), the minor release (0), and the month/day of this build (930, or September 30).                                                                  
+
+=Using a System Distribution (for Developers)=
+
+For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, the following lines set up these environment variables to point to the above System Distribution:
+
+{{{
+export HACKYSTAT_DISTRIBUTION_HOME=/Users/johnson/java/hackystat-8.0.930
+export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-utilities
+export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-sensorbase
+export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-sensor-shell
+}}}
+
+What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the HACKYSTAT_DISTRIBUTION_HOME environment variable to have get all of the related binaries updated to new, mutually compatible releases.
+
+=Using a System Distribution (for Users)=
+
+To be written.
+
+
+
+
+
 
 
 
