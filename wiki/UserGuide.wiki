@@ -18,19 +18,19 @@ Each of these files expands into a top-level directory with the same name as the
 
 {{{
 hackystat-sensors-8.0.1005/
-  README.html
+                          README.html
 
-  hackystat-sensor-ant/
-    dist/
-      hackystat-sensor-ant-8.0.1005.zip
-    bin/
-      antsensors.jar
+                          hackystat-sensor-ant/
+                                              dist/
+                                                  hackystat-sensor-ant-8.0.1005.zip
+                                              bin/
+                                                 antsensors.jar
 
-  hackystat-sensor-emacs/
-    dist/
-      hackystat-sensor-emacs-8.0.1005.zip
-    bin/
-      sensor-package.el
+                          hackystat-sensor-emacs/
+                                                dist/
+                                                    hackystat-sensor-emacs-8.0.1005.zip
+                                                bin/
+                                                   sensor-package.el
 
    :
    :
