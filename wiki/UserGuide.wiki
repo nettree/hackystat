@@ -45,10 +45,10 @@ Note that the version number, 8.0.1005, indicates the major release (8), the min
 The System Distribution for Sensors currently contains the following:
 
 || *Sensor* || *User Guide* ||*Description* ||
-|| [http://code.google.com/p/hackystat-sensor-ant/ Ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for Ant, JUnit, and Emma ||
+|| [http://code.google.com/p/hackystat-sensor-ant/ Ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for [http://ant.apache.org/ Ant], [http://www.junit.org JUnit], and [http://emma.sourceforge.net/ Emma] ||
 || [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/UserGuide XmlData Sensor User Guide] || A generic interface to sending data represented by XML ||
-|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs] || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide Emacs Sensor User Guide] || A Sensor for the Emacs IDE ||
-|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the Eclipse IDE ||
+|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs] || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide Emacs Sensor User Guide] || A Sensor for the [http://www.gnu.org/software/emacs/ Emacs] IDE ||
+|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
  
 
