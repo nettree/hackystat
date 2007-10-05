@@ -1,5 +1,4 @@
 #summary Conventions for Version 8 Google Projects
-#labels Featured
 
 To best support collaboration in the development of Hackystat Version 8 services, please observe the following conventions:
 
@@ -47,7 +46,5 @@ To achieve these goals, please observe the following conventions:
 
  * You will occasionally want to create an Issue to document a new proposed feature, but not explicitly tie it to the next release.  A convention for this is to define a Milestone called "8.x".  This indicates that the Issue is scheduled to be addressed at some point in Version 8, but the actual version is not yet decided upon. 
  
-
-
 
 
