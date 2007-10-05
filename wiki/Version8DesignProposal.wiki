@@ -1,4 +1,4 @@
-#summary Hackystat Version 8 Design Proposal
+#summary Hackystat Version 8 Design Summary
 #labels Featured
 
 =1.0 Introduction =
@@ -703,4 +703,3 @@ Cons:
  * Google Project Hosting does not provide a daily build mechanism. We will need to continue to provide this in-house.
 
  * Organizing Hackystat Version 8 as a collection of independent Google Projects introduces new coordination risks.
-
