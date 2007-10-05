@@ -1,5 +1,4 @@
 #summary The proposed development schedule for Version 8.0
-#labels Featured
 
 This page presents the proposed timeline, tasks, and responsible developers for Version 8.0 of Hackystat. 
 
