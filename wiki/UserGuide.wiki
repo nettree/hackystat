@@ -42,7 +42,7 @@ Note that the version number, 8.0.1005, indicates the major release (8), the min
 
 =Using a System Distribution (for Users)=
 
-To use a System Distribution, simply consult the User Guide for the sensor or service you are interested in. A table with pointers to all Hackystat Sensors and Services is available at this project's [http://hackystat.googlecode.com/ home page]. Click on the link to go to that sensor/service home page, and then click on the !UserGuide link in the right hand side of the page.  
+To use a System Distribution, simply consult the User Guide for the sensor or service you are interested in. A table containing links to all Hackystat Sensors and Services is available at this project's [http://hackystat.googlecode.com/ home page]. Click on the link to go to that sensor/service home page, and then click on the !UserGuide link in the right hand side of the page.  
 
 Note that some services and sensors listed in the table might be in a preliminary state of development and thus not yet included in the System Distribution.  This will be indicated in its User Guide. 
 
@@ -59,5 +59,3 @@ export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_SENSORS_HOME/hackystat-sensor-shell
 }}}
 
 What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the top two environment variables in order to update the pointers to all binaries. 
-
-
