@@ -59,7 +59,7 @@ The Services System Distribution zip file currently contains the following packa
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide SensorBase User Guide] || A repository for sensor data collected by sensors. ||
 || [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide SensorDataViewer User Guide] || A web and Google Gadget interface for monitoring sensor data transmission by sensors to a !SensorBase. ||
 || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide SensorDataBrowser User Guide] || A web interface for browsing the sensor data stored at a !SensorBase. ||
-|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including TStamp, TStampSet, !HackystatLogger, and UriCache. ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including TStamp, TStampSet, !HackystatLogger, and !UriCache. ||
 
  
 
