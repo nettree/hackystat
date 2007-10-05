@@ -9,7 +9,7 @@ A Hackystat "System Distribution" consists of a set of zip files with a common v
 
 = Structure of the System Distribution =
 
-Currently, a Hackystat System distribution consists of two zip files. The October 5, 2007 System Distribution consists of the following files:
+Currently, a Hackystat System distribution consists of two zip files. For example, the October 5, 2007 System Distribution consists of the following files:
 
  * hackystat-sensors-8.0.1005.zip
  * hackystat-services-8.0.1005.zip
