@@ -1,5 +1,4 @@
 #summary Standard library versions and environment variables
-#labels Featured
 
 Hackystat services tend to use a set of common library files.  To facilitate development, this page lists libraries or other development infrastructure for which we believe it will be useful to establish a "standard" version and "standard" environment variable.  The goal is to enable local environment configuration for one Hackystat service to not conflict with the local environment configuration for another Hackystat service.  
 
