@@ -1,5 +1,4 @@
 #summary Summarizes basic tasks when delivering a milestone
-#labels Featured
 
 This page summarizes useful practices when preparing to deliver a milestone release of a Hackystat service for review. 
 
@@ -26,8 +25,6 @@ The Milestone Meeting is typically at 1:00pm on the day following the Milestone.
 
   * Before the Milestone Meeting, spend no more than one hour reviewing each of the systems made available for review.  
   * Write up and circulate your comments as replies to the review announcement posted to hackystat-dev.
-
-
 
 
 
