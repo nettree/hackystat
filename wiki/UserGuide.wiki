@@ -42,14 +42,23 @@ Note that the version number, 8.0.1005, indicates the major release (8), the min
 
 =Using a System Distribution (for Users)=
 
-The System Distribution for Sensors currently contains the following:
+The Sensors System Distribution zip file currently contains the following packages:
 
 || *Sensor* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-sensor-ant/ Ant Sensor] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for [http://ant.apache.org/ Ant], [http://www.junit.org JUnit], and [http://emma.sourceforge.net/ Emma] ||
-|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData Sensor] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/UserGuide XmlData Sensor User Guide] || A generic interface to sending data represented by XML ||
+|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData Sensor] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/UserGuide XmlData Sensor User Guide] || A generic interface to sending data represented in XML ||
 || [http://code.google.com/p/hackystat-sensor-emacs/ Emacs Sensor] || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide Emacs Sensor User Guide] || A sensor for the [http://www.gnu.org/software/emacs/ Emacs] IDE ||
 || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
+
+The Services System Distribution zip file currently contains the following packages: 
+
+|| *Service* || *User Guide* || *Description* ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide SensorBase User Guide] || A repository for sensor data collected by sensors. ||
+|| [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide SensorDataViewer User Guide] || A web and Google Gadget interface for monitoring sensor data transmission by sensors to a !SensorBase. ||
+|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide SensorDataBrowser User Guide] || A web interface for browsing the sensor data stored at a !SensorBase. ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including TStamp, TStampSet, !HackystatLogger, and UriCache. ||
+
  
 
 =Using a System Distribution (for Developers)=
