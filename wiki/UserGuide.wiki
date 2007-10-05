@@ -5,67 +5,57 @@
 
 This page provides a guide to installing Hackystat from a "System Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
 
-A Hackystat "System Distribution" provides a snapshot of all current Hackystat sensors and services built at one time and tested against each other when possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users will find it more convenient and less failure-prone to download a System Distribution. 
+A Hackystat "System Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all current Hackystat sensors and services built at one time and tested against each other whenever possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users (and developers) will find it more convenient and less failure-prone to download the most recent System Distribution and use that as the basis for their activities. 
 
 = Structure of the System Distribution =
 
-A typical Hackystat System Distribution is a zip file called hackystat-8.0.930.zip that might expand into the following set of directories and files:
+Currently, a Hackystat System distribution consists of two zip files. The October 5, 2007 System Distribution consists of the following files:
+
+ * hackystat-sensors-8.0.1005.zip
+ * hackystat-services-8.0.1005.zip
+
+Each of these files expands into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution.  Each of these subdirectories contains a "dist/" and a "bin/" subdirectory, the "dist/" directory containing a "distribution" of the sources and the "bin/" directory containing one or more "binary" files. For example:
 
 {{{
-hackystat-8.0.930/
-                 README.html
-                 dist/
-                     hackystat-sensor-ant-8.0.930.zip
-                     hackystat-sensor-eclipse-8.0.930.zip
-                     hackystat-sensor-emacs-8.0.930.zip
-                     hackystat-sensor-shell-8.0.930.zip
-                     hackystat-sensor-xmldata-8.0.930.zip
-                     hackystat-sensorbase-uh-8.0.930.zip
-                     hackystat-utilities-8.0.930.zip
-                 bin/
-                    hackystat-sensor-ant/
-                                        antsensors.jar
-                    hackystat-sensor-eclipse/
-                                            hackystat-sensor-eclipse-8.0.930.zip
-                    hackystat-sensor-emacs/
-                                          sensor-package.el
-                    hackystat-sensor-shell/
-                                          sensorshell.jar
-                    hackystat-sensor-xmldata/
-                                            xmldata-cli.jar
-                    hackystat-sensorbase-uh/
-                                           sensorbase.jar
-                                           sensorbase.lib.jar
-                    hackystat-utilities/
-                                       stacktrace.lib.jar
-                                       tstamp.lib.jar
-                                       uricache.lib.jar
+hackystat-sensors-8.0.1005/
+  README.html
+
+  hackystat-sensor-ant/
+    dist/
+      hackystat-sensor-ant-8.0.1005.zip
+    bin/
+      antsensors.jar
+
+  hackystat-sensor-emacs/
+    dist/
+      hackystat-sensor-emacs-8.0.1005.zip
+    bin/
+      sensor-package.el
+
+   :
+   :
 }}}
 
-As you can see, at the top level, there is a README.html file (that does little more than point you to this page), and two directories: dist/ and bin/. The dist/ directory contains a set of .zip files containing distributions of all of the sensors and services included in this System Distribution. If you were to unzip one of these files, you would get the complete sources for given package and be able to rebuild it from scratch. 
+The README.html file simply points you to this page. The distribution zip files, if unzipped, would allow you to rebuild the sensor or service from scratch.  The services system distribution has the exact same internal structure as the sensors distribution.   
 
-The bin/ directory contains a number of subdirectories, one for each sensor and service included in this System Distribution.  Inside each of these directories is one or more "binary" files associated with the given sensor or service.    
+Note that the version number, 8.0.1005, indicates the major release (8), the minor release (0), and the month/day of this build (1005, or October 05).                                                                  
 
-Note that the version number, 8.0.930, indicates the major release (8), the minor release (0), and the month/day of this build (930, or September 30).                                                                  
+=Using a System Distribution (for Users)=
+
+To use a System Distribution, simply consult the User Guide for the sensor or service you are interested in. 
 
 =Using a System Distribution (for Developers)=
 
 For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, the following lines set up these environment variables to point to the above System Distribution:
 
 {{{
-export HACKYSTAT_DISTRIBUTION_HOME=/Users/johnson/java/hackystat-8.0.930
-export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-utilities
-export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-sensorbase
-export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_DISTRIBUTION_HOME/bin/hackystat-sensor-shell
+export HACKYSTAT_DISTRIBUTION_HOME=/Users/johnson/java/hackystat-services-8.0.1005
+export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-utilities/bin
+export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-sensorbase/bin
+export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-sensor-shell/bin
 }}}
 
 What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the HACKYSTAT_DISTRIBUTION_HOME environment variable to have get all of the related binaries updated to new, mutually compatible releases.
-
-=Using a System Distribution (for Users)=
-
-To be written.
-
-
 
 
 
