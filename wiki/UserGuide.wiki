@@ -49,15 +49,14 @@ To use a System Distribution, simply consult the User Guide for the sensor or se
 For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, the following lines set up these environment variables to point to the above System Distribution:
 
 {{{
-export HACKYSTAT_DISTRIBUTION_HOME=/Users/johnson/java/hackystat-services-8.0.1005
-export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-utilities/bin
-export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-sensorbase/bin
-export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_DISTRIBUTION_HOME/hackystat-sensor-shell/bin
+export HACKYSTAT_SERVICES_HOME=/Users/johnson/java/hackystat-services-8.0.1005
+export HACKYSTAT_SENSORS_HOME=/Users/johnson/java/hackystat-sensors-8.0.1005
+export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_SERVICES_HOME/hackystat-utilities/bin
+export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_SERVICES_HOME/hackystat-sensorbase/bin
+export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_SENSORS_HOME/hackystat-sensor-shell/bin
 }}}
 
-What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the HACKYSTAT_DISTRIBUTION_HOME environment variable to have get all of the related binaries updated to new, mutually compatible releases.
-
-
+What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the top two environment variables in order to update the pointers to all binaries. 
 
 
 
