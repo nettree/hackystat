@@ -40,6 +40,8 @@ The README.html file simply points you to this page. The distribution zip files,
 
 Note that the version number, 8.0.1005, indicates the major release (8), the minor release (0), and the month/day of this build (1005, or October 05).                                                                  
 
+At present, documentation snapshots are not packaged in these distributions. Instead, go to the online User Guides for details about each package. 
+
 =Using a System Distribution (for Users)=
 
 The Sensors System Distribution zip file currently contains the following packages:
