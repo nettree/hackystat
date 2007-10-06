@@ -5,7 +5,7 @@
 
 This page provides a guide to installing Hackystat from a "System Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
 
-A Hackystat "System Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all current Hackystat sensors and services built at one time and tested against each other whenever possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users (and developers) will find it more convenient and less failure-prone to download the most recent System Distribution and use that as the basis for their activities. 
+A Hackystat "System Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all releasable Hackystat sensors and services built at one time and tested against each other whenever possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users (and developers) will find it more convenient and less failure-prone to download the most recent System Distribution and use that as the basis for their activities. 
 
 = Structure of the System Distribution =
 
