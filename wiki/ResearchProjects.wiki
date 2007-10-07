@@ -15,6 +15,8 @@ The Hackystat Project provides a useful infrastructure for research projects in 
 
  * [http://johnson-engineering-log.blogspot.com/2007/10/fast-fourier-telemetry-transforms.html FFT of Telemetry Streams] 
 
+ * [http://johnson-engineering-log.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J]
+
 If you have your own research ideas, feel free to send them to me, or edit this page directly to include them.  
 
 If you want to work on one of these ideas, definitely let us know!
