@@ -74,4 +74,4 @@ export HACKYSTAT_SENSORBASE_HOME=/Users/johnson/java/hackystat-services-$HACKYST
 export HACKYSTAT_SENSORSHELL_HOME=/Users/johnson/java/hackystat-sensors-$HACKYSTAT_DISTRIBUTION_VERSION/hackystat-sensor-shell/bin
 }}}
 
-What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the top two environment variables in order to update the pointers to all binaries. 
+What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the first environment variable in order to update the pointers to all binaries. 
