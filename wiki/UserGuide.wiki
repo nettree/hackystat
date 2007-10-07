@@ -65,7 +65,7 @@ The Services System Distribution zip file currently contains the following packa
 
 =Using a System Distribution (for Developers)=
 
-For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, the following lines set up these environment variables to point to the above System Distribution on my MacBook Pro:
+For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my MacBook Pro:
 
 {{{
 export HACKYSTAT_DISTRIBUTION_VERSION=8.0.1007
