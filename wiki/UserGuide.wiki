@@ -65,7 +65,7 @@ The Services System Distribution zip file currently contains the following packa
 
 =Using a System Distribution (for Developers)=
 
-For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my MacBook Pro:
+For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my !MacBook Pro:
 
 {{{
 export HACKYSTAT_DISTRIBUTION_VERSION=8.0.1007
@@ -74,4 +74,4 @@ export HACKYSTAT_SENSORBASE_HOME=/Users/johnson/java/hackystat-services-$HACKYST
 export HACKYSTAT_SENSORSHELL_HOME=/Users/johnson/java/hackystat-sensors-$HACKYSTAT_DISTRIBUTION_VERSION/hackystat-sensor-shell/bin
 }}}
 
-What makes this particularly convenient is that when a new System Distribution is released, the Developer can download it, unzip it, and then change only the first environment variable in order to update the pointers to all binaries. 
+What makes this particularly convenient is that when a new System Distribution is released, I can download the files, unzip them, and then change only the first environment variable in order to update the pointers to all binaries. 
