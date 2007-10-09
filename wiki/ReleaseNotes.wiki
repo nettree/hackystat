@@ -1,9 +1,20 @@
 #summary Information about System Distributions
 #labels Featured
 
+= System Distribution October 8, 2007 (8.0.1008) =
+
+DailyProjectData module now available. Included subsystems:
+
+|| *Sensors Distribution* || *Services Distribution* ||
+|| [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
+|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse]     || [http://code.google.com/p/hackystat-utilities/ Utilities] ||
+|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs]       || [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] ||
+|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData]     || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] ||
+|| [http://code.google.com/p/hackystat-sensor-ant/ Ant]  ||   [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ DailyProjectData]                || 
+
 = System Distribution October 6, 2007 (8.0.1006) =
 
-Initial release of system distributions. Included modules: 
+Initial release of system distributions. Included subsystems: 
 
 || *Sensors Distribution* || *Services Distribution* ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
