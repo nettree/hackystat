@@ -1,0 +1,14 @@
+#summary Information about System Distributions
+#labels Featured
+
+= System Distribution October 6, 2007 (8.0.1006) =
+
+Initial release of system distributions.  
+
+|| Sensors || Services ||
+|| SensorShell || SensorBase ||
+|| Eclipse     || Utilities ||
+|| Emacs       || SensorDataViewer ||
+|| XmlData     || SensorDataBrowser ||
+|| Ant         ||                   ||
+
