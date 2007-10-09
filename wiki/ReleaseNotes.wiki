@@ -5,10 +5,9 @@
 
 Initial release of system distributions.  
 
-|| Sensors || Services ||
-|| SensorShell || SensorBase ||
-|| Eclipse     || Utilities ||
-|| Emacs       || SensorDataViewer ||
-|| XmlData     || SensorDataBrowser ||
-|| Ant         ||                   ||
-
+|| *Sensors* || *Services* ||
+|| [http://code.google.com/p/hackystat-sensor-shell/ !SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ !SensorBase] ||
+|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse]     || [http://code.google.com/p/hackystat-utilities/ Utilities] ||
+|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs]       || [http://code.google.com/p/hackystat-ui-sensordataviewer/ !SensorDataViewer] ||
+|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData]     || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ !SensorDataBrowser] ||
+|| [http://code.google.com/p/hackystat-sensor-ant/ Ant]         ||                   ||
