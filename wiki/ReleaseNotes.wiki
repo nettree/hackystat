@@ -3,7 +3,10 @@
 
 = System Distribution October 8, 2007 (8.0.1008) =
 
-DailyProjectData module now available. Included subsystems:
+Major changes:
+  * !DailyProjectData module added.
+
+Included subsystems in this distribution:
 
 || *Sensors Distribution* || *Services Distribution* ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
@@ -14,7 +17,10 @@ DailyProjectData module now available. Included subsystems:
 
 = System Distribution October 6, 2007 (8.0.1006) =
 
-Initial release of system distributions. Included subsystems: 
+Major changes:
+  * Initial release of system distributions. 
+
+Included subsystems in this distribution: 
 
 || *Sensors Distribution* || *Services Distribution* ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
