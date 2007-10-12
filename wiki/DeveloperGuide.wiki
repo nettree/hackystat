@@ -6,7 +6,7 @@ The purpose of this document is to help Hackystat developers understand how to c
 
 = 2.0 General Issues =
 
-Hackystat Version 8 consists of a set of inter-dependent systems.  In Version 7, the entire Hackystat system could be compiled at one time, which made it somewhat simpler to test for integration-level issues. 
+Hackystat Version 8 consists of a set of inter-dependent systems.  In Version 7, the entire Hackystat system could be compiled at one time, which made it somewhat easier to test for integration-level issues. 
 
 In Version 8, the decomposition of Hackystat into a set of independent sensors and services has a wide variety of benefits, but one significant downside: it makes integration testing more difficult. 
 
