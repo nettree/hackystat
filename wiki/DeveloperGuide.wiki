@@ -109,9 +109,17 @@ svn-google/
 
 Take a look in the build.xml file. What you'll find is a target for each Hackystat project that will (a) SVN checkout the sources into the build/ directory, run the verify target, and create the binaries in a system/ subdirectory.  For example, the build.utilities target does this for hackystat-utilities, the build.sensorbase target does this for hackystat-sensorbase, and so forth.   There is a build.all target that will run all of these targets in an order appropriate to their dependencies, and thus build the most recent sources for the entire system against themselves. 
              
-When you run the system build targets for the first time, you will experience a minor hiccup that looks like the following:
+When you run the system build.{project} targets for the first time, you will experience a minor hiccup: Ant will print out a message regarding a missing credential and ask how you would like to handle it. You can type 'p' to "permanently accept the certificate" and Ant will proceed.  
 
+In the case of the Macintosh, you can run 'ant build.all', type 'p' each time the credential message appears, and get the entire system checked out.  In the case of Windows, I have discovered that you need to do each service individually the first time. So, you will invoke:
+  * ant build.utilities
+  * ant build.sensorbase
+  * ant build.sensorshell
+and so forth.  Look at the build.all task and the list of dependent targets indicates the targets to manually invoke and the order to invoke them in. 
 
+Note that after you have done this checkout the first time, you will not have to type 'p' any longer.  It also becomes possible to run 'ant build.all' successfully on Windows after that first checkout. 
+
+At any rate, once you have finished, you'll have a directory structure like this:
 
 {{{
 svn-google/
@@ -127,9 +135,31 @@ svn-google/
                                                             stacktrace.lib.jar
                                                               :
                                       hackystat-sensorbase-uh/
+                                                             bin/
+                                                                sensorbase.jar
                                          :
                               sensors/
-                                     hackystat-
+                                     hackystat-sensor-shell/
+                                         :
+}}}
+
+You can now point your Hackystat environment variables at these binaries if you so choose.  For example, you could set HACKYSTAT_SENSORBASE_HOME to svn-google/hackystat/build/system/services/hackystat-sensorbase-uh/bin.
+
+The advantages to a "local system distribution" are:
+
+  * You do not have to wait for a System Distribution binary to be uploaded.  You can create your own when you suspect that low-level projects have been changed.
+
+  * Once you have gotten your first 'ant build.all' to succeed, it is extremely simple to generate a complete and consistent build of the latest sources of the entire set of Hackystat services.   Currently, this system build takes around 7 minutes. 
+
+The disadvantages of a "local system distribution" are:
+
+  * It is a bit time-consuming to set up the first time, particularly on Windows.
+
+  * If you do point your environment variables at these binaries, then you run the risk of running a build and having it fail, at which point your environment variables don't work. 
+
+
+
+  
                                       
 
  
