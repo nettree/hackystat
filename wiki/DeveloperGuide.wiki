@@ -41,7 +41,14 @@ hackystat-sensor-xmldata -> hackystat-sensor-shell -> hackystat-sensorbase-uh ->
 hackystat-analysis-telemetry -> hackystat-analysis-dailyprojectdata -> hackystat-sensorbase-uh -> hackystat-utilities
 }}}
 
-The advantage of "independent local workspaces" is:
+What this implies is that if you are working on hackystat-analysis-telemetry and someone makes an incompatible change to the hackystat-utilities system, you may need to:
+  * SVN update hackystat-utilities, rebuild, and rejar those binaries. 
+  * SVN update hackystat-sensorbase, rebuild, and rejar those binaries. 
+  * SVN update hackystat-dailyprojectdata, rebuild, and rejar those binaries. 
+
+This can be time-consuming and exasperating, particularly because it is not always clear what dependencies exist and what is out of date. 
+
+In summary, the advantage of "independent local workspaces" is:
 
  * It is possible to make and test changes across multiple Hackystat projects simultaneously. 
 
@@ -51,8 +58,7 @@ The disadvantages of "independent local workspaces" are:
 
  * Changes to a low level project, such as hackystat-utilities, can have a dramatic ripple effects, requiring SVN updates and rebuilds of many other projects in order to bring the system back into a consistent state. 
 
-
-== 3.1 One local project plus a System Distribution ==
+== 3.2 One local project plus a System Distribution ==
 
 An alternative approach is possible when a developer is interested in only one Hackystat project (or a small number of projects). In this case, the developer can download a System Distribution, with prebuilt binaries for all sensors and services, along with SVN checkout of the sensor/service of interest. For example, let's say a developer wants to work on hackystat-sensor-xmldata.  He or she might set up their local file space as follows:
 
@@ -89,7 +95,41 @@ The disadvantages of "one local project plus a System Distribution" are:
 
   * The advantage of this approach diminishes the more projects you are working on. 
 
+== 3.3 Build your own local system distribution ==
 
+A final alternative is create your own local version of a system distribution.  To do this, you must first SVN checkout the hackystat/trunk directory, which will give you a build.xml, a macros.build.xml, and a dist.build.xml file. For example:
+
+{{{
+svn-google/
+          hackystat/
+                   build.xml
+                   macros.xml
+                   dist.xml
+}}}
+
+Take a look in the build.xml file. What you'll find is a target for each Hackystat project that will (a) SVN checkout the sources into the build/ directory, run the verify target, and create the binaries in a system/ subdirectory.  For example, the build.utilities target does this for hackystat-utilities, the build.sensorbase target does this for hackystat-sensorbase, and so forth.   There is a build.all target that will run all of these targets in an order appropriate to their dependencies, and thus build the most recent sources for the entire system against themselves. 
              
+When you run the system build targets for the first time, you will experience a minor hiccup that looks like the following:
+
+
+
+{{{
+svn-google/
+          hackystat/
+                   build/
+                        hackystat-utilities/
+                        hackystat-sensorbase-uh/
+                           :
+                        system/
+                              services/
+                                      hackystat-utilities/
+                                                         bin/
+                                                            stacktrace.lib.jar
+                                                              :
+                                      hackystat-sensorbase-uh/
+                                         :
+                              sensors/
+                                     hackystat-
+                                      
 
  
