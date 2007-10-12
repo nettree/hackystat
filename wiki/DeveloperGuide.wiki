@@ -27,5 +27,20 @@ svn-google/
            :
 }}}
 
-Hackystat projects establish their dependencies by the use of environment variables (in the case of Ant) and classpath variables (in the case of Eclipse).  For example, the hackystat-sensorbase-uh system requires (among other things) the jar files produced by the hackystat-utilities project.  Thus, in order to 
+Hackystat projects establish their dependencies by the use of environment variables (in the case of Ant) and classpath variables (in the case of Eclipse).  For example, the hackystat-sensorbase-uh system requires (among other things) the jar files produced by the hackystat-utilities project.  Thus, in order to satisfy the dependency of the hackystat-sensorbase-uh system on hackystat-utilities, one would have to:
 
+  * Define an environment variable called HACKYSTAT_UTILITIES_HOME and point it to the svn-google/hackystat-utilities directory. 
+
+  * Invoke 'ant -f jar.build.xml' in the hackystat-utilities project, which would build the various utility jar files (hackystatlogger.lib.jar, etc.) in the hackystat-utilities directory. 
+
+It turns out that some dependency chains can get fairly long:
+
+{{{
+hackystat-sensor-xmldata -> hackystat-sensor-shell -> hackystat-sensorbase-uh -> hackystat-utilities 
+
+hackystat-analysis-telemetry -> hackystat-analysis-dailyprojectdata -> hackystat-sensorbase-uh -> hackystat-utilities
+}}}
+
+
+
+ 
