@@ -2,7 +2,7 @@
 
 = 1.0 Introduction =
 
-The purpose of this document is to help Hackystat developers understand how to configure their environment to build new sensors and services. 
+The purpose of this document is to help Hackystat developers understand how to configure their environment to perform development on new or existing sensors and services.  
 
 = 2.0 General Issues =
 
