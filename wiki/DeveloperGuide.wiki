@@ -1,0 +1,31 @@
+#summary Information for Hackystat Developers
+
+= 1.0 Introduction =
+
+The purpose of this document is to help Hackystat developers understand how to configure their environment to build new sensors and services. 
+
+= 2.0 General Issues =
+
+Hackystat Version 8 consists of a set of inter-dependent systems.  In Version 7, the entire Hackystat system could be compiled at one time, which made it somewhat simpler to test for integration-level issues. 
+
+In Version 8, the decomposition of Hackystat into a set of independent sensors and services has a wide variety of benefits, but one significant downside: it makes integration testing more difficult. 
+
+For example, many services use the !SensorBaseClient class to communicate with the !SensorBase.  This class is defined in the hackystat-sensorbase-uh project.  When changes are made to that API, all projects that depend upon that system need to build and test themselves against that revised API.  
+
+There are a variety of strategies a developer can use to support development and manage these integration-level dependencies, as discussed next.
+
+= 3.0 Local build environnment options =
+
+== 3.1 Separate local project builds ==
+
+The initial approach used by Hackystat developers was to SVN checkout local copies of most or all of the Hackystat projects.  Typically, one would create a top-level directory, such as svn-google, and independently check out each project as a subfolder, giving rise to the following directory structure:
+
+{{{
+svn-google/
+          hackystat-utilities/
+          hackystat-sensorbase-uh/
+           :
+}}}
+
+Hackystat projects establish their dependencies by the use of environment variables (in the case of Ant) and classpath variables (in the case of Eclipse).  For example, the hackystat-sensorbase-uh system requires (among other things) the jar files produced by the hackystat-utilities project.  Thus, in order to 
+
