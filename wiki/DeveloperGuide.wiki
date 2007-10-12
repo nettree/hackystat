@@ -1,4 +1,4 @@
-#summary Information for Hackystat Developers
+#summary System Build information for Hackystat developers
 
 = 1.0 Introduction =
 
