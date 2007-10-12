@@ -14,9 +14,9 @@ For example, many services use the !SensorBaseClient class to communicate with t
 
 There are a variety of strategies a developer can use to support development and manage these integration-level dependencies, as discussed next.
 
-= 3.0 Local build environnment options =
+= 3.0 Local build environment options =
 
-== 3.1 Separate local project builds ==
+== 3.1 Independent local project workspaces ==
 
 The initial approach used by Hackystat developers was to SVN checkout local copies of most or all of the Hackystat projects.  Typically, one would create a top-level directory, such as svn-google, and independently check out each project as a subfolder, giving rise to the following directory structure:
 
@@ -41,6 +41,55 @@ hackystat-sensor-xmldata -> hackystat-sensor-shell -> hackystat-sensorbase-uh ->
 hackystat-analysis-telemetry -> hackystat-analysis-dailyprojectdata -> hackystat-sensorbase-uh -> hackystat-utilities
 }}}
 
+The advantage of "independent local workspaces" is:
 
+ * It is possible to make and test changes across multiple Hackystat projects simultaneously. 
+
+The disadvantages of "independent local workspaces" are:
+
+ * It is hard to know when to update one or more local projects and rebuild.  
+
+ * Changes to a low level project, such as hackystat-utilities, can have a dramatic ripple effects, requiring SVN updates and rebuilds of many other projects in order to bring the system back into a consistent state. 
+
+
+== 3.1 One local project plus a System Distribution ==
+
+An alternative approach is possible when a developer is interested in only one Hackystat project (or a small number of projects). In this case, the developer can download a System Distribution, with prebuilt binaries for all sensors and services, along with SVN checkout of the sensor/service of interest. For example, let's say a developer wants to work on hackystat-sensor-xmldata.  He or she might set up their local file space as follows:
+
+{{{
+public-hackystat/
+                hackystat-services-8.0.1012/
+                                           hackystat-utilities/
+                                                              bin/
+                                                                 stacktrace.lib.jar
+                                                                   :
+                                           hackystat-sensorbase-uh/
+                                                                  bin/
+                                                                      sensorbase.jar
+                                                                       :
+                                             :
+svn-google/
+          hackystat-sensor-xmldata/
+                                    :
+}}}
+
+In this approach, the developer would define various environment variables to point to the  system distribution bin/ directories.  For example, the environment variable HACKYSTAT_UTILITIES_HOME would point to public_hackystat/hackystat-services-8.0.1012/hackystat-utilities/bin. 
+
+The advantages of "one local project plus a System Distribution" are:
+
+  * All dependencies in a System Distribution have been resolved, so the binaries  are consistent with each other. 
+
+  * It is generally faster and easier to download and setup a System Distribution than to download and set up all of the individual sensors and services. 
+
+  * It is generally faster and easier to update to a new version of a System Distribution than it is to update all of the individual sensors and services and build them against each other. 
+
+The disadvantages of "one local project plus a System Distribution" are:
+
+  * If the latest System Distribution is out of date, then you have to wait for someone to upload a more recent version. 
+
+  * The advantage of this approach diminishes the more projects you are working on. 
+
+
+             
 
  
