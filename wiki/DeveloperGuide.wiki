@@ -4,11 +4,11 @@
 
 The purpose of this document is to help Hackystat developers understand how to configure their environment to perform development on new or existing sensors and services.  
 
-= 2.0 General Issues =
+= 2.0 General Issues 
 
-Hackystat Version 8 consists of a set of inter-dependent systems.  In Version 7, the entire Hackystat system could be compiled at one time, which made it somewhat easier to test for integration-level issues. 
+In Version 7, the monolithic nature of Hackystat meant that it could be compiled and tested as a single entity, which made it relatively easy to test for integration-level issues. 
 
-In Version 8, the decomposition of Hackystat into a set of independent sensors and services has a wide variety of benefits, but one significant downside: it makes integration testing more difficult. 
+In Version 8, the decomposition of Hackystat into a set of independent sensors and services has a wide variety of benefits, but it also brings one significant downside: integration testing is somewhat more difficult, and projects can easily get "out of sync" with each other. 
 
 For example, many services use the !SensorBaseClient class to communicate with the !SensorBase.  This class is defined in the hackystat-sensorbase-uh project.  When changes are made to that API, all projects that depend upon that system need to build and test themselves against that revised API.  
 
