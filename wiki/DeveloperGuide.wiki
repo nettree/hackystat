@@ -159,7 +159,7 @@ The disadvantages of a "local system distribution" are:
 
 = 4.0 Summary and conclusions =
 
-There is one-size-fits-all approach to building Hackystat. Which of these approaches (or combinations of approaches) that you use really depends upon your situation.  
+There is no one-size-fits-all approach to building Hackystat. Which of these approaches (or combinations of approaches) that you use really depends upon your situation.  
 
 For new developers, I recommend the approach outlined in Section 3.2, in which you download a system distribution and use that as your repository of binaries. This minimizes the hassles, and provided you have a recent binary, eliminates the need for 'cascading rebuilds' of the system when something at a low level changes. 
 
