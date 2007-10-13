@@ -163,6 +163,8 @@ There is one-size-fits-all approach to building Hackystat. Which of these approa
 
 For new developers, I recommend the approach outlined in Section 3.2, in which you download a system distribution and use that as your repository of binaries. This minimizes the hassles, and provided you have a recent binary, eliminates the need for 'cascading rebuilds' of the system when something at a low level changes. 
 
+For experienced developers, I recommend following Section 3.3 and getting to the point where you can easily create local system builds.  Then when you find yourself with errors that look like integration issues, you can easily check what's going on. 
+
 Good luck, and feel free to send email to the [http://groups.google.com/group/hackystat-dev hackystat-dev list] if you encounter issues. 
 
   
