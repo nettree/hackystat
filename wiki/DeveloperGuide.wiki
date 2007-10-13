@@ -46,7 +46,7 @@ What this implies is that if you are working on hackystat-analysis-telemetry and
   * SVN update hackystat-sensorbase, rebuild, and rejar those binaries. 
   * SVN update hackystat-dailyprojectdata, rebuild, and rejar those binaries. 
 
-This can be time-consuming and exasperating, particularly because it is not always clear what dependencies exist and what is out of date. 
+This can be time-consuming and exasperating, particularly because it is not always clear what dependencies exist and which of them out of date. 
 
 In summary, the advantage of "independent local workspaces" is:
 
