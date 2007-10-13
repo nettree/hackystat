@@ -4,7 +4,7 @@
 
 The purpose of this document is to help Hackystat developers understand how to configure their environment to perform development on new or existing sensors and services.  
 
-= 2.0 General Issues 
+= 2.0 General Issues =
 
 In Version 7, the monolithic nature of Hackystat meant that it could be compiled and tested as a single entity, which made it relatively easy to test for integration-level issues. 
 
