@@ -11,26 +11,29 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || c:\java-tools\findbugs-1.2.0 ||
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME || c:\java-tools\gwt-mac-1.4.10 ||
 || [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || c:\java\jdk1.5.0_07 || 
-|| [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME || c:\java\jdepend-2.9 ||
+|| [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME || c:\java-tools\jdepend-2.9 ||
 || [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||  c:\java-tools\jfreechart-1.0.5 ||
 || [http://www.junit.org JUnit] || 4.3.1 || JUNIT_HOME ||   c:\java-tools\junit4.3.1 ||
 || [http://pmd.sourceforge.net/ PMD] || 3.9 || PMD_HOME ||   c:\java-tools\pmd-3.9 ||
 || [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.5 ||
 || [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||  c:\java-tools\apache-tomcat-6.0.13 ||
 
-Consult the Developer Guide for a system to learn which of these external libraries are required. 
+Consult the Developer Guide for a system to learn which of these external libraries are required.   If it is required, you will need to download it, set up the environment variable, and then bring up a new console shell/window so that the environment variable is defined before running Ant. 
 
-Note that Ant does not like paths containing embedded spaces, so please do not install any of the following packages in directories or subdirectories of "Program Files" or
-"Documents and Settings", for example.
+Note that Ant does not like paths containing embedded spaces, so please do
+not install any of the following packages in directories or subdirectories
+of "Program Files" or "Documents and Settings", for example.
 
 == Referencing Dependent Hackystat Systems ==
 
-Some Hackystat systems require access to the pre-built binaries of other Hackystat systems.  For example, several Hackystat systems access the !SensorBase using the !SensorBaseClient class which is available via the sensorbase.jar file.  Here are the standard names for environment variables and classpath variables for such Hackystat systems.
+Some Hackystat systems require access to the pre-built binaries of other Hackystat systems.  For example, several Hackystat systems access the !SensorBase using the !SensorBaseClient class which is available via the sensorbase.jar file.  Here are the standard names for environment variables and classpath variables for such Hackystat systems, as well as a value based upon a System Distribution. 
 
-|| *Hackystat Package* || *Standard Environment/Classpath Variable*  ||
-|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || HACKYSTAT_UTILITIES_HOME ||
-|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || HACKYSTAT_SENSORBASE_HOME ||
-|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || HACKYSTAT_SENSORSHELL_HOME ||
+|| *Hackystat Package* || *Standard Environment/Classpath Variable*  || *Sample Env Value* ||
+|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || HACKYSTAT_UTILITIES_HOME ||  c:\public_hackystat\hackystat-services-8.0.1015\hackystat-utilities\bin ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || HACKYSTAT_SENSORBASE_HOME ||  c:\public_hackystat\hackystat-services-8.0.1015\hackystat-sensorbase-uh\bin ||
+|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || HACKYSTAT_SENSORSHELL_HOME ||  c:\public_hackystat\hackystat-sensors-8.0.1015\hackystat-sensor-shell\bin ||
+
+Note that some of these packages are located in the "services" distribution, and others are located in the "sensors" distribution. 
 
 == Referencing "deviant" versions ==
 
