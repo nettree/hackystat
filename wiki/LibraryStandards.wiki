@@ -1,6 +1,8 @@
 #summary Standard library versions and environment variables
 
-Hackystat services tend to use a set of common library files.  To facilitate development, this page lists libraries or other development infrastructure for which we believe it will be useful to establish a "standard" version and "standard" environment variable.  The goal is to enable local environment configuration for one Hackystat service to not conflict with the local environment configuration for another Hackystat service.  
+== Standard External Libraries, Variable Names, Versions ==
+
+Building a Hackystat system from sources generally requires one or more supplemental libraries.  To facilitate development, this page lists libraries or other development infrastructure used in multiple Hackystat systems, along with their associated environment variable name (used by Ant) and classpath variable name (used by Eclipse).
 
 || *Package* || *Standard Version* || *Standard Environment/Classpath Variable* ||
 || [http://ant.apache.org/ Ant] || 1.7.0 || ANT_HOME || 
@@ -8,9 +10,6 @@ Hackystat services tend to use a set of common library files.  To facilitate dev
 || [http://emma.sourceforge.net/ EMMA] || 2.0.5312 ||  EMMA_HOME || 
 || [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || 
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME ||
-|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || (most recent milestone) || HACKYSTAT_UTILITIES_HOME ||
-|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || (most recent milestone) || HACKYSTAT_SENSORBASE_HOME ||
-|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || (most recent milestone) || HACKYSTAT_SENSORSHELL_HOME ||
 || [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || 
 || [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME ||
 || [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||
@@ -18,6 +17,19 @@ Hackystat services tend to use a set of common library files.  To facilitate dev
 || [http://pmd.sourceforge.net/ PMD] || 3.9 || PMD_HOME ||  
 || [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME || 
 || [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||
+
+Consult the Developer Guide for a system to learn which of these external libraries are required. 
+
+== Referencing Dependent Hackystat Systems ==
+
+Some Hackystat systems require access to the pre-built binaries of other Hackystat systems.  For example, several Hackystat systems access the !SensorBase using the !SensorBaseClient class which is available via the sensorbase.jar file.  Here are the standard names for environment variables and classpath variables for such Hackystat systems.
+
+|| *System* || *Name* ||
+|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || HACKYSTAT_UTILITIES_HOME ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || HACKYSTAT_SENSORBASE_HOME ||
+|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || HACKYSTAT_SENSORSHELL_HOME ||
+
+== Referencing "deviant" versions ==
 
 Note that if your service really needs to deviate from the standard version for some good reason, then the way to do it is to specify a service-specific environment variable. For example, if a Hackystat service named Foo needs to use a different version of Google Web Toolkit than the standard version listed above, then it should specify something like the following in its developer guide:
 
