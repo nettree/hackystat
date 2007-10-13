@@ -4,19 +4,19 @@
 
 Building a Hackystat system from sources generally requires one or more supplemental libraries.  To facilitate development, this page lists libraries or other development infrastructure used in multiple Hackystat systems, along with their associated environment variable name (used by Ant) and classpath variable name (used by Eclipse).
 
-|| *Library* || *Standard Version* || *Standard Environment/Classpath Variable* ||
-|| [http://ant.apache.org/ Ant] || 1.7.0 || ANT_HOME || 
-|| [http://checkstyle.sourceforge.net/ CheckStyle] || 4.3 || CHECKSTYLE_HOME ||
-|| [http://emma.sourceforge.net/ EMMA] || 2.0.5312 ||  EMMA_HOME || 
-|| [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || 
-|| [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME ||
-|| [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || 
-|| [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME ||
-|| [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||
-|| [http://www.junit.org JUnit] || 4.3.1 || JUNIT_HOME || 
-|| [http://pmd.sourceforge.net/ PMD] || 3.9 || PMD_HOME ||  
-|| [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME || 
-|| [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||
+|| *Library* || *Standard Version* || *Standard Environment/Classpath Variable* || *Sample Env Value* ||
+|| [http://ant.apache.org/ Ant] || 1.7.0 || ANT_HOME || c:\apache-ant-1.7.0 ||
+|| [http://checkstyle.sourceforge.net/ CheckStyle] || 4.3 || CHECKSTYLE_HOME || c:\java-tools\checkstyle-4.3 ||
+|| [http://emma.sourceforge.net/ EMMA] || 2.0.5312 ||  EMMA_HOME || c:\java-tools\emma-2.0.5312 ||
+|| [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || c:\java-tools\findbugs-1.2.0 ||
+|| [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME || c:\java-tools\gwt-mac-1.4.10 ||
+|| [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || c:\java\jdk1.5.0_07 || 
+|| [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME || c:\java\jdepend-2.9 ||
+|| [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||  c:\java-tools\jfreechart-1.0.5 ||
+|| [http://www.junit.org JUnit] || 4.3.1 || JUNIT_HOME ||   c:\java-tools\junit4.3.1 ||
+|| [http://pmd.sourceforge.net/ PMD] || 3.9 || PMD_HOME ||   c:\java-tools\pmd-3.9 ||
+|| [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.5 ||
+|| [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||  c:\java-tools\apache-tomcat-6.0.13 ||
 
 Consult the Developer Guide for a system to learn which of these external libraries are required. 
 
@@ -38,3 +38,4 @@ Note that if your service really needs to deviate from the standard version for 
 
 || *Library* || *Deviant Version* || *Standard Environment/Classpath Variable* ||
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.3 || FOO_GWT_HOME ||
+
