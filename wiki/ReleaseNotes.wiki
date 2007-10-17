@@ -1,6 +1,15 @@
 #summary Information about System Distributions
 #labels Featured
 
+= System Distribution October 8, 2007 (8.0.1016) =
+
+Major Changes:
+  * New sensors.
+  * Improved SDV and SDB (internal performance stuff)
+
+Release Notes:
+  * [http://code.google.com/p/hackystat-sensor-shell/wiki/ReleaseNotes SensorShell]
+
 = System Distribution October 8, 2007 (8.0.1008) =
 
 Major changes:
