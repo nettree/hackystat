@@ -4,9 +4,9 @@
 === System Distribution October 16, 2007 (8.0.1016) ===
 
 Major Changes:
-  * New sensors (PMD, FindBugs, Checkstyle).
+  * New sensors (PMD, !FindBugs, Checkstyle).
   * Improvements to SDV and SDB (internal performance stuff)
-  * Misc internal improvements to Utilities, SensorBase.
+  * Misc internal improvements to Utilities, !SensorBase.
 
 Release Notes for individual sensors/services:
 || *Sensors Release Notes* || *Services Release Notes* ||
