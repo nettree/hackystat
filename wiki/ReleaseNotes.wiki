@@ -1,7 +1,7 @@
 #summary Information about System Distributions
 #labels Featured
 
-=== System Distribution October 16, 2007 (8.0.1016) ===
+=== System Distribution October 18, 2007 (8.0.1018) ===
 
 Major Changes:
   * New sensors (PMD, !FindBugs, Checkstyle).
