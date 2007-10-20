@@ -7,7 +7,7 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || *Library* || *Standard Version* || *Standard Environment/Classpath Variable* || *Sample Env Value* ||
 || [http://ant.apache.org/ Ant] || 1.7.0 || ANT_HOME || c:\apache-ant-1.7.0 ||
 || [http://checkstyle.sourceforge.net/ CheckStyle] || 4.3 || CHECKSTYLE_HOME || c:\java-tools\checkstyle-4.3 ||
-|| [http://db.apache.org/derby/ Derby] || 10.2.2.0 ||  DERBY_HOME || 
+|| [http://db.apache.org/derby/ Derby] || 10.2.2.0 ||  DERBY_HOME || c:\java-tools\db-derby-10.2.2.0-bin ||
 || [http://emma.sourceforge.net/ EMMA] || 2.0.5312 ||  EMMA_HOME || c:\java-tools\emma-2.0.5312 ||
 || [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || c:\java-tools\findbugs-1.2.0 ||
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.10 || GWT_HOME || c:\java-tools\gwt-mac-1.4.10 ||
