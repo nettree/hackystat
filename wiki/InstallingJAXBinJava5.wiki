@@ -6,12 +6,12 @@ Hackystat Version 8 is intended primarily for a Java 6 environment, in which JAX
 
 The JAXB libraries are available at: [https://jaxb.dev.java.net/ https://jaxb.dev.java.net/].
 
-Please install a JAXB 2.0 release, not a JAXB 2.1 release, in order to be compatible with the version of JAXB distributed with Java 6.
+Please install a JAXB 2.0 release, not a JAXB 2.1 release, in order to be compatible with the version of JAXB distributed with Java 6. We recommend Release 2.0.5.
 
 After downloading and unzipping, you should obtain a directory such as the following:
 
 {{{
-~/jaxb-ri-20070413/
+~/jaxb-ri-20070122/
 }}}
 
 It will contain a lib/ directory with the jar files that you will need to install.
@@ -48,5 +48,3 @@ Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/JAXBCo
 }}}
 
 So, one way to test your JAXB installation is to run the !SensorBase and see that this error does not occur.
-
-
