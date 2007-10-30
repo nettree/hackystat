@@ -42,7 +42,18 @@ At present, documentation snapshots are not packaged in these distributions. Ins
 
 =Using a System Distribution (for Users)=
 
-The Sensors System Distribution currently contains the following packages. After downloading the binary distribution, consult the following documentation for details on how to proceed.
+== Using the public services ==
+
+If you are a new user of Hackystat, we recommend that you evaluate the system by using the publically available services maintained by the Collaborative Software Development Laboratory at the University of Hawaii.  Using the public services does not mean your data is public, it just means that your data will be sent to the services hosted at the University of Hawaii, which avoids the need for you to install them yourself. 
+
+To use the public services, you must register to obtain an account at the following URL:
+
+ * [http://dasha.ics.hawaii.edu:9876/sensorbase/register http://dasha.ics.hawaii.edu:9876/sensorbase/register]
+
+Supply an email address to which you have access, and the system will establish an account whose name is that email address, and a password that will be sent to that email. 
+
+Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. The following tables lists the sensors currently in release with pointers to their installation guide:
+
 
 || *Sensor* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-sensor-ant/ Ant Sensor] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for [http://ant.apache.org/ Ant], [http://www.junit.org JUnit], and [http://emma.sourceforge.net/ Emma] ||
@@ -51,15 +62,27 @@ The Sensors System Distribution currently contains the following packages. After
 || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
 
-The Services System Distribution currently contains the following packages: 
+Once you have installed the sensors and are successfully sending data, you can invoke Hackystat "analyses" to gain insight into your software development processes and products.  (More documentation on Hackystat analyses will be forthcoming.) 
 
-|| *Service* || *User Guide* || *Description* ||
+== Using locally installed services ==
+
+If you wish to install and run the Hackystat services locally, then in addition to downloading the binary "sensors" distribution, you must also download the binary "services" distribution.  The services distribution includes both "analysis" services, which normally provide only a REST API as their interface, and "ui" services, which provide a browser-based or other human-oriented user interface. 
+
+The Services System Distribution currently contains the following analysis services: 
+
+|| *Analysis Service* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide SensorBase User Guide] || A repository for sensor data collected by sensors. ||
+|| [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ DailyProjectData] || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/UserGuide DailyProjectData User Guide] || An analysis providing measures of project processes/products for a given day. ||
+|| [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || [http://code.google.com/p/hackystat-analysis-telemetry/wiki/UserGuide Telemetry User Guide] || An analysis providing the "Software Project Telemetry" language for project measurement trend definition and analysis. ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including Time, TStamp, TStampSet, !HackystatLogger, and !UriCache. ||
+
+It also includes the following User Interface services:
+
+|| *UI Service* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide SensorDataViewer User Guide] || A web and Google Gadget interface for monitoring sensor data transmission by sensors to a !SensorBase. ||
 || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide SensorDataBrowser User Guide] || A web interface for browsing the sensor data stored at a !SensorBase. ||
-|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including TStamp, TStampSet, !HackystatLogger, and !UriCache. ||
 
- 
+Consult the User Guides for more information on how to install, configure, and  use these services. 
 
 =Using a System Distribution (for Developers)=
 
