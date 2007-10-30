@@ -9,42 +9,40 @@ A Hackystat "System Distribution" consists of a set of zip files with a common v
 
 = Structure of the System Distribution =
 
-Currently, a Hackystat System distribution consists of two zip files. For example, the October 5, 2007 System Distribution consists of the following files:
+Currently, a Hackystat System distribution consists of four zip files. For example, the November 1, 2007 System Distribution consists of the following files:
 
- * hackystat-sensors-8.0.1005.zip
- * hackystat-services-8.0.1005.zip
+|| *File Name* || *Contents* ||
+|| hackystat-8.0.1101-sensors-bin.zip  || Binaries for the (client side) Hackystat sensors ||
+|| hackystat-8.0.1101-services-bin.zip || Binaries for the (server side) Hackystat services ||
+|| hackystat-8.0.1101-sensors-src.zip  || Sources for the (client side) Hackystat sensors ||
+|| hackystat-8.0.1101-services-src.zip || Sources for the (service side) Hackystat services ||
 
-Each of these files expands into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution.  Each of these subdirectories contains a "dist/" and a "bin/" subdirectory, the "dist/" directory containing a "distribution" of the sources and the "bin/" directory containing one or more "binary" files. For example:
+Normally, you are only interested in the "bin" zip files.  The "src" files are provided in case you experience a problem when installing the binaries and need to diagnose the problem by rebuilding the system from sources locally. 
+
+The binary distributions expand into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution. For example:
 
 {{{
-hackystat-sensors-8.0.1005/
-                          README.html
-
-                          hackystat-sensor-ant/
-                                              dist/
-                                                  hackystat-sensor-ant-8.0.1005.zip
-                                              bin/
-                                                 antsensors.jar
-
-                          hackystat-sensor-emacs/
-                                                dist/
-                                                    hackystat-sensor-emacs-8.0.1005.zip
-                                                bin/
-                                                   sensor-package.el
-
+hackystat-8.0.1101-sensors-bin/
+                              README.html
+                              hackystat-sensor-ant/
+                                                   antsensors.jar
+                              hackystat-sensor-emacs/
+                                                     sensor-package.el
+                              hackystat-sensor-eclipse/
+                                                       org.hackystat.sensor.eclipse_8.0.v20071101.jar
    :
    :
 }}}
 
-The README.html file simply points you to this page. The distribution zip files, if unzipped, would allow you to rebuild the sensor or service from scratch.  The services system distribution has the exact same internal structure as the sensors distribution.   
+The README.html file simply points you to this page. 
 
-Note that the version number, 8.0.1005, indicates the major release (8), the minor release (0), and the month/day of this build (1005, or October 05).                                                                  
+Note that the version number, 8.0.1005, indicates the major release (8), the minor release (0), and the month/day of this build (1101, or November 1).                                                                  
 
 At present, documentation snapshots are not packaged in these distributions. Instead, go to the online User Guides for details about each package. 
 
 =Using a System Distribution (for Users)=
 
-The Sensors System Distribution zip file currently contains the following packages:
+The Sensors System Distribution currently contains the following packages. After downloading the binary distribution, consult the following documentation for details on how to proceed.
 
 || *Sensor* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-sensor-ant/ Ant Sensor] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for [http://ant.apache.org/ Ant], [http://www.junit.org JUnit], and [http://emma.sourceforge.net/ Emma] ||
@@ -53,7 +51,7 @@ The Sensors System Distribution zip file currently contains the following packag
 || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
 
-The Services System Distribution zip file currently contains the following packages: 
+The Services System Distribution currently contains the following packages: 
 
 || *Service* || *User Guide* || *Description* ||
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide SensorBase User Guide] || A repository for sensor data collected by sensors. ||
@@ -65,13 +63,17 @@ The Services System Distribution zip file currently contains the following packa
 
 =Using a System Distribution (for Developers)=
 
-For developers, the benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my !MacBook Pro:
+For developers, one benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, HACKYSTAT_DAILYPROJECTDATA_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my !MacBook Pro:
 
 {{{
-export HACKYSTAT_DISTRIBUTION_VERSION=8.0.1007
-export HACKYSTAT_UTILITIES_HOME=/Users/johnson/java/hackystat-services-$HACKYSTAT_DISTRIBUTION_VERSION/hackystat-utilities/bin
-export HACKYSTAT_SENSORBASE_HOME=/Users/johnson/java/hackystat-services-$HACKYSTAT_DISTRIBUTION_VERSION/hackystat-sensorbase-uh/bin
-export HACKYSTAT_SENSORSHELL_HOME=/Users/johnson/java/hackystat-sensors-$HACKYSTAT_DISTRIBUTION_VERSION/hackystat-sensor-shell/bin
+export HACKYSTAT_DIST_VERSION=8.0.1007
+export HACKYSTAT_SENSORS_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-sensors-bin
+export HACKYSTAT_SERVICES_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-services-bin
+
+export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-utilities
+export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-sensorbase-uh
+export HACKYSTAT_DAILYPROJECTDATA_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-analysis-dailyprojectdata
+export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_SENSORS_DIST_HOME/hackystat-sensor-shell
 }}}
 
-What makes this particularly convenient is that when a new System Distribution is released, I can download the files, unzip them, and then change only the first environment variable in order to update the pointers to all binaries. 
+What makes this particularly convenient is that when a new System Distribution is released, I can download the binary distributions, unzip them, and then change only the first environment variable in order to update the pointers to all binaries. 
