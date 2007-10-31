@@ -36,7 +36,7 @@ hackystat-8.0.1101-sensors-bin/
 
 The README.html file simply points you to this page. 
 
-Note that the version number, 8.0.1005, indicates the major release (8), the minor release (0), and the month/day of this build (1101, or November 1).                                                                  
+Note that the version number, 8.0.1101, indicates the major release (8), the minor release (0), and the month/day of this build (1101, or November 1).                                                                  
 
 At present, documentation snapshots are not packaged in these distributions. Instead, go to the online User Guides for details about each package. 
 
@@ -50,7 +50,7 @@ To use the public services, you must register to obtain an account at the follow
 
  * [http://dasha.ics.hawaii.edu:9876/sensorbase/register http://dasha.ics.hawaii.edu:9876/sensorbase/register]
 
-Supply an email address to which you have access, and the system will establish an account whose name is that email address, and a password that will be sent to that email. 
+Supply an email address to which you have access, and the system will establish an account whose name is that email address and generate a password. The system will send information about the password immediately to this email address. 
 
 Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. The following tables lists the sensors currently in release with pointers to their installation guide:
 
@@ -89,7 +89,7 @@ Consult the User Guides for more information on how to install, configure, and  
 For developers, one benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, HACKYSTAT_DAILYPROJECTDATA_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my !MacBook Pro:
 
 {{{
-export HACKYSTAT_DIST_VERSION=8.0.1007
+export HACKYSTAT_DIST_VERSION=8.0.1101
 export HACKYSTAT_SENSORS_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-sensors-bin
 export HACKYSTAT_SERVICES_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-services-bin
 
