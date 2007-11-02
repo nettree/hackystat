@@ -60,18 +60,16 @@ The disadvantages of "independent local workspaces" are:
 
 == 3.2 One local project plus a System Distribution ==
 
-An alternative approach is possible when a developer is interested in only one Hackystat project (or a small number of projects). In this case, the developer can download a System Distribution, with prebuilt binaries for all sensors and services, along with SVN checkout of the sensor/service of interest. For example, let's say a developer wants to work on hackystat-sensor-xmldata.  He or she might set up their local file space as follows:
+An alternative approach is possible when a developer is interested in only one Hackystat project (or a small number of projects). In this case, the developer can download a binary System Distribution, with prebuilt binaries for all sensors and services, along with SVN checkout of the sensor/service of interest. For example, let's say a developer wants to work on hackystat-sensor-xmldata.  He or she might set up their local file space as follows:
 
 {{{
 public-hackystat/
-                hackystat-services-8.0.1012/
-                                           hackystat-utilities/
-                                                              bin/
-                                                                 stacktrace.lib.jar
+                hackystat-8.0.1101-services-bin/
+                                                hackystat-utilities/
+                                                                    stacktrace.lib.jar
                                                                    :
-                                           hackystat-sensorbase-uh/
-                                                                  bin/
-                                                                      sensorbase.jar
+                                                hackystat-sensorbase-uh/
+                                                                        sensorbase.jar
                                                                        :
                                              :
 svn-google/
@@ -79,8 +77,10 @@ svn-google/
                                     :
 }}}
 
-In this approach, the developer would define various environment variables to point to the  system distribution bin/ directories.  For example, the environment variable HACKYSTAT_UTILITIES_HOME would point to public_hackystat/hackystat-services-8.0.1012/hackystat-utilities/bin. 
-
+In this approach, the developer would define various environment variables to point to the  system distribution bin/ directories.  For example, the environment variable HACKYSTAT_UTILITIES_HOME would point to 
+{{{
+public_hackystat/hackystat-8.0.1101-services-bin/hackystat-utilities/ 
+}}}
 The advantages of "one local project plus a System Distribution" are:
 
   * All dependencies in a System Distribution have been resolved, so the binaries  are consistent with each other. 
@@ -131,11 +131,9 @@ svn-google/
                         system/
                               services/
                                       hackystat-utilities/
-                                                         bin/
                                                             stacktrace.lib.jar
                                                               :
                                       hackystat-sensorbase-uh/
-                                                             bin/
                                                                 sensorbase.jar
                                          :
                               sensors/
@@ -143,7 +141,11 @@ svn-google/
                                          :
 }}}
 
-You can now point your Hackystat environment variables at these binaries if you so choose.  For example, you could set HACKYSTAT_SENSORBASE_HOME to svn-google/hackystat/build/system/services/hackystat-sensorbase-uh/bin.
+You can now point your Hackystat environment variables at these binaries if you so choose.  For example, you could set HACKYSTAT_SENSORBASE_HOME to 
+
+{{{
+svn-google/hackystat/build/system/services/hackystat-sensorbase-uh/
+}}}
 
 The advantages to a "local system distribution" are:
 
