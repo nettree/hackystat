@@ -14,8 +14,8 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || c:\java\jdk1.5.0_07 || 
 || [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME || c:\java-tools\jdepend-2.9 ||
 || [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||  c:\java-tools\jfreechart-1.0.5 ||
-|| [http://www.junit.org JUnit] || 4.3.1 || JUNIT_HOME ||   c:\java-tools\junit4.3.1 ||
-|| [http://pmd.sourceforge.net/ PMD] || 3.9 || PMD_HOME ||   c:\java-tools\pmd-3.9 ||
+|| [http://www.junit.org JUnit] || 4.4 || JUNIT_HOME ||   c:\java-tools\junit4.3.1 ||
+|| [http://pmd.sourceforge.net/ PMD] || 4.0 || PMD_HOME ||   c:\java-tools\pmd-3.9 ||
 || [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.5 ||
 || [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||  c:\java-tools\apache-tomcat-6.0.13 ||
 
