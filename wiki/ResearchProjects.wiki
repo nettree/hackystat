@@ -17,7 +17,7 @@ The Hackystat Project provides a useful infrastructure for research projects in 
 
  * [http://johnson-engineering-log.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J]
 
- *[http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup, Ambient Devices, and Social Networks]
+ * [http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup, Ambient Devices, and Social Networks]
 
 If you have your own research ideas, feel free to send them to me, or edit this page directly to include them.  
 
