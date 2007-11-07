@@ -6,31 +6,61 @@ Hackystat sensor data includes a field called "!SensorDataType", which, as its n
 
 The goal of this page is to document these expectations so that developers of sensors can generate data that can be meaningfully and consistently interpreted by higher level analyses on that data. 
 
-= Generic Sensor Data Properties =
+= Standard Sensor Data Fields =
 
-Every sensor data instance is required to provide the following data:
+Every sensor data instance contains the following standard fields:
 
-|| Property  || Example || Description ||
+|| *Property*  || *Example* || *Description* ||
 || Timestamp || 2007-11-07T09:11:12.247-10:00 || The time instant at which the data was collected from the tool or user, in xs:dateTime (or XMLGregorianCalendar) format. ||
 || Runtime   || 2007-11-07T09:11:12.247-10:00 || When multiple sensor data instances should be aggregated together, this timestamp value can be used to indicate which sensor data instances belong to a single collection. For example, consider a size tool that generates one sensor data instance per file.  The sensor for this size tool should supply the same Runtime timestamp for each sensor data instance generated during a single run of the size tool over the system.  ||
-|| SensorDataType || DevEvent || A string indicating the "type" of data. ||
+|| !SensorDataType || !DevEvent || A string indicating the "type" of data. ||
 || Resource || file:/C:/svn-google/sensordata.xsd || A URI indicating the artifact from which the sensor data was generated.  ||
 || Owner || johnson@hawaii.edu || The account associated with the owner of this sensor data. Note that while tools will send this data as a simple email address, the !SensorBase will return the contents of this property as a RESTful URI, such as http://dasha.ics.hawaii.edu:9876/sensorbase/users/johnson@hawaii.edu ||
+|| Tool || Eclipse || The name of the tool that generated this data. ||
+
+In addition to these standard fields, sensor data instances can also include a list of key-value string pairs.  As a list, it is possible (and in some cases desirable) to have the same key appear multiple times in this list. These "properties" of a Sensor Data instance allow type-specific information to be provided. 
+
+The following sections indicate for each Sensor Data Type the expected (and in some cases) the optional properties that sensors should provide when generating data, and the way this data should be interpreted by higher level analyses. 
 
 
+= !DevEvent =
 
-= DevEvent =
-
-The DevEvent sensor data type represents developer "behavioral events",
+The !DevEvent sensor data type represents developer "behavioral events",
 such as the action of invoking the compiler, or opening a file for editing,
-or running a unit test, and so forth. In many cases, DevEvents are
-generated along with other sensor data that might provide additional
-details about the context surrounding the event. For example, a DevEvent
-might indicate that the developer invoked unit tests, but the UnitTest
-sensor data would give more detailed information about what tests were
-invoked and what the results were.
+or running a unit test, and so forth. 
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Expected properties ==
+
+None.
+
+== Optional properties ==
+
+Sensors may add additional properties for more specialized analyses.  For example, the [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse sensor] provides properties to support test-driven design as documented in its [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide User Guide].
+
+= !UnitTest =
+
+The UnitTest sensor data type represents the outcome of single unit test invocation on a source file.
+
+== Expected properties ==
+
+|| *Key* || *Value* || *Description* ||
+|| Result || "pass" or "fail" || Whether the unit test passed or failed. ||
+
+== Optional properties == 
+
+|| *Key* || *Value* || *Description* ||
+|| ElapsedTime || 23456 || The elapsed time for the test, in milliseconds. ||
+|| TestName || TestFoo || The name of the test. ||
+|| TestCaseName || testFoo || The name of the individual test case. ||
+|| FailureString || Expected 3, was 2 || The failure string. ||
+|| ErrorString || Null pointer exception || The exception message. ||
+
+
+
+
+
+
+
+
+
+
