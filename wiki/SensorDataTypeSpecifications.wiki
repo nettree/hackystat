@@ -44,7 +44,7 @@ The !UnitTest sensor data type represents the outcome of single unit test invoca
 == 4.1 Expected properties ==
 
 || *Key* || *Value* || *Description* ||
-|| Result || "pass" or "fail" || Whether the unit test passed or failed. ||
+|| Result || "pass" or "fail" || Used to determine whether the unit test passed or failed. ||
 
 == 4.2 Optional properties == 
 
@@ -54,8 +54,6 @@ The !UnitTest sensor data type represents the outcome of single unit test invoca
 || !TestCaseName || testFoo || The name of the individual test case. ||
 || !FailureString || Expected 3, was 2 || The failure string. ||
 || !ErrorString || Null pointer exception || The exception message. ||
-
-
 
 
 
