@@ -1,4 +1,4 @@
-#summary The standard structure for Sensor Data Types
+#summary Documents the expected and optional properties associated with Sensor Data Types.
 
 = 1.0 Introduction =
 
