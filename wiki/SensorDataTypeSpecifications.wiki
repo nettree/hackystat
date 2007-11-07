@@ -1,0 +1,15 @@
+#summary The standard structure for Sensor Data Types
+
+= Introduction =
+
+Hackystat sensor data includes a field called "SensorDataType", which, as its name implies, indicates the "type" of sensor data.  The meaning of "type" in this context is an expectation about the kinds of key-value pairs that will be supplied by sensors when generating sensor data instances of the given type, along with an expectation about the way these key-value pairs will be interpreted by higher level analyses. 
+
+The goal of this page is to document these expectations so that developers of sensors can generate data that can be meaningfully and consistently interpreted by higher level analyses on that data. 
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
