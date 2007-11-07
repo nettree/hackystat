@@ -2,12 +2,33 @@
 
 = Introduction =
 
-Hackystat sensor data includes a field called "SensorDataType", which, as its name implies, indicates the "type" of sensor data.  The meaning of "type" in this context is an expectation about the kinds of key-value pairs that will be supplied by sensors when generating sensor data instances of the given type, along with an expectation about the way these key-value pairs will be interpreted by higher level analyses. 
+Hackystat sensor data includes a field called "!SensorDataType", which, as its name implies, indicates the "type" of sensor data.  The meaning of "type" in this context is an expectation about the kinds of key-value pairs that will be supplied by sensors when generating sensor data instances of the given type, along with an expectation about the way these key-value pairs will be interpreted by higher level analyses. 
 
 The goal of this page is to document these expectations so that developers of sensors can generate data that can be meaningfully and consistently interpreted by higher level analyses on that data. 
 
+= Generic Sensor Data Properties =
 
-= Details =
+Every sensor data instance is required to provide the following data:
+
+|| Property  || Example || Description ||
+|| Timestamp || 2007-11-07T09:11:12.247-10:00 || The time instant at which the data was collected from the tool or user, in xs:dateTime (or XMLGregorianCalendar) format. ||
+|| Runtime   || 2007-11-07T09:11:12.247-10:00 || When multiple sensor data instances should be aggregated together, this timestamp value can be used to indicate which sensor data instances belong to a single collection. For example, consider a size tool that generates one sensor data instance per file.  The sensor for this size tool should supply the same Runtime timestamp for each sensor data instance generated during a single run of the size tool over the system.  ||
+|| SensorDataType || DevEvent || A string indicating the "type" of data. ||
+|| Resource || file:/C:/svn-google/sensordata.xsd || A URI indicating the artifact from which the sensor data was generated.  ||
+|| Owner || johnson@hawaii.edu || The account associated with the owner of this sensor data. Note that while tools will send this data as a simple email address, the !SensorBase will return the contents of this property as a RESTful URI, such as http://dasha.ics.hawaii.edu:9876/sensorbase/users/johnson@hawaii.edu ||
+
+
+
+= DevEvent =
+
+The DevEvent sensor data type represents developer "behavioral events",
+such as the action of invoking the compiler, or opening a file for editing,
+or running a unit test, and so forth. In many cases, DevEvents are
+generated along with other sensor data that might provide additional
+details about the context surrounding the event. For example, a DevEvent
+might indicate that the developer invoked unit tests, but the UnitTest
+sensor data would give more detailed information about what tests were
+invoked and what the results were.
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
