@@ -50,7 +50,7 @@ The !UnitTest sensor data type represents the outcome of single unit test invoca
 
 || *Key* || *Value* || *Description* ||
 || !ElapsedTime || 23456 || The elapsed time for the test, in milliseconds. ||
-|| !TestName || TestFoo || The name of the test. ||
+|| !TestName || org.hackystat.!TestFoo || The name of the test. ||
 || !TestCaseName || testFoo || The name of the individual test case. ||
 || !FailureString || Expected 3, was 2 || The failure string. ||
 || !ErrorString || Null pointer exception || The exception message. ||
