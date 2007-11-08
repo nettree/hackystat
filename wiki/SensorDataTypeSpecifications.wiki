@@ -60,7 +60,7 @@ The !CodeIssue sensor data type represents either a single coding violation or a
 
 == 5.1 Expected properties ==
 
-None, unless the the !CodeIssue SDT entry represents an error.  If it represents an error then 'Type' is required.  Otherwise if no type is specified the entry is automatically assumed to be representing a single file with no errors.  Be careful not to include 'Type' on entries that are representing zero data because it will be assumed that it is an error.
+None, unless the !CodeIssue SDT entry represents an error.  If it represents an error then 'Type' is required.  Otherwise if no type is specified the entry is automatically assumed to be representing a single file with no errors.  Be careful not to include 'Type' on entries that are representing zero data because it will be assumed that it is an error.
 
 || *Key* || *Value* || *Description* ||
 || Type || !AvoidStarImport || The type or category of the error. ||
@@ -72,5 +72,3 @@ None, unless the the !CodeIssue SDT entry represents an error.  If it represents
 || Severity || Usually "error" or "warning" || The level of severity of the issue. ||
 || Message ||  Using the {{{'.*'}}} form of import should be avoided || The detailed error message. ||
 || Column || 13 || The column the issue is on. ||
-
-
