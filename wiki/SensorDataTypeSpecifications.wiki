@@ -72,3 +72,18 @@ None, unless the !CodeIssue SDT entry represents an error.  If it represents an 
 || Severity || Usually "error" or "warning" || The level of severity of the issue. ||
 || Message ||  Using the {{{'.*'}}} form of import should be avoided || The detailed error message. ||
 || Column || 13 || The column the issue is on. ||
+
+= 6.0 Build =
+
+The Build sensor data type represents the outcome of a single Ant build invocation.
+
+== 6.1 Expected properties ==
+
+|| *Key* || *Value* || *Description* ||
+|| Result || "Success" or "Failure" || The build result. ||
+|| Target || checkstyle.tool || The Ant target invoked to run the build.||
+
+== 6.2 Optional properties == 
+
+|| *Key* || *Value* || *Description* ||
+|| !EndTime || 2007-11-08T03:48:32.502Z || The time that the build completed. ||
