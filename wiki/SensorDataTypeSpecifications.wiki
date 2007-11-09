@@ -49,6 +49,7 @@ The !UnitTest sensor data type represents the outcome of single unit test invoca
 == 4.2 Optional properties == 
 
 || *Key* || *Value* || *Description* ||
+|| Type  || Production || A field indicating the type of test under way. ||
 || !ElapsedTime || 23456 || The elapsed time for the test, in milliseconds. ||
 || !TestName || org.hackystat.!TestFoo || The name of the test. ||
 || !TestCaseName || testFoo || The name of the individual test case. ||
