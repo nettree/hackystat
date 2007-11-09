@@ -74,6 +74,8 @@ None, unless the !CodeIssue SDT entry represents an error.  If it represents an 
 || Message ||  Using the {{{'.*'}}} form of import should be avoided || The detailed error message. ||
 || Column || 13 || The column the issue is on. ||
 
+If a single file generates multiple code issues, then a separate sensor data instance will be sent for each of them.  Thus, a single file could result in many Code Issue sensor data instances. 
+
 = 6.0 Build =
 
 The Build sensor data type represents the outcome of a single Ant build invocation.
