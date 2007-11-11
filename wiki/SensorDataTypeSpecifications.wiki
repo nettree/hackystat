@@ -57,24 +57,21 @@ The !UnitTest sensor data type represents the outcome of single unit test invoca
 || !ErrorString || Null pointer exception || The exception message. ||
 
 = 5.0 !CodeIssue=
-The !CodeIssue sensor data type represents either a single coding violation or a single file that contained no violations.
+The !CodeIssue sensor data type represents a single file and contains the counts of all the types of errors in that file.
 
 == 5.1 Expected properties ==
 
-None, unless the !CodeIssue SDT entry represents an error.  If it represents an error then 'Type' is required.  Otherwise if no type is specified the entry is automatically assumed to be representing a single file with no errors.  Be careful not to include 'Type' on entries that are representing zero data because it will be assumed that it is an error.
-
-|| *Key* || *Value* || *Description* ||
-|| Type || !AvoidStarImport || The type or category of the error. ||
+None.
 
 == 5.2 Optional properties == 
 
-|| *Key* || *Value* || *Description* ||
-|| Line || 12 || The line number the issue is on. ||
-|| Severity || Usually "error" or "warning" || The level of severity of the issue. ||
-|| Message ||  Using the {{{'.*'}}} form of import should be avoided || The detailed error message. ||
-|| Column || 13 || The column the issue is on. ||
+If there are any errors in the file entries prefixed with "Type:" should appear with the count of how many instances of that particular error were found in the file.
 
-If a single file generates multiple code issues, then a separate sensor data instance will be sent for each of them.  Thus, a single file could result in many Code Issue sensor data instances. 
+For example, PMD anylyzes a file and produces and error that has !RuleSet=Design Rules and Rule=!ImmutableField.  It should append the attribute Type:Design Rules:!ImmutableField with the number of occurrences.
+
+Here is a !SensorData example with two Type: attributes:
+[Resource=Foo.java Type:Design Rules:!ImmutableField=4 Type:Basic Rules:!EmptyCatchBlock=6]
+
 
 = 6.0 Build =
 
