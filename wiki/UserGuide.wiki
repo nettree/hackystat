@@ -62,6 +62,8 @@ Next, download the binary "sensors" distribution, and install whichever sensors 
 || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
 || [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
 
+It is quite helpful to go through the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide StackyHack User Guide] when first starting to use Hackystat.  This sample system, provided with the Sensors binary distribution, contains sample sensor implementations in Ant that illustrate how a variety of process and product data can be sent to Hackystat. 
+
 Once you have installed the sensors and are successfully sending data, you can invoke Hackystat "analyses" to gain insight into your software development processes and products.  (More documentation on Hackystat analyses will be forthcoming.) 
 
 == Using locally installed services ==
