@@ -1,20 +1,22 @@
 #summary Information about System Distributions
 #labels Featured
 
-=== System Distribution October 18, 2007 (8.0.1018) ===
+=== System Distribution November 15, 2007 (8.0.1015) ===
 
 Major Changes:
-  * New sensors (PMD, !FindBugs, Checkstyle).
+  * New Module: StackyHack, illustrating use of Sensors. 
+  * Improvements to Coverage and CodeIssue SDTs ("One Sensor Data Instance Per File").
   * Improvements to SDV and SDB (internal performance stuff)
-  * Misc internal improvements to Utilities, !SensorBase.
+  * Misc internal improvements to Utilities, !SensorBase, !DailyProjectData, Telemetry.
 
 Release Notes for individual sensors/services:
 || *Sensors Release Notes* || *Services Release Notes* ||
-|| [http://code.google.com/p/hackystat-sensor-shell/wiki/ReleaseNotes SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/ReleaseNotes SensorBase] ||
-|| [http://code.google.com/p/hackystat-sensor-eclipse/wiki/ReleaseNotes Eclipse]     || [http://code.google.com/p/hackystat-utilities/wiki/ReleaseNotes Utilities] ||
-|| [http://code.google.com/p/hackystat-sensor-emacs/wiki/ReleaseNotes Emacs]       || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/ReleaseNotes SensorDataViewer] ||
-|| [http://code.google.com/p/hackystat-sensor-xmldata/wiki/ReleaseNotes XmlData]     || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/ReleaseNotes SensorDataBrowser] ||
-|| [http://code.google.com/p/hackystat-sensor-ant/wiki/ReleaseNotes Ant]  ||   [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/ReleaseNotes DailyProjectData]                || 
+|| [http://code.google.com/p/hackystat-sensor-example/wiki/ReleaseNotes StackyHack] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/ReleaseNotes SensorBase] ||
+|| [http://code.google.com/p/hackystat-sensor-ant/wiki/ReleaseNotes Ant]     || [http://code.google.com/p/hackystat-utilities/wiki/ReleaseNotes Utilities] ||
+||        || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/ReleaseNotes SensorDataViewer] ||
+||      || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/ReleaseNotes SensorDataBrowser] ||
+||   ||   [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/ReleaseNotes DailyProjectData]                || 
+||   ||   [http://code.google.com/p/hackystat-analysis-telemetry/wiki/ReleaseNotes Telemetry]                || 
 
 
 === System Distribution October 8, 2007 (8.0.1008) ===
