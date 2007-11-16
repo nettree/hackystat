@@ -4,8 +4,8 @@
 === System Distribution November 15, 2007 (8.0.1015) ===
 
 Major Changes:
-  * New Module: StackyHack, illustrating use of Sensors. 
-  * Improvements to Coverage and CodeIssue SDTs ("One Sensor Data Instance Per File").
+  * New Module: !StackyHack, illustrating use of Sensors. 
+  * Improvements to Coverage and !CodeIssue SDTs ("One Sensor Data Instance Per File").
   * Improvements to SDV and SDB (internal performance stuff)
   * Misc internal improvements to Utilities, !SensorBase, !DailyProjectData, Telemetry.
 
