@@ -26,7 +26,7 @@ Note that Ant does not like paths containing embedded spaces, so please do
 not install any of the following packages in directories or subdirectories
 of "Program Files" or "Documents and Settings", for example.
 
- * *Chronoscope Note:* Create a directory for the Timepedia Chronoscope package and download chronoscope.jar and gwtexporter.jar to this directory.
+ * *Chronoscope Note:* Create a directory for the Timepedia Chronoscope package and download chronoscope.jar and gwtexporter.jar from the Chronoscope project page to this directory.
 
 == Referencing Dependent Hackystat Systems ==
 
