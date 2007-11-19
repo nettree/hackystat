@@ -26,6 +26,8 @@ Note that Ant does not like paths containing embedded spaces, so please do
 not install any of the following packages in directories or subdirectories
 of "Program Files" or "Documents and Settings", for example.
 
+ * *Chronoscope Note:* Create a directory for the Timepedia Chronoscope package and download chronoscope.jar and gwtexporter.jar to this directory.
+
 == Referencing Dependent Hackystat Systems ==
 
 Some Hackystat systems require access to the pre-built binaries of other Hackystat systems.  For example, several Hackystat systems access the !SensorBase using the !SensorBaseClient class which is available via the sensorbase.jar file.  Here are the standard names for environment variables and classpath variables for such Hackystat systems, as well as a value based upon a System Distribution. 
