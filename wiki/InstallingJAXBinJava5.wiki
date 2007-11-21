@@ -25,6 +25,8 @@ To install JAXB, you need to copy the following four files from the JAXB/lib dir
  * jaxb-impl.jar
  * jsr173_1.1_api.jar
 
+*Note* on Mac OS X 10.4.11 the activation.jar file is already present in the lib/ext directory and appears to be a more recent version (1.1) than the one provided with JAXB (1.0).
+
 The location to which you copy these files depends upon your operating system.
 
 || *OS* || *Typical location of lib/ext directory* ||
