@@ -28,7 +28,7 @@ To install JAXB, you need to copy the following four files from the JAXB/lib dir
 The location to which you copy these files depends upon your operating system.
 
 || *OS* || *Typical location of lib/ext directory* ||
-|| Mac OS/X || System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/home/lib/ext  ||
+|| Mac OS/X || /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/lib/ext  ||
 || Windows || C:\Java\jre1.5.0_7\lib\ext ||
 
 Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory.
