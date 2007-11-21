@@ -20,12 +20,12 @@ It will contain a lib/ directory with the jar files that you will need to instal
 
 To install JAXB, you need to copy the following four files from the JAXB/lib directory:
 
- * activation.jar
+ * activation.jar (*see below*)
  * jaxb-api.jar
  * jaxb-impl.jar
  * jsr173_1.1_api.jar
 
-*Note* on Mac OS X 10.4.11 the activation.jar file is already present in the lib/ext directory and appears to be a more recent version (1.1) than the one provided with JAXB (1.0).
+*Note:* you have presumably already installed version 1.1 of the JavaBeans Activation Framework as part of InstallingJavaMail, which is more recent than than the 1.0 version provided with JAXB, so you do not need to copy over the activation.jar file.
 
 The location to which you copy these files depends upon your operating system.
 
