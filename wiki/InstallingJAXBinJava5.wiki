@@ -33,7 +33,7 @@ The location to which you copy these files depends upon your operating system.
 || Mac OS/X || /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/lib/ext  ||
 || Windows || C:\Java\jre1.5.0_7\lib\ext ||
 
-Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory.
+Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory. On Mac OS X you will need to authenticate as an administrator to copy the files to the System area.
 
 == 3. Verifying your installation ==
 
