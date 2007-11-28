@@ -87,3 +87,4 @@ The Build sensor data type represents the outcome of a single Ant build invocati
 
 || *Key* || *Value* || *Description* ||
 || !EndTime || 2007-11-08T03:48:32.502Z || The time that the build completed. ||
+|| Type || cruisecontrol.build || The type of the build. ||
