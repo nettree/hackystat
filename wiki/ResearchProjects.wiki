@@ -21,9 +21,11 @@ The Hackystat Project provides a useful infrastructure for research projects in 
 
 In addition to the above, there are some smaller scale projects that would be interesting to do:
 
-  * Provide a "native" .NET interface to Hackystat that would simplify the development of sensors for Visual Studio and other Microsoft products. (This could be something like a port of the SensorShell to C#).
+  * Provide a .NET interface to Hackystat V8 that would simplify the development of sensors for Visual Studio and other Microsoft products. (This begins with a port and/or wrapper of the !SensorShell to C#).
 
   * Provide RSS integration using something like [https://rome.dev.java.net/ Rome].  It would be useful to support both "publishing" things like changes to the !SensorBase, as well as "subscribing"---in other words, a sensor that can listen to an RSS feed and generate sensor data based upon the feed.
+
+  * Provide a user interface based upon [http://simile.mit.edu/timeline/ Simile/Timeline].
 
 
 
