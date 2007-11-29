@@ -25,7 +25,7 @@ In addition to the above, there are some smaller scale projects that would be in
 
   * Provide RSS integration using something like [https://rome.dev.java.net/ Rome].  It would be useful to support both "publishing" things like changes to the !SensorBase, as well as "subscribing"---in other words, a sensor that can listen to an RSS feed and generate sensor data based upon the feed.
 
-  * Provide a user interface based upon [http://simile.mit.edu/timeline/ Simile/Timeline].
+  * Provide a user interface based upon [http://simile.mit.edu/timeline/ Simile/Timeline]. Here's a interesting [http://blog.localkinegrinds.com/2007/11/06/installing-mit-similes-timeline-locally-w-rails-integration/ blog post] about dynamic updates. 
 
 
 
