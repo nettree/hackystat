@@ -17,40 +17,14 @@ Major Changes:
   * Improvements to SDV and SDB (internal performance stuff)
   * Misc internal improvements to Utilities, !SensorBase, !DailyProjectData, Telemetry.
 
-Release Notes for individual sensors/services:
-|| *Sensors Release Notes* || *Services Release Notes* ||
-|| [http://code.google.com/p/hackystat-sensor-example/wiki/ReleaseNotes StackyHack] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/ReleaseNotes SensorBase] ||
-|| [http://code.google.com/p/hackystat-sensor-ant/wiki/ReleaseNotes Ant]     || [http://code.google.com/p/hackystat-utilities/wiki/ReleaseNotes Utilities] ||
-||        || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/ReleaseNotes SensorDataViewer] ||
-||      || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/ReleaseNotes SensorDataBrowser] ||
-||   ||   [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/ReleaseNotes DailyProjectData]                || 
-||   ||   [http://code.google.com/p/hackystat-analysis-telemetry/wiki/ReleaseNotes Telemetry]                || 
-
 
 === System Distribution October 8, 2007 (8.0.1008) ===
 
 Major changes:
   * !DailyProjectData module added.
 
-Included subsystems in this distribution:
-
-|| *Sensors Distribution* || *Services Distribution* ||
-|| [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
-|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse]     || [http://code.google.com/p/hackystat-utilities/ Utilities] ||
-|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs]       || [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] ||
-|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData]     || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] ||
-|| [http://code.google.com/p/hackystat-sensor-ant/ Ant]  ||   [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ DailyProjectData]                || 
 
 === System Distribution October 6, 2007 (8.0.1006) ===
 
 Major changes:
   * Initial release of system distributions. 
-
-Included subsystems in this distribution: 
-
-|| *Sensors Distribution* || *Services Distribution* ||
-|| [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] ||
-|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse]     || [http://code.google.com/p/hackystat-utilities/ Utilities] ||
-|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs]       || [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] ||
-|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData]     || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] ||
-|| [http://code.google.com/p/hackystat-sensor-ant/ Ant]         ||                   ||
