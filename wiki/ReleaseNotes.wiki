@@ -1,6 +1,14 @@
 #summary Information about System Distributions
 #labels Featured
 
+=== System Distribution December 02, 2007 (8.0.1202) ===
+
+Major Changes:
+  * New modules: hackystat-sensor-vim, hackystat-ui-projectviewer, hackystat-ui-telemetryviewer
+  * Substantial changes to SensorShell API.
+  * Backward-incompatible change: instead of .hackystat/v8.sensor.properties, users must now create .hackystat/sensorshell/sensorshell.properties
+
+
 === System Distribution November 15, 2007 (8.0.1015) ===
 
 Major Changes:
