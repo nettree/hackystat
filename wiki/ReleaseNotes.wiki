@@ -5,7 +5,7 @@
 
 Major Changes:
   * New modules: hackystat-sensor-vim, hackystat-ui-projectviewer, hackystat-ui-telemetryviewer
-  * Substantial changes to SensorShell API.
+  * Substantial changes to !SensorShell API.
   * Backward-incompatible change: instead of .hackystat/v8.sensor.properties, users must now create .hackystat/sensorshell/sensorshell.properties
 
 
