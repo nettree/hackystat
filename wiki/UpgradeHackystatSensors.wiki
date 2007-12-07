@@ -87,6 +87,10 @@ Note: if a module (like emacs or vim) does not use tools like checkstyle, etc., 
 
 *4.4* Update the verify target so that the default tasks (checkstyle, junit, findbugs, emma, pmd, sclc) are all called.  Thus, sensor data will be sent whenever verify is called unless hackystat.enable is set to false.  Note that you'll have to import the sclc.build.xml file in verify.build.xml. 
 
+*4.5* Check in your changes to SVN.  Make sure to SVN add any new files!
+
+*4.6* Send email to hackystat-dev to announce your completion of your modules. 
+
 == 5.0 Troubleshooting ==
 
 If problems arise, the first thing to try is to set hackystat.verbose.mode to true in the build.xml file and see what is output.  If you're still stumped, then send a copy of th e output to mailing list for help if necessary.
