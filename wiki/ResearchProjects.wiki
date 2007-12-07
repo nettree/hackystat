@@ -52,7 +52,7 @@ and Complexity data from the !SensorBase.
 First, this decouples the Crap4J metric from Eclipse, so that any
 combination of tools that can send Coverage and Complexity data to
 Hackystat can produce the Crap metric.  For example, this would enable
-someone using Ant (via Emma or Clover for Coverage, and !JavaNCSS for
+someone using Ant (via Emma or Clover for Coverage, and JavaNCSS for
 complexity) to obtain the Crap metric for their code.
 
 This would also enable the Crap metric to be calculated for any other
@@ -217,6 +217,4 @@ use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
 Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
 
 The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
-
-
 
