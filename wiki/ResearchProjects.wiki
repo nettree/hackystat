@@ -19,7 +19,19 @@ Developing a sensor for a non-Java based tool, such as Visual Studio, may take a
 
 Examples of tools that we'd like to see sensors for include:  [http://msdn2.microsoft.com/en-us/vstudio/default.aspx Visual Studio], [http://www.jetbrains.com/teamcity/ TeamCity],  [http://www.headwaysoftware.com/products/structure101/index.php Structure 101], and [http://www.bugzilla.org/ Bugzilla], but there are many other interesting possibilities. 
 
-== 2.2 Beyond Crap4J ==
+While sensor development might appear at first glance to be a somewhat
+mundane "small matter of engineering", it can sometimes have far-reaching
+impact on Hackystat.  For example, the Structure 101 tool implements a
+measure of architectural complexity called "XS" with two submeasures: "fat"
+and "tangle".  Developing a sensor for Structure 101 thus involves
+designing an appropriate representation for that measure.  Such a
+representation can lead to new research directions, such as investigating
+the relationship between XS and other measures of complexity, such as
+Chidamber-Kemerer object oriented metrics, cyclomatic compleity, or
+UML-oriented design metrics.
+
+
+== 2.2 Investigating Crap4J ==
 
 The good folks at Artima have created a plugin for Eclipse called [http://www.crap4j.org/ Crap4J].  The idea behind this plugin is to combine a measure of complexity with a measure for testing coverage, such that code with high complexity and low coverage is viewed as "crappy".  I wrote a little bit about this in [http://johnson-engineering-log.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J].
 
@@ -29,15 +41,15 @@ There are several limitations of Crap4J:
   * It calculates complexity only on the basis of within-method path complexity, and does not take into account, for example, coupling or other architectural-level complexity.
   * There is no empirical evidence that this metric has any value, or under which contexts it might have value, even though it "feels intuitively meaningful."
 
-This provides an opportunity for several Hackystat-related efforts.
+Hackystat provides infrastructure for enhancing and evaluating this measure in several ways. 
 
-*Create an IDE and language independent version of Crap4J*
+*Provide an IDE and language independent version of Crap4J*
 
-The goal of this project is to create a Hackystat analysis and user
+To accomplish this, one must create a Hackystat analysis and user
 interface that computes and displays the Crap metric by retrieving Coverage
-and Complexity data from the !SensorBase.
+and Complexity data from the !SensorBase.  
 
-First, this would decouple the Crap4J metric from Eclipse, so that any
+First, this decouples the Crap4J metric from Eclipse, so that any
 combination of tools that can send Coverage and Complexity data to
 Hackystat can produce the Crap metric.  For example, this would enable
 someone using Ant (via Emma or Clover for Coverage, and !JavaNCSS for
@@ -45,16 +57,23 @@ complexity) to obtain the Crap metric for their code.
 
 This would also enable the Crap metric to be calculated for any other
 language in which coverage and complexity sensors exist.  For example, a
-Visual Studio sensor that could send complexity and coverage data.  The
-analysis could then compute the Crap metric on, say, C#.
+Visual Studio sensor that could send complexity and coverage data to Hackystat would 
+allow a developer to calculate the Crap metric on C#.
 
-*Create an "advanced" Crap metric that includes coupling*
+*Provide a "Crap++" metric that includes coupling*
 
-As an extension to the above, it would be interesting to experiment with an enhanced metric that takes into account higher levels of complexity such as module coupling.  This would probably take the form of an enhancement to the above analysis and user interface, along with sensors that can send Dependency data.
+The authors of the Crap metric acknowledge that it does not take into account other forms of complexity, such as module coupling.   The goal of this project is to enhance the original Crap metric to take into account such orthogonal complexity measures.
+
+To do this, one would provide a sensor in Hackystat for a tool that
+computes module coupling metrics, such as JDepend or DependencyFinder.
+Then, one would investigate ways to extend the computation of Crap to
+factor in results from the coupling data.  
+
+Determining the effectiveness of such an enhancement is the next step, discussed below.
 
 *Perform an empirical investigation of Crap*
 
-Once either of the above is done, a large set of empirical studies could be performed to better understand the strengths, weaknesses, and value of the Crap metric.  For example:
+While Crap seems intuitively meaningful, there are currently no empirical studies that provide evidence for its utility or effectiveness.  The goal of this project is to provide such evidence.  Here are several potential research questions.
 
   * Does the Crap4J have any predictive or explanatory power? For example, does the Crap metric correlate with other measures of software quality, such as build failures or defect rates? 
 
@@ -62,63 +81,141 @@ Once either of the above is done, a large set of empirical studies could be perf
 
   * Are some languages more crappy than others?  Do some environments, such Idea, lead to less crappy code than other environments, such as Eclipse?
 
-== 2.3 Assessing the effectiveness of Ambient Devices as Hackystat User Interface ==
+== 2.3 Ambient Devices in Software Development ==
 
-Hackystat provides an excellent infrastucture for investigating the application of ambient devices such as the [http://www.ambientdevices.com/cat/orb/orborder.html Ambient Orb] to software engineering.  
+Hackystat provides excellent infrastucture for investigating the application of ambient devices such as the [http://www.ambientdevices.com/cat/orb/orborder.html Ambient Orb]  or [http://www.nabaztag.com/en/index.html Nabaztag] to software development.
 
-The goal of this project is to create a "programmable user interface" to the Ambient Orb, that would allow a user to control how their ambient device displays information about Hackystat-gathered data.
+The goal of this project is to create a Hackystat service implementing a "programmable user interface" to an ambient device in order to communicate Hackystat process or product analysis results. 
 
-At the simplest level, this would consist of "on/off" kinds of triggers:  If the most recent continuous integration build for a project passed, it glows green, if not, red. This has already been [http://blogs.msdn.com/mswanson/articles/169058.aspx done].   
+At the simplest level, such an interface might provide  "on/off" kinds of triggers:  For example,  if the most recent continuous integration build for a project passed, it glows green, if not, red. This has already been [http://blogs.msdn.com/mswanson/articles/169058.aspx done].
 
-What makes Hackystat integration so interesting is the ability to go far beyond that by integrating more kinds of Hackystat data.   For example, analyses of coverage, devtime, unit testing, test driven development episodes, and so forth could all form triggers.  If two people are working on the same module, the orb could communicate that there is the potential for a commit conflict. And so forth.
+What makes Hackystat integration interesting is that Hackystat can collect and integrate information from a wide variety of tools and developer behaviors, resulting in the potential for much more sophisticated information display in the ambient device. Here are a couple of examples:
 
-After implementing such a mechanism, a case study could be performed to gather some initial evidence as to whether the use of this form of user interface was effective. One could also perform a study in which the same data was communicated in other ways, such as via email, and assess which mode was superior.
+* Commit Conflict Early Warning System *
 
+For example, assume you are a software developer working on a project in a
+distributed development environment.  The tasks are quite interdependent,
+and so there is a high likelihood that other developers may occasionally be
+making changes in the same module or file at approximately the same time.
+The typical impact of this is commit conflicts, which slow down development
+by requiring everyone to back out their changes and figure out how to
+re-integrate successfully.
+
+In this scenario, an ambient device might be helpful by providing a way to
+inform developers that they have started to edit code in a file that has
+also been edited by another developer (who has not yet checked in his or
+her changes.)  In a sense, the ambient device provides an "early warning
+system", enabling a developer to immediately contact the team to find out
+who is editing the file and discuss how to coordinate their changes before
+the commit occurs.  Hackystat provides value in this scenario by providing
+an IDE-independent implementation. 
+
+* Project Portfolio Progress Indicator *
+
+As another example, consider a manager of a large number of software
+development projects.  There may be several "indicators" that a project
+requires attention, ranging from unexpectedly low or high developer
+activity; gradually decreasing test coverage; an unusual number of build
+failures; or unusually high code churn.  The typical approach to this is to
+provide a "dashboard" with a set of charts showing all of this data.  That
+solution, however, takes up screen real estate and requires the manager to
+actually notice the change.  An ambient device might provide a superior
+alternative, in which a green light indicates all of the indicators are
+normal, along with a variety of non-green indicators to indicate what has
+deviated from appropriate conditions.  Only when the light is not green
+does the manager need to consult the dashboard to determine what to do
+next.
+
+* Assessing ambient devices for software development *
+ 
+Ambient devices are totally cool, but do they actually add value?  How does
+the use of an Orb compare to providing the same information via email, or
+Twitter tweet, or cell phone text message?  Under what circumstances would
+one of these communication media be preferable to another?  Hackystat can
+provide infrastructure for investigating this question by implementing all
+of these interfaces.  The next step is to devise an experimental design for
+the collection of useful evidence regarding the strengths and weaknesses of
+these mechanisms.
 
 == 2.4 A Hackystat/Twitter Mashup==
 
-Twitter is an interesting communication mechanism that has interesting implications for software engineering.  I wrote about this for the first time in 
+Twitter is an interesting communication mechanism that has interesting implications for software development.  I wrote about this for the first time in 
 [http://johnson-engineering-log.blogspot.com/2007/08/project-proprioception.html Project Proprioception], later 
 in [http://johnson-engineering-log.blogspot.com/2007/09/twitter-hackystat-and-solving-context.html Twitter, Hackystat, and solving the context switching problem] 
-and later in 
-[http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup]. 
+and once again in
+[http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup].   Members of the Hackystat development team have been using Twitter since Fall, 2007 as one of their communication methods, although without any direct Hackystat integration.
 
-The goal of this project is to create an interface such that "interesting events" in the Hackystat data stream can be published to Twitter as a team communication and coordination mechanism.
+The basic goal of this project is to create a Hackystat service that can detect  "interesting
+events" in the Hackystat data stream and then communicate them as Twitter "tweets".
 
-Research issues involve determining what kinds of data are suitable for publication, and assessing whether or not this information exchange had a meaningful impact on the software development process.
+To understand why this might be interesting, consider the canonical question that a Twitter user is asked to answer:  "What are you doing now?".   Hackystat integration allows automated generation of a relatively rich set of software development-related tweets on behalf of a developer:
 
-== 2.5 FFTs on Telemetry ==
+  * I have just started editing Foo.java.
+  * I am stepping through the source code of Bar.cc.
+  * I just got a [build | unit test] failure in Baz.py.
+  * I am resolving a commit conflict in Qux.cl.
+
+A developer might well follow up on the automated tweet with a regular tweet in which they provide supplemental information or request help from others. 
+
+There are several interesting research questions to address in this mashup.
+First, it is easy to imagine that such automated tweets could be little
+more than "spam", so the first issue is determining how to keep the
+signal-to-noise ratio sufficiently high that the service is considered
+useful.
+
+A second research issue is to evaluate the impact of such a mechanism on
+software development. Does it lead to concrete improvement in developer
+communication and coordination, or is it simply a neat idea with no real
+benefit?
+
+== 2.5 FFTs and Telemetry ==
 
 One interesting question about telemetry streams is whether there is "signal" in the trend line variations.  Dan Port suggested that we try running Fast Fourier Transforms over telemetry data to look for patterns, which I wrote about in  [http://johnson-engineering-log.blogspot.com/2007/10/fast-fourier-telemetry-transforms.html FFT of Telemetry Streams] . 
 
 This research project would involve first implementing an FFT-based analyses, then performing an empirical investigation to see if meaningful patterns in the telemetry streams can be identified.
 
-== 2.6 Applying the Semantic Web to Software Engineering ==
+== 2.6 The Semantic Web and Software Development ==
 
-I wrote some initial thoughts on how the Semantic Web (a.k.a. Web 3.0) could apply to software engineering in 
+I wrote some initial thoughts on how the Semantic Web (a.k.a. Web 3.0) could apply to software development in 
 [http://johnson-engineering-log.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web].
 
-As I noted in this article: It seems to me that Hackystat sensors are, in some sense, an attempt to take a software engineering artifact (the sensor data "Resource" field, in Hackystat 8 terminology), and retrofit Web 3.0 semantics on top of it (the !SensorDataType field being a simple example). The RESTful Hackystat 8 services are then a way to "republish" aspects of these artifacts in a Web 3.0 format (i.e. as Resources with a unique URI and an XML representation) . What is currently lacking in Hackystat 8 is the ability to obtain a resource in RDF representation rather than our home-grown XML, but that is a very small step from where we are now.
+As I noted in this article: It seems to me that Hackystat sensors are, in
+some sense, an attempt to take a software development artifact (the sensor
+data "Resource" field, in Hackystat 8 terminology), and retrofit Web 3.0
+semantics on top of it (the !SensorDataType field being a simple
+example). The RESTful Hackystat 8 services are then a way to "republish"
+aspects of these artifacts in a Web 3.0 format (i.e. as Resources with a
+unique URI and an XML representation) . What is currently lacking in
+Hackystat 8 is the ability to obtain a resource in RDF representation
+rather than our home-grown XML, but that is a very small step from where we
+are now.
 
 And here are some possible research directions:
 
-    * Can Web 3.0 improve our ability to evaluate the quality/security/etc. of open source software development projects?
-    * Can Web 3.0 improve our ability to create a credible representation of an open source programmer's skills?
+    * Can Web 3.0 improve our ability to evaluate the quality/security/etc. of software development projects?
+    * Can Web 3.0 improve our ability to create a credible representation of a programmer's skills?
     * Can Web 3.0 improve our ability to create autonomous agents that can provide more help in supporting the software development process?
 
-== 2.7 Social networks and software engineering == 
+== 2.7 Social Networks and Software Development == 
 
 In [http://johnson-engineering-log.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
 
-For this research project, develop an enhancement to an existing social network infrastructure such as Facebook that can provide developers with the ability to publish such profile information and make queries involving it.  
+For this research project, the first step is to develop an enhancement to an existing social
+network infrastructure such as Facebook that can provide developers with
+the ability to publish such profile information and make queries involving
+it.
 
-Perform an evaluation that helps understand that strengths and weaknesses of this approach to social networking for software engineers. 
+The second step is to perform an evaluation that helps reveal the strengths and weaknesses of this approach to social networking for software developers. 
 
-== 2.8 Is Ruby on Rails really better than Java?  Is NetBeans better than Eclipse? And so forth. ==
+== 2.8 Is Ruby on Rails really better than Java?  Is !NetBeans better than Eclipse? And so forth. ==
 
 While there is copious debate in the blogosphere over the strengths and weaknesses of different languages and environments, there is relatively little empirical evidence. 
 
-Hackystat provides infrastructure that can generate detailed data about the use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails, Eclipse, !NetBeans, etc.)  The interesting part is to come up with an experimental methodology that creates useful evidence regarding the differences between these environments.  
+Hackystat provides infrastructure that can generate detailed data about the
+use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
+Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
+
+The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
 
 
 
