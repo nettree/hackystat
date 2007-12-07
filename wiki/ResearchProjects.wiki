@@ -27,7 +27,7 @@ and "tangle".  Developing a sensor for Structure 101 thus involves
 designing an appropriate representation for that measure.  Such a
 representation can lead to new research directions, such as investigating
 the relationship between XS and other measures of complexity, such as
-Chidamber-Kemerer object oriented metrics, cyclomatic compleity, or
+Chidamber-Kemerer object oriented metrics, cyclomatic complexity, or
 UML-oriented design metrics.
 
 
@@ -217,8 +217,6 @@ use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
 Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
 
 The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
-
-
 
 
 
