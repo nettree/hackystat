@@ -9,13 +9,13 @@ If you are interested in participating in one of these projects, or have an idea
 
 == 2.0 Research and Development Projects== 
 
-In no particular order:
+Here are some project ideas, in no particular order.  Your thoughts and comments welcomed. 
 
 == 2.1 Sensor development ==
 
 The simplest way to enhance Hackystat is to provide a sensor for a new tool.   Developing a sensor for a Java-based tool, such as IntelliJ Idea, is quite straightforward and may take only a few days to weeks.
 
-Developing a sensor for a non-Java based tool, such as Visual Studio, may take a bit longer, since it requires you to build an interface to the SensorShell.  We have done this before in Version 7, so it's just a matter of porting to Version 8.  
+Developing a sensor for a non-Java based tool, such as Visual Studio, may take a bit longer, since it requires you to build an interface to the !SensorShell.  We have done this before in Version 7, so it's just a matter of porting to Version 8.  
 
 == 2.2 Beyond Crap4J ==
 
@@ -60,7 +60,7 @@ Once either 2.2.1 or 2.2.2 is accomplished, a large set of empirical studies cou
 
   * Are some languages more crappy than others?  Do some environments, such Idea, lead to less crappy code than other environments, such as Eclipse?
 
- == 2.3 Assessing the effectiveness of Ambient Devices as Hackystat User Interface ==
+== 2.3 Assessing the effectiveness of Ambient Devices as Hackystat User Interface ==
 
 Hackystat provides an excellent infrastucture for investigating the application of ambient devices such as the [http://www.ambientdevices.com/cat/orb/orborder.html Ambient Orb] to software engineering.  
 
@@ -96,7 +96,7 @@ This research project would involve first implementing an FFT-based analyses, th
 I wrote some initial thoughts on how the Semantic Web (a.k.a. Web 3.0) could apply to software engineering in 
 [http://johnson-engineering-log.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web].
 
-As I noted in this article: It seems to me that Hackystat sensors are, in some sense, an attempt to take a software engineering artifact (the sensor data "Resource" field, in Hackystat 8 terminology), and retrofit Web 3.0 semantics on top of it (the SensorDataType field being a simple example). The RESTful Hackystat 8 services are then a way to "republish" aspects of these artifacts in a Web 3.0 format (i.e. as Resources with a unique URI and an XML representation) . What is currently lacking in Hackystat 8 is the ability to obtain a resource in RDF representation rather than our home-grown XML, but that is a very small step from where we are now.
+As I noted in this article: It seems to me that Hackystat sensors are, in some sense, an attempt to take a software engineering artifact (the sensor data "Resource" field, in Hackystat 8 terminology), and retrofit Web 3.0 semantics on top of it (the !SensorDataType field being a simple example). The RESTful Hackystat 8 services are then a way to "republish" aspects of these artifacts in a Web 3.0 format (i.e. as Resources with a unique URI and an XML representation) . What is currently lacking in Hackystat 8 is the ability to obtain a resource in RDF representation rather than our home-grown XML, but that is a very small step from where we are now.
 
 And here are some possible research directions:
 
@@ -106,7 +106,7 @@ And here are some possible research directions:
 
 == 2.7 Social networks and software engineering == 
 
-http://johnson-engineering-log.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
+In [http://johnson-engineering-log.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
 
 For this research project, develop an enhancement to an existing social network infrastructure such as Facebook that can provide developers with the ability to publish such profile information and make queries involving it.  
 
