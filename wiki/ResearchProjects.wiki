@@ -1,13 +1,13 @@
 #summary Research and development project ideas involving Hackystat
 #labels Featured
 
-== 1.0 Overview ==
+= 1.0 Overview =
 
 Hackystat Version 8 provides infrastructure for a number of interesting research and development projects.  This page is intended to provide a very brief overview of a representative sampling of such projects.  Some of these projects may have active participants, and some may not. 
 
 If you are interested in participating in one of these projects, or have an idea for a different project involving Hackystat,  please do not hesitate to contact Philip Johnson (johnson@hawaii.edu) for more information. 
 
-== 2.0 Research and Development Projects== 
+= 2.0 Research and Development Projects= 
 
 Here are some project ideas, in no particular order.  Your thoughts and comments welcomed. 
 
@@ -16,6 +16,8 @@ Here are some project ideas, in no particular order.  Your thoughts and comments
 The simplest way to enhance Hackystat is to provide a sensor for a new tool.   Developing a sensor for a Java-based tool, such as IntelliJ Idea, is quite straightforward and may take only a few days to weeks.
 
 Developing a sensor for a non-Java based tool, such as Visual Studio, may take a bit longer, since it requires you to build an interface to the !SensorShell.  We have done this before in Version 7, so it's just a matter of porting to Version 8.  
+
+Examples of tools that we'd like to see sensors for include:  [http://msdn2.microsoft.com/en-us/vstudio/default.aspx Visual Studio], [http://www.jetbrains.com/teamcity/ TeamCity],  [http://www.headwaysoftware.com/products/structure101/index.php Structure 101], and [http://www.bugzilla.org/ Bugzilla], but there are many other interesting possibilities. 
 
 == 2.2 Beyond Crap4J ==
 
@@ -29,7 +31,7 @@ There are several limitations of Crap4J:
 
 This provides an opportunity for several Hackystat-related efforts.
 
-=== 2.2.1 Create an IDE and language independent version of Crap4J ===
+*Create an IDE and language independent version of Crap4J*
 
 The goal of this project is to create a Hackystat analysis and user
 interface that computes and displays the Crap metric by retrieving Coverage
@@ -46,13 +48,13 @@ language in which coverage and complexity sensors exist.  For example, a
 Visual Studio sensor that could send complexity and coverage data.  The
 analysis could then compute the Crap metric on, say, C#.
 
-=== 2.2.2 Create an "advanced" Crap metric that includes coupling ===
+*Create an "advanced" Crap metric that includes coupling*
 
-As an extension to 2.2.1, it would be interesting to experiment with an enhanced metric that takes into account higher levels of complexity such as module coupling.  This would probably take the form of an enhancement to the 2.2.1 analysis and user interface, along with sensors that can send Dependency data.
+As an extension to the above, it would be interesting to experiment with an enhanced metric that takes into account higher levels of complexity such as module coupling.  This would probably take the form of an enhancement to the above analysis and user interface, along with sensors that can send Dependency data.
 
-=== 2.2.3 Perform an empirical investigation of Crap ===
+*Perform an empirical investigation of Crap*
 
-Once either 2.2.1 or 2.2.2 is accomplished, a large set of empirical studies could be performed to better understand the strengths, weaknesses, and value of the Crap metric.  For example:
+Once either of the above is done, a large set of empirical studies could be performed to better understand the strengths, weaknesses, and value of the Crap metric.  For example:
 
   * Does the Crap4J have any predictive or explanatory power? For example, does the Crap metric correlate with other measures of software quality, such as build failures or defect rates? 
 
@@ -112,6 +114,11 @@ For this research project, develop an enhancement to an existing social network 
 
 Perform an evaluation that helps understand that strengths and weaknesses of this approach to social networking for software engineers. 
 
+== 2.8 Is Ruby on Rails really better than Java?  Is NetBeans better than Eclipse? And so forth. ==
+
+While there is copious debate in the blogosphere over the strengths and weaknesses of different languages and environments, there is relatively little empirical evidence. 
+
+Hackystat provides infrastructure that can generate detailed data about the use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails, Eclipse, !NetBeans, etc.)  The interesting part is to come up with an experimental methodology that creates useful evidence regarding the differences between these environments.  
 
 
 
