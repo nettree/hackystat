@@ -114,9 +114,9 @@ an IDE-independent implementation.
 
 As another example, consider a manager of a large number of software
 development projects.  There may be several "indicators" that a project
-requires attention, ranging from unexpectedly low or high developer
+requires attention, including unexpectedly low or high developer
 activity; gradually decreasing test coverage; an unusual number of build
-failures; or unusually high code churn.  The typical approach to this is to
+failures; or unusually high code churn.  The typical approach is to
 provide a "dashboard" with a set of charts showing all of this data.  That
 solution, however, takes up screen real estate and requires the manager to
 actually notice the change.  An ambient device might provide a superior
