@@ -1,0 +1,93 @@
+#summary Instructions on how to upgrade Hackystat modules with latest sensors
+
+= Motivation =
+
+For the public release, we really need to have at least a couple of weeks worth of data collected from our own system so that we can display interesting graphs in our documentation  taken from our own development.  Plus, of course, it would be cool to actually start knowing things like the overall coverage, size, devtime, etc. for the system.  Finally, this will provide us with some realistic performance data as we generate DPDs and so forth. 
+
+Unfortunately, only one of the modules has an up-to-date installation of the sensor code in its assorted build.xml files:  [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant].  
+
+The goal of this task is to get all of our modules upgraded. This is not hard.  I am proposing that we split up the work and all do a few modules for the following reasons:
+
+  * If each of us do a few modules, then none of us have to spend too much time on this task.
+  * The upgrading task is educational: it gives everyone a chance to make sure they understand how to install Hackystat sensors for Version 8. 
+
+= Assignments =
+
+Here's my proposed set of modules for each "volunteer". Let me know if this doesn't work for you. 
+
+|| *Volunteer* || Modules ||
+|| Philip || utilities, sensorbase, ant, stackyhack ||
+|| Aaron  || DPD, emacs ||
+|| Julie ||  XmlData, vim ||
+|| Austen || sensorshell, eclipse ||
+|| David || telemetryviewer, sensordataviewer ||
+|| Pavel || projectviewer, sensordatabrowser ||
+
+I am hoping you can upgrade two modules in under an hour.  I am also hoping you can do this in the near future so we can be collecting data by early next week. 
+
+= Procedure =
+
+== 1.0 Download sensors ==
+
+Download and unzip hackystat-8.0.1205-sensors-bin.zip. 
+
+Set the HACKYSTAT_ANTSENSORS_HOME environment variable to point to the antsensors.jar file
+
+Set the ANT_OPTS environment variable. 
+
+See [http://groups.google.com/group/hackystat-dev/browse_thread/thread/3b3190e9942aae93 Philip's excellent guide] for details.
+
+
+== 2.0 Get the ant sensors module for template code ==
+
+SVN update hackystat-sensor-ant to get most recent version of its build.xml files. 
+
+== 3.0 Verify your local environment ==
+
+If you have installed the binary distribution and updated the ant sensors module appropriately, then the following commands in the hackystat-sensor-ant module should send sensor data:
+
+  * ant -f checkstyle.build.xml
+  * ant -f emma.build.xml
+  * ant -f findbugs.build.xml
+  * ant -f junit.build.xml
+  * ant -f pmd.build.xml
+  * ant -f sclc.build.xml
+  * ant -f verify.build.xml
+
+Make sure that the Hackystat sensors are working correctly for you in the ant module before proceeding further.
+
+== 4.0 Upgrade your new module ==
+ 
+*4.1* Copy hackystat-sensor-ant/hackystat.build.xml to the new module, and SVN add it.
+
+*4.2* As in the Ant module's build.xml file, add the following to the new build.xml:
+
+{{{
+ <!-- Hackystat sensor definitions and configuration. -->
+  <import file="hackystat.build.xml"/>
+  <property name="hackystat.verbose.mode" value="false" />
+  <property name="hackystat.enable" value="true" />
+  <!-- define hackystat.enabled if hackystat.enable is true, so we can use it in an 'if' clause -->
+  <condition property="hackystat.enabled">
+    <istrue value="${hackystat.enable}"/>
+  </condition>
+}}}
+
+*4.3* Update the checkstyle, emma, findbugs, junit, pmd, and sclc build.xml files so that:
+
+  * The default target (typically called "pmd" etc) has the sensor target ("pmd.sensor", etc.) as a dependent task. 
+
+  * Replace the current <tool>.sensor target (if any) with the one from the same `*`.build.xml file in the ant module. The original one might be out of date. 
+
+  * Run the default target (i.e. "ant -f <tool>.build.xml") and check that sensor data is sent. 
+
+  * You may have to copy the sclc.build.xml file from hackystat-sensor-ant and SVN add it.
+
+*4.4* Update the verify target so that the default tasks (checkstyle, junit, findbugs, emma, pmd, sclc) are all called.  Thus, sensor data will be sent whenever verify is called unless hackystat.enable is set to false.  Note that you'll have to import the sclc.build.xml file in verify.build.xml. 
+
+== 5.0 Troubleshooting ==
+
+If problems arise, the first thing to try is to set hackystat.verbose.mode to true in the build.xml file and see what is output.  If you're still stumped, then send a copy of th e output to mailing list for help if necessary.
+
+
+
