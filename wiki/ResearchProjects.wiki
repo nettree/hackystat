@@ -91,7 +91,7 @@ At the simplest level, such an interface might provide  "on/off" kinds of trigge
 
 What makes Hackystat integration interesting is that Hackystat can collect and integrate information from a wide variety of tools and developer behaviors, resulting in the potential for much more sophisticated information display in the ambient device. Here are a couple of examples:
 
-* Commit Conflict Early Warning System *
+* Commit Conflict Early Warning System. *
 
 For example, assume you are a software developer working on a project in a
 distributed development environment.  The tasks are quite interdependent,
@@ -110,7 +110,7 @@ who is editing the file and discuss how to coordinate their changes before
 the commit occurs.  Hackystat provides value in this scenario by providing
 an IDE-independent implementation. 
 
-* Project Portfolio Progress Indicator *
+* Project Portfolio Progress Indicator. *
 
 As another example, consider a manager of a large number of software
 development projects.  There may be several "indicators" that a project
@@ -126,7 +126,8 @@ deviated from appropriate conditions.  Only when the light is not green
 does the manager need to consult the dashboard to determine what to do
 next.
 
-* Assessing ambient devices for software development *
+* Assessing ambient devices for software development. *
+
  
 Ambient devices are totally cool, but do they actually add value?  How does
 the use of an Orb compare to providing the same information via email, or
@@ -148,11 +149,11 @@ and once again in
 The basic goal of this project is to create a Hackystat service that can detect  "interesting
 events" in the Hackystat data stream and then communicate them as Twitter "tweets".
 
-To understand why this might be interesting, consider the canonical question that a Twitter user is asked to answer:  "What are you doing now?".   Hackystat integration allows automated generation of a relatively rich set of software development-related tweets on behalf of a developer:
+To understand why this might be interesting, consider the canonical question that a Twitter user is asked to answer:  "What are you doing now?".   Hackystat integration allows automated generation of a relatively rich set of software development-related tweets on behalf of a developer. Here are just a few examples:
 
   * I have just started editing Foo.java.
   * I am stepping through the source code of Bar.cc.
-  * I just got a [build | unit test] failure in Baz.py.
+  * I just got a unit test failure in Baz.py.
   * I am resolving a commit conflict in Qux.cl.
 
 A developer might well follow up on the automated tweet with a regular tweet in which they provide supplemental information or request help from others. 
