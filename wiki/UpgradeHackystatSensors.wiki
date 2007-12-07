@@ -15,10 +15,10 @@ The goal of this task is to get all of our modules upgraded. This is not hard.  
 
 Here's my proposed set of modules for each "volunteer". Let me know if this doesn't work for you. 
 
-|| *Volunteer* || Modules ||
+|| *Volunteer* || *Modules* ||
 || Philip || utilities, sensorbase, ant, stackyhack ||
 || Aaron  || DPD, emacs ||
-|| Julie ||  XmlData, vim ||
+|| Julie ||  !XmlData, vim ||
 || Austen || sensorshell, eclipse ||
 || David || telemetryviewer, sensordataviewer ||
 || Pavel || projectviewer, sensordatabrowser ||
@@ -88,6 +88,4 @@ Make sure that the Hackystat sensors are working correctly for you in the ant mo
 == 5.0 Troubleshooting ==
 
 If problems arise, the first thing to try is to set hackystat.verbose.mode to true in the build.xml file and see what is output.  If you're still stumped, then send a copy of th e output to mailing list for help if necessary.
-
-
 
