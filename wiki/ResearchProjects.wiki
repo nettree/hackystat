@@ -96,8 +96,8 @@ What makes Hackystat integration interesting is that Hackystat can collect and i
 For example, assume you are a software developer working on a project in a
 distributed development environment.  The tasks are quite interdependent,
 and so there is a high likelihood that other developers may occasionally be
-making changes in the same module or file at approximately the same time.
-The typical impact of this is commit conflicts, which slow down development
+making changes in the same module or file at approximately the same time as you are.
+The typical result of such concurrent activity is commit conflicts, which slow down development
 by requiring everyone to back out their changes and figure out how to
 re-integrate successfully.
 
@@ -217,4 +217,3 @@ use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
 Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
 
 The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
-
