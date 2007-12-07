@@ -83,9 +83,10 @@ Make sure that the Hackystat sensors are working correctly for you in the ant mo
 
   * You may have to copy the sclc.build.xml file from hackystat-sensor-ant and SVN add it.
 
+Note: if a module (like emacs or vim) does not have things like checkstyle, etc., then of course don't worry about a sensor for it.  We do want all modules to run SCLC at a minimum. 
+
 *4.4* Update the verify target so that the default tasks (checkstyle, junit, findbugs, emma, pmd, sclc) are all called.  Thus, sensor data will be sent whenever verify is called unless hackystat.enable is set to false.  Note that you'll have to import the sclc.build.xml file in verify.build.xml. 
 
 == 5.0 Troubleshooting ==
 
 If problems arise, the first thing to try is to set hackystat.verbose.mode to true in the build.xml file and see what is output.  If you're still stumped, then send a copy of th e output to mailing list for help if necessary.
-
