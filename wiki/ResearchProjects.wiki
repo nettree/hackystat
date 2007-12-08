@@ -314,7 +314,7 @@ Building on his initial idea, implement a Hackystat service that provides a runn
 
 Conversely, points can be taken away from a player when the checked in code violates one or more of these conditions.  
 
-Note that assessing the appropriateness of "elapsed time" will require some sophistication.  A continuous integration rule of thumb is that "a checkin a day keeps the integration failure away".  However, the system has to take into account that if a developer isn't even working on the code, then they shouldn't be penalized several days elapsing before they do a checkin.
+Note that assessing the appropriateness of "elapsed time" will require some sophistication.  A continuous integration rule of thumb is that "a checkin a day keeps the integration failure away".  However, the system has to take into account that if a developer isn't even working on the code, then they shouldn't be penalized for several days elapsing before they do a checkin.
 
 Similarly, "volume" has to take into account the fact that refactoring can generate a large amount of code churn in a short period of time.  So, if a player is making a commit per day, and one of these commits has very high code churn, then they shouldn't be penalized, since it's unlikely that they could or should have prevented this via more frequent checkin.  On the other hand, if the !DevEvent data indicates that they were working on the system every day for the past week and never checked in any code, and then checked in a bunch of changes, that presumably indicates that the developer should have broken up the task into smaller pieces and checked in intermediate results. 
 
