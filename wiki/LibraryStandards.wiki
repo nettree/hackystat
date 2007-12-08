@@ -35,10 +35,13 @@ of "Program Files" or "Documents and Settings", for example.
 Some Hackystat systems require access to the pre-built binaries of other Hackystat systems.  For example, several Hackystat systems access the !SensorBase using the !SensorBaseClient class which is available via the sensorbase.jar file.  Here are the standard names for environment variables and classpath variables for such Hackystat systems, as well as a value based upon a System Distribution. 
 
 || *Hackystat Package* || *Standard Environment/Classpath Variable*  || *Sample Env Value* ||
-|| [http://code.google.com/p/hackystat-sensor-ant Hackystat Ant Sensor] || HACKYSTAT_ANTSENSORS_HOME || c:\public_hackystat\hackystat-sensors-8.0.1015\hackystat-sensor-ant ||
-|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || HACKYSTAT_UTILITIES_HOME ||  c:\public_hackystat\hackystat-services-8.0.1015\hackystat-utilities\bin ||
-|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || HACKYSTAT_SENSORBASE_HOME ||  c:\public_hackystat\hackystat-services-8.0.1015\hackystat-sensorbase-uh\bin ||
-|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || HACKYSTAT_SENSORSHELL_HOME ||  c:\public_hackystat\hackystat-sensors-8.0.1015\hackystat-sensor-shell\bin ||
+|| [http://code.google.com/p/hackystat-utilities Hackystat Utilities] || HACKYSTAT_UTILITIES_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-utilities ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh Hackystat Sensorbase] || HACKYSTAT_SENSORBASE_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-sensorbase-uh ||
+|| [http://code.google.com/p/hackystat-sensor-shell Hackystat SensorShell] || HACKYSTAT_SENSORSHELL_HOME ||  c:\public_hackystat\hackystat-8.0.1205-sensors-bin\hackystat-sensor-shell ||
+|| [http://code.google.com/p/hackystat-sensor-ant Hackystat Ant Sensors] || HACKYSTAT_ANTSENSORS_HOME ||  c:\public_hackystat\hackystat-8.0.1205-sensors-bin\hackystat-sensor-ant ||
+|| [http://code.google.com/p/hackystat-service-dailyprojectdata Hackystat DailyProjectData] || HACKYSTAT_DAILYPROJECTDATA_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-analysis-dailyprojectdata ||
+|| [http://code.google.com/p/hackystat-service-telemetry Hackystat Telemetry] || HACKYSTAT_TELEMETRY_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-analysis-telemetry ||
+
 
 Note that some of these packages are located in the "services" distribution, and others are located in the "sensors" distribution. 
 
