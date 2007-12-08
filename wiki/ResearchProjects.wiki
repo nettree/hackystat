@@ -310,7 +310,7 @@ Building on his initial idea, implement a Hackystat service that provides a runn
   * No static analysis tool (Checkstyle, PMD, !FindBugs, etc.) generated an error.
   * Coverage increased, or else was over some threshold and did not decrease.
   * The "volume" of the checkin (code churn) was both above some threshold value and below some other threshold value.
-  * The elapsed time since the last checking was both above some threshold value and below some other threshold value. 
+  * The "elapsed time" since the last checkin was both above some threshold value and below some other threshold value. 
 
 Conversely, points can be taken away from a player when the checked in code violates one or more of these conditions.  
 
