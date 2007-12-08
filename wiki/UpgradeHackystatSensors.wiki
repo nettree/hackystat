@@ -20,8 +20,8 @@ Here's my proposed set of modules for each "volunteer". Let me know if this does
 || Aaron  || DPD, emacs ||
 || Julie ||  !XmlData, vim ||
 || Austen || sensorshell, eclipse ||
-|| David || telemetryviewer, sensordataviewer ||
-|| Pavel || projectviewer, sensordatabrowser ||
+|| David || telemetryviewer, sensordataviewer, sensordatabrowser ||
+|| Pavel || projectviewer ||
 
 I am hoping you can upgrade two modules in under an hour.  I am also hoping you can do this in the near future so we can be collecting data by early next week. 
 
