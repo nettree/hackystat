@@ -41,6 +41,7 @@ Some Hackystat systems require access to the pre-built binaries of other Hackyst
 || [http://code.google.com/p/hackystat-sensor-ant Hackystat Ant Sensors] || HACKYSTAT_ANTSENSORS_HOME ||  c:\public_hackystat\hackystat-8.0.1205-sensors-bin\hackystat-sensor-ant ||
 || [http://code.google.com/p/hackystat-service-dailyprojectdata Hackystat DailyProjectData] || HACKYSTAT_DAILYPROJECTDATA_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-analysis-dailyprojectdata ||
 || [http://code.google.com/p/hackystat-service-telemetry Hackystat Telemetry] || HACKYSTAT_TELEMETRY_HOME ||  c:\public_hackystat\hackystat-8.0.1205-services-bin\hackystat-analysis-telemetry ||
+|| [http://code.google.com/p/hackystat-sensor-xmldata Hackystat XML Data Sensor] || HACKYSTAT_XMLDATA_HOME || c:\public_hackystat\hackystat-8.0.1205-sensors-bin\hackystat-sensor-xmldata ||
 
 
 Note that some of these packages are located in the "services" distribution, and others are located in the "sensors" distribution. 
