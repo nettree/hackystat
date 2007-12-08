@@ -270,7 +270,7 @@ provide include:
   * test invocations
   * test coverage
   * daily build results
-  * static analyses from tools such as PMD, Checkstyle, FindBugs,  Lint, etc.
+  * static analyses from tools such as PMD, Checkstyle, !FindBugs,  Lint, etc.
   * code review results
   * coupling and cohesion
   * performance analysis
