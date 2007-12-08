@@ -30,7 +30,6 @@ the relationship between XS and other measures of complexity, such as
 Chidamber-Kemerer object oriented metrics, cyclomatic complexity, or
 UML-oriented design metrics.
 
-
 == 2.2 Investigating Crap4J ==
 
 The good folks at Artima have created a plugin for Eclipse called [http://www.crap4j.org/ Crap4J].  The idea behind this plugin is to combine a measure of complexity with a measure for testing coverage, such that code with high complexity and low coverage is viewed as "crappy".  I wrote a little bit about this in [http://johnson-engineering-log.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J].
@@ -217,3 +216,83 @@ use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
 Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
 
 The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
+
+== 2.9 A Hackystat/Ohloh Mashup ==
+
+[http://www.ohloh.net Ohloh] is, according to their home page, "an open source network that connects people through the software they create and use."  In practice, Ohloh works in the following way:
+
+  * Software developers create an account and point Ohloh at their version control repository.
+  * Ohloh crawls the repository periodically and counts the code, looks for file types, licenses, and committers.
+  * The Ohloh project home page presents  some general statistics and summaries for the project.
+  * Developers provides review of projects and kudos points for other developers. 
+
+For example, here is the [http://www.ohloh.net/projects/5584?p=Hackystat-8 Hackystat Version 8 Ohloh page].
+
+One of Ohloh's goals is to provide a sense for the credibility
+of an open source project.  For example, for Hackystat 8, the summary is:
+
+{{{
+Mostly written in Java
+Large, active development team
+Well-commented source code
+Short source control history 
+Apache software license may conflict with GPL
+}}}
+
+An interesting synergy might result from enabling Ohloh to display
+information collected by Hackystat sensors as a way for developers to
+improve the credibility of their project to the outside world.  For
+example, it would be quite nice to know the test case coverage of an open
+source project, and even better, to know the history of its coverage over
+time.  It would be quite problematic for Ohlo to actually build every
+system, run its test cases, and generate coverage, given the multitude of
+languages, technologies, and reporting mechanisms.
+
+That is not a problem for Hackystat, since it provides sensors for  
+various build and testing tools in a variety of languages, which  
+means that if the development team is actually running test cases  
+and generating coverage data internally, Hackystat provides a way  
+to make that data externally available in a standard way.  A second  
+example is test-driven design (TDD), for "agile" organizations,  
+being able to provide credible evidence that they are employing a  
+practice like TDD can be a major selling point for their product.   
+There are lots of other possibilities as well.
+
+An initial approach to this project would be to make the Ohlo dashboard  
+extensible, with the ability to incorporate not only the "standard"  
+kinds of analyses that can be generated from analyses of the  
+configuration management repository, but with the ability to also  
+incorporate "extended" analyses based upon process/product data  
+that it can extract from a Hackystat repository associated with the  
+project.  Examples of extended analyses that Hackystat could  
+provide include:
+
+  * test invocations
+  * test coverage
+  * daily build results
+  * static analyses from tools such as PMD, Checkstyle, FindBugs,  Lint, etc.
+  * code review results
+  * coupling and cohesion
+  * performance analysis
+  * developer effort
+
+The more kinds of extended analyses that a Project makes available  
+to Ohlo, the higher the quality of the evaluation that Ohlo can  
+perform on the project, and the more confidence a prospective user  
+of an open source project might have in using it in their own work.
+
+There are privacy issues that need to be worked out, to be sure.   
+Currently in Hackystat, data on a Project is visible  
+only to those developers working on that Project.  For this kind of  
+synergy to exist, it must be possible to allow developers to easily  
+specify "public" aspects of their Hackystat data that they will  
+allow a service such as Ohlo to obtain. Given that, it seems like  
+the interface on the Ohlo side is relatively simple and similar to  
+the current enlistment mechanism: just as one currently specifies  
+an SVN server, one would add a specification of a Hackystat  
+server. 
+
+I have already communicated these ideas to the Ohloh development team, and
+they are enthusiastic about the possibilities. Let me know if you want to
+pursue this and I will followup on my prior communications.
+
