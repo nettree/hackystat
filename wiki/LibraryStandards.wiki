@@ -19,7 +19,7 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || [http://www.junit.org JUnit] || 4.4 || JUNIT_HOME ||   c:\java-tools\junit4.4 ||
 || [http://pmd.sourceforge.net/ PMD] || 4.0 || PMD_HOME ||   c:\java-tools\pmd-4.0 ||
 || [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.5 ||
-|| [http://csdl.ics.hawaii.edu/Tools/SCLC SCLC-UH] || 2.5.525 (May, 2007) || SCLC_HOME || c:\java-tools\sclc-2.5.525 ||
+|| [http://code.google.com/p/sclc/ SCLC] || 2.6.1116 || SCLC_HOME || c:\java-tools\sclc-2.6.1116 ||
 || [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||  c:\java-tools\apache-tomcat-6.0.13 ||
 
 Consult the Developer Guide for a system to learn which of these external libraries are required.   If it is required, you will need to download it, set up the environment variable, and then bring up a new console shell/window so that the environment variable is defined before running Ant. 
