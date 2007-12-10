@@ -213,9 +213,36 @@ While there is copious debate in the blogosphere over the strengths and weakness
 
 Hackystat provides infrastructure that can generate detailed data about the
 use of languages (Ruby, Java, PHP, etc.) and environments (Rails, Grails,
-Eclipse, !NetBeans, etc.)  The first step in this project is to determine what to measure between the two languages/environments under comparison. 
+Eclipse, !NetBeans, etc.)  
 
+The first step in this project is to determine what to measure between the two languages/environments under comparison.   
 The second step is to design an experimental methodology that generates useful evidence regarding the differences between these environments.  
+
+A conventional approach to such a study is to specify a set of "outcome"
+measures or independent variables---code size, complexity, functionality,
+test coverage, etc. and then attempt to compare "similar" projects in which
+the dependent variable is the language or environment.  For example, you
+might design a study to see if a project written in Ruby on Rails contains
+much less code than a similar project written in Java.
+
+A different approach is to study the behavioral characteristics of
+development and how they are influenced by the choice of language or
+environment.  For example, what are the sequence of editor and/or shell
+commands required to set up a project in Ruby on Rails, and how is this
+different from what is required to set up a Java web application project?
+What is required to implement a "small change", and how is this different
+between Ruby on Rails and, say, Struts?
+
+In either case, important experimental design issues exist.  For the first
+approach, an issue is determining whether the two projects are actually
+"similar", and whether the outcome measures are due to the dependent
+variables or rather just due to differences in programmer skill.  For the
+second approach, an issue is to differentiate effectively "random"
+variation in behaviors, or application-specific behaviors, from behaviors
+that are "essential" and due to the infrastructure itself.
+
+These are difficult, but not insurmountable experimental design issues.  
+
 
 == 2.9 A Hackystat/Ohloh Mashup ==
 
