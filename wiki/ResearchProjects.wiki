@@ -372,6 +372,14 @@ Hackystat sensors.   Some of the research and development questions include:
 
 
 
+== 2.12 Alternative Data Visualization with Processing ==
+
+From their home page: "[http://processing.org/ Processing]  is an open source programming language and environment for people who want to program images, animation, and interactions."
+
+For this project, use the Processing environment to design new forms of visual interfaces to the information collected by Hackystat.  The [http://processing.org/exhibition/index.html Exhibition page] provides some interesting examples of what can be done by Processing.  For example, [http://carohorn.de/anymails/ AnyMails] visualizes your email stream as a set of microbes, and [http://design.yahoo.com/project.php?pid=9 Query Burst Visualizer] shows a spinning globe with streams of queries emanating from different locations.  One could imagine designing interface services for Hackystat that, for example, shows bugs as microbes, or DevEvents overlaid on a "map" of the system.  
+
+In general, this project consists of two parts:  (1) Use [http://processing.org/ Processing] to generate a wildly new way to interact with Hackystat data, and (2) Use [http://en.wikipedia.org/wiki/Scientific_method Science] to figure out whether what you generated is actually helpful or just an amusing hack.
+
 
 
 
