@@ -84,7 +84,14 @@ While Crap seems intuitively meaningful, there are currently no empirical studie
 
 Hackystat provides excellent infrastucture for investigating the application of ambient devices such as the [http://www.ambientdevices.com/cat/orb/orborder.html Ambient Orb]  or [http://www.nabaztag.com/en/index.html Nabaztag] to software development.
 
-The goal of this project is to create a Hackystat service implementing a "programmable user interface" to an ambient device in order to communicate Hackystat process or product analysis results. 
+The goal of this project is to create a Hackystat service implementing a
+"programmable user interface" to one or more ambient devices in order to
+communicate Hackystat process or product analysis results.  The user
+interface could, for example, provide a kind of "visual programming" environment, with
+process/product data icons on one side, ambient device icons on the other
+side, mouse gestures drag an arrow from one side to the other to "hook up"
+the process/product data icon to the ambient device that will respond to
+it.
 
 At the simplest level, such an interface might provide  "on/off" kinds of triggers:  For example,  if the most recent continuous integration build for a project passed, it glows green, if not, red. This has already been [http://blogs.msdn.com/mswanson/articles/169058.aspx done].
 
@@ -379,6 +386,25 @@ From their home page: "[http://processing.org/ Processing]  is an open source pr
 For this project, use the Processing environment to design new forms of visual interfaces to the information collected by Hackystat.  The [http://processing.org/exhibition/index.html Exhibition page] provides some interesting examples of what can be done by Processing.  For example, [http://carohorn.de/anymails/ AnyMails] visualizes your email stream as a set of microbes, and [http://design.yahoo.com/project.php?pid=9 Query Burst Visualizer] shows a spinning globe with streams of queries emanating from different locations.  One could imagine designing interface services for Hackystat that, for example, shows bugs as microbes, or DevEvents overlaid on a "map" of the system.  
 
 In general, this project consists of two parts:  (1) Use [http://processing.org/ Processing] to generate a wildly new way to interact with Hackystat data, and (2) Use [http://en.wikipedia.org/wiki/Scientific_method Science] to figure out whether what you generated is actually helpful or just an amusing hack.
+
+== 2.13 Blending physical and virtual workspaces ==
+
+[http://www.ddj.com/architect/204800604 Informative Workspaces] tend to blend the physical and virtual:
+"manually updated nonelectronic visual displays" co-exist with "electronic 
+devices hooked up to automated processes".    The result (as Kent Beck puts it), is "when 
+an interested observer walks into your team space, s/he should be able to get a general 
+idea of how your project is going in 15 seconds, and be able to get a deeper perspective 
+on real or potential problems by looking more closely."
+
+Can we alter this balance between physical and virtual in an interesting
+way?  For example, what would be the implications of having a team space in [http://secondlife.com/ Second Life]
+as well as in the physical world? Some initial thoughts:
+
+  * A globally distributed team in the physical world would be co-located in Second Life.  You could see "at a glance" whether a team mate was "in" or "out" of the office, and they could see whether you could see them there or not; 
+
+  * You could have the physical "co-located" cues in the Second Life space.  For example, someone's Second Life office door would be open if they are amenable to interruption, closed if not; 
+
+  * You could have much more "interesting" kinds of ambient devices, because you are no longer restricted to things like the laws of gravity or construction economics.  Instead of an ambient device glowing, you could have a lava lamp that levitates.  You could provide an indication of project status by the weather outside the office windows: sunny, warm, Hawaiian weather means everything is No Ka Oi, cloudy means problems on the horizon, snow up past the windows means time for the Death March.
 
 
 
