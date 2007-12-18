@@ -406,7 +406,6 @@ as well as in the physical world? Some initial thoughts:
 
   * You could have much more "interesting" kinds of ambient devices, because you are no longer restricted to things like the laws of gravity or construction economics.  Instead of an ambient device glowing, you could have a lava lamp that levitates.  You could provide an indication of project status by the weather outside the office windows: sunny, warm, Hawaiian weather means everything is No Ka Oi, cloudy means problems on the horizon, snow up past the windows means time for the Death March.
 
-
-
-
+Here's some interesting links:  [http://dev.aol.com/article/2007/04/second-life Software development in Second Life], and 
+[http://vital.cs.ohiou.edu/vitalwiki/index.php/Second_Life_Development Second Life Software Engineering Process Game].
 
