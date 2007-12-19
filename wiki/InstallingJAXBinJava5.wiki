@@ -1,31 +1,58 @@
-#summary How to install JAXB libraries in Java 5
+#summary Hackystat and JAXB dependency issues
 
-Hackystat Version 8 is intended primarily for a Java 6 environment, in which JAXB libraries are provided in the core distribution.  However, we currently provide backward compatibility with Java 5 as long as the JAXB libraries are installed into your Java 5.  This page explains how to do this. 
+== 1.0 Introduction ==
 
-== 1. Download the JAXB 2.0 libraries. ==
+[https://jaxb.dev.java.net/ JAXB] is a Java technology for bi-directional translation between XML and Java.  JAXB has two components:
 
-The JAXB libraries are available at: [https://jaxb.dev.java.net/ https://jaxb.dev.java.net/].
+  # A compile-time component, called the JAXB compiler, or XJC.  This system reads in an XML schema and generates .java files containing Java class definitions corresponding to the definitions in the XML schema.
+  # A run-time library.  Among other things, the JAXB run-time library provides implementations of a "Marshaller" class (for translating Java instances to their corresponding XML) and an "Unmarshaller" class (for translating XML to a set of Java class instances). 
 
-Please install a JAXB 2.0 release, not a JAXB 2.1 release, in order to be compatible with the version of JAXB distributed with Java 6. We recommend Release 2.0.5.
+JAXB is very convenient for dealing with XML, but there are several infrastructure issues that must be addressed in Hackystat: 
 
-After downloading and unzipping, you should obtain a directory such as the following:
+  * Java 5 did not contain JAXB at all, while Java 6 provides JAXB 2.0 as a core library. This implies that Java 5 users must provide JAXB in their run-time environment. 
+  * JAXB now has a new major release, called 2.1.5, which is not completely backward compatible with JAXB 2.0.  
+
+A requirement for Hackystat is to run successfully in both Java 5 and Java 6 environments, and to support both JAXB 2.0 and JAXB 2.1.5 versions. This implications of this requirement is:
+
+  * If you are running Java 5, you must install JAXB (2.0 or 2.1.5) into your Java runtime environment.
+  * If you are building Hackystat and need to run the XJC compiler because you have added or altered XML schemas, you must use the JAXB 2.1.5 XJC compiler. 
+  * Hackystat requires the JAXB 2.1.5 XJC compiler, but the Hackystat JAXB Ant tasks are configured by default to generate JAXB 2.0-compliant files. This should allow Hackystat binaries to execute in a runtime with either JAXB 2.0 or JAXB 2.1.5. 
+  * By setting an environment variable, the Hackystat JAXB Ant tasks can  generate 2.1-compliant Java class files.  This enables a developer to build a Hackystat executable with full optimizations for a JAXB 2.1.5-compliant runtime, but which will not run in a 2.0 runtime (such as the default Java 6 environment). 
+
+The next section discusses how to install JAXB into a Java 5 environment, which is all that end-users of Hackystat should need to worry about.  The following sections discuss issues of interest to developers only. 
+
+== 2.0 How to install JAXB into Java 5 ==
+
+=== 2.1 Downloading JAXB ===
+
+The JAXB libraries are available at: [https://jaxb.dev.java.net/ JAXB].  
+
+You can install either JAXB 2.0 or JAXB 2.1.5. 
+
+After downloading and invoking 'java -jar JAXB-{version}.jar', you should obtain a directory such as the following:
 
 {{{
-~/jaxb-ri-20070122/
+~/jaxb-ri-20070122/  # for JAXB 2.0
+}}}
+
+or 
+
+{{{
+~/jaxb-ri-20070917/  # for JAXB 2.1.5
 }}}
 
 It will contain a lib/ directory with the jar files that you will need to install.
 
-== 2. Copy JAXB jar files to the {java}/lib/ext directory ==
+=== 2.2 Copy JAXB jar files to the {java}/lib/ext directory ===
 
-To install JAXB, you need to copy the following four files from the JAXB/lib directory:
+To install JAXB into the Java 5 runtime, you need to copy the following four files from the JAXB/lib directory:
 
  * activation.jar (*see below*)
  * jaxb-api.jar
  * jaxb-impl.jar
  * jsr173_1.1_api.jar
 
-*Note:* you have presumably already installed version 1.1 of the !JavaBeans Activation Framework as part of InstallingJavaMail, which is more recent than than the 1.0 version provided with JAXB, so you do not need to copy over the activation.jar file.
+|| *Note:* you have presumably already installed version 1.1 of the !JavaBeans Activation Framework as part of InstallingJavaMail, which is more recent than than the 1.0 version provided with JAXB, so you do not need to copy over the activation.jar file. ||
 
 The location to which you copy these files depends upon your operating system.
 
@@ -35,7 +62,7 @@ The location to which you copy these files depends upon your operating system.
 
 Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory. On Mac OS X you will need to authenticate as an administrator to copy the files to the System area.
 
-== 3. Verifying your installation ==
+=== 2.3 Verifying your installation ===
 
 Unfortunately, we don't currently have a simple way to verify that you have installed JAXB correctly.  What we do know is that if you don't have JAXB installed, then Hackystat services like the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] will abort with the following error on startup:
 
@@ -49,4 +76,14 @@ Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/JAXBCo
         at org.hackystat.sensorbase.server.Server.main(Server.java:130)
 }}}
 
-So, one way to test your JAXB installation is to run the !SensorBase and see that this error does not occur.
+Sensors might get errors such as the following:
+
+{{{
+java.lang.LinkageError: loader constraints violated when linking javax/xml/names pace/QName class
+
+java.lang.NoClassDefFoundError
+       at org.hackystat.sensorshell.SingleSensorShell.<init>(SingleSensorShell.java:132)
+}}}
+
+
+
