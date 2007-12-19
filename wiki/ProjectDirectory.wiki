@@ -25,7 +25,8 @@
 == User Interface Services ==
 
 || [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] || Shows recently arrived data in near-real time. ||
-|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. |||| [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
+|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. ||
+|| [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
 || [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
 
 
