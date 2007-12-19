@@ -1,5 +1,4 @@
 #summary Information about System Distributions
-#labels Featured
 
 === System Distribution December 02, 2007 (8.0.1202) ===
 
