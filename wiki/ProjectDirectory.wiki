@@ -1,12 +1,27 @@
 #summary Links to Hackystat services.
 
+The Hackystat Framework consists of a set of services, each implemented and maintained in its own Google Project Hosting project. This page provides a directory of all of the projects with our participation.  To aid in understanding, we divide the projects into several categories based upon their key functionality.
+
 == Core Services ==
+
+These projects provide the sensor data repository and helpful utilities. 
 
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || The repository for raw data which provides four core resource representations: Sensor Data, Sensor Data Type, Project, and User. ||
 || [http://code.google.com/p/hackystat-utilities/ Utilities]  || A library of utility classes used by many modules. ||
 
 
+== User Interface Services ==
+
+These projects provide end-user interfaces. 
+
+|| [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] || Shows recently arrived data in near-real time. ||
+|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. ||
+|| [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
+|| [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
+
 == Sensors ==
+
+These projects support sensors, or small software plugins that collect data from development tools and send it to the !SensorBase.
 
 || [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] || The "middleware" abstraction that encapsulates details of data transmission, data buffering, and offline storage. ||
 || [http://code.google.com/p/hackystat-sensor-ant/ Ant-based Sensors] || Sensors for tools such as Clover, JUnit, Checkstyle, FindBugs, PMD, and Ant itself. ||
@@ -16,17 +31,10 @@
 || [http://code.google.com/p/hackystat-sensor-xmldata/ XML Data Sensor] || A generic sensor for processing data in XML format. ||
 || [http://code.google.com/p/hackystat-sensor-example/ StackyHack] || An example system showing implementations of various Ant-based sensors.  ||
 
-
-== User Interface Services ==
-
-|| [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] || Shows recently arrived data in near-real time. ||
-|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. ||
-|| [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
-|| [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
-
-
  
 == Analysis Services ==
+
+These projects take data from the !SensorBase (and/or other Analysis Services) and generate higher level abstractions. 
 
 || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || Provides abstractions of raw data for a given project and day. ||
 || [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || Provides a trend-based abstraction called "Software Project Telemetry" based upon the Daily Project Data abstraction. ||
@@ -34,6 +42,8 @@
 
 
 == Experimental Services ==
+
+These projects are not yet ready for primetime. 
 
 || [http://code.google.com/p/hackystat-ui-chart/ Chart] || An unreleased service based upon JFreeChart. ||
 || [http://code.google.com/p/hackystat-ui-timeline/ Timeline] || An unreleased service based upon Simile/Timeline. ||
