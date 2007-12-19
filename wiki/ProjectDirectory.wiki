@@ -1,11 +1,35 @@
 #summary Links to Hackystat services.
 
+== Core Services ==
 
-|| *Repository* || *Sensor* || *Analysis* || *User Interface* || 
-|| [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] ||
-|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-sensor-ant/ Ant-based Sensors] || [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] ||
-|| || [http://code.google.com/p/hackystat-sensor-xmldata/ XML Data Sensor] || [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || [http://code.google.com/p/hackystat-ui-chart/ Chart] ||
-|| || [http://code.google.com/p/hackystat-sensor-emacs/ Emacs Sensor] ||  || [http://code.google.com/p/hackystat-ui-timeline/ Timeline] ||
-|| || [http://code.google.com/p/hackystat-sensor-vim/ Vim Sensor] ||  ||  [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] ||
-|| || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] ||  || [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] ||
-|| || [http://code.google.com/p/hackystat-sensor-example/ StackyHack] || ||  ||
+|| [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || The repository for raw data which provides four core resource representations: Sensor Data, Sensor Data Type, Project, and User. ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities] || A library of utility classes used by many modules. ||
+
+
+== Sensors ==
+
+|| [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] || The "middleware" abstraction that encapsulates details of data transmission, data buffering, and offline storage. ||
+|| [http://code.google.com/p/hackystat-sensor-ant/ Ant-based Sensors] || Sensors for tools such as Clover, JUnit, Checkstyle, FindBugs, PMD, and Ant itself. ||
+|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs Sensor] ||  A sensor for the Emacs IDE. ||
+|| [http://code.google.com/p/hackystat-sensor-vim/ Vim Sensor] || A sensor for the Vim IDE. || 
+|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || A sensor for the Eclipse IDE. || 
+|| [http://code.google.com/p/hackystat-sensor-xmldata/ XML Data Sensor] || A generic sensor for processing data in XML format. ||
+|| [http://code.google.com/p/hackystat-sensor-example/ StackyHack] || An example system showing implementations of various Ant-based sensors.  ||
+ 
+== Analysis Services ==
+
+|| [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || Provides abstractions of raw data for a given project and day. ||
+|| [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || Provides a trend-based abstraction called "Software Project Telemetry" based upon the Daily Project Data abstraction. ||
+|| [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || Provides an episode-based abstraction called "Software Development Stream Analysis". ||
+
+== User Interface Services ==
+
+|| [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] || Shows recently arrived data in near-real time. ||
+|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. |||| [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
+|| [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
+
+
+== Experimental Services ==
+
+|| [http://code.google.com/p/hackystat-ui-chart/ Chart] || An unreleased service based upon JFreeChart. ||
+|| [http://code.google.com/p/hackystat-ui-timeline/ Timeline] || An unreleased service based upon Simile/Timeline. ||

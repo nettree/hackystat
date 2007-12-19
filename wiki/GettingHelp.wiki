@@ -1,3 +1,6 @@
 #summary What to do when things go wrong
 
-To be written.
+This will include the following sections:
+
+ * Link to FAQ.
+ * Links to discussion groups.
