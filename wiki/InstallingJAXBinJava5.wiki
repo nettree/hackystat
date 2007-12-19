@@ -9,15 +9,15 @@
 
 JAXB is very convenient for dealing with XML, but there are several infrastructure issues that must be addressed in Hackystat: 
 
-  * Java 5 did not contain JAXB at all, while Java 6 provides JAXB 2.0 as a core library. This implies that Java 5 users must provide JAXB in their run-time environment. 
+  * Java 5 did not contain JAXB at all, while Java 6 provides JAXB 2.0 as a core library. This implies that Java 5 users must install JAXB into their Java run-time environment. 
   * JAXB now has a new major release, called 2.1.5, which is not completely backward compatible with JAXB 2.0.  
 
-A requirement for Hackystat is to run successfully in both Java 5 and Java 6 environments, and to support both JAXB 2.0 and JAXB 2.1.5 versions. This implications of this requirement is:
+A requirement for Hackystat is to run successfully in both Java 5 and Java 6 environments, and to support both JAXB 2.0 and JAXB 2.1.5. The implications of this requirement are:
 
-  * If you are running Java 5, you must install JAXB (2.0 or 2.1.5) into your Java runtime environment.
+  * If you are running Java 5, you must install JAXB (2.0 or (preferably) 2.1.5) into your Java runtime environment.
   * If you are building Hackystat and need to run the XJC compiler because you have added or altered XML schemas, you must use the JAXB 2.1.5 XJC compiler. 
-  * Hackystat requires the JAXB 2.1.5 XJC compiler, but the Hackystat JAXB Ant tasks are configured by default to generate JAXB 2.0-compliant files. This should allow Hackystat binaries to execute in a runtime with either JAXB 2.0 or JAXB 2.1.5. 
-  * By setting an environment variable, the Hackystat JAXB Ant tasks can  generate 2.1-compliant Java class files.  This enables a developer to build a Hackystat executable with full optimizations for a JAXB 2.1.5-compliant runtime, but which will not run in a 2.0 runtime (such as the default Java 6 environment). 
+  * Hackystat requires the JAXB 2.1.5 XJC compiler, but the Hackystat JAXB Ant tasks are configured by default to generate JAXB 2.0-compliant files. This allows Hackystat binaries to execute in a runtime with either JAXB 2.0 or JAXB 2.1.5. 
+  * By setting an environment variable, the default Hackystat JAXB compilation can be overridden, allowing the task to  generate 2.1-compliant Java class files.  This enables a developer to build a Hackystat executable with full optimizations for a JAXB 2.1.5-compliant runtime, but which will not run in a JAXB 2.0 runtime (such as the default Java 6 environment). 
 
 The next section discusses how to install JAXB into a Java 5 environment, which is all that end-users of Hackystat should need to worry about.  The following sections discuss issues of interest to developers only. 
 
