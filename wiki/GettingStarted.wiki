@@ -1,3 +1,15 @@
 #summary Simple instructions on how to get started using Hackystat.
 
-To be written.
+This page will include the following sections:
+
+  * Download the binary sensors distribution. 
+  * Brief overview of sensor installation, with pointers to the sensor user guides. 
+  * How to register.
+  * How to verify that data is being sent to the !SensorBase.
+  * Initial analyses on your Default project.
+  * How to define custom projects.
+     * Uri Patterns
+     * Member invitation, accepting, and declining
+  * What to do next.
+
+

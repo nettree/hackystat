@@ -1,3 +1,12 @@
 #summary A brief introduction to Hackystat, with pictures.
 
-To be written.
+This page will include the following sections:
+
+  * Why you might be interested in Hackystat
+  * The registration page.
+  * What happens after sensors are installed.
+  * Showing raw sensor data at the !SensorBase.
+  * Showing telemetry streams and why they are interesting.
+  * Showing project status.
+  * What to do next. 
+
