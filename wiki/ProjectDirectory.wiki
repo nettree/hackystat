@@ -25,14 +25,15 @@
 || [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
 
 
-== Experimental Services ==
-
-|| [http://code.google.com/p/hackystat-ui-chart/ Chart] || An unreleased service based upon JFreeChart. ||
-|| [http://code.google.com/p/hackystat-ui-timeline/ Timeline] || An unreleased service based upon Simile/Timeline. ||
-
  
 == Analysis Services ==
 
 || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || Provides abstractions of raw data for a given project and day. ||
 || [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || Provides a trend-based abstraction called "Software Project Telemetry" based upon the Daily Project Data abstraction. ||
 || [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || Provides an episode-based abstraction called "Software Development Stream Analysis". ||
+
+
+== Experimental Services ==
+
+|| [http://code.google.com/p/hackystat-ui-chart/ Chart] || An unreleased service based upon JFreeChart. ||
+|| [http://code.google.com/p/hackystat-ui-timeline/ Timeline] || An unreleased service based upon Simile/Timeline. ||
