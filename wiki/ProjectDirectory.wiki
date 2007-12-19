@@ -3,7 +3,7 @@
 == Core Services ==
 
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || The repository for raw data which provides four core resource representations: Sensor Data, Sensor Data Type, Project, and User. ||
-|| [http://code.google.com/p/hackystat-utilities/ Utilities] || A library of utility classes used by many modules. ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities]  || A library of utility classes used by many modules. ||
 
 
 == Sensors ==
@@ -15,12 +15,7 @@
 || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || A sensor for the Eclipse IDE. || 
 || [http://code.google.com/p/hackystat-sensor-xmldata/ XML Data Sensor] || A generic sensor for processing data in XML format. ||
 || [http://code.google.com/p/hackystat-sensor-example/ StackyHack] || An example system showing implementations of various Ant-based sensors.  ||
- 
-== Analysis Services ==
 
-|| [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || Provides abstractions of raw data for a given project and day. ||
-|| [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || Provides a trend-based abstraction called "Software Project Telemetry" based upon the Daily Project Data abstraction. ||
-|| [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || Provides an episode-based abstraction called "Software Development Stream Analysis". ||
 
 == User Interface Services ==
 
