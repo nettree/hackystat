@@ -1,3 +1,11 @@
 #summary Links to Hackystat services.
 
-to be written.
+
+|| *Repository* || *Sensor* || *Analysis* || *User Interface* || 
+|| [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ Daily Project Data] || [http://code.google.com/p/hackystat-ui-sensordataviewer/ Sensor Data Viewer] ||
+|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-sensor-ant/ Ant-based Sensors] || [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] ||
+|| || [http://code.google.com/p/hackystat-sensor-xmldata/ XML Data Sensor] || [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || [http://code.google.com/p/hackystat-ui-chart/ Chart] ||
+|| || [http://code.google.com/p/hackystat-sensor-emacs/ Emacs Sensor] ||  || [http://code.google.com/p/hackystat-ui-timeline/ Timeline] ||
+|| || [http://code.google.com/p/hackystat-sensor-vim/ Vim Sensor] ||  ||  [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] ||
+|| || [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] ||  || [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] ||
+|| || [http://code.google.com/p/hackystat-sensor-example/ StackyHack] || ||  ||
