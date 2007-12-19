@@ -14,6 +14,7 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || [http://findbugs.sourceforge.net/ FindBugs] || 1.2.0 || FINDBUGS_HOME || c:\java-tools\findbugs-1.2.0 ||
 || [http://code.google.com/webtoolkit/versions.html Google Web Toolkit] || 1.4.60 || GWT_HOME || c:\java-tools\gwt-mac-1.4.60 ||
 || [http://java.sun.com/ Java] || 1.5 or 1.6 || JAVA_HOME || c:\java\jdk1.5.0_07 || 
+|| [https://jaxb.dev.java.net/ JAXB] || 2.1.5 || JAXB_HOME || c:\java\jaxb-ri-20070917 || 
 || [http://www.clarkware.com/software/JDepend.html JDepend] || 2.9 || JDEPEND_HOME || c:\java-tools\jdepend-2.9 ||
 || [http://www.jfree.org/jfreechart/download.html JFreeChart] || 1.0.5 || JFREECHART_HOME ||  c:\java-tools\jfreechart-1.0.5 ||
 || [http://www.junit.org JUnit] || 4.4 || JUNIT_HOME ||   c:\java-tools\junit4.4 ||
