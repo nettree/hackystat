@@ -1,0 +1,3 @@
+#summary How to install Hackystat from a binary distribution.
+
+To be written.
