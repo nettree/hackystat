@@ -1,5 +1,4 @@
 #summary A User Guide for installing a Hackystat System Distribution
-#labels Featured
 
 = Introduction =
 
