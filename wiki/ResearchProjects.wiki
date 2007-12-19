@@ -1,5 +1,4 @@
 #summary Research and development project ideas involving Hackystat
-#labels Featured
 
 = 1.0 Overview =
 
@@ -408,4 +407,3 @@ as well as in the physical world? Some initial thoughts:
 
 Here's some interesting links:  [http://dev.aol.com/article/2007/04/second-life Software development in Second Life], and 
 [http://vital.cs.ohiou.edu/vitalwiki/index.php/Second_Life_Development Second Life Software Engineering Process Game].
-
