@@ -1,5 +1,4 @@
 #summary Hackystat Version 8 Design Summary
-#labels Featured
 
 =1.0 Introduction =
 
