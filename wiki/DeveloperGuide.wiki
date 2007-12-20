@@ -2,172 +2,332 @@
 
 = 1.0 Introduction =
 
-The purpose of this document is to help Hackystat developers understand how to configure their environment to perform development on new or existing sensors and services.  
+The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ProjectDirectory Project Directory].  Some of these projects are inter-dependent. For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project depends upon the [http://code.google.com/p/hackystat-utilities/ Utilities] project; the [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] project depends upon the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project; the [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] project depends upon the [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] project, and so forth. 
 
-= 2.0 General Issues =
+In addition, most Hackystat projects have a number of external dependencies; in other words, to build the system, you will have to download and install a third party (open source) library.  For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  You will need to consult individual packages to determine exactly which external libraries it requires. However, to support integration builds containing all of the Hackystat components, we do require a "standard" version for each external library that all Hackystat projects be compatible with.  The [LibraryStandards Library Standards] page lists all third party libraries used across all of the Hackystat projects, along with their Standard Version.  Not all Hackystat packages require all of these libraries, of course. 
 
-In Version 7, the monolithic nature of Hackystat meant that it could be compiled and tested as a single entity, which made it relatively easy to test for integration-level issues. 
+= 2.0 Downloading Hackystat Sources =
 
-In Version 8, the decomposition of Hackystat into a set of independent sensors and services has a wide variety of benefits, but it also brings one significant downside: integration testing is somewhat more difficult, and projects can easily get "out of sync" with each other. 
+|| Note: if you simply want to use Hackystat, you may want to download a binary distribution.  See the [InstallationGuide Installation Guide] for details. ||
 
-For example, many services use the !SensorBaseClient class to communicate with the !SensorBase.  This class is defined in the hackystat-sensorbase-uh project.  When changes are made to that API, all projects that depend upon that system need to build and test themselves against that revised API.  
+Hackystat sources can be downloaded from Google Project Hosting using Subversion.  Because downloading over a dozen projects individually can be irritating, we have developed a set of Ant scripts that can simplify this process.  Here are the steps involved:
 
-There are a variety of strategies a developer can use to support development and manage these integration-level dependencies, as discussed next.
+== 2.1 Install Java, Ant, and SVNKit ==
 
-= 3.0 Local build environment options =
+Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variable.
 
-== 3.1 Independent local project workspaces ==
+Install [http://ant.apache.org/ Ant], and define the ANT_HOME environment variable. 
 
-The initial approach used by Hackystat developers was to SVN checkout local copies of most or all of the Hackystat projects.  Typically, one would create a top-level directory, such as svn-google, and independently check out each project as a subfolder, giving rise to the following directory structure:
+Install [http://svnkit.com/download/ SVNKit], Standalone edition, and define the SVNKIT_HOME environment variable.
 
-{{{
-svn-google/
-          hackystat-utilities/
-          hackystat-sensorbase-uh/
-           :
-}}}
+Consult the [LibraryStandards Library Standards] page for the correct version of these packages.
 
-Hackystat projects establish their dependencies by the use of environment variables (in the case of Ant) and classpath variables (in the case of Eclipse).  For example, the hackystat-sensorbase-uh system requires (among other things) the jar files produced by the hackystat-utilities project.  Thus, in order to satisfy the dependency of the hackystat-sensorbase-uh system on hackystat-utilities, one would have to:
+== 2.2 Download Hackystat Download Scripts ==
 
-  * Define an environment variable called HACKYSTAT_UTILITIES_HOME and point it to the svn-google/hackystat-utilities directory. 
+Create a top-level directory in which all of your hackystat sources will live.  This is typically called something like "hackystat".
 
-  * Invoke 'ant -f jar.build.xml' in the hackystat-utilities project, which would build the various utility jar files (hackystatlogger.lib.jar, etc.) in the hackystat-utilities directory. 
+Download the following files into your newly created top-level directory:
 
-It turns out that some dependency chains can get fairly long:
+  * [http://hackystat.googlecode.com/svn/trunk/build.xml]
+  * [http://hackystat.googlecode.com/svn/trunk/dist.build.xml]
+  * [http://hackystat.googlecode.com/svn/trunk/macros.build.xml]
 
-{{{
-hackystat-sensor-xmldata -> hackystat-sensor-shell -> hackystat-sensorbase-uh -> hackystat-utilities 
+== 2.3 Checkout sources anonymously ==
 
-hackystat-analysis-telemetry -> hackystat-analysis-dailyprojectdata -> hackystat-sensorbase-uh -> hackystat-utilities
-}}}
-
-What this implies is that if you are working on hackystat-analysis-telemetry and someone makes an incompatible change to the hackystat-utilities system, you may need to:
-  * SVN update hackystat-utilities, rebuild, and rejar those binaries. 
-  * SVN update hackystat-sensorbase, rebuild, and rejar those binaries. 
-  * SVN update hackystat-dailyprojectdata, rebuild, and rejar those binaries. 
-
-This can be time-consuming and exasperating, particularly because it is not always clear what dependencies exist and which of them are out of date. 
-
-In summary, the advantage of "independent local workspaces" is:
-
- * It is possible to make and test changes across multiple Hackystat projects simultaneously. 
-
-The disadvantages of "independent local workspaces" are:
-
- * It is hard to know when to update one or more local projects and rebuild.  
-
- * Changes to a low level project, such as hackystat-utilities, can have a dramatic ripple effects, requiring SVN updates and rebuilds of many other projects in order to bring the system back into a consistent state. 
-
-== 3.2 One local project plus a System Distribution ==
-
-An alternative approach is possible when a developer is interested in only one Hackystat project (or a small number of projects). In this case, the developer can download a binary System Distribution, with prebuilt binaries for all sensors and services, along with SVN checkout of the sensor/service of interest. For example, let's say a developer wants to work on hackystat-sensor-xmldata.  He or she might set up their local file space as follows:
+If you wish to build the system from sources, but are not a member of the Hackystat project, then you can check out all of the sources with the command "ant checkout.anonymous".  This will check out all of the current sources into the current directory.  Here is what the execution of this command looks like:
 
 {{{
-public-hackystat/
-                hackystat-8.0.1101-services-bin/
-                                                hackystat-utilities/
-                                                                    stacktrace.lib.jar
-                                                                   :
-                                                hackystat-sensorbase-uh/
-                                                                        sensorbase.jar
-                                                                       :
-                                             :
-svn-google/
-          hackystat-sensor-xmldata/
-                                    :
+C:\hackystat>ant checkout.anonymous
+Buildfile: build.xml
+
+checkout.anonymous:
+    [mkdir] Created dir: C:\hackystat\trunk\hackystat-utilities
+     [java] A    hackystat-utilities\sclc.build.xml
+      :
+     [java] Checked out revision 125.
+    [mkdir] Created dir: C:\hackystat\trunk\hackystat-sensorbase-uh
+     [java] A    hackystat-sensorbase-uh\sample.sensorbase.properties
+      :
+    [java] Checked out revision 404.
+   [mkdir] Created dir: C:\hackystat\trunk\hackystat-sensor-shell
+    [java] A    hackystat-sensor-shell\sclc.build.xml
+      :
+      :
+      :
+
+BUILD SUCCESSFUL
+Total time: 7 minutes 5 seconds
 }}}
 
-In this approach, the developer would define various environment variables to point to the  system distribution bin/ directories.  For example, the environment variable HACKYSTAT_UTILITIES_HOME would point to 
-{{{
-public_hackystat/hackystat-8.0.1101-services-bin/hackystat-utilities/ 
-}}}
-The advantages of "one local project plus a System Distribution" are:
+As you can see, an initial checkout can take a while--in this case, a bit more than 7 minutes. 
 
-  * All dependencies in a System Distribution have been resolved, so the binaries  are consistent with each other. 
-
-  * It is generally faster and easier to download and setup a System Distribution than to download and set up all of the individual sensors and services. 
-
-  * It is generally faster and easier to update to a new version of a System Distribution than it is to update all of the individual sensors and services and build them against each other. 
-
-The disadvantages of "one local project plus a System Distribution" are:
-
-  * If the latest System Distribution is out of date, then you have to wait for someone to upload a more recent version. 
-
-  * The advantage of this approach diminishes the more projects you are working on. 
-
-== 3.3 Build your own local system distribution ==
-
-A final alternative is create your own local version of a system distribution.  To do this, you must first SVN checkout the hackystat/trunk directory, which will give you a build.xml, a macros.build.xml, and a dist.build.xml file. For example:
+However, once you have downloaded the files for the first time, you can download updates to any of the projects by issuing the same command (which is equivalent to an SVN 'update').  Here's what this looks like:
 
 {{{
-svn-google/
-          hackystat/
-                   build.xml
-                   macros.xml
-                   dist.xml
+C:\hackystat>ant checkout.anonymous
+Buildfile: build.xml
+
+checkout.anonymous:
+     [java] Checked out revision 125.
+     [java] Checked out revision 404.
+     [java] Checked out revision 120.
+     [java] Checked out revision 116.
+     [java] Checked out revision 118.
+     [java] Checked out revision 196.
+     [java] Checked out revision 116.
+     [java] Checked out revision 29.
+     [java] Checked out revision 35.
+     [java] Checked out revision 67.
+     [java] Checked out revision 293.
+     [java] Checked out revision 66.
+     [java] Checked out revision 172.
+     [java] Checked out revision 63.
+     [java] Checked out revision 140.
+
+BUILD SUCCESSFUL
+Total time: 2 minutes 49 seconds
 }}}
 
-Take a look in the build.xml file. What you'll find is a target for each Hackystat project that will (a) SVN checkout the sources into the build/ directory, run the verify target, and create the binaries in a system/ subdirectory.  For example, the build.utilities target does this for hackystat-utilities, the build.sensorbase target does this for hackystat-sensorbase, and so forth.   There is a build.all target that will run all of these targets in an order appropriate to their dependencies, and thus build the most recent sources for the entire system against themselves. 
-             
-When you run the system build.{project} targets for the first time, you will experience a minor hiccup: Ant will print out a message regarding a missing credential and ask how you would like to handle it. You can type 'p' to "permanently accept the certificate" and Ant will proceed.  
+As you can see, it took much less time, and in this case, no differences were found between the local copies and those in the Subversion repository at Google Project hosting. 
 
-In the case of the Macintosh, you can run 'ant build.all', type 'p' each time the credential message appears, and get the entire system checked out.  In the case of Windows, I have discovered that you need to do each service individually the first time. So, you will invoke:
-  * ant build.utilities
-  * ant build.sensorbase
-  * ant build.sensorshell
-and so forth.  Look at the build.all task and the list of dependent targets indicates the targets to manually invoke and the order to invoke them in. 
-
-Note that after you have done this checkout the first time, you will not have to type 'p' any longer.  It also becomes possible to run 'ant build.all' successfully on Windows after that first checkout. 
-
-At any rate, once you have finished, you'll have a directory structure like this:
+Note that, due to network irregularities, a checkout may occasionally fail midway through with an error like the following:
 
 {{{
-svn-google/
-          hackystat/
-                   build/
-                        hackystat-utilities/
-                        hackystat-sensorbase-uh/
-                           :
-                        system/
-                              services/
-                                      hackystat-utilities/
-                                                            stacktrace.lib.jar
-                                                              :
-                                      hackystat-sensorbase-uh/
-                                                                sensorbase.jar
-                                         :
-                              sensors/
-                                     hackystat-sensor-shell/
-                                         :
+[java] svn: PROPFIND of '/svn/!svn/vcc/default': 502 Bad Gateway (http://hackystat-sensor-shell.googlecode.com)
 }}}
 
-You can now point your Hackystat environment variables at these binaries if you so choose.  For example, you could set HACKYSTAT_SENSORBASE_HOME to 
+If that occurs, just re-invoke the "ant checkout.anonymous" command. It will effectively start up again where it left off. 
+
+Since you are checking out the sources anonymously, you cannot commit any changes you make back to the repository. 
+
+Here is what the directory structure will look like after you have checked out the projects:
 
 {{{
-svn-google/hackystat/build/system/services/hackystat-sensorbase-uh/
+C:\svn-google\hackystat\trunk>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 0891-1F61
+
+ Directory of C:\hackystat
+
+12/20/2007  11:11 AM    <DIR>          .
+12/20/2007  11:11 AM    <DIR>          ..
+12/20/2007  11:03 AM            14,585 build.xml
+12/13/2007  10:11 AM             4,904 dist.build.xml
+12/20/2007  11:08 AM    <DIR>          hackystat-analysis-dailyprojectdata
+12/20/2007  11:08 AM    <DIR>          hackystat-analysis-telemetry
+12/20/2007  11:09 AM    <DIR>          hackystat-sensor-ant
+12/20/2007  11:11 AM    <DIR>          hackystat-sensor-eclipse
+12/20/2007  11:09 AM    <DIR>          hackystat-sensor-emacs
+12/20/2007  11:09 AM    <DIR>          hackystat-sensor-example
+12/20/2007  11:07 AM    <DIR>          hackystat-sensor-shell
+12/20/2007  11:09 AM    <DIR>          hackystat-sensor-vim
+12/20/2007  11:09 AM    <DIR>          hackystat-sensor-xmldata
+12/20/2007  11:07 AM    <DIR>          hackystat-sensorbase-uh
+12/20/2007  11:11 AM    <DIR>          hackystat-ui-projectviewer
+12/20/2007  11:10 AM    <DIR>          hackystat-ui-sensordatabrowser
+12/20/2007  11:10 AM    <DIR>          hackystat-ui-sensordataviewer
+12/20/2007  11:10 AM    <DIR>          hackystat-ui-telemetryviewer
+12/20/2007  11:05 AM    <DIR>          hackystat-utilities
+12/20/2007  09:23 AM             5,316 macros.build.xml
+               7 File(s)         26,150 bytes
+              21 Dir(s)  40,942,211,072 bytes free
 }}}
 
-The advantages to a "local system distribution" are:
+== 2.3 Checkout sources with commit privileges (for Project Members) ==
 
-  * You do not have to wait for a System Distribution binary to be uploaded.  You can create your own when you suspect that low-level projects have been changed.
+If you are listed as a member of the Hackystat projects, then you can check out the project sources in a non-anonymous way that enables you to later commit your changes. 
 
-  * Once you have gotten your first 'ant build.all' to succeed, it is extremely simple to generate a complete and consistent build of the latest sources of the entire set of Hackystat services.   Currently, this system build takes around 7 minutes. 
+If you wish to check out the sources with commit privileges, and if you have previously checked out the sources anonymously, *you must delete the project directories that were checked out anonymously*.  Otherwise, SVN will get very confused. 
 
-The disadvantages of a "local system distribution" are:
+Next, create a file called "svn.properties" in this directory. It should contain the following:
 
-  * It is a bit time-consuming to set up the first time, particularly on Windows.
+{{{
+svn.username=johnsmith
+svn.password=v8f4k2a9
+}}}
 
-  * If you do point your environment variables at these binaries, then you run the risk of running a build and having it fail, at which point your environment variables don't work. 
+Where you substitute your Google Project Hosting user name (your gmail account) and the password that Google generates for you (see the [http://code.google.com/hosting/settings Google Project Hosting Settings Page]). 
 
-= 4.0 Summary and conclusions =
+The svn.properties file containing your username and password will be read by the Ant script and used to perform an authenticated checkout of the Hackystat projects.  
 
-There is no one-size-fits-all approach to building Hackystat. Which of these approaches (or combinations of approaches) that you use really depends upon your situation.  
+To perform the authenticated checkout, you can now invoke "ant checkout".  The output from Ant will look exactly like the output from the anonymous checkout shown in the last section. The difference is that you can now commit your changes back to the SVN repository.
 
-For new developers, I recommend the approach outlined in Section 3.2, in which you download a system distribution and use that as your repository of binaries. This minimizes the hassles, and provided you have a recent binary, eliminates the need for 'cascading rebuilds' of the system when something at a low level changes. 
+== 2.4 Checking out the Project wiki directory for local editing of wiki pages ==
 
-For experienced developers, I recommend following Section 3.3 and getting to the point where you can easily create local system builds.  Then when you find yourself with errors that look like integration issues, you can easily check what's going on. 
+If you are a Hackystat developer who must create and edit wiki pages, you might find it more convenient to edit the files locally using an editor like Eclipse or Emacs, rather than use the browser-based editor provided when clicking on the "Edit" link in the Wiki page of a Project. 
 
-Good luck, and feel free to send email to the [http://groups.google.com/group/hackystat-dev hackystat-dev list] if you encounter issues. 
+To edit a wiki page locally, you must first create it using the browser-based "New Page" link.  (Do not attempt to SVN add new wiki pages, Google does not apparently recognize pages added that way.)
+
+Once you have created your wiki page using the browser, Google will place it in your Project's SVN repository in a directory called wiki/.   
+
+The Ant scripts will download the wiki directories of all projects for local editing using the "ant checkout.wiki" command.  Here is what the execution of that command looks like:
+
+{{{
+C:\hackystat>ant checkout-wiki
+Buildfile: build.xml
+
+checkout-wiki:
+    [mkdir] Created dir: C:\hackystat\wiki-hackystat-utilities
+     [java] A    wiki-hackystat-utilities\UriCache.wiki
+      :
+     [java] Checked out revision 125.
+    [mkdir] Created dir: C:\hackystat\wiki-hackystat-sensorbase-uh
+     [java] A    hackystat-sensorbase-uh-wiki\firefox-poster-2.gif
+      :
+     [java] Checked out revision 404.
+    [mkdir] Created dir: C:\hackystat\wiki-hackystat-sensor-shell
+      :
+      :
+      :
+
+BUILD SUCCESSFUL
+Total time: 1 minute 55 seconds
+}}}
+
+All of the wiki pages will be checked out into newly created project directories prefixed with "wiki-". 
+
+= 3.0 Building Hackystat Projects =
+
+Once you have checked out the sources, whether anonymously, or as a Project member, the next step is to build them.  There are many ways to build the projects depending upon your goals as a developer.  In general, you will want to read the Developer Guide pages associated with a given project in order to understand what libraries must be installed and so forth. 
+
+This section documents the simplest possible approach to building, which is the "standard" approach used for integration builds.  Every Hackystat Project must provide an Ant file called "verify.build.xml" which is called by the integration build scripts in order to compile and test the project. Every Hackystat project must also provide an Ant file called "dist.build.xml" which creates binary executables (such as .jar or .war files) and packages them for distribution.  
+
+== 3.1 Building an individual Hackystat Project ==
+
+The Ant scripts provide a "build" target for each Hackystat Project that invokes the verify and distribution Ant targets within the given Project.  For example, the "build.utilities" target has the effect of invoking "ant -f verify.build.xml" and "ant -f dist.build.xml" within the hackystat-utilities project directory.  
+
+The Ant scripts do one more useful thing: they provide local definitions of the following environment variables: HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, HACKYSTAT_SENSORSHELL_HOME, HACKYSTAT_DAILYPROJECTDATA_HOME, and HACKYSTAT_TELEMETRY_HOME. These environment variables are set to the associated directories that you have just checked out. 
+
+What this means is the following:
+
+  * When building individual Hackystat projects, you must always ensure that any Hackystat projects that it depends upon have been previously built. 
+
+  * You do not have to set these environment variables yourself; they will default appropriately. 
+
+Here is an example invocation of the build target for the Hackystat Utilities project, which is generally the first project you will want to build because it is dependent upon no other projects, and many other project depend upon it. 
+
+Note that I set hackystat.enable=false to disable Hackystat data collection.  This is helpful for external developers who want to build the system locally but not install the sensors just for this purpose. 
+
+{{{
+C:\hackystat>ant -Dhackystat.enable=false build.utilities
+Buildfile: build.xml
+
+build.utilities:
+     [echo]
+     [echo]     Hackystat Utilities Verification Task
+      :
+      :
+clean:
+   [delete] Deleting directory C:\hackystat\hackystat-utilities\build
+
+compile:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\classes
+    [javac] Compiling 39 source files to C:\hackystat\hackystat-utilities\build\classes
+
+checkstyle.tool:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\checkstyle
+[checkstyle] Running Checkstyle 4.3 on 39 files
+    :
+    :
+
+junit.tool:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\junit
+    [junit] Running org.hackystat.utilities.home.TestHackystatUserHome
+     :
+     :
+
+javadoc:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\javadoc
+  [javadoc] Generating Javadoc
+  [javadoc] Javadoc execution
+  [javadoc] Loading source files for package org.hackystat.utilities.home...
+    :
+
+findbugs.tool:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\findbugs
+ [findbugs] Running FindBugs...
+ [findbugs] Output saved to C:\hackystat\hackystat-utilities\build\findbugs/findbugs.xml
+
+      :
+      :
+
+pmd.tool:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\pmd
+      [pmd] No problems found!
+
+      :
+      :
+
+sclc.tool:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\sclc
+     [exec]  Lines  Blank  Cmnts   NCSL TPtoks
+     [exec] ====== ====== ====== ====== ====== ============================================
+      :
+     [exec]     26      0      0     26    152 ----- HTML -----  (8 files)
+     [exec]   4455    524   1741   2194  16964 ----- Java -----  (39 files)
+     [exec]   4481    524   1741   2220  17116 ***** TOTAL *****  (47 files)
+
+     :
+     :
+
+jar-home:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\tmp-lib
+     [copy] Copying 2 files to C:\hackystat\hackystat-utilities\tmp-lib
+      [jar] Building jar: C:\hackystat\hackystat-utilities\hackystatuserhome.lib.jar
+   [delete] Deleting directory C:\hackystat\hackystat-utilities\tmp-lib
+      :
+      :
+
+dist:
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
+     [copy] Copying 74 files to C:\hackystat\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\dist
+      [zip] Building zip: C:\hackystat\hackystat-utilities\build\dist\hackystat-utilities-8.0.1220.zip
+       :
+       :
+
+BUILD SUCCESSFUL
+Total time: 42 seconds
+}}}
+
+By changing directories to hackystat-utilities, you'll see that the result of this build.utilities target is to create several jar files, including hackystatlogger.lib.jar, hackystatuserhome.lib.jar, and so on.  Now that these library files have been created, you will be able to build projects that depend upon hackystat utilities, such as hackystat-sensorbase-uh. 
+
+{{{
+C:\svn-google\hackystat\trunk\hackystat-utilities>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 0891-1F61
+
+ Directory of C:\svn-google\hackystat\trunk\hackystat-utilities
+
+12/20/2007  12:24 PM    <DIR>          .
+12/20/2007  12:24 PM    <DIR>          ..
+12/20/2007  11:43 AM               572 .classpath
+12/20/2007  11:43 AM               395 .project
+12/20/2007  12:24 PM    <DIR>          build
+12/20/2007  11:43 AM             4,092 build.xml
+12/20/2007  11:43 AM             2,583 checkstyle.build.xml
+12/20/2007  11:43 AM             1,164 dist.build.xml
+12/20/2007  11:43 AM             5,043 emma.build.xml
+12/20/2007  11:43 AM             2,220 findbugs.build.xml
+12/20/2007  11:43 AM             3,506 hackystat.build.xml
+12/20/2007  12:24 PM             5,885 hackystatlogger.lib.jar
+12/20/2007  12:24 PM             2,224 hackystatuserhome.lib.jar
+12/20/2007  11:43 AM             5,840 jar.build.xml
+12/20/2007  11:43 AM    <DIR>          javadoc
+12/20/2007  11:43 AM             1,335 javadoc.build.xml
+12/20/2007  11:43 AM             2,026 junit.build.xml
+12/20/2007  11:43 AM    <DIR>          lib
+12/20/2007  11:43 AM             2,357 pmd.build.xml
+12/20/2007  11:43 AM             1,420 sclc.build.xml
+12/20/2007  11:43 AM    <DIR>          src
+12/20/2007  12:24 PM             2,193 stacktrace.lib.jar
+12/20/2007  12:24 PM            35,242 time.lib.jar
+12/20/2007  12:24 PM             6,193 tstamp.lib.jar
+12/20/2007  12:24 PM           739,984 uricache.lib.jar
+12/20/2007  11:43 AM             2,028 verify.build.xml
+              20 File(s)        826,302 bytes
+               6 Dir(s)  40,862,126,080 bytes free
+}}}
 
   
                                       

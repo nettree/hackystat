@@ -3,7 +3,7 @@
 
 == Standard External Libraries, Variable Names, Versions ==
 
-Building a Hackystat system from sources generally requires one or more supplemental libraries.  To facilitate development, this page lists libraries or other development infrastructure used in multiple Hackystat systems, along with their associated environment variable name (used by Ant) and classpath variable name (used by Eclipse).
+Building a Hackystat system from sources generally requires one or more supplemental libraries.  To facilitate development, this page lists libraries or other development infrastructure used in  Hackystat projects, along with their associated environment variable name (used by Ant) and classpath variable name (used by Eclipse).
 
 || *Library* || *Standard Version* || *Standard Environment/Classpath Variable* || *Sample Env Value* ||
 || [http://ant.apache.org/ Ant] || 1.7.0 || ANT_HOME || c:\apache-ant-1.7.0 ||
@@ -21,6 +21,7 @@ Building a Hackystat system from sources generally requires one or more suppleme
 || [http://pmd.sourceforge.net/ PMD] || 4.0 || PMD_HOME ||   c:\java-tools\pmd-4.0 ||
 || [http://www.restlet.org/ Restlet] || 1.0.5 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.5 ||
 || [http://code.google.com/p/sclc/ SCLC] || 2.6.1116 || SCLC_HOME || c:\java-tools\sclc-2.6.1116 ||
+|| [http://svnkit.com/download/ SVNKit (Standalone)] || 1.1.4 || SVNKIT_HOME || c:\java-tools\svnkit-1.1.4 ||
 || [http://tomcat.apache.org/ Tomcat] || 6.0.13 || CATALINA_HOME ||  c:\java-tools\apache-tomcat-6.0.13 ||
 
 Consult the Developer Guide for a system to learn which of these external libraries are required.   If it is required, you will need to download it, set up the environment variable, and then bring up a new console shell/window so that the environment variable is defined before running Ant. 

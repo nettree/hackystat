@@ -1,22 +1,18 @@
 #summary How to install Hackystat from a binary distribution.
 
-= Introduction =
+= 1.0 Introduction =
 
-This page provides a guide to installing Hackystat from a "System Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
+This page provides a guide to installing Hackystat from a "Binary Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
 
-A Hackystat "System Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all releasable Hackystat sensors and services built at one time and tested against each other whenever possible. It is possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users (and developers) will find it more convenient and less failure-prone to download the most recent System Distribution and use that as the basis for their activities. 
+A Hackystat "Binary Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all releasable Hackystat sensors and services built at one time and tested against each other whenever possible. It is also possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users will find it more convenient and less failure-prone to download the most recent Binary Distribution and use that as the basis for their activities. 
 
-= Structure of the System Distribution =
+= 2.0 Structure of the Binary Distribution =
 
-Currently, a Hackystat System distribution consists of four zip files. For example, the November 1, 2007 System Distribution consists of the following files:
+Currently, a Hackystat Binary distribution consists of two zip files. For example, the November 1, 2007 Binary Distribution consists of the following files:
 
 || *File Name* || *Contents* ||
 || hackystat-8.0.1101-sensors-bin.zip  || Binaries for the (client side) Hackystat sensors ||
 || hackystat-8.0.1101-services-bin.zip || Binaries for the (server side) Hackystat services ||
-|| hackystat-8.0.1101-sensors-src.zip  || Sources for the (client side) Hackystat sensors ||
-|| hackystat-8.0.1101-services-src.zip || Sources for the (service side) Hackystat services ||
-
-Normally, you are only interested in the "bin" zip files.  The "src" files are provided in case you experience a problem when installing the binaries and need to diagnose the problem by rebuilding the system from sources locally. 
 
 The binary distributions expand into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution. For example:
 
@@ -39,11 +35,11 @@ Note that the version number, 8.0.1101, indicates the major release (8), the min
 
 At present, documentation snapshots are not packaged in these distributions. Instead, go to the online User Guides for details about each package. 
 
-=Using a System Distribution (for Users)=
+= 3.0 Using a Binary Distribution =
 
-== Using the public services ==
+== 3.1 If you are using the "public" services ==
 
-If you are a new user of Hackystat, we recommend that you evaluate the system by using the publically available services maintained by the Collaborative Software Development Laboratory at the University of Hawaii.  Using the public services does not mean your data is public, it just means that your data will be sent to the services hosted at the University of Hawaii, which avoids the need for you to install them yourself. 
+If you are a new user of Hackystat, we recommend that you evaluate the system by using the publicly available services maintained by the Collaborative Software Development Laboratory at the University of Hawaii.  Using the public services does not mean your data is public, it just means that your data will be stored and analyzed by the services hosted at the University of Hawaii. This simplifies things for you, since you only need to download and install sensors. 
 
 To use the public services, you must register to obtain an account at the following URL:
 
@@ -85,19 +81,7 @@ It also includes the following User Interface services:
 
 Consult the User Guides for more information on how to install, configure, and  use these services. 
 
-=Using a System Distribution (for Developers)=
 
-For developers, one benefit of the System Distribution is to simplify dependency management.  With one download, a developer can obtain recent binaries for lower-level services that can be used as the value of the HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, HACKYSTAT_DAILYPROJECTDATA_HOME, and HACKYSTAT_SENSORSHELL_HOME environment and classpath variables. For example, I added the following lines to my ~/.profile file in order to set up my environment to point to a recent System Distribution on my !MacBook Pro:
 
-{{{
-export HACKYSTAT_DIST_VERSION=8.0.1101
-export HACKYSTAT_SENSORS_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-sensors-bin
-export HACKYSTAT_SERVICES_DIST_HOME=/Users/johnson/java/hackystat-$HACKYSTAT_DIST_VERSION-services-bin
 
-export HACKYSTAT_UTILITIES_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-utilities
-export HACKYSTAT_SENSORBASE_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-sensorbase-uh
-export HACKYSTAT_DAILYPROJECTDATA_HOME=$HACKYSTAT_SERVICES_DIST_HOME/hackystat-analysis-dailyprojectdata
-export HACKYSTAT_SENSORSHELL_HOME=$HACKYSTAT_SENSORS_DIST_HOME/hackystat-sensor-shell
-}}}
 
-What makes this particularly convenient is that when a new System Distribution is released, I can download the binary distributions, unzip them, and then change only the first environment variable in order to update the pointers to all binaries. 
