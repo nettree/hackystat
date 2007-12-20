@@ -334,13 +334,13 @@ C:\svn-google\hackystat\trunk\hackystat-utilities>dir
 If you are building individual projects at a time, you need to be aware of dependencies between projects so you can rebuild them in the right order when things change.  Here are a list of rules that summarize the dependencies:
 
   * All Sensor projects depend upon the Sensor Shell project.
-  * The Sensor Shell project depends upon the SensorBase project.
-  * The SensorBase project depends upon the Utilities project.
-  * The DailyProjectData project depends upon the SensorBase project.
-  * The Telemetry project depends upon the DailyProjectData project.
-  * The SensorDataViewer and SensorDataBrowser projects depends upon the SensorBase project.
-  * The ProjectViewer project depends upon the DailyProjectData and SensorBase projects.
-  * The TelemetryViewer project depends upon the Telemetry project. 
+  * The Sensor Shell project depends upon the !SensorBase project.
+  * The !SensorBase project depends upon the Utilities project.
+  * The !DailyProjectData project depends upon the !SensorBase project.
+  * The Telemetry project depends upon the !DailyProjectData project.
+  * The !SensorDataViewer and !SensorDataBrowser projects depends upon the !SensorBase project.
+  * The !ProjectViewer project depends upon the !DailyProjectData and !SensorBase projects.
+  * The !TelemetryViewer project depends upon the Telemetry project. 
 
 Of course, dependencies are transitive. 
 
