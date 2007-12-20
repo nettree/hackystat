@@ -24,7 +24,7 @@ Consult the [LibraryStandards Library Standards] page for the correct version of
 
 == 2.2 Download Hackystat Download Scripts ==
 
-Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat".
+Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat-projects".
 
 Download the following files into your newly created top-level hackystat directory:
 
@@ -37,19 +37,19 @@ Download the following files into your newly created top-level hackystat directo
 If you wish to build the system from sources, but are not a member of the Hackystat project, then you can check out all of the sources with the command "ant checkout.anonymous".  This will check out all of the current sources into the current directory.  Here is what the execution of this command looks like:
 
 {{{
-C:\hackystat>ant checkout.anonymous
+C:\hackystat-projects>ant checkout.anonymous
 Buildfile: build.xml
 
 checkout.anonymous:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities
      [java] A    hackystat-utilities\sclc.build.xml
       :
      [java] Checked out revision 125.
-    [mkdir] Created dir: C:\hackystat\hackystat-sensorbase-uh
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-sensorbase-uh
      [java] A    hackystat-sensorbase-uh\sample.sensorbase.properties
       :
     [java] Checked out revision 404.
-   [mkdir] Created dir: C:\hackystat\hackystat-sensor-shell
+   [mkdir] Created dir: C:\hackystat-projects\hackystat-sensor-shell
     [java] A    hackystat-sensor-shell\sclc.build.xml
       :
       :
@@ -64,7 +64,7 @@ As you can see, an initial checkout can take a while--in this case, a bit more t
 However, once you have downloaded the files for the first time, you can later download updates to any of the projects by issuing the same command (which is equivalent to an SVN 'update').  Here's what this looks like:
 
 {{{
-C:\hackystat>ant checkout.anonymous
+C:\hackystat-projects>ant checkout.anonymous
 Buildfile: build.xml
 
 checkout.anonymous:
@@ -107,7 +107,7 @@ C:\svn-google\hackystat>dir
  Volume in drive C has no label.
  Volume Serial Number is 0891-1F61
 
- Directory of C:\hackystat
+ Directory of C:\hackystat-projects
 
 12/20/2007  11:11 AM    <DIR>          .
 12/20/2007  11:11 AM    <DIR>          ..
@@ -163,19 +163,19 @@ Once you have created your wiki page using the browser, Google will place it in 
 The "ant checkout.wiki" command will download all wiki directories.  Here is what the execution of that command looks like:
 
 {{{
-C:\hackystat>ant checkout-wiki
+C:\hackystat-projects>ant checkout-wiki
 Buildfile: build.xml
 
 checkout-wiki:
-    [mkdir] Created dir: C:\hackystat\wiki-hackystat-utilities
+    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-utilities
      [java] A    wiki-hackystat-utilities\UriCache.wiki
       :
      [java] Checked out revision 125.
-    [mkdir] Created dir: C:\hackystat\wiki-hackystat-sensorbase-uh
+    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-sensorbase-uh
      [java] A    hackystat-sensorbase-uh-wiki\firefox-poster-2.gif
       :
      [java] Checked out revision 404.
-    [mkdir] Created dir: C:\hackystat\wiki-hackystat-sensor-shell
+    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-sensor-shell
       :
       :
       :
@@ -211,7 +211,7 @@ Here is an example invocation of the build target for the Hackystat Utilities pr
 Note that I set `hackystat.enable=false` as part of the command in order to disable Hackystat data collection.  This is helpful for external developers who want to build the system locally but not install the sensors just for this purpose. 
 
 {{{
-C:\hackystat>ant -Dhackystat.enable=false build.utilities
+C:\hackystat-projects>ant -Dhackystat.enable=false build.utilities
 Buildfile: build.xml
 
 build.utilities:
@@ -220,48 +220,48 @@ build.utilities:
       :
       :
 clean:
-   [delete] Deleting directory C:\hackystat\hackystat-utilities\build
+   [delete] Deleting directory C:\hackystat-projects\hackystat-utilities\build
 
 compile:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\classes
-    [javac] Compiling 39 source files to C:\hackystat\hackystat-utilities\build\classes
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\classes
+    [javac] Compiling 39 source files to C:\hackystat-projects\hackystat-utilities\build\classes
 
 checkstyle.tool:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\checkstyle
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\checkstyle
 [checkstyle] Running Checkstyle 4.3 on 39 files
     :
     :
 
 junit.tool:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\junit
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\junit
     [junit] Running org.hackystat.utilities.home.TestHackystatUserHome
      :
      :
 
 javadoc:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\javadoc
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\javadoc
   [javadoc] Generating Javadoc
   [javadoc] Javadoc execution
   [javadoc] Loading source files for package org.hackystat.utilities.home...
     :
 
 findbugs.tool:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\findbugs
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\findbugs
  [findbugs] Running FindBugs...
- [findbugs] Output saved to C:\hackystat\hackystat-utilities\build\findbugs/findbugs.xml
+ [findbugs] Output saved to C:\hackystat-projects\hackystat-utilities\build\findbugs/findbugs.xml
 
       :
       :
 
 pmd.tool:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\pmd
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\pmd
       [pmd] No problems found!
 
       :
       :
 
 sclc.tool:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\sclc
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\sclc
      [exec]  Lines  Blank  Cmnts   NCSL TPtoks
      [exec] ====== ====== ====== ====== ====== ============================================
       :
@@ -273,18 +273,18 @@ sclc.tool:
      :
 
 jar-home:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\tmp-lib
-     [copy] Copying 2 files to C:\hackystat\hackystat-utilities\tmp-lib
-      [jar] Building jar: C:\hackystat\hackystat-utilities\hackystatuserhome.lib.jar
-   [delete] Deleting directory C:\hackystat\hackystat-utilities\tmp-lib
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\tmp-lib
+     [copy] Copying 2 files to C:\hackystat-projects\hackystat-utilities\tmp-lib
+      [jar] Building jar: C:\hackystat-projects\hackystat-utilities\hackystatuserhome.lib.jar
+   [delete] Deleting directory C:\hackystat-projects\hackystat-utilities\tmp-lib
       :
       :
 
 dist:
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
-     [copy] Copying 74 files to C:\hackystat\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
-    [mkdir] Created dir: C:\hackystat\hackystat-utilities\build\dist
-      [zip] Building zip: C:\hackystat\hackystat-utilities\build\dist\hackystat-utilities-8.0.1220.zip
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
+     [copy] Copying 74 files to C:\hackystat-projects\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
+    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\dist
+      [zip] Building zip: C:\hackystat-projects\hackystat-utilities\build\dist\hackystat-utilities-8.0.1220.zip
        :
        :
 
@@ -295,11 +295,11 @@ Total time: 42 seconds
 By changing directories to hackystat-utilities, you'll see that the result of this build.utilities target is to create several jar files, including hackystatlogger.lib.jar, hackystatuserhome.lib.jar, and so on.  Now that these library files have been created, you will be able to build projects that depend upon hackystat utilities, such as hackystat-sensorbase-uh. 
 
 {{{
-C:\svn-google\hackystat\trunk\hackystat-utilities>dir
+C:\hackystat-projects\hackystat-utilities>dir
  Volume in drive C has no label.
  Volume Serial Number is 0891-1F61
 
- Directory of C:\svn-google\hackystat\trunk\hackystat-utilities
+ Directory of C:\hackystat-projects\hackystat-utilities
 
 12/20/2007  12:24 PM    <DIR>          .
 12/20/2007  12:24 PM    <DIR>          ..
