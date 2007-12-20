@@ -2,13 +2,13 @@
 
 = 1.0 Introduction =
 
-The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ProjectDirectory Project Directory].  Some of these projects are inter-dependent. For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project depends upon the [http://code.google.com/p/hackystat-utilities/ Utilities] project; the [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] project depends upon the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project; the [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] project depends upon the [http://code.google.com/p/hackystat-sensor-shell/ Sensor Shell] project, and so forth. 
+The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ProjectDirectory Project Directory].  Some of these projects are inter-dependent. For example, the Eclipse Sensor project depends upon the Sensor Shell project; the Sensor Shell project depends upon the SensorBase project, and the SensorBase Project depends upon the Utilities project. 
 
-In addition, most Hackystat projects have a number of external dependencies; in other words, to build the system, you will have to download and install a third party (open source) library.  For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  You will need to consult individual packages to determine exactly which external libraries it requires. However, to support integration builds containing all of the Hackystat components, we do require a "standard" version for each external library that all Hackystat projects be compatible with.  The [LibraryStandards Library Standards] page lists all third party libraries used across all of the Hackystat projects, along with their Standard Version.  Not all Hackystat packages require all of these libraries, of course. 
+In addition, most Hackystat projects have a number of external dependencies; in other words, to build the system, you will have to download and install a third party library.  For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  You will need to consult individual packages to determine exactly which external libraries it requires. However, to support integration builds containing all of the Hackystat components, we do require a "standard" version for each external library that all Hackystat projects be compatible with.  The [LibraryStandards Library Standards] page lists all third party libraries used across all of the Hackystat projects, along with their Standard Version.  Not all Hackystat packages require all of these libraries, of course. 
 
 = 2.0 Downloading Hackystat Sources =
 
-|| Note: if you simply want to use Hackystat, you may want to download a binary distribution.  See the [InstallationGuide Installation Guide] for details. ||
+|| Note: if you simply want to use Hackystat, you may find it easier to download a binary distribution rather than downloading sources and building locally.  See the [InstallationGuide Installation Guide] for details. ||
 
 Hackystat sources can be downloaded from Google Project Hosting using Subversion.  Because downloading over a dozen projects individually can be irritating, we have developed a set of Ant scripts that can simplify this process.  Here are the steps involved:
 
@@ -24,9 +24,9 @@ Consult the [LibraryStandards Library Standards] page for the correct version of
 
 == 2.2 Download Hackystat Download Scripts ==
 
-Create a top-level directory in which all of your hackystat sources will live.  This is typically called something like "hackystat".
+Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat".
 
-Download the following files into your newly created top-level directory:
+Download the following files into your newly created top-level hackystat directory:
 
   * [http://hackystat.googlecode.com/svn/trunk/build.xml]
   * [http://hackystat.googlecode.com/svn/trunk/dist.build.xml]
@@ -41,15 +41,15 @@ C:\hackystat>ant checkout.anonymous
 Buildfile: build.xml
 
 checkout.anonymous:
-    [mkdir] Created dir: C:\hackystat\trunk\hackystat-utilities
+    [mkdir] Created dir: C:\hackystat\hackystat-utilities
      [java] A    hackystat-utilities\sclc.build.xml
       :
      [java] Checked out revision 125.
-    [mkdir] Created dir: C:\hackystat\trunk\hackystat-sensorbase-uh
+    [mkdir] Created dir: C:\hackystat\hackystat-sensorbase-uh
      [java] A    hackystat-sensorbase-uh\sample.sensorbase.properties
       :
     [java] Checked out revision 404.
-   [mkdir] Created dir: C:\hackystat\trunk\hackystat-sensor-shell
+   [mkdir] Created dir: C:\hackystat\hackystat-sensor-shell
     [java] A    hackystat-sensor-shell\sclc.build.xml
       :
       :
@@ -61,7 +61,7 @@ Total time: 7 minutes 5 seconds
 
 As you can see, an initial checkout can take a while--in this case, a bit more than 7 minutes. 
 
-However, once you have downloaded the files for the first time, you can download updates to any of the projects by issuing the same command (which is equivalent to an SVN 'update').  Here's what this looks like:
+However, once you have downloaded the files for the first time, you can later download updates to any of the projects by issuing the same command (which is equivalent to an SVN 'update').  Here's what this looks like:
 
 {{{
 C:\hackystat>ant checkout.anonymous
@@ -103,7 +103,7 @@ Since you are checking out the sources anonymously, you cannot commit any change
 Here is what the directory structure will look like after you have checked out the projects:
 
 {{{
-C:\svn-google\hackystat\trunk>dir
+C:\svn-google\hackystat>dir
  Volume in drive C has no label.
  Volume Serial Number is 0891-1F61
 
@@ -135,32 +135,32 @@ C:\svn-google\hackystat\trunk>dir
 
 == 2.3 Checkout sources with commit privileges (for Project Members) ==
 
-If you are listed as a member of the Hackystat projects, then you can check out the project sources in a non-anonymous way that enables you to later commit your changes. 
+If you are listed as a member of the Hackystat projects, then you can check out the project sources with authentication.  This enables you to later commit your changes. 
 
-If you wish to check out the sources with commit privileges, and if you have previously checked out the sources anonymously, *you must delete the project directories that were checked out anonymously*.  Otherwise, SVN will get very confused. 
+|| Note: If you wish to check out the sources with commit privileges, and if you have previously checked out the sources anonymously, you must first delete the project directories that were checked out anonymously.  Otherwise, SVN will get very confused. ||
 
-Next, create a file called "svn.properties" in this directory. It should contain the following:
+Now create a file called "svn.properties" in your top-level Hackystat directory. It should contain two lines like the following:
 
 {{{
 svn.username=johnsmith
 svn.password=v8f4k2a9
 }}}
 
-Where you substitute your Google Project Hosting user name (your gmail account) and the password that Google generates for you (see the [http://code.google.com/hosting/settings Google Project Hosting Settings Page]). 
+Substitute your Google Project Hosting user name (your gmail account) and the password that Google generates for you (see the [http://code.google.com/hosting/settings Google Project Hosting Settings Page]). 
 
-The svn.properties file containing your username and password will be read by the Ant script and used to perform an authenticated checkout of the Hackystat projects.  
+This svn.properties file will be read by the Ant script and used to perform an authenticated checkout of the Hackystat projects.  
 
-To perform the authenticated checkout, you can now invoke "ant checkout".  The output from Ant will look exactly like the output from the anonymous checkout shown in the last section. The difference is that you can now commit your changes back to the SVN repository.
+To perform the authenticated checkout, you can now invoke "ant checkout".  The output from Ant will look exactly like the output from the anonymous checkout shown in the last section ("ant checkout.anonymous"). The difference is that you can now commit your changes back to the SVN repository.
 
 == 2.4 Checking out the Project wiki directory for local editing of wiki pages ==
 
 If you are a Hackystat developer who must create and edit wiki pages, you might find it more convenient to edit the files locally using an editor like Eclipse or Emacs, rather than use the browser-based editor provided when clicking on the "Edit" link in the Wiki page of a Project. 
 
-To edit a wiki page locally, you must first create it using the browser-based "New Page" link.  (Do not attempt to SVN add new wiki pages, Google does not apparently recognize pages added that way.)
+To edit a wiki page locally, you must first create it using the browser-based "New Page" link. 
 
 Once you have created your wiki page using the browser, Google will place it in your Project's SVN repository in a directory called wiki/.   
 
-The Ant scripts will download the wiki directories of all projects for local editing using the "ant checkout.wiki" command.  Here is what the execution of that command looks like:
+The "ant checkout.wiki" command will download all wiki directories.  Here is what the execution of that command looks like:
 
 {{{
 C:\hackystat>ant checkout-wiki
@@ -206,7 +206,7 @@ What this means is the following:
 
 Here is an example invocation of the build target for the Hackystat Utilities project, which is generally the first project you will want to build because it is dependent upon no other projects, and many other project depend upon it. 
 
-Note that I set hackystat.enable=false to disable Hackystat data collection.  This is helpful for external developers who want to build the system locally but not install the sensors just for this purpose. 
+Note that I set `hackystat.enable=false` as part of the command in order to disable Hackystat data collection.  This is helpful for external developers who want to build the system locally but not install the sensors just for this purpose. 
 
 {{{
 C:\hackystat>ant -Dhackystat.enable=false build.utilities
@@ -329,7 +329,29 @@ C:\svn-google\hackystat\trunk\hackystat-utilities>dir
                6 Dir(s)  40,862,126,080 bytes free
 }}}
 
-  
-                                      
+== 3.2 Dependencies ==
 
- 
+If you are building individual projects at a time, you need to be aware of dependencies between projects so you can rebuild them in the right order when things change.  Here are a list of rules that summarize the dependencies:
+
+  * All Sensor projects depend upon the Sensor Shell project.
+  * The Sensor Shell project depends upon the SensorBase project.
+  * The SensorBase project depends upon the Utilities project.
+  * The DailyProjectData project depends upon the SensorBase project.
+  * The Telemetry project depends upon the DailyProjectData project.
+  * The SensorDataViewer and SensorDataBrowser projects depends upon the SensorBase project.
+  * The ProjectViewer project depends upon the DailyProjectData and SensorBase projects.
+  * The TelemetryViewer project depends upon the Telemetry project. 
+
+Of course, dependencies are transitive. 
+
+== 3.3 Building the entire system ==
+
+It is also possible to build the system with one command: "ant build.all".  The advantage to this command is that it guarantees the projects are built in an order that satisfies their dependencies.  
+
+The output of running this command is quite long, so I will not show it here.  However, it basically just calls all of the individual build.<project> targets in an appropriate order. 
+
+Building the entire system typically takes about 10 minutes. 
+
+
+
+
