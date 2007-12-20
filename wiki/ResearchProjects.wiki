@@ -92,7 +92,9 @@ side, mouse gestures drag an arrow from one side to the other to "hook up"
 the process/product data icon to the ambient device that will respond to
 it.
 
-At the simplest level, such an interface might provide  "on/off" kinds of triggers:  For example,  if the most recent continuous integration build for a project passed, it glows green, if not, red. This has already been [http://blogs.msdn.com/mswanson/articles/169058.aspx done].
+At the simplest level, such an interface might provide  "on/off" kinds of triggers:  For example,  if the most recent continuous integration build for a project passed, it glows green, if not, red. 
+Details of this approach are available at [http://pragmaticautomation.com/cgi-bin/pragauto.cgi/Monitor/Devices/BubbleBubbleBuildsInTrouble.rdoc Bubble, Bubble, Build's in Trouble] and 
+[http://blogs.msdn.com/mswanson/articles/169058.aspx Automated Continuous Integration and the Ambient Orb].
 
 What makes Hackystat integration interesting is that Hackystat can collect and integrate information from a wide variety of tools and developer behaviors, resulting in the potential for much more sophisticated information display in the ambient device. Here are a couple of examples:
 
