@@ -5,7 +5,7 @@
 Work on Hackystat began on July 1, 2001. This first architectural release
 family, called the "Spike Solution", was used to explore the feasibility of
 the approach and to evaluate various component technologies (including
-JATO, XSL, Ant, JUnit/HttpUnit, Tomcat, Cocoon, and SOAP).  Work on this
+JATO, XSL, Ant, !JUnit, !HttpUnit, Tomcat, Cocoon, and SOAP).  Work on this
 Spike Solution architecture lasted eight months, from May to December,
 2001.
 
@@ -67,7 +67,7 @@ this system occurred in December, 2007.
 
 == Version 8: REST Architecture Release Family (May 2007 - present) ==
 
-=== 21-Dec-2007 9.0.1221 ===
+=== 21-Dec-2007 8.0.1221 ===
 
  * REST architecture
  * Hosted at Google Projects. 
@@ -98,15 +98,15 @@ this system occurred in December, 2007.
   * Update to require Java 1.5
   * Experimentation chapter for Administrator guide
   * New sensor for Bugzilla
-  * New "DevTime" analyses 
-  * New DailyProjectData design 
+  * New "!DevTime" analyses 
+  * New !DailyProjectData design 
   * Significant improvements to Zorro TDD inference engine
   * Significant improvements to Telemetry engine 
 
 === 07-June-2006  7.4.608 ===
   *  New Telemetry Language feature: Filter Functions.
   * New chapters on Telemetry, Test Driven Design, Administration.
-  * PingMail: Administrator server monitoring program
+  * !PingMail: Administrator server monitoring program
   * Privacy policy page configurable
   * SDT structures evolved to new versions
   * New Sensor for Open Office 
@@ -114,7 +114,7 @@ this system occurred in December, 2007.
 
 === 17-March-2006 7.3.120 ===
 
-  *  New SDT: DevEvent
+  *  New SDT: !DevEvent
   * New/Improved Sensors: SCLC, Jira, XmlData, FindBugs, Vim
   * Multi-language size counting/analysis 
   * Substantial documentation improvements: new Developer Guide chapters, rewritten "StackyHack" chapter, new Reference Guide 
@@ -122,7 +122,7 @@ this system occurred in December, 2007.
 === 20-January-2006 7.2.120 ===
 
   *  A new modular, docbook-based documentation providing configuration-specific User, Administrator, and Developer guides.
-  * Improvements to hackyApp_BuildAnalysis.
+  * Improvements to !hackyApp_BuildAnalysis.
   * Improvements to hackyInstaller. 
 
 === 06-December-2005 7.0.1206 ===
@@ -130,7 +130,7 @@ this system occurred in December, 2007.
   * Complete redesign of build system, providing substantial performance, maintainability, and extensibility improvements. 
   * Support for evolution in sensor data types.
   * New Sensor Data Type: "Code Issue"
-  * New sensors for: PMD, Emma, FindBugs, Checkstyle, Subversion
+  * New sensors for: PMD, Emma, !FindBugs, Checkstyle, Subversion
   * Stable releases are now binary distributions (30 MB rather than 180 MB)
   * Improved property file design (hackystat.build.properties and hackystat.site.properties)
   * CCCC sensor now works with standard version of CCCC.
@@ -144,14 +144,14 @@ this system occurred in December, 2007.
 
 === 14-October-2005 6.8.1014 ===
 
-  * Many improvements and bugfixes for HackyInstaller, including support for UserMaps, and Proxy settings. 
+  * Many improvements and bugfixes for !HackyInstaller, including support for !UserMaps, and Proxy settings. 
   * Release of hackyExperiment package.
   * Eclipse 3.1 sensor support
   * CLI Bash sensor support
 
 === 09-September-2005 6.7.909 ===
 
-  * New sensor-side installation system called HackyInstaller,
+  * New sensor-side installation system called !HackyInstaller
 
 === 13-July-2005 6.6.713 ===
 
@@ -170,7 +170,7 @@ this system occurred in December, 2007.
 
 === 23-Feb-2005 6.4.223 ===
 
-  *  New User Guide based upon DocBook
+  *  New User Guide based upon !DocBook
   * Redesigned Ant sensor and Build sensor data type
   * Redesigned Jira sensor and Issue sensor data type
   * Daily Diary and Alert to support "journaling" 
@@ -192,9 +192,9 @@ this system occurred in December, 2007.
 
 === 03-Sept-2004 6.1.903 ===
 
-  * TelemetryViewer for Telemetry Control Center
+  * !TelemetryViewer for Telemetry Control Center
   * http://www.hackystat.org is new URL for developer services
-  * Guided Tour for new users (narrated PowerPoint).
+  * Guided Tour for new users (narrated !PowerPoint).
   * Article: Improving Software Development Management through Software Project Telemetry
   * Mailing lists now archived at The Mail Archive
   * New issue management system using Jira.
@@ -209,7 +209,7 @@ this system occurred in December, 2007.
     * Initial release of Hackystat load testing sensor.
     * Initial release of Vim sensor
     * Substantial thread-safety improvements
-    * Substantial JavaDoc improvements
+    * Substantial !JavaDoc improvements
     * Improvements to Microsoft Office sensor.
     * Improvements to the CVS commit sensor.
     * Eclipse sensor for 3.0 major release
@@ -292,7 +292,7 @@ this system occurred in December, 2007.
 
 === 4/01/2003 3.4.401 ===
 
-    *  BuffTrans Daily Analysis
+    * !BuffTrans Daily Analysis
     * Improvements to the Eclipse sensor
 
 === 3/14/2003 3.3.314 ===
@@ -330,17 +330,17 @@ this system occurred in December, 2007.
 
 === 11/05/2002 2.1105 ===
 
-   1.  New command: Locale Metrics for summarizing activity in a given module.
-   2. New command: Development Curve for summarizing "hotspots" in Java code development.
-   3. New command: Weekly Review.
-   4. Emacs sensor now clears the hackystat shell buffer when it gets large.
-   5. Performance analysis of sensor log code to improve memory and cpu utilization.
+ * New command: Locale Metrics for summarizing activity in a given module.
+ * New command: Development Curve for summarizing "hotspots" in Java code development.
+ * New command: Weekly Review.
+ * Emacs sensor now clears the hackystat shell buffer when it gets large.
+ * Performance analysis of sensor log code to improve memory and cpu utilization.
 
 === 10/04/2002 2.1004 ===
 
    *  Server-side Active/Idle time calculation changed for consistency with Weekly Review statistics. Now, the user is only "active" when a state changed event exists within a five minute interval. 
-   * Midnight roll-over bug in ActivityLog fixed. This means that people working past midnight, or uploading offline data will have their data correctly stored.
-   * CkMetrics updated to calculate LOC directly through the .class file LineNumberTable data structure.
+   * Midnight roll-over bug in !ActivityLog fixed. This means that people working past midnight, or uploading offline data will have their data correctly stored.
+   * !CkMetrics updated to calculate LOC directly through the .class file !LineNumberTable data structure.
    * Fixed JUnitSensor bug in which different test cases could be potentially sent with the same time stamp.
    * New coder-decoder implemented for SOAP string transmission; should be faster and less error prone (no special "delimiter" characters required).
 
@@ -353,13 +353,13 @@ this system occurred in December, 2007.
 
 === 8/01/2002  2.0801 ===
 
-  * SensorShell component implemented, providing services to all sensors including log files, temporary storage, autosend, offline storage, and improved efficiency. Documentation available in the doc/ directory.
-  * Emacs sensor now includes OoSize computation.
-  * Emacs, JUnit and JBuilder sensors upgraded to use SensorShell.
-  * BCEL component recompiled with a fix to the Repository class. This allows updates to CkMetrics data during a single session. 
-  * CkMetrics upgrades to facilitate NOC computation and to reduce amount of .class file parsing. 
-  * Logging available on all sensors in uniform manner using SensorShell.
-  * SendNotification eliminated.
+  * !SensorShell component implemented, providing services to all sensors including log files, temporary storage, autosend, offline storage, and improved efficiency. Documentation available in the doc/ directory.
+  * Emacs sensor now includes !OoSize computation.
+  * Emacs, JUnit and JBuilder sensors upgraded to use !SensorShell.
+  * BCEL component recompiled with a fix to the Repository class. This allows updates to !CkMetrics data during a single session. 
+  * !CkMetrics upgrades to facilitate NOC computation and to reduce amount of .class file parsing. 
+  * Logging available on all sensors in uniform manner using !SensorShell.
+  * !SendNotification eliminated.
   * sensor.properties file updated: new values HACKYSTAT_STATE_CHANGE_INTERVAL and HACKYSTAT_AUTOSEND_INTERVAL.
   * Checkstyle upgraded to version 2.3.  1,000 new checkstyle errors fixed. 
   * testOne ant target prompts the user for a test file name prefix, and executes only those test cases whose names start with the prefix.
@@ -368,7 +368,7 @@ this system occurred in December, 2007.
 === 7/10/2002 2.0710 ===
 
   * Object Oriented metrics data is now available.  The CKMetrics package collects the Chidamber-Kemerer metrics by parsing the .class file associated with a java source. The OOSize Sensor Log stores this information and a JBuilder-based sensor is available.
-  * Most Active File is now computed from StateChange events. 
+  * Most Active File is now computed from !StateChange events. 
   * Complexity Threshold Alert is available, which informs the developer when the CKMetrics of any of the recent Most Active Files exceeds user-specified thresholds.
   * Locale data is now available. Locales allow the developer and analysis functions to "localize" any computations to a "region" of the system. The "window" of days to be analyzed for locale information is user-configurable. Locales can be hidden from appearing in the pull-down menus. Analyses allow restriction to a locale. 
   * The Daily Diary is updated to include Most Active Files, Locale Information, OOSize information, and JUnit data. 
@@ -415,8 +415,7 @@ this system occurred in December, 2007.
   * Implements the basic Alert processing infrastructure. Two alerts are currently implemented: one detects bad data received during the previous day (BadDataAlert) and one detects regular sensor data received during the previous day (DataAlert).  Both are enabled for users by default. 
 
 === 2.0313 3/13/2002  ===
- Implements the following improvements to JBuilder and Emacs sensors. Users must re-download all sensor executable files (*.el and *.jar) from the sensor installation page to their local computers to obtain these improvements:
-
+    *  Implements the following improvements to JBuilder and Emacs sensors. Users must re-download all sensor executable files (.el and .jar) from the sensor installation page to their local computers to obtain these improvements:
     * Implements the "State Change" activity type (both Emacs and JBuilder sensors). This activity type is implemented by a timer that wakes up once per minute and checks to see if the active buffer has changed or the size of the buffer has changed. If either is true, then a new State Change activity is posted.
     * Implements sending of activity time data after a certain period of idle time (both Emacs and JBuilder sensors). If the user appears to be idle for a certain period of time (15 or 30 minutes, it doesn't really matter) then the current set of activity events (if any) will be sent to the server.
     * Fixes bug in Emacs sensor that displayed only first digit of the number of activities being sent to the server in the minibuffer. (For example, if 12 activities were sent, it would say "Sending 1 activities.."
@@ -425,7 +424,7 @@ this system occurred in December, 2007.
 === 2.036 3/6/2002 ===
 
 
-   *  Provides DailyEmail services.  Each user will receive an email from the system the day following the receipt of data by the server. Currently, the email just informs the user that data was received and provides a link to their user home page. In future, the email will include any alerts triggered by analysis of the data.
+   *  Provides !DailyEmail services.  Each user will receive an email from the system the day following the receipt of data by the server. Currently, the email just informs the user that data was received and provides a link to their user home page. In future, the email will include any alerts triggered by analysis of the data.
    * Provides the ACTIVE_BUFFER_STATE_CHANGE activity type, in preparation for timer-based activity sensors.
 
 
@@ -471,7 +470,7 @@ this system occurred in December, 2007.
 
 === 12/18/2001 ===
 
- Provides bad data logging
+ * Provides bad data logging
 
 === 10/25/2001 ===
 
@@ -501,4 +500,4 @@ this system occurred in December, 2007.
 
 ===  7/12/2001 ===
 
-  *  Initial "public" server release with two sensors for ToolTime data collection.
+  *  Initial "public" server release with two sensors for !ToolTime data collection.
