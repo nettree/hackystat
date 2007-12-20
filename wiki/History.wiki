@@ -275,7 +275,7 @@ this system occurred in December, 2007.
 
 === 04-June-2003 4.0.604  ===
 
-  * Package renaming to org.hackystat.kernel.*
+  * Package renaming to org.hackystat.kernel.`*`
 
 
 == Version 3: SDK Architecture Release Family (Jan 2003-May 2003) ==
