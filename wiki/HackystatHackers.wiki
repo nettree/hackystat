@@ -1,3 +1,3 @@
 #summary You know who you are.
 
-To be written.
+|| [http://hackydev.ics.hawaii.edu/hackyDevSite/images/sJoyAgustin.jpg] || Joy Agustin received an M.S. degree in Information and Computer Sciences from the University of Hawaii in 2003. She leads development of the JBlanket tool for "Extreme" code coverage and related sensors and analyses for Hackystat. When not hacking, she leaps tall buildings in a single bound. ||
