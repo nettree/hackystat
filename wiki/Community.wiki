@@ -1,13 +1,6 @@
 #summary Examples of Hackystat usage by the software development community
 
-= Introduction =
+Since 2001, Hackystat has been used by a variety of research and industrial organizations to better understand software development.  Here are some examples of the way in which Hackystat has been applied. 
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+|| *Organization*  || *Collaborators* || *Description* ||
+|| [http://www.cs.umd.edu/projects/SoftEng/ESEG/ University of Maryland Experimental Software Engineering Group] || Victor Basili, Marvin Zelkowitz || Performed a variety of experiments on programmer productivity as part of the [http://www.cs.umd.edu/projects/SoftEng/ESEG/hpcs/ HPCS Development Time Working Group].  Used Hackystat to record developer activities within editors and at the command line, and integrated Hackystat into their UMDInst toolset.  Example publication: [http://hpcs.cs.umd.edu/fileadmin/papers/fse-esec05.pdf Combining Self-reported and Automatic Data to Improve Programming Effort Measurement], Lorin Hochstein, Victor R. Basili, Marvin V. Zelkowitz, Jeffrey K. Hollingsworth, Jeffrey Carver, Foundations of Software Engineering (FSE05), 2005. ||
