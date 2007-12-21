@@ -152,7 +152,26 @@ This svn.properties file will be read by the Ant script and used to perform an a
 
 To perform the authenticated checkout, you can now invoke "ant checkout".  The output from Ant will look exactly like the output from the anonymous checkout shown in the last section ("ant checkout.anonymous"). The difference is that you can now commit your changes back to the SVN repository.
 
-== 2.4 Checking out the Project wiki directory for local editing of wiki pages ==
+== 2.4 The Google Credential Problem ==
+
+At least in my environment, Google generates some kind of weird credential problem the first time that a project is checked out.  The following message gets written out:
+
+{{{
+[java] Error validating server certificate for 'https://hackystat-sensorbase-uh.googlecode.com:443':
+[java]  - The certificate is not issued by a trusted authority. Use the
+[java]    fingerprint to validate the certificate manually!
+[java]  - The certificate hostname does not match.
+[java] Certificate information:
+[java]  - Subject: CN=*.googlecode.com, O=Google Inc, L=Mountain View, ST=California, C=US
+[java]  - Valid: from Fri Jun 23 06:05:41 HST 2006 until Sat Jun 21 01:45:36 HST 2008
+[java]  - Issuer: EMAILADDRESS=premium-server@thawte.com, CN=Thawte Premium Server CA, OU=Certification Services Division, O=Thawte Consulting cc, L=Cape Town, ST=Western Cape, C=ZA
+[java]  - Fingerprint: 89:87:5e:ca:0b:03:d2:83:db:7b:3f:20:5d:d0:76:c7:76:6b:cb:b2
+[java] (R)eject, accept (t)emporarily or accept (p)ermanently? 
+}}}
+
+If you get this message, you should just type 'p' and return as soon as possible after it appears.  If you do it within, say 10 seconds or so, then the checkout will proceed and you will not get this message again. Otherwise, the build will fail and you'll have to start over again. 
+
+== 2.5 Checking out the Project wiki directory for local editing of wiki pages ==
 
 If you are a Hackystat developer who must create and edit wiki pages, you might find it more convenient to edit the files locally using an editor like Eclipse or Emacs, rather than use the browser-based editor provided when clicking on the "Edit" link in the Wiki page of a Project. 
 
