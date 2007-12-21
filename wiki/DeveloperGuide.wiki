@@ -356,6 +356,17 @@ The output of running this command is quite long, so I will not show it here.  H
 
 Building the entire system typically takes about 10 minutes. 
 
+= 4.0 Committing changes =
+
+The command "ant -Dsvn.message=<commit message>" will commit all changed files in all of the regular (non-wiki) modules. 
+
+If you forget to supply the svn.message command line parameter, it will fail.  
+
+This only works, of course, when you have checked out the files with authentication and the svn.properties file exists. 
+
+Note that this doesn't tell you if you've created new files that need to be SVN added, so use this command with care. 
+
+
 
 
 
