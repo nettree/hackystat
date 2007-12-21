@@ -154,7 +154,7 @@ To perform the authenticated checkout, you can now invoke "ant checkout".  The o
 
 == 2.4 The Google Credential Problem ==
 
-At least in my environment, Google generates some kind of weird credential problem the first time that a project is checked out.  The following message gets written out:
+At least in my environment, Google generates some kind of weird credential problem the first time that a project is checked out.  A message similar to the following  gets written out:
 
 {{{
 [java] Error validating server certificate for 'https://hackystat-sensorbase-uh.googlecode.com:443':
@@ -169,7 +169,7 @@ At least in my environment, Google generates some kind of weird credential probl
 [java] (R)eject, accept (t)emporarily or accept (p)ermanently? 
 }}}
 
-If you get this message, you should just type 'p' and return as soon as possible after it appears.  If you do it within, say 10 seconds or so, then the checkout will proceed and you will not get this message again. Otherwise, the build will fail and you'll have to start over again. 
+If you get this message, you should just type 'p' and hit Return as soon as possible after it appears.  If you respond within, say 10 seconds or so, then the checkout will proceed and you will not get this message again for this project. Otherwise, the build will fail and you'll have to start over again. 
 
 == 2.5 Checking out the Project wiki directory for local editing of wiki pages ==
 
