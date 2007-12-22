@@ -18,6 +18,7 @@ These projects provide end-user interfaces.
 || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ Sensor Data Browser] || Provides a browser for sensor data. ||
 || [http://code.google.com/p/hackystat-ui-telemetryviewer/ Telemetry Viewer] || Provides a visualization of telemetry data. ||
 || [http://code.google.com/p/hackystat-ui-projectviewer/ Project Viewer] || Provides an interface to Project definition and management. ||
+|| [http://code.google.com/p/hackystat-ui-systemstatus/ System Status] || Tools for monitoring a Hackystat installation. ||
 
 == Sensors ==
 
