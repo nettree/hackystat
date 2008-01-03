@@ -8,6 +8,7 @@ These projects provide the sensor data repository and helpful utilities.
 
 || [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase-UH] || The repository for raw data which provides four core resource representations: Sensor Data, Sensor Data Type, Project, and User. ||
 || [http://code.google.com/p/hackystat-utilities/ Utilities]  || A library of utility classes used by many modules. ||
+|| [http://code.google.com/p/hackystat-sensorbase-simdata/ SimData]  || A package supporting the generation of "simulated data" for illustrating Hackystat analysis and visualization facilities. ||
 
 
 == User Interface Services ==
@@ -42,9 +43,11 @@ These projects take data from the !SensorBase (and/or other Analysis Services) a
 || [http://code.google.com/p/hackystat-analysis-sdsa/ SDSA] || Provides an episode-based abstraction called "Software Development Stream Analysis". ||
 
 
+
 == Experimental Services ==
 
 These projects are not yet ready for primetime. 
 
+|| [http://code.google.com/p/hackystat-analysis-projecttrajectory/ Project Trajectory]  || An analysis supporting size and effort estimation and their comparison to actual values. ||
 || [http://code.google.com/p/hackystat-ui-chart/ Chart] || An unreleased service based upon JFreeChart. ||
 || [http://code.google.com/p/hackystat-ui-timeline/ Timeline] || An unreleased service based upon Simile/Timeline. ||
