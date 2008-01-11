@@ -1,32 +1,24 @@
 #summary Directory of Hackystat services and systems.
 
-|| Category || Name || Project Home Page || Links || Description ||
+|| *Category* || *Name* || *Project Home Page* || *Links* || *Description* ||
+|| Sensor || Ant Build Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Build sensor data from [http://ant.apache.org Ant]. ||
+|| Sensor || Checkstyle Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://checkstyle.sourceforge.net Checkstyle]. ||
+|| Sensor || Clover Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Coverage sensor data from [http://www.atlassian.com/software/clover/ Clover]. ||
+|| Sensor || Emma Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Coverage sensor data from [http://emma.sourceforge.net Emma]. ||
+|| Sensor || FindBugs Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://findbugs.sourceforge.net FindBugs]. ||
+|| Sensor || JUnit Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !UnitTest sensor data from [http://www.junit.org JUnit]. ||
+|| Sensor || PMD Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://pmd.sourceforge.net PMD]. ||
+|| Sensor || Subversion Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Commit sensor data from [http://subversion.tigris.org Subversion]. ||
+|| Sensor || SCLC Sensor || [http://code.google.com/p/hackystat-sensor-xmldata/ hackystat-sensor-xmldata] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/SclcUserGuide User Guide] || Collects FileMetric sensor data from [http://code.google.com/p/sclc/ SCLC]. ||
+|| Sensor || Emacs Sensor || [http://code.google.com/p/hackystat-sensor-emacs/ hackystat-sensor-emacs] || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide User Guide] || Collects DevEvent sensor data from [http://www.gnu.org/software/emacs Emacs]. ||
+|| Sensor || Eclipse Sensor || [http://code.google.com/p/hackystat-sensor-eclipse/ hackystat-sensor-eclipse] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide User Guide] || Collects DevEvent sensor data from [http://www.eclipse.org Eclipse]. ||
+|| Utility || SensorShell || [http://code.google.com/p/hackystat-sensor-shell/ hackystat-sensor-shell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide User Guide] || "Middleware" for Hackystat sensor data transmission. ||
 
-|| Sensor || Ant Build Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Build sensor data from [http://ant.apache.org Ant]. ||
 
-|| Sensor || Checkstyle Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://checkstyle.sourceforge.net Checkstyle]. ||
 
-|| Sensor || Clover Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Coverage sensor data from [http://www.atlassian.com/software/clover/ Clover]. ||
 
-|| Sensor || Emma Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Coverage sensor data from [http://emma.sourceforge.net Emma]. ||
 
-|| Sensor || FindBugs Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://findbugs.sourceforge.net FindBugs]. ||
-
-|| Sensor || JUnit Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !UnitTest sensor data from [http://www.junit.org JUnit]. ||
-
-|| Sensor || PMD Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://pmd.sourceforge.net PMD]. ||
-
-|| Sensor || Subversion Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Commit sensor data from [http://subversion.tigris.org Subversion]. ||
-
-|| Sensor || SCLC Sensor || [http://code.google.com/p/hackystat-sensor-xmldata/ hackystat-sensor-xmldata || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/SclcUserGuide User Guide] || Collects FileMetric sensor data from [http://code.google.com/p/sclc/ SCLC]. ||
-
-|| Sensor || Emacs Sensor || [http://code.google.com/p/hackystat-sensor-emacs/ hackystat-sensor-emacs || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide User Guide] || Collects DevEvent sensor data from [http://www.gnu.org/software/emacs Emacs]. ||
-
-|| Sensor || Eclipse Sensor || [http://code.google.com/p/hackystat-sensor-eclipse/ hackystat-sensor-eclipse || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide User Guide] || Collects DevEvent sensor data from [http://www.eclipse.org Eclipse]. ||
-
-|| Utility || SensorShell || [http://code.google.com/p/hackystat-sensor-shell/ hackystat-sensor-shell || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide User Guide] || "Middleware" for Hackystat sensor data transmission. ||
-
-|| Utility || ShellPerfEval || [http://code.google.com/p/hackystat-sensor-shell/ hackystat-sensor-shell || [http://code.google.com/p/hackystat-sensor-shell/wiki/ShellPerfEval User Guide] || Performance evaluation tool for sensor data transmission. ||
+|| Utility || ShellPerfEval || [http://code.google.com/p/hackystat-sensor-shell/ hackystat-sensor-shell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/ShellPerfEval User Guide] || Performance evaluation tool for sensor data transmission. ||
 
 
 
