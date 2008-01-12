@@ -52,7 +52,24 @@ Another user interface to sensor data is the !SensorDataBrowser, which allows yo
 
 [http://hackystat.googlecode.com/svn/wiki/sensordatabrowser.gif]
 
-This image shows that on this day, I have so far sent 3,634 sensor data instances to this !SensorBase. It also shows the variety of data I have sent, including CodeIssue data from Checkstyle, !UnitTest data from JUnit, FileMetric data from SCLC, and so forth.  Of course, just as with the !SensorDataBrowser, you can drill down to see the individual sensor data instances and their contents. 
+This image shows that on this day, I have so far sent 3,634 sensor data instances to this !SensorBase. It also shows the variety of data I have sent, including !CodeIssue data from Checkstyle, !UnitTest data from JUnit, !FileMetric data from SCLC, and so forth.  Of course, just as with the !SensorDataBrowser, you can drill down to see the individual sensor data instances and their contents. 
+
+=== Projects ===
+
+The project viewer:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer.gif]
+
+=== Analyses ===
+
+The telemetry viewer:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetryviewer.gif]
+
+[http://hackystat.googlecode.com/svn/wiki/telemetryviewerchart1.gif]
+
+
+
 
 
 
