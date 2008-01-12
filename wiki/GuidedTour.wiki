@@ -1,5 +1,12 @@
 #summary A brief introduction to Hackystat, with pictures.
 
+== What is Hackystat? ===
+
+Hackystat is a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  This is an ambitious goal, and in order to address it, Hackystat is organized as a collection of loosely coupled software services that communicate using [http://en.wikipedia.org/wiki/Representational_State_Transfer REST architectural principles].  The following diagram shows a standard set of Hackystat services that are organized together in a standard way:
+
+[http://hackystat.googlecode.com/svn/wiki/architecture.jpg]
+
+
 This page will include the following sections:
 
   * Why you might be interested in Hackystat
