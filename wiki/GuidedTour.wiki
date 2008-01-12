@@ -6,6 +6,24 @@ Hackystat is a framework for collection, analysis, visualization, interpretation
 
 [http://hackystat.googlecode.com/svn/wiki/architecture.jpg]
 
+Starting at the bottom, the blue boxes represent "sensors".  Sensors are small software plugins that typically collect data from the use of software development tools.  A Hackystat sensor could also collect data directly from developers, but since developers tend to be quite busy, we generally try to avoid requiring the developer to provide low-level data to the environment directly.  
+
+Sensors send data to a repository called the !SensorBase, represented here by a purple box.  In this drawing, there is only one !SensorBase, but the Hackystat architecture is designed to make it simple to distribute data among many !SensorBase instances if that is required. The !SensorBase also provides a repository for three other fundamental concepts in Hackystat besides sensor data: sensor data types, users, and projects.  We'll get back to those later. 
+
+Sensor data tends to be quite low-level and voluminous, and in most cases needs to be analyzed and abstracted in some way in order for it to be of use to developers.  The green boxes represent examples of Hackystat analysis services.  The !DailyProjectData analysis provides a set of abstractions generated from all of the raw sensor data for a given day and project. The Telemetry analysis takes DailyProjectData analyses along with raw data from the !SensorBase and combines it together to produce trend-based information about software development. 
+
+Finally, the gold boxes represent user interface services, which provide information from the Framework to the user, and in some cases allow the user to feed information back into the Framework.  For example, the !ProjectViewer displays both data from the !SensorBase and DailyProjectData analyses, as well as allowing the user to create and modify Project definitions which are stored in the !SensorBase.  Hackystat user interfaces need not be limited to web browsers, and we are exploring alternative user interface mechanisms such as ambient devices. 
+
+In keeping with REST architectural principles, all of the arrows in this
+diagram represent communication among services using standard HTTP GET,
+PUT, POST, and DELETE operations. One implication is that Hackystat is
+quite platform and technology neutral: a sensor implemented using Java
+could collect raw data that is analyzed using a service implemented using
+.NET, and the results could be presented to the user with an interface
+implemented using Ruby on Rails.
+
+
+
 
 This page will include the following sections:
 
