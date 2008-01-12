@@ -2,7 +2,7 @@
 
 The following table provides information on all currently released Hackystat tools and services. 
 
-|| *Category* || *Name* || *Project Home Page* || *Links* || *Description* ||
+|| *Category* || *Name* || *Google Project* || *Links* || *Description* ||
 || Sensor || Ant Build Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Build sensor data from [http://ant.apache.org Ant]. ||
 ||   || Checkstyle Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects !CodeIssue sensor data from [http://checkstyle.sourceforge.net Checkstyle]. ||
 ||  || Clover Sensor || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference] || Collects Coverage sensor data from [http://www.atlassian.com/software/clover/ Clover]. ||
