@@ -34,6 +34,7 @@ After typing in your email address, the system will send you an email with the p
 
 Now that you have an account, you can download and install sensors.  For example, the Emacs sensor collects data about the files you are editing.  Here is an image of my Emacs window at the moment that I am typing this documentation.  The upper window shows the file I am editing, and the lower window, which is normally hidden, shows the Hackystat Emacs sensor at work in the background, recording information about the file I am editing. 
 
+[http://hackystat.googlecode.com/svn/wiki/emacs.gif]
 
 
 
