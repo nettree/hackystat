@@ -8,32 +8,32 @@ A Hackystat "Binary Distribution" consists of a set of zip files with a common v
 
 = 2.0 Structure of the Binary Distribution =
 
-Currently, a Hackystat Binary distribution consists of two zip files. For example, the November 1, 2007 Binary Distribution consists of the following files:
+Currently, a Hackystat Binary distribution consists of two zip files. For example, the January 11, 2008 Binary Distribution consists of the following files:
 
 || *File Name* || *Contents* ||
-|| hackystat-8.0.1101-sensors-bin.zip  || Binaries for the (client side) Hackystat sensors ||
-|| hackystat-8.0.1101-services-bin.zip || Binaries for the (server side) Hackystat services ||
+|| hackystat-8.0.111-sensors-bin.zip  || Binaries for the (client side) Hackystat sensors ||
+|| hackystat-8.0.111-services-bin.zip || Binaries for the (server side) Hackystat services ||
 
 The binary distributions expand into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution. For example:
 
 {{{
-hackystat-8.0.1101-sensors-bin/
+hackystat-8.0.111-sensors-bin/
                               README.html
                               hackystat-sensor-ant/
                                                    antsensors.jar
                               hackystat-sensor-emacs/
                                                      sensor-package.el
                               hackystat-sensor-eclipse/
-                                                       org.hackystat.sensor.eclipse_8.0.v20071101.jar
+                                                       org.hackystat.sensor.eclipse_8.0.v20080111.jar
    :
    :
 }}}
 
 The README.html file simply points you to this page. 
 
-Note that the version number, 8.0.1101, indicates the major release (8), the minor release (0), and the month/day of this build (1101, or November 1).                                                                  
+Note that the version number, 8.0.111, indicates the major release (8), the minor release (0), and the month/day of this build (111, or January 11).                                                                  
 
-At present, documentation snapshots are not packaged in these distributions. Instead, go to the online User Guides for details about each package. 
+At present, documentation snapshots are not packaged in these distributions. Instead, see the [ComponentDirectory Component Directory] for links to User Guides and other documentation.
 
 = 3.0 Using a Binary Distribution =
 
@@ -47,41 +47,17 @@ To use the public services, you must register to obtain an account at the follow
 
 Supply an email address to which you have access, and the system will establish an account whose name is that email address and generate a password. The system will send information about the password immediately to this email address. 
 
-Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. The following tables lists the sensors currently in release with pointers to their installation guide:
-
-
-|| *Sensor* || *User Guide* || *Description* ||
-|| [http://code.google.com/p/hackystat-sensor-ant/ Ant Sensor] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide Ant Sensor User Guide] || Sensors implemented as Ant tasks for [http://www.junit.org JUnit], [http://checkstyle.sourceforge.net/ Checkstyle], [http://pmd.sourceforge.net/ PMD], [http://findbugs.sourceforge.net/ FindBugs], [http://subversion.tigris.org/ Subversion] and [http://emma.sourceforge.net/ Emma], as well as a sensor for [http://ant.apache.org/ Ant] itself.||
-|| [http://code.google.com/p/hackystat-sensor-xmldata/ XmlData Sensor] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/UserGuide XmlData Sensor User Guide] || A generic interface to sending data represented in XML, including interfaces to [http://www.atlassian.com/software/clover/ Clover] and [http://csdl.ics.hawaii.edu/Tools/SCLC/ SCLC]. ||
-|| [http://code.google.com/p/hackystat-sensor-emacs/ Emacs Sensor] || [http://code.google.com/p/hackystat-sensor-emacs/wiki/UserGuide Emacs Sensor User Guide] || A sensor for the [http://www.gnu.org/software/emacs/ Emacs] IDE ||
-|| [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse Sensor] || [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide Eclipse Sensor User Guide] || A sensor for the [http://www.eclipse.org Eclipse] IDE ||
-|| [http://code.google.com/p/hackystat-sensor-shell/ SensorShell] || [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide SensorShell User Guide] || "Middleware" for Hackystat sensor development || 
+Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. See the [ComponentDirectory Component Directory] for a list of currently available sensors. 
 
 It is quite helpful to go through the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide StackyHack User Guide] when first starting to use Hackystat.  This sample system, provided with the Sensors binary distribution, contains sample sensor implementations in Ant that illustrate how a variety of process and product data can be sent to Hackystat. 
 
-Once you have installed the sensors and are successfully sending data, you can invoke Hackystat "analyses" to gain insight into your software development processes and products.  (More documentation on Hackystat analyses will be forthcoming.) 
+Once you have installed the sensors and are successfully sending data, you can see your sensor data using the Sensor Data Browser, or look at analysis trends using the Telemetry Viewer.  
 
 == Using locally installed services ==
 
 If you wish to install and run the Hackystat services locally, then in addition to downloading the binary "sensors" distribution, you must also download the binary "services" distribution.  The services distribution includes both "analysis" services, which normally provide only a REST API as their interface, and "ui" services, which provide a browser-based or other human-oriented user interface. 
 
-The Services System Distribution currently contains the following analysis services: 
-
-|| *Analysis Service* || *User Guide* || *Description* ||
-|| [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide SensorBase User Guide] || A repository for sensor data collected by sensors. ||
-|| [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ DailyProjectData] || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/UserGuide DailyProjectData User Guide] || An analysis providing measures of project processes/products for a given day. ||
-|| [http://code.google.com/p/hackystat-analysis-telemetry/ Telemetry] || [http://code.google.com/p/hackystat-analysis-telemetry/wiki/UserGuide Telemetry User Guide] || An analysis providing the "Software Project Telemetry" language for project measurement trend definition and analysis. ||
-|| [http://code.google.com/p/hackystat-utilities/ Utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide Utilities User Guide] || Developer utilities for sensor and service development, including Time, TStamp, TStampSet, !HackystatLogger, and !UriCache. ||
-
-It also includes the following User Interface services:
-
-|| *UI Service* || *User Guide* || *Description* ||
-|| [http://code.google.com/p/hackystat-ui-sensordataviewer/ SensorDataViewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide SensorDataViewer User Guide] || A web and Google Gadget interface for monitoring sensor data transmission by sensors to a !SensorBase. ||
-|| [http://code.google.com/p/hackystat-ui-sensordatabrowser/ SensorDataBrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide SensorDataBrowser User Guide] || A web interface for browsing the sensor data stored at a !SensorBase. ||
-
-Consult the User Guides for more information on how to install, configure, and  use these services. 
-
-
+See the [ComponentDirectory Component Directory] for a listing of the analyses and user interface packages currently available.
 
 
 
