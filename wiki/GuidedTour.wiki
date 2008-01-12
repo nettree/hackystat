@@ -36,6 +36,31 @@ Now that you have an account, you can download and install sensors.  For example
 
 [http://hackystat.googlecode.com/svn/wiki/emacs.gif]
 
+Sensors are available for many other development tools. For a complete list, see the [ComponentDirectory Component Directory].
+
+=== Displaying Sensor Data ===
+
+Once you have installed and configured your sensors, you can go back to working on your projects in the normal way.  The Hackystat sensors will unobtrusively monitor your development activities and send sensor data off to the !SensorBase server with which you are registered.  
+
+There are many different ways to see what sensor data is being sent to the server.  The !SensorDataViewer is a near-real time monitor that polls the !SensorBase periodically and reports on what data was received at the !SensorBase by you.  Here is an example of the data I am sending as I work on this documentation:
+
+[http://hackystat.googlecode.com/svn/wiki/sensordataviewer.gif]
+
+The !SensorDataViewer is a useful way to see if your sensors are working after you have installed them, and what data is being sent about your activities to the !SensorBase. 
+
+Another user interface to sensor data is the !SensorDataBrowser, which allows you to view not just the most recently arrived data, but all of the data you have ever sent:
+
+[http://hackystat.googlecode.com/svn/wiki/sensordatabrowser.gif]
+
+This image shows that on this day, I have so far sent 3,634 sensor data instances to this !SensorBase. It also shows the variety of data I have sent, including CodeIssue data from Checkstyle, !UnitTest data from JUnit, FileMetric data from SCLC, and so forth.  Of course, just as with the !SensorDataBrowser, you can drill down to see the individual sensor data instances and their contents. 
+
+
+
+
+
+
+
+
 
 
 
