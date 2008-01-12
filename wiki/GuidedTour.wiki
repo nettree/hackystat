@@ -4,7 +4,7 @@
 
 Hackystat is a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  This is an ambitious goal, and in order to address it, Hackystat is organized as a collection of loosely coupled software services that communicate using [http://en.wikipedia.org/wiki/Representational_State_Transfer REST architectural principles].  The following diagram shows a standard set of Hackystat services that are organized together in a standard way:
 
-[http://hackystat.googlecode.com/svn/wiki/architecture.jpg]
+[http://hackystat.googlecode.com/svn/wiki/architecture.gif]
 
 Starting at the bottom, the blue boxes represent "sensors".  Sensors are small software plugins that typically collect data from the use of software development tools.  A Hackystat sensor could also collect data directly from developers, but since developers tend to be quite busy, we generally try to avoid requiring the developer to provide low-level data to the environment manually.  
 
@@ -26,11 +26,11 @@ implemented using Ruby on Rails.
 
 To use Hackystat, you begin by registering for an account with a Hackystat !SensorBase.  You can download and install your own local !SensorBase service and then register with it, or you can register with the [http://dasha.ics.hawaii.edu:9876/sensorbase/register public !SensorBase server] maintained by the [http://csdl.ics.hawaii.edu Collaborative Software Development Laboratory] at the [http://www.hawaii.edu University of Hawaii].  Whichever way you go, you will get the following screen:
 
-[http://hackystat.googlecode.com/svn/wiki/register1.jpg]
+[http://hackystat.googlecode.com/svn/wiki/register1.gif]
 
 After typing in your email address, the system will send you an email with the password to your newly created account:
 
-[http://hackystat.googlecode.com/svn/wiki/register3.jpg]
+[http://hackystat.googlecode.com/svn/wiki/register3.gif]
 
 Now that you have an account, you can download and install sensors.  For example, the Emacs sensor collects data about the files you are editing.  Here is an image of my Emacs window at the moment that I am typing this documentation.  The upper window shows the file I am editing, and the lower window, which is normally hidden, shows the Hackystat Emacs sensor at work in the background, recording information about the file I am editing. 
 
