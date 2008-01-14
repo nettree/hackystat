@@ -215,6 +215,8 @@ it.
 
 The second step is to perform an evaluation that helps reveal the strengths and weaknesses of this approach to social networking for software developers. 
 
+Hackystat has a [http://www.facebook.com/group.php?gid=7429464774 Facebook Group].
+
 == 2.8 Is Ruby on Rails really better than Java?  Is !NetBeans better than Eclipse? And so forth. ==
 
 While there is copious debate in the blogosphere over the strengths and weaknesses of different languages and environments, there is relatively little empirical evidence. 
