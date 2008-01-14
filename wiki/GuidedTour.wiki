@@ -8,7 +8,7 @@ Hackystat is a framework for collection, analysis, visualization, interpretation
 
 Starting at the bottom, the blue boxes represent "sensors".  Sensors are small software plugins that typically collect data from the use of software development tools.  A Hackystat sensor could also collect data directly from developers, but since developers tend to be quite busy, we generally try to avoid requiring the developer to provide low-level data to the environment manually.  
 
-Sensors send their data to a repository called the !SensorBase, represented here by a purple box.  In this drawing, there is only one !SensorBase, but the Hackystat architecture is designed to make it simple to distribute data among many !SensorBase instances if that is required. The !SensorBase provides a repository for fundamental resources in Hackystat: sensor data, sensor data types, users, and projects. 
+Sensors send their data to a repository called the !SensorBase, represented here by a purple box.  In this drawing, there is only one !SensorBase, but the Hackystat architecture is designed to make it simple to distribute data among many !SensorBase instances. The !SensorBase provides a repository for fundamental resources in Hackystat: sensor data, sensor data types, users, and projects. 
 
 Sensor data tends to be quite low-level and voluminous, and in most cases needs to be analyzed and abstracted in some way in order for it to be of use to developers.  The green boxes represent examples of Hackystat analysis services.  The !DailyProjectData analysis provides a set of abstractions generated from all of the raw sensor data for a given day and project. The Telemetry analysis takes !DailyProjectData analyses along with raw data from the !SensorBase and produces trend-based information about software development. 
 
@@ -17,9 +17,9 @@ Finally, the gold boxes represent user interface services, which provide informa
 In keeping with REST architectural principles, all of the arrows in this
 diagram represent communication among services using standard HTTP GET,
 PUT, POST, and DELETE operations. One implication is that Hackystat is
-quite platform and technology neutral: a sensor implemented using Java
+quite platform and technology neutral. For example,  a sensor implemented using .NET
 could collect raw data that is analyzed with a service implemented using
-.NET, and the results could be presented to the user with an interface
+Java, and the results could be presented through a web application
 implemented using Ruby on Rails.
 
 == 2.0 Registering and sending data ==
@@ -32,7 +32,7 @@ After typing in your email address, the system will send you an email with the p
 
 [http://hackystat.googlecode.com/svn/wiki/register4.gif]
 
-Now that you have an account, you can download and install sensors.  For example, the Emacs sensor collects data about the files you are editing.  Here is an image of my Emacs window at the moment that I am typing this documentation.  The upper window shows the file I am editing, and the lower window, which is normally hidden, shows the Hackystat Emacs sensor at work in the background, recording information about the file I am editing. 
+Now that you have an account, you can download and install sensors.  For example, the Emacs sensor collects data about the files you are editing.  Here is an image of my Emacs window at the moment that I am typing this documentation.  The upper window shows the file I am editing, and the lower window, which is normally hidden, shows the Hackystat Emacs sensor at work in the background, recording information about what I am doing.
 
 [http://hackystat.googlecode.com/svn/wiki/emacs.gif]
 
@@ -42,11 +42,11 @@ Sensors are available for many other development tools. For a complete list, see
 
 Once you have installed and configured your sensors, you can go back to working on your projects in the normal way.  The Hackystat sensors will unobtrusively monitor your development activities and send sensor data off to the !SensorBase server with which you are registered.  
 
-There are many different ways to see what sensor data is being sent to the server.  The !SensorDataViewer is a near-real time monitor that polls the !SensorBase periodically and reports on what data was received at the !SensorBase by you.  Here is an example of the data I am sending as I work on this documentation:
+There are many possible ways to see what sensor data is being sent to the server.  The !SensorDataViewer is a near-real time monitor that polls the !SensorBase periodically and reports on what data was received at the !SensorBase by you.  The following screenshot of the !SensorDataViewer shows the data I sent recently as I worked on this documentation:
 
 [http://hackystat.googlecode.com/svn/wiki/sensordataviewer.gif]
 
-The !SensorDataViewer is a useful way to see if your sensors are working after you have installed them, and what data is being sent about your activities to the !SensorBase. 
+The !SensorDataViewer is a useful way to see if your sensors are working after you have installed them, and what data is being sent about your activities to the !SensorBase as you work.
 
 Another user interface to sensor data is the !SensorDataBrowser, which allows you to view not just the most recently arrived data, but all of the data you have ever sent:
 
@@ -58,55 +58,56 @@ This image shows that on this day, I have so far sent 3,634 sensor data instance
 
 Most developers work on more than one project at a time, and many developers work as a team on one or more projects.  Hackystat provides "Projects" as a way to support both those work practices; a given Project can both filter which of your sensor data should be associated with that project, as well as aggregate your data with the sensor data from other users when performing Project-based analyses. 
 
-The !ProjectViewer provides an interface for viewing, creating, deleting, and modifying project definitions. Here is an example screenshot of the !ProjectViewer after the user joe.simpletelemetry@hacksytat.org has logged in:
+The !ProjectViewer provides an interface for viewing, creating, deleting, and modifying project definitions. Here is an example screenshot of the !ProjectViewer for the user joe.simpletelemetry@hackystat.org:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer.gif]
 
 Among other things, the !ProjectViewer indicates that the user joe.simpletelemetry@hackystat.org has two Projects, one called "Default", and one called "simpletelemetry".  
 
 The simpletelemetry Project illustrates some of the important components of a Project definition. Projects have:
-  * an owner (joe.simpletelemetry@hackystat.org).
-  * members (bob.simpletelemetry@hackystat.org)
-  * a start and end date (2007-07-02 to 2007-08-02)
-  * one or more "URI Patterns", which filter sensor data based upon their Resource field (`*`/simpletelemetry/`*`).
+  * a single owner (in this case, joe.simpletelemetry@hackystat.org).
+  * zero or more members (in this case, bob.simpletelemetry@hackystat.org)
+  * a start and end date (in this case, 2007-07-02 to 2007-08-02)
+  * one or more "URI Patterns", which filter sensor data based upon their Resource field (in this case, `*`/simpletelemetry/`*`).
+
 Projects have other interesting components, such as Properties and Invitations, that we will not discuss here. 
-Every user account is automatically defined with a standard Project called "Default".  The Default project matches all of the user's sensor data.  In some situations, the Default Project is all you need to make use of Hackystat. 
+Every user automatically gets an implicitly defined Project called "Default".  The Default project matches all of the user's sensor data.  In some situations, the Default Project is the only Project you will ever need to make use of Hackystat. 
 
 == 5.0 Understanding your development data with Hackystat analyses ==
 
 Collecting a bunch of sensor data is all very well and good, but how can you actually make sense of it? As the illustration of the !SensorDataBrowser showed above, it is quite possible for a single user to generate several thousand sensor data instances in a single day.  To make this low-level data useful, it needs to be abstracted and/or analyzed in some way. 
 
-A primary design goal of the Hackystat framework is to make it easy for software engineering researchers and practitioners to explore different approaches to analyzing the raw data.  Since the Hackystat Project began in 2001, researchers have developed a number of approaches to  analyzing raw sensor data in order to make it useful to developers, including:
+A primary design goal of the Hackystat framework is to make it easy for software engineering researchers and practitioners to explore different approaches to analyzing low-level sensor data.  Since the Hackystat Project began in 2001, researchers have developed a number of approaches to analyzing sensor data, including:
 
-  * Priority-ranked inspection, developed by Aaron Kagawa, which analyzes sensor data in order to determine which modules are most in need of software inspection;
-  * Zorro, developed by Hongbing Kou, which analyzes sensor data in order to determine if a developer is adhering to Test-Drive Design practices; 
-  * Continuous GQM, developed by Christoph Lofi, which uses sensor data to populate the measures, questions, and goals in a GQM network;
+  # Priority-ranked inspection, developed by Aaron Kagawa, which determines which modules are most in need of software inspection;
+  # Zorro, developed by Hongbing Kou, which determines if a developer is adhering to Test-Drive Design practices; 
+  # Continuous GQM, developed by Christoph Lofi, which determines degree of satisfaction of the measures, questions, and goals in a GQM network;
 
-In this section, we will briefly introduce an approach to analyzing sensor data called Software Project Telemetry, which was developed by Qin Zhang. 
+In this section, we will briefly introduce a fourth approach to analyzing sensor data called Software Project Telemetry. Software Project Telemetry was developed by Qin Zhang. 
 
-Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !TelemetryViewer application provides a high level interface to some of the features of Software Project Telemetry.  The following screen shot illustrates a telemetry chart for a hypothetical user and project:
+Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !TelemetryViewer application provides a high level interface to some of the features of Software Project Telemetry.  The following screen shot illustrates a telemetry chart for joe.simpletelemetry@hackystat.org:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetryviewer.gif]
 
-This screenshot shows that joe.simpletelemetry@hackystat.org has logged in to the TelemetryViewer and is displaying the ProductQATrends chart for the simpletelemetry project  This chart presents three "streams" of data, Coverage percentage, UnitTest invocations, and CodeIssue counts.
+This screenshot shows that joe.simpletelemetry@hackystat.org has logged in to the !TelemetryViewer and is displaying the ProductQATrends chart for the simpletelemetry project  This chart presents three "streams" of data, Coverage percentage, !UnitTest invocations, and !CodeIssue counts.
 
-The chart shows that durng this week of development, development is actually going pretty well with respect to these three measures:  coverage is high (above 90%), unit testing occurs on a daily basis, and the number of CodeIssues is stable and low (below 10 on each day).  
+The chart shows that durng this week of development, development is actually going pretty well with respect to these three measures:  coverage is high (above 90%), unit testing occurs on a daily basis, and the number of !CodeIssues is stable and low (below 10 on each day).  
 
 Now consider the same ProductQATrends telemetry chart, for the same project, but during a diffeent week. To save space, I've cropped the display of the page to include only the chart:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetryviewer2.gif]
 
-This is a bit alarming:  coverage is falling, code issues are rising, and unit testing seems extremely low.  Software Project Telemetry can thus function as a kind of "early warning system" when a collection of metrics all provide evidence, for example, that project quality is degrading. 
+This chart, compared to the other one, is a bit alarming:  coverage is falling, code issues are rising, and unit testing seems extremely low.  Software Project Telemetry can thus function as a kind of "early warning system" when a collection of metrics all provide evidence, for example, that project quality is degrading. 
 
-An important strength of Software Project Telemetry is that it is includes a specialized domain specific language for chart definition. This enables an organization to determine which measures they want to monitor over time, and which measures they want to visualize together in a single chart. 
+An important strength of Software Project Telemetry is that it includes a specialized domain specific language for chart definition. This enables an organization to determine which measures they want to monitor over time, and which measures they want to visualize together in a single chart. 
 
-For example, the following screen shot shows another chart called ProductDevTrends. 
+For example, the following screen shot shows another chart called !ProductDevTrends. 
 
 [http://hackystat.googlecode.com/svn/wiki/telemetryviewer3.gif]
 
-This chart displays five streams of product and process data: Total LOC, Churn (lines added plus lines deleted from the configuration management repository), the number of commits to the CM repository, the number of builds of the system, and the total number of hours spent by developers actively manipulating project files. 
+This chart displays five streams of product and process data: Total LOC, Churn (lines added plus lines deleted from the configuration management repository), the number of commits to the configuration management repository, the number of builds of the system, and the total number of hours spent by developers actively manipulating project files. 
 
-For this period of development, things again seem quite "stable":  churn, commits, builds, and devtime are reasonable and stable, and the Total LOC rises steadily upward.  This is in stark contrast to the following chart, which seems to indicate the beginning of a project "death march":
+For this period of development illustrated above, things  seem quite "stable":  churn, commits, builds, and devtime are reasonable and consistent, and the Total LOC rises steadily upward.  This is in stark contrast to the following chart, which seems to indicate the beginning of a project "death march":
 
 [http://hackystat.googlecode.com/svn/wiki/telemetryviewer4.gif]
 
