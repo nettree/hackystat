@@ -1,15 +1,17 @@
 #summary Simple instructions on how to get started using Hackystat.
 
-This page will include the following sections:
+This page guides you through the process of registering with a Hackystat !SensorBase, downloading and installing sensors, verifying that your sensors are sending data to the !SensorBase, and running simple telemetry analyses on your collected data. 
 
-  * Download the binary sensors distribution. 
-  * Brief overview of sensor installation, with pointers to the sensor user guides. 
-  * How to register.
-  * How to verify that data is being sent to the !SensorBase.
-  * Initial analyses on your Default project.
-  * How to define custom projects.
-     * Uri Patterns
-     * Member invitation, accepting, and declining
-  * What to do next.
+== 1.0 Register with a Hackystat !SensorBase ==
+
+
+== 2.0 Download the binary sensors distribution ==
+
+== 3.0 Install and configure sensors ==
+
+== 4.0 Verify that your sensors are sending data ==
+
+== 5.0 Run simple telemetry charts ==
+
 
 
