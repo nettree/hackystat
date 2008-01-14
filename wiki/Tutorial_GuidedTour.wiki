@@ -117,7 +117,7 @@ Software Project Telemetry is a powerful, but complicated technology.  We hope t
 
 This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Depending upon your interests, you might also want to take a look at one or more of the following pages:
 
-  * [GettingStarted Getting Started], which provides detailed instructions on downloading sensors and collecting sensor data. 
+  * [Tutorial_SensorDataCollection Sensor Data Collection Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
   * [Community Community], which summarizes some of the ways Hackystat has been used in the past. 
   * [ResearchProjects Research Projects], which overviews some interesting future applications of the Hackystat Framework.
   * [Publications Publications], which overviews some of the research publications involving Hackystat. 
