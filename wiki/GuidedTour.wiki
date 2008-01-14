@@ -59,6 +59,7 @@ This image shows that on this day, I have so far sent 3,634 sensor data instance
 Most developers work on more than one project at a time, and many developers work as a team on one or more projects.  Hackystat provides "Projects" as a way to support both those work practices; a given Project can both filter which of your sensor data should be associated with that project, as well as aggregate your data with the sensor data from other users when performing Project-based analyses. 
 
 The !ProjectViewer provides an interface for viewing, creating, deleting, and modifying project definitions. Here is an example screenshot of the !ProjectViewer after the user joe.simpletelemetry@hacksytat.org has logged in:
+
 [http://hackystat.googlecode.com/svn/wiki/projectviewer.gif]
 
 Among other things, the !ProjectViewer indicates that the user joe.simpletelemetry@hackystat.org has two Projects, one called "Default", and one called "simpletelemetry".  
