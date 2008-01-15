@@ -151,7 +151,13 @@ Joe is overworked and trying to hard to accomplish two developer's worth of work
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint4.75.gif]
 
-It's not good. 
+It's not good. Coverage is too low, code issues are too high and steadily rising, and this is despite a significant amount of daily unit testing. 
+
+== 4.0 Where to go next? ==
+
+The goal of this introductory tutorial is to give you a sense for how telemetry can be used to gain insight into software development project characteristics.  Of course, real life projects won't generate telemetry as simple as these simulated examples.  The challenge is to determine what kinds of telemetry are useful for your own development situation, and when changes in telemetry values indicate important changes in your development process.   
+
+As you gain experience with the built-in charts, you will likely start to become interested in defining your own custom telemetry.  Contact the Hackystat developers group for support in that process. 
 
 
 
