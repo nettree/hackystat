@@ -2,7 +2,7 @@
 
 == 1.0 Motivation ==
 
-Hackystat sensors provide a way to collect very low-level data about software processes and products. For example, a DevEvent sensor data instance might indicate that a developer saved the file Foo.java at 11:59:59am on 2007-09-09.  Such low-level information, by itself, is very difficult to use in project management and decision making.   There needs to be a way to abstract this low-level data in such a way that it becomes meaningful.
+Hackystat sensors provide a way to collect very low-level data about software processes and products. For example, a !DevEvent sensor data instance might indicate that a developer saved the file Foo.java at 11:59:59am on 2007-09-09.  Such low-level information, by itself, is very difficult to use in project management and decision making.   There needs to be a way to abstract this low-level data in such a way that it becomes meaningful.
 
 This need for abstraction leads directly to the second problem:  which abstractions should be used?  After all, different organizations have different work processes, which means different abstractions will be meaningful to them.  One organization might be committed to the use of Test Driven Design practices, and so an abstraction that enables them to understand their compliance with TDD practices might be quite useful.  Another organization might not care about this abstraction.
 
@@ -28,6 +28,18 @@ that come with the public distribution of Hackystat.
 The public telemetry viewer application is available at [http://dasha.ics.hawaii.edu:9875/telemetryviewer/].  You need to login to the !TelemetryViewer using your Hackystat user name and password.  Once you are logged in, you will see a screen similar to the following:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-devtime1.gif]
+
+There are several things to observe about this screen:
+
+  * Each !TelemetryViewer instance connects to a given Telemetry analysis service and a given !SensorBase service for its information.  This instance is configured to connect to the public Telemetry analysis and !SensorBase services. 
+
+  * Each !TelemetryViewer instance allows you to specify what telemetry  to see using  a pull-down list of pre-defined charts. These charts are defined using the Software Project Telemetry domain specific language, and those definitions are read in from definition files at the time that the !TelemetryViewer starts up.  The details of defining custom charts are beyond the scope of this introductory tutorial.
+
+  * To specify a telemetry chart to display, you specify a Project from a pull-down list that contains all of the Projects you are associated with as either an Owner or a Member.  You must also specify a time interval, either as an "absolute" time interval with a specific  start day and end day, or as a "relative" date whose end day is always the current day.  Finally, a given telemetry chart can be defined such that it requests additional parameters. These will also appear in the viewer, and they will always be prefilled with default values. 
+
+Once you have specified the parameters, you press "Update" to see the telemetry chart.  Here is an example result:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry-devtime2.gif]
 
 
 
