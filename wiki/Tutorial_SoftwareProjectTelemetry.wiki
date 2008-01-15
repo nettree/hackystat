@@ -96,11 +96,11 @@ Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends
 
 As you can see, coverage is above 90%, unit tests are invoked consistently every day around 10 times, and code issues are quite low. 
 
-The !ProductDevTrends for a "healthy" project show similar consistency:
+The !ProductDevTrends for a "healthy" project shows similar consistency:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-dev-sprint1.75.gif]
 
-Churn, Commits, Builds, and DevTime hours are fairly stable.  The only line trending upward is the total code size, which is growing almost linearly.  (Of course, a project can be "healthy" with a non-linear, or even decreasing code size, but it is important that the other metrics show a certain level of stability in a healthy project.)
+Churn, Commits, Builds, and !DevTime hours are fairly stable.  The only line trending upward is the total code size, which is growing almost linearly.  (Of course, a project can be "healthy" with a non-linear, or even decreasing code size, but it is important that the other metrics show a certain level of stability in a healthy project.)
 
 Finally, we can take a look at the !MemberTrends chart to get a perspective on the development behavior of individual developers.  Here's Joe's !MemberTrends chart:
 
