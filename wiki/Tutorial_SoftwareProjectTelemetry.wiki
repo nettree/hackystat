@@ -100,6 +100,23 @@ The !ProductDevTrends for a "healthy" project show similar consistency:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-dev-sprint1.75.gif]
 
+Churn, Commits, Builds, and DevTime hours are fairly stable.  The only line trending upward is the total code size, which is growing almost linearly.  (Of course, a project can be "healthy" with a non-linear, or even decreasing code size, but it is important that the other metrics show a certain level of stability in a healthy project.)
+
+Finally, we can take a look at the !MemberTrends chart to get a perspective on the development behavior of individual developers.  Here's Joe's !MemberTrends chart:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry-member-joe-sprint1.75.gif]
+
+
+=== 3.1 Sprint 2: Late start ===
+
+Now let's look at the telemety
+
+
+
+
+
+
+
 
 
 
