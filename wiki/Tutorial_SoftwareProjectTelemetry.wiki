@@ -1,13 +1,32 @@
-#summary One-sentence summary of this page.
+#summary A tutorial on basic use of Software Project Telemetry
 
-= Introduction =
+== 1.0 Motivation ==
 
-Add your content here.
+Hackystat sensors provide a way to collect very low-level data about software processes and products. For example, a DevEvent sensor data instance might indicate that a developer saved the file Foo.java at 11:59:59am on 2007-09-09.  Such low-level information, by itself, is very difficult to use in project management and decision making.   There needs to be a way to abstract this low-level data in such a way that it becomes meaningful.
+
+This need for abstraction leads directly to the second problem:  which abstractions should be used?  After all, different organizations have different work processes, which means different abstractions will be meaningful to them.  One organization might be committed to the use of Test Driven Design practices, and so an abstraction that enables them to understand their compliance with TDD practices might be quite useful.  Another organization might not care about this abstraction.
+
+Software Project Telemetry is an analysis mechanism for Hackystat that
+provides one way of addressing both of these issues.  In order to make
+low-level data useful for project management and decision making, it
+supports the creation of trend lines that show how various characteristics
+of software development are changing over time.  To support the work
+practices of different organizations, it provides a domain specific
+language that allows the creation of custom trend lines (called telemetry
+"streams") and their visualization together in a specific telemetry
+"chart".  
+
+The goal of this introductory tutorial is to show how telemetry can be
+visualized in Hackystat using the !TelemetryViewer application, and how
+telemetry can reveal interesting characteristics of the software
+development process.  To facilitate this presentation, will we present
+"simulated" telemetry data, and use the pre-existing telemetry definitions
+that come with the public distribution of Hackystat.  
+
+== 2.0 The Telemetry Viewer application ==
+
+The public telemetry viewer application is available at [http://dasha.ics.hawaii.edu:9875/telemetryviewer/].  You need to login to the !TelemetryViewer using your Hackystat user name and password.  Once you are logged in, you will see the following screen:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetryviewer1.gif]
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
