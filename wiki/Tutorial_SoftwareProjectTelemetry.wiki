@@ -25,8 +25,12 @@ that come with the public distribution of Hackystat.
 
 == 2.0 The Telemetry Viewer application ==
 
-The public telemetry viewer application is available at [http://dasha.ics.hawaii.edu:9875/telemetryviewer/].  You need to login to the !TelemetryViewer using your Hackystat user name and password.  Once you are logged in, you will see the following screen:
+The public telemetry viewer application is available at [http://dasha.ics.hawaii.edu:9875/telemetryviewer/].  You need to login to the !TelemetryViewer using your Hackystat user name and password.  Once you are logged in, you will see a screen similar to the following:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetryviewer1.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry-devtime1.gif]
+
+
+
+
 
 
