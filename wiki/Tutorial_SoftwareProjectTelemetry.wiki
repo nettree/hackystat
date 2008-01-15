@@ -41,7 +41,7 @@ Once you have specified the parameters, you press "Update" to see the telemetry 
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-devtime2.gif]
 
-The DevTime telemetry chart is a very simple chart that displays only a single telemetry stream, called DevTime.  DevTime is a proxy for developer effort that is based upon analysis of DevEvent data.   The visualization is created using the [http://timepedia.org/chronoscope/ Timepedia Chronoscope] visualization platform for time series data sets.  This platform provides a great deal of capability that we are just beginning to explore, but you will already be able to appreciate the ability to pan back and forth and zoom in and out of the dataset using the arrow keys.   
+This !DevTime telemetry chart is a very simple chart that displays only a single telemetry stream, called !DevTime.  !DevTime is a proxy for developer effort that is based upon analysis of DevEvent data.   The visualization is created using the [http://timepedia.org/chronoscope/ Timepedia Chronoscope] visualization platform for time series data sets.  This platform provides a great deal of capability that we are just beginning to explore, but you will already be able to appreciate the ability to pan back and forth and zoom in and out of the dataset using the arrow keys.   
 
 ||Important note:  At the time of writing of this documentation (January, 2008), Chronoscope workes with Firefox 1.5-2.0, Safari, and Opera (mostly).  It does not yet support Internet Explorer. ||
 
@@ -63,16 +63,16 @@ understanding of how software project telemetry can be applied in an agile
 context.
 
 This Simple Telemetry scenario involves two developers, Joe and Bob, who
-are working together on a project called SimpleTelemetry. Their Hackystat
+are working together on a project called !SimpleTelemetry. Their Hackystat
 usernames are joe.simpletelemetry@hackystat.org and
 bob.simpletelemetry@hackystat.org.
 
 The scenario involves two kinds of charts: product-oriented charts that
 focus on trends in the project as a whole, and member-oriented charts that
 focus on the activities of individual members in the project. The
-ProductDevTrends and !ProductQATrends telemetry charts show trends in
+!ProductDevTrends and ProductQATrends telemetry charts show trends in
 coverage, size, churn, commits, builds, test invocations, code issues, and
-DevTime for the project as a whole. The MemberTrends chart shows, for a
+!DevTime for the project as a whole. The !MemberTrends chart shows, for a
 single developer, their trends in test invocations, DevTime, builds,
 commits, and churn.
 
@@ -90,9 +90,9 @@ development scenarios:
 
 === 3.1 Sprint 1: Healthy Development ===
 
-Let's begin with telemetry for a "healthy" project.  Here is the !ProductQATrends telemetry chart for the time period associated with the first spring: 
+Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends telemetry chart for the time period associated with the first spring: 
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint1.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint1.75.gif]
 
 
 
