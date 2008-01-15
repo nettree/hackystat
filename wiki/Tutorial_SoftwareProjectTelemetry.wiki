@@ -41,6 +41,66 @@ Once you have specified the parameters, you press "Update" to see the telemetry 
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-devtime2.gif]
 
+The DevTime telemetry chart is a very simple chart that displays only a single telemetry stream, called DevTime.  DevTime is a proxy for developer effort that is based upon analysis of DevEvent data.   The visualization is created using the [http://timepedia.org/chronoscope/ Timepedia Chronoscope] visualization platform for time series data sets.  This platform provides a great deal of capability that we are just beginning to explore, but you will already be able to appreciate the ability to pan back and forth and zoom in and out of the dataset using the arrow keys.   
+
+||Important note:  At the time of writing of this documentation (January, 2008), Chronoscope workes with Firefox 1.5-2.0, Safari, and Opera (mostly).  It does not yet support Internet Explorer. ||
+
+While a single trend line is kind of cool for a minute or two, it does not illustrate how Software Project Telemetry can be used in project management and decision making.  For that, it is generally necessary to look at a set of telemetry streams and notice important changes in their values.  The next section shows how this works with a simulated data set. 
+
+== 3.0 Understanding project characteristics through Telemetry: A simulated example ==
+
+The Simple Telemetry scenario is designed to illustrate how Software
+Project Telemetry can reveal various characteristics of an ongoing software
+development project.
+
+The Simple Telemetry scenario consists of four 10 day periods of simulated
+project data during July 2007.
+
+Each 10 day period of development can be thought of as a Scrum
+"sprint". While real software projects typically have sprint durations
+longer than 10 days, this approach helps provide the most inutitive
+understanding of how software project telemetry can be applied in an agile
+context.
+
+This Simple Telemetry scenario involves two developers, Joe and Bob, who
+are working together on a project called SimpleTelemetry. Their Hackystat
+usernames are joe.simpletelemetry@hackystat.org and
+bob.simpletelemetry@hackystat.org.
+
+The scenario involves two kinds of charts: product-oriented charts that
+focus on trends in the project as a whole, and member-oriented charts that
+focus on the activities of individual members in the project. The
+ProductDevTrends and !ProductQATrends telemetry charts show trends in
+coverage, size, churn, commits, builds, test invocations, code issues, and
+DevTime for the project as a whole. The MemberTrends chart shows, for a
+single developer, their trends in test invocations, DevTime, builds,
+commits, and churn.
+
+The telemetry for the four simulated sprints illustrates the following
+development scenarios:
+
+    * "Healthy Development" (Sprint 1, July 2-11, 2007). This first sprint shows what telemetry looks like in an idealized, healthy project development scenario. Coverage is consistently high; overall code size changes smoothly; Churn and Code Issues are low relative to code size; Commits, Builds, and Unit tests occur regularly; and DevTime is consistent, and at a "Goldilocks" level (not too high, not too low.) 
+
+    * "Late Start" (Sprint 2, July 12-21, 2007). This sprint shows how telemetry can reveal a late start and its potential impact. For the first half of the sprint, there is very little movement on the project. Then all of the indicators (DevTime, Churn, Commits, Size) show a dramatic spike upward. However, the negative impact of the late start manifests itself in quality: coverage is low, and code issues are high. 
+
+    * "Design Trouble" (Sprint 3, July 22-31, 2007). This sprint shows how telemetry can provide an early warning signal. The telemetry shows decreasing coverage, increasing code issues, and high levels of churn. If a project has been generating telemetry similar to Sprint 1 and then shifts to these trends, it indicates that something fundamental about the project has changed, either in personnel, requirements, or management. 
+
+    * "Resource mismanagement" (Sprint 4, August 1-10, 2007). This sprint shows how telemetry can reveal unbalanced resource allocation. The telemetry shows that Joe is overworked and taking on too much of the project development burden, while Bob is essentially idle. 
+
+
+=== 3.1 Sprint 1: Healthy Development ===
+
+Let's begin with telemetry for a "healthy" project.  Here is the !ProductQATrends telemetry chart for the time period associated with the first spring: 
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint1.gif]
+
+
+
+
+
+
+
+
 
 
 
