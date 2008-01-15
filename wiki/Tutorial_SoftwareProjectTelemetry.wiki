@@ -73,7 +73,7 @@ focus on the activities of individual members in the project. The
 !ProductDevTrends and ProductQATrends telemetry charts show trends in
 coverage, size, churn, commits, builds, test invocations, code issues, and
 !DevTime for the project as a whole. The !MemberTrends chart shows, for a
-single developer, their trends in test invocations, DevTime, builds,
+single developer, their trends in test invocations, !DevTime, builds,
 commits, and churn.
 
 The telemetry for the four simulated sprints illustrates the following
@@ -81,11 +81,11 @@ development scenarios:
 
     * "Healthy Development" (Sprint 1, July 2-11, 2007). This first sprint shows what telemetry looks like in an idealized, healthy project development scenario. Coverage is consistently high; overall code size changes smoothly; Churn and Code Issues are low relative to code size; Commits, Builds, and Unit tests occur regularly; and DevTime is consistent, and at a "Goldilocks" level (not too high, not too low.) 
 
-    * "Late Start" (Sprint 2, July 12-21, 2007). This sprint shows how telemetry can reveal a late start and its potential impact. For the first half of the sprint, there is very little movement on the project. Then all of the indicators (DevTime, Churn, Commits, Size) show a dramatic spike upward. However, the negative impact of the late start manifests itself in quality: coverage is low, and code issues are high. 
+    * "Late Start" (Sprint 2, July 12-21, 2007). This sprint shows how telemetry can reveal a late start and its potential impact. For the first half of the sprint, there is very little movement on the project. Then all of the indicators (!DevTime, Churn, Commits, Size) show a dramatic spike upward. However, the negative impact of the late start manifests itself in quality: coverage is low, and code issues are high. 
 
     * "Design Trouble" (Sprint 3, July 22-31, 2007). This sprint shows how telemetry can provide an early warning signal. The telemetry shows decreasing coverage, increasing code issues, and high levels of churn. If a project has been generating telemetry similar to Sprint 1 and then shifts to these trends, it indicates that something fundamental about the project has changed, either in personnel, requirements, or management. 
 
-    * "Resource mismanagement" (Sprint 4, August 1-10, 2007). This sprint shows how telemetry can reveal unbalanced resource allocation. The telemetry shows that Joe is overworked and taking on too much of the project development burden, while Bob is essentially idle. 
+    * "Resource mismanagement" (Sprint 4, August 1-10, 2007). This sprint shows how telemetry can reveal unbalanced resource allocation. The telemetry shows that Joe is overworked and taking on too much of the project development burden, while Bob is essentially idle with respect to this project.
 
 
 === 3.1 Sprint 1: Healthy Development ===
