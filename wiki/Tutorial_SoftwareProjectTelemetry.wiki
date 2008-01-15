@@ -109,7 +109,7 @@ Finally, we can take a look at the !MemberTrends chart to get a perspective on t
 Joe's individual telemetry is quite similar to the project as a whole: all of the indicator are stable and within reasonable values. 
 === 3.1 Sprint 2: Late start ===
 
-Now let's look at the telemetry for a scenario where a project gets a late start and then tries to play "catch up".  Let's start thi time with the !ProductDevTrends chart:
+Now let's look at the telemetry for a scenario where a project gets a late start and then the developers try to play "catch up".  Let's start this time with the !ProductDevTrends chart:
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-dev-sprint2.75.gif]
 
@@ -117,7 +117,7 @@ Here you can see that there are very low levels of project activity for the firs
 
 The !ProductQATrends chart is quite revealing:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint1.75.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint2.75.gif]
 
 You can see that the coverage is much lower than what we observed for the "healthy" project, and the number of code issues is much higher. 
 
