@@ -90,9 +90,16 @@ development scenarios:
 
 === 3.1 Sprint 1: Healthy Development ===
 
-Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends telemetry chart for the time period associated with the first spring: 
+Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends telemetry chart for the time period associated with the first sprint: 
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint1.75.gif]
+
+As you can see, coverage is above 90%, unit tests are invoked consistently every day around 10 times, and code issues are quite low. 
+
+The !ProductDevTrends for a "healthy" project show similar consistency:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry-dev-sprint1.75.gif]
+
 
 
 
