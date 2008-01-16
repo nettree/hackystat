@@ -1,13 +1,116 @@
-#summary One-sentence summary of this page.
+#summary A brief introduction to Hackystat Projects
 
-= Introduction =
+== 1.0 Motivation for Hackystat Projects ==
 
-Add your content here.
+There are two primary motivations for the "Project" representation in Hackystat:
+
+  # Many people work on more than one task at a time. It is sometimes useful to be able to analyze the work you are doing on Foo seeperately from the work you are doing on Bar.  Of course, it might also be nice to analyze all of your data (Foo+Bar).
+
+  # Many people work on tasks with other people.  In this case, it is sometimes useful to aggregate data collected from your work activities with the data collected by others.  For example, you might be developing software with three other people and be interested in the total number of unit tests invoked by all members of the project.  Or, you may have a daily build mechanism that automatically runs tests, computes coverage, and generates size data.  It would be nice if that sensor data can be shared by all members of the project, rather than forcing each person to generate it individually.
+
+The Project representation in Hackystat is designed to satisfy these two situations (as well as the combination of the two, such as a project Foo worked on by Bob and Sue, and a project Bar worked on by Bob and Alice.)  
+
+Projects also have start and end dates, which allow you to analyze data associated with a single increment of development, for example.
+
+== 2.0 Concepts ==
+
+There are just a few basic concepts you need to understand in order to use Hackystat Projects.
+
+=== 2.1 The Default project ===
+
+Every user in Hackystat has an automatically generated Project called "Default" created for them at the time that their account is registered.  The Default project is defined to specify all of the data you have ever sent to Hackystat for this account.  If you don't work with other people, and if you don't care about analyzing portions of your Hackystat data separately from other portions, then the Default project is all you need.
+
+=== 2.2 !UriPatterns ===
+
+If you want to specify a project that includes only a portion of your sensor data, you do that using !UriPatterns.  A !UriPattern looks like a file path, except it can include a `*` to indicate zero or more characters.  For example, the !UriPattern
+
+{{{
+*/Foo/*
+}}}
+
+matches:
+
+{{{
+/Foo/
+/Foo/Bar.java
+/users/johnson/projects/Foo/Bar.java
+}}}
+
+Usefully, it also matches:
+
+{{{
+\Foo\
+\Foo\Bar.java
+c:\projects\Foo\Bar.java
+}}}
+
+In other words, UriPatterns are designed to ignore the difference between the path separator character on Unix ("/") and Windows ("\"). 
+
+What UriPatterns match against is the Resource field associated with sensor data.  
 
 
-= Details =
+=== 2.3 Project Ownership, Invitations, and Membership ===
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+By joining a project, you implicitly agree to allow your sensor data to be accessible to other members of the project.  Since this has privacy implications, Hackystat has an "opt-in" policy toward project membership.  Here's how it works:
+
+  * The person who creates a project is the project "Owner".  Only the owner of a Project can delete it.  The owner of a Project can also remove any current Members from the Project.  However, the owner cannot add new Members directly. Instead, the owner can "invite" members by putting their Hackystat user name (email) in the Invitations field associated with the Project.
+
+  * When you have been invited to a Project by its Owner, then that Project will show up in your !ProjectViewer.  You now have the option of "accepting" that invitation and becoming a Project member, or "declining" the invitation, and thus being removed from the invitation list. 
+
+  * Once you are a member of a Project, that Project name will show up in analyses based upon Projects. Your data will now be used in Project analyses along with other Project members (and the Project owner).  At any time, you can remove yourself from the Project.
+Note that the Default project is, in a sense, read-only.  You cannot make any changes to that Project. 
+
+== 3.0 The !ProjectViewer ==
+
+Hackystat provides a user interface to Projects called the !ProjectViewer.  The public !ProjectViewer is available at [http://dasha.ics.hawaii.edu:9875/projectviewer/].  Here is a screen shot that illustrates the Viewer after the user joe.simpletelemetry@hackystat.org logs in:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer01.gif]
+
+As you can see, this user has two projects defined, the "Default" project and a user-defined project called "simpletelemetry". Let's look at the Default project first:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer02.gif]
+
+As you can see, the Default project has no members, and the UriPattern is "*", which matches all your sensor data.  Notice that there is no "Edit" or "Delete" button associated with the Default project, making it permanent and static.
+
+Let's now look at the slightly more interesting simpletelemetry project:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer03.gif]
+
+This project has a member (bob.simpletelemetry@hackystat.org), and a UriPattern (*/simpletelemetry/*).  Thus, all of the data from both Joe and Bob with a Resource field that contains the string "/simpletelemetry/" will be included in analyses for the simpletelemetry project.
+
+Let's now invite a person whose Hackystat user account is "sam.simpletelemetry@hackystat.org" to join the project. To do this, we edit the project, and add that user email to the invitations list.  The result looks like this:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer04.gif]
+
+And when we save the changes, we get the following:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer05.gif]
+
+Now, let's log in as sam and see what we have:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer06.gif]
+
+You can see that Sam's !ProjectViewer shows that he has been invited, and he has the choice of accepting or declining.  Let's have him accept. The result is that he moves into the Members section:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer07.gif]
+
+== 4.0 Other issues ==
+
+You can specify multiple !UriPatterns. They form an implicit "or". 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
