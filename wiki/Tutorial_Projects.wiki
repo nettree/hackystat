@@ -4,7 +4,7 @@
 
 There are two primary motivations for the "Project" representation in Hackystat:
 
-  # Many people work on more than one task at a time. It is sometimes useful to be able to analyze the work you are doing on Foo seeperately from the work you are doing on Bar.  Of course, it might also be nice to analyze all of your data (Foo+Bar).
+  # Many people work on more than one task at a time. It is sometimes useful to be able to analyze the work you are doing on Foo separately from the work you are doing on Bar.  Of course, it might be nice to also analyze both projects together.
 
   # Many people work on tasks with other people.  In this case, it is sometimes useful to aggregate data collected from your work activities with the data collected by others.  For example, you might be developing software with three other people and be interested in the total number of unit tests invoked by all members of the project.  Or, you may have a daily build mechanism that automatically runs tests, computes coverage, and generates size data.  It would be nice if that sensor data can be shared by all members of the project, rather than forcing each person to generate it individually.
 
@@ -44,9 +44,9 @@ Usefully, it also matches:
 c:\projects\Foo\Bar.java
 }}}
 
-In other words, UriPatterns are designed to ignore the difference between the path separator character on Unix ("/") and Windows ("\"). 
+In other words, !UriPatterns are designed to ignore the difference between the path separator character on Unix ("/") and Windows ("\"). 
 
-What UriPatterns match against is the Resource field associated with sensor data.  
+!UriPatterns match against the Resource field associated with each sensor data instance.  If the match succeeds, then the sensor data instance is included in the analysis.
 
 
 === 2.3 Project Ownership, Invitations, and Membership ===
@@ -70,13 +70,13 @@ As you can see, this user has two projects defined, the "Default" project and a 
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer02.gif]
 
-As you can see, the Default project has no members, and the UriPattern is "*", which matches all your sensor data.  Notice that there is no "Edit" or "Delete" button associated with the Default project, making it permanent and static.
+As you can see, the Default project has no members, and the UriPattern is "`*`", which matches all your sensor data.  Notice that there is no "Edit" or "Delete" button associated with the Default project, making it permanent and static.
 
 Let's now look at the slightly more interesting simpletelemetry project:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer03.gif]
 
-This project has a member (bob.simpletelemetry@hackystat.org), and a UriPattern (*/simpletelemetry/*).  Thus, all of the data from both Joe and Bob with a Resource field that contains the string "/simpletelemetry/" will be included in analyses for the simpletelemetry project.
+This project has a member (bob.simpletelemetry@hackystat.org), and a UriPattern (`*`/simpletelemetry/`*`).  Thus, all of the data from both Joe and Bob with a Resource field that contains the string "/simpletelemetry/" will be included in analyses for the simpletelemetry project.
 
 Let's now invite a person whose Hackystat user account is "sam.simpletelemetry@hackystat.org" to join the project. To do this, we edit the project, and add that user email to the invitations list.  The result looks like this:
 
