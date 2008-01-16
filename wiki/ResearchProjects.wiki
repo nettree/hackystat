@@ -145,6 +145,8 @@ of these interfaces.  The next step is to devise an experimental design for
 the collection of useful evidence regarding the strengths and weaknesses of
 these mechanisms.
 
+There is an interesting Java-based server for Nabaztag: [http://www.cs.uta.fi/hci/spi/jnabserver/]
+
 == 2.4 A Hackystat/Twitter Mashup==
 
 Twitter is an interesting communication mechanism that has interesting implications for software development.  I wrote about this for the first time in 
