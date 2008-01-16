@@ -70,13 +70,13 @@ As you can see, this user has two projects defined, the "Default" project and a 
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer02.gif]
 
-As you can see, the Default project has no members, and the UriPattern is "`*`", which matches all your sensor data.  Notice that there is no "Edit" or "Delete" button associated with the Default project, making it permanent and static.
+As you can see, the Default project has no members, and the !UriPattern is "`*`", which matches all your sensor data.  Notice that there is no "Edit" or "Delete" button associated with the Default project, making it permanent and static.
 
 Let's now look at the slightly more interesting simpletelemetry project:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer03.gif]
 
-This project has a member (bob.simpletelemetry@hackystat.org), and a UriPattern (`*`/simpletelemetry/`*`).  Thus, all of the data from both Joe and Bob with a Resource field that contains the string "/simpletelemetry/" will be included in analyses for the simpletelemetry project.
+This project has a member (bob.simpletelemetry@hackystat.org), and a !UriPattern (`*`/simpletelemetry/`*`).  Thus, all of the data from both Joe and Bob with a Resource field that contains the string "/simpletelemetry/" will be included in analyses for the simpletelemetry project.
 
 Let's now invite a person whose Hackystat user account is "sam.simpletelemetry@hackystat.org" to join the project. To do this, we edit the project, and add that user email to the invitations list.  The result looks like this:
 
