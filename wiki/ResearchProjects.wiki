@@ -401,8 +401,13 @@ an interested observer walks into your team space, s/he should be able to get a 
 idea of how your project is going in 15 seconds, and be able to get a deeper perspective 
 on real or potential problems by looking more closely."
 
-Can we alter this balance between physical and virtual in an interesting
-way?  For example, what would be the implications of having a team space in [http://secondlife.com/ Second Life]
+=== Using the CSDL Telemetry Wall ===
+
+One straightforward way to explore this issue would be to investigate ways to exploit the existing nine monitor display in CSDL.  Aaron made an [http://kagawaa.blogspot.com/2007/09/telemetry-wall-20.html interesting post] about the possibilities.
+
+=== Using Second Life ===
+
+Another, more radical approach, would be to design and implement a team space in [http://secondlife.com/ Second Life]
 as well as in the physical world? Some initial thoughts:
 
   * A globally distributed team in the physical world would be co-located in Second Life.  You could see "at a glance" whether a team mate was "in" or "out" of the office, and they could see whether you could see them there or not; 
@@ -413,3 +418,5 @@ as well as in the physical world? Some initial thoughts:
 
 Here's some interesting links:  [http://dev.aol.com/article/2007/04/second-life Software development in Second Life], and 
 [http://vital.cs.ohiou.edu/vitalwiki/index.php/Second_Life_Development Second Life Software Engineering Process Game].
+
+ 
