@@ -1,6 +1,6 @@
 #summary Summary of major releases and events in Hackystat.
 
-= A summary of Hackystat's design history =
+= A summary of Hackystat's history =
 
 Work on Hackystat began on July 1, 2001. This first architectural release
 family, called the "Spike Solution", was used to explore the feasibility of
