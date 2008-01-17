@@ -61,7 +61,7 @@ supports growth in any of the four component subsystems.
 In May, 2007, we began working on the eight architectural family, which
 implements a web service architecture using REST principles. Almost the
 entire system was rewritten for this version. The public release of
-this system occurred in December, 2007. 
+this system occurred in January, 2008. 
 
 = Release History =
 
