@@ -3,7 +3,7 @@
 === Public Release January 15, 2008 (8.0.115) ===
 
 Major Changes:
-  * ProjectViewer user interface for project definitions.
+  * !ProjectViewer user interface for project definitions.
   * Four tutorials on the use of the system.
 
 === System Distribution December 02, 2007 (8.0.1202) ===
