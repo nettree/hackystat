@@ -67,7 +67,7 @@ this system occurred in December, 2007.
 
 == Version 8: REST Architecture Release Family (May 2007 - present) ==
 
-=== 21-Dec-2007 8.0.1221 ===
+=== 15-Jan-2008 8.0.115 ===
 
  * REST architecture
  * Hosted at Google Projects. 
