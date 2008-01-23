@@ -8,6 +8,7 @@ We gratefully acknowledge the following organizations for their financial suppor
  * SUN Microsystems
  * NASA
  * IBM
+ * Expedia, Inc.
  * Sixth Sense Analytics
  * Maui High Performance Computing Center
 
