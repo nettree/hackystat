@@ -28,6 +28,7 @@ The following table provides information on all currently released Hackystat too
 ||  || Telemetry || [http://code.google.com/p/hackystat-analysis-telemetry/ hackystat-analysis-telemetry] || [http://code.google.com/p/hackystat-analysis-telemetry/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-telemetry/wiki/RestApiSpecification REST API], [http://hackystat-analysis-telemetry.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides abstractions of project trends over time. ||
 ||  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
 ||  || Project Trajectory || [http://code.google.com/p/hackystat-analysis-projecttrajectory/ hackystat-analysis-projecttrajectory] || (No documentation available) || Creates size and effort summaries for projects. (Under development.)   ||
+||  || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data. (Under development.)   ||
 || Utilities || Core Utilities || [http://code.google.com/p/hackystat-utilities/ hackystat-utilities] || [http://code.google.com/p/hackystat-utilities/wiki/UserGuide User Guide], [http://hackystat-utilities.googlecode.com/svn/javadoc/index.html JavaDoc] || Utilities including !HackystatLogger, Tstamp, !StackTrace, and !UriCache. ||
 ||  || !SimData || [http://code.google.com/p/hackystat-sensorbase-simdata/ hackystat-sensorbase-simdata] || [http://code.google.com/p/hackystat-sensorbase-simdata/wiki/DeveloperGuide Developer Guide], [http://hackystat-sensorbase-simdata.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides facilities for creation of "simulated" sensor data. ||
 ||  || System Status || [http://code.google.com/p/hackystat-ui-systemstatus/ hackystat-ui-systemstatus] || (Documentation not yet available.) || Support for assessment of service status, such as !PingMail. ||
@@ -35,8 +36,6 @@ The following table provides information on all currently released Hackystat too
 || Java Client || !SensorBaseClient || [http://code.google.com/p/hackystat-sensorbase-uh/ hackystat-sensorbase-uh] || [http://hackystat-sensorbase-uh.googlecode.com/svn/javadoc/org/hackystat/sensorbase/client/SensorBaseClient.html JavaDoc] || A Java-based client for connecting to the !SensorBase. ||
 ||  || !DailyProjectDataClient || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ hackystat-analysis-dailyprojectdata] || [http://hackystat-analysis-dailyprojectdata.googlecode.com/svn/javadoc/org/hackystat/dailyprojectdata/client/DailyProjectDataClient.html JavaDoc] || A Java-based client for connecting to the !DailyProjectData service. ||
 ||  || !TelemetryClient || [http://code.google.com/p/hackystat-analysis-telemetry/ hackystat-analysis-telemetry] || [http://hackystat-analysis-telemetry.googlecode.com/svn/javadoc/org/hackystat/telemetry/service/client/TelemetryClient.html JavaDoc] || A Java-based client for connecting to the !Telemetry service. ||
-
-
 
 
 
