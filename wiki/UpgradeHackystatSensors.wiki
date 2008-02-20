@@ -40,7 +40,7 @@ C:\public_hackystat\hackystat-8.1.218-sensors-bin\hackystat-sensor-xmldata
   * Close Emacs.
 
   * Edit your .emacs to refer to the latest release, such as:
-{{{{
+{{{
 (defvar hackystat*user-home "C:\\Documents and Settings\\johnson\\")
 (defvar system-distribution "C:\\public_hackystat\\hackystat-8.1.218-sensors-bin\\")
 (defvar hackystat*sensorshell*file-path (concat system-distribution "hackystat-sensor-shell/"))
