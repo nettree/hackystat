@@ -133,6 +133,10 @@ deviated from appropriate conditions.  Only when the light is not green
 does the manager need to consult the dashboard to determine what to do
 next.
 
+* Integration with other ambient modalities. *
+
+Some research has already been done on [http://citeseer.ist.psu.edu/295834.html auditory ambient feedback].  What kinds of benefits accrue from combining visual with auditory feedback?
+
 * Assessing ambient devices for software development. *
 
  
