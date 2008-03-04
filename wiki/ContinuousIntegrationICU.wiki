@@ -60,6 +60,8 @@ Description: Build sensor data provides information about the frequency of build
 during continuous integration, as well as the success or failure of those
 builds.
 
+Example tools: Ant, Make.
+
 Indicators of health:
   * Frequency of build events during a day should fall with a baseline range. 
   * Frequency of build failures should be low. 
@@ -72,6 +74,8 @@ Potential symptoms of problems:
 === 2.2 Unit Tests ===
 
 Description: UnitTest sensor data provides information about the number of unit tests invoked during a CI build, and the number of those unit tests that passed or failed. 
+
+Example tools: JUnit. 
 
 Indicators of health:
   * The absolute number of unit tests invoked by a given project is steady or increasing. 
@@ -86,11 +90,100 @@ Potential symptoms of problems:
 
 Description: Coverage sensor data provides information about the amount of production code that is exercised by the test code. 
 
+Example tools: Emma, Clover.
+
 Indicators of health:
   * Coverage should be high or increasing over time.  Line-level coverage of over 80% is not unreasonable. 
 
 Potential symptoms of problems:
   * Decreasing coverage indicates new code being added without sufficient testing.  Note that coverage is one of the most easily misused and misinterpreted quality assurance metrics.  See [http://www.testing.com/writings/coverage.pdf How to misuse Code Coverage] for details. 
+
+
+=== 2.4 Complexity ===
+
+Description: Complexity sensor data provides information about the complexity of source code using a metric like [http://en.wikipedia.org/wiki/Halstead_Complexity_Measures Halstead's Complexity] or [http://en.wikipedia.org/wiki/Cyclomatic_complexity McCabe's Cyclometric Complexity].  
+
+Example tools: JavaNCSS.
+
+Indicators of health:
+  * The average complexity over all methods in the system should be stable and low.
+  * The number of methods over a given threshold (such as Cyclomatic Complexity > 10) should be stable and low.
+
+Potential symptoms of problems:
+  * An increasing average complexity and/or increasing numbers of methods exceeding a theshold may indicate more errors and/or more difficulties in testing. 
+
+=== 2.5 Coupling ===
+
+Description: Coupling (or Dependency) sensor data provides information about the degree of interdependence between program modules.  In general, program designs should strive for low coupling (modules are relatively independent of each other) and high cohesion (with a module, each of its constituents are highly related to each other).  High coupling is associated with ripple effects during changes, low readability, low reuse capability, and difficulties in testing. 
+
+Example tools: JDepend.
+
+Indicators of health:
+  * The average level of package or class-level coupling should be stable and low. 
+  
+Potential symptoms of problems:
+  * A high level of coupling, or an increasing level of coupling, may indicate increased maintenance and/or development costs. 
+  * High coupling relative to other similar projects may indicate a complex design and/or possibility for refactoring.
+
+=== 2.6 Commits ===
+
+Description: Commit sensor data provides information on the frequency of commits to the continuous integration system.  This is normally highly correlated with the build sensor data, although multiple commits, close in time, will normally result in only a single build. 
+
+Example tools: SVN, CVS, Perforce. 
+
+Indicators of health:
+  * The project has a regular and consistent number of commits. 
+
+Potential symptoms of problems:
+  * A drop off in commits can indicate that implementation progress has been stalled. 
+  * A sudden surge of commits can indicate a project in "death march" mode.
+  * Long intervals between commits, in concert with high churn, can indicate that work should be decomposed into smaller chunks in order to facilitate integration. 
+
+
+=== 2.7 Churn ===
+
+Description: Churn sensor data indicates the number of lines of code added, changed, or deleted as a result of a commit. 
+
+Example tools: SVN, CVS, Perforce
+
+Indicators of health:
+  * In general, churn stays below some threshold level.  
+
+Potential symptoms of problems:
+  * A spike in churn can indicate that a project is attempting to do too much.  However, refactoring tools can often lead to a spike in churn without indicating any project problems.
+
+=== 2.8 Issues ===
+
+Description: Issue sensor data indicates the number of outstanding issues associated with a project, and/or the length of time an issue is open before it is closed. 
+
+Example tools: Jira, Bugzilla.
+
+Indicators of health:
+  * The number of outstanding issues is relatively low and stable. 
+  * The average length of time that an outstanding issue is open is stable. 
+
+Potential symptoms of problems:
+  * The number of outstanding issues is steadily rising.
+  * The average length of time that outstanding issues are open is steadily increasing. 
+
+
+=== 2.9 Size ===
+
+Description: Size sensor data indicates the number of lines of code in the system for each language type.  Size data within an individual project is not generally much of an indicator of project health.  Size data can be quite useful in figuring out whether two project "patients" are morphologically similar to each other and thus their other vital signs can be compared.  A project consisting of 2000 LOC of Java will typically have quite different vital signs to a 2 MLOC project written in six different languages.  
+
+Example tools: SCLC.
+
+Indicators of health:
+  * Size that shows "gradual" changes, either upwards or downwards. 
+
+Potential symptoms of problems:
+  * Sudden, dramatic changes in size. 
+  * No change at all in size.  (He's dead, Jim.)
+  
+
+
+
+
 
 
 
