@@ -1,6 +1,6 @@
 #summary Create an "ICU" for your Continous Integration System with Hackystat
 
-|| [ICU.jpg] ||
+|| [http://hackystat.googlecode.com/svn/wiki/ICU.jpg] ||
 || An example of human "telemetry" ||
 
 = 1.0 Introduction =
