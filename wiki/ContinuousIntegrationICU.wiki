@@ -1,9 +1,9 @@
 #summary Create an "ICU" for your Continous Integration System with Hackystat
 
 || [http://hackystat.googlecode.com/svn/wiki/ICU.jpg] ||
-|| An example of human "telemetry" ||
+|| An example of human "telemetry" in an intensive care unit||
 
-= 1.0 Introduction =
+== 1.0 Introduction ==
 
 In medicine, the "ICU", or intensive care unit, is a place designed to
 support continuous monitoring of a person's vital signs, such as heart
@@ -35,7 +35,7 @@ following benefits:
 
   * A better understanding (i.e. a "baseline") for what constitutes a healthy project's vital signs.
 
-  * A better understanding of "natural variation" in healthy project vital signs.
+  * A better understanding of "natural variation" in healthy project vital signs for a given project, and across all projects.
 
   * An early warning system for projects in trouble.
 
@@ -49,9 +49,60 @@ data that requires installing sensors into each developer's environment.
 To stretch the metaphor, the CI ICU is intended to be "non-invasive" and
 not require detailed monitoring of individual developer behaviors.
 
-= Details =
+== 2.0 CI-ICU Telemetry Streams ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Each of the following sections briefly describes a possible telemetry
+stream and how it can be used as a partial indicator of project "health".  
+
+=== 2.1 Builds ===
+
+Description: Build sensor data provides information about the frequency of build events
+during continuous integration, as well as the success or failure of those
+builds.
+
+Indicators of health:
+  * Frequency of build events during a day should fall with a baseline range. 
+  * Frequency of build failures should be low. 
+
+Potential symptoms of problems:
+  * An abnormal number of build events for a given project indicates an abnormal development pattern.
+  * A project with a baseline number of builds that are abnormally low or abnormally high compared to other projects may indicate a different development process. 
+  * An abnormally high number of build failures indicates a development team making commits that are not appropriate for the CI system.
+
+=== 2.2 Unit Tests ===
+
+Description: UnitTest sensor data provides information about the number of unit tests invoked during a CI build, and the number of those unit tests that passed or failed. 
+
+Indicators of health:
+  * The absolute number of unit tests invoked by a given project is steady or increasing. 
+  * The density of unit tests (number of unit tests invoked per KLOC of project code) should be stable or increasing.
+  * Frequency of unit test failures should be low. 
+
+Potential symptoms of problems:
+  * Decreases in the number (or density) of unit tests invoked during a CI build indicates potentially less attention to quality assurance activities. 
+  * Increases in the number of unit test failures during CI indicates code not ready for commit to CI. 
+
+=== 2.3 Coverage ===
+
+Description: Coverage sensor data provides information about the amount of production code that is exercised by the test code. 
+
+Indicators of health:
+  * Coverage should be high or increasing over time.  Line-level coverage of over 80% is not unreasonable. 
+
+Potential symptoms of problems:
+  * Decreasing coverage indicates new code being added without sufficient testing.  Note that coverage is one of the most easily misused and misinterpreted quality assurance metrics.  See [http://www.testing.com/writings/coverage.pdf How to misuse Code Coverage] for details. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
