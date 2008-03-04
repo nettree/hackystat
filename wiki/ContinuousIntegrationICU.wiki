@@ -1,9 +1,53 @@
-#summary One-sentence summary of this page.
+#summary Create an "ICU" for your Continous Integration System with Hackystat
 
-= Introduction =
+|| [ICU.jpg] ||
+|| An example of human "telemetry" ||
 
-Add your content here.
+= 1.0 Introduction =
 
+In medicine, the "ICU", or intensive care unit, is a place designed to
+support continuous monitoring of a person's vital signs, such as heart
+rate, blood pressure, respiration, EKG, ECG, and so forth.  Each of these
+vital signs provides only a limited perspective on the health of the
+person, and what is "normal" for one person in a given situation might be
+quite abnormal for another person in another situation.  
+
+Despite these limitations, continuous monitoring of a variety of vital
+signs can support fast and effective responses to emergent conditions
+before the person under study undergoes significant harm.  
+
+By continuously monitoring multiple, independent measures of "health", one
+can quickly establish a baseline for what is "normal" for a given person or
+population.  In addition, multiple independent vital signs, all changing in
+concert, provide important information about the severity of a condition
+and can also provide some indication of how or when to respond.
+
+Note that continuous monitoring of vital signs is not restricted to sick
+people.  Astronauts, fighter pilots, and other people in extreme conditions
+and environments often have many of their vital signs under continuous
+monitoring.
+
+This document outlines how the Software Project Telemetry capabilities in
+Hackystat can be used to construct a kind of intensive care unit for
+projects under continuous integration control, or "CI-ICU" for short.
+Constructing a CI-ICU for your software projects is intended to provide the
+following benefits:
+
+  * A better understanding (i.e. a "baseline") for what constitutes a healthy project's vital signs.
+
+  * A better understanding of "natural variation" in healthy project vital signs.
+
+  * An early warning system for projects in trouble.
+
+  * Additional data for project post-mortems.  If the vital signs indicated health but the project died, what went wrong?  What additional vital signs could have saved the patient, or was it just "natural causes"? 
+
+The next section details a set of telemetry streams that form a potentially
+interesting set of "project vital signs".  Note that this set of streams is
+a subset of those possible with Hackystat.  We limit ourselves to streams
+that can be obtained from a continuous integeration system, as opposed to
+data that requires installing sensors into each developer's environment.
+To stretch the metaphor, the CI ICU is intended to be "non-invasive" and
+not require detailed monitoring of individual developer behaviors.
 
 = Details =
 
