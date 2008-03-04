@@ -1,7 +1,7 @@
 #summary Create an "ICU" for your Continous Integration System with Hackystat
 
 || [http://hackystat.googlecode.com/svn/wiki/ICU.jpg] ||
-|| An example of human "telemetry" in an intensive care unit||
+|| An example of human "telemetry" in an ICU||
 
 == 1.0 Introduction ==
 
@@ -14,7 +14,7 @@ quite abnormal for another person in another situation.
 
 Despite these limitations, continuous monitoring of a variety of vital
 signs can support fast and effective responses to emergent conditions
-before the person under study undergoes significant harm.  
+before the person being monitored undergoes significant harm.  
 
 By continuously monitoring multiple, independent measures of "health", one
 can quickly establish a baseline for what is "normal" for a given person or
@@ -29,25 +29,30 @@ monitoring.
 
 This document outlines how the Software Project Telemetry capabilities in
 Hackystat can be used to construct a kind of intensive care unit for
-projects under continuous integration control, or "CI-ICU" for short.
+projects under continuous integration control. We call this system approach the  "CI-ICU" for short.
 Constructing a CI-ICU for your software projects is intended to provide the
 following benefits:
 
-  * A better understanding (i.e. a "baseline") for what constitutes a healthy project's vital signs.
+  * An understanding (i.e. a "baseline") for what constitutes a healthy project's vital signs.
 
-  * A better understanding of "natural variation" in healthy project vital signs for a given project, and across all projects.
+  * An understanding of "natural variation" in healthy project vital signs for a given project, and across all projects.
 
   * An early warning system for projects in trouble.
 
-  * Additional data for project post-mortems.  If the vital signs indicated health but the project died, what went wrong?  What additional vital signs could have saved the patient, or was it just "natural causes"? 
+  * Additional data for project post-mortems.  If the vital signs indicated health but the project died, what went wrong?  What additional vital signs could have saved the patient, or did it die due to "natural causes"? 
 
 The next section details a set of telemetry streams that form a potentially
 interesting set of "project vital signs".  Note that this set of streams is
 a subset of those possible with Hackystat.  We limit ourselves to streams
-that can be obtained from a continuous integeration system, as opposed to
-data that requires installing sensors into each developer's environment.
-To stretch the metaphor, the CI ICU is intended to be "non-invasive" and
-not require detailed monitoring of individual developer behaviors.
+that can be obtained from a continuous integration system, and omit
+telemetry data that requires installing sensors into each developer's
+environment.  For example, while it might be quite helpful to know if
+developers are practicing test-driven design, the CI-ICU cannot monitor
+that because the required sensor data cannot be obtained from the
+continuous integration system. Monitoring TDD requires sensors to be
+installed into the developer IDE, which is outside the scope of the CI-ICU.
+To stretch the metaphor, the CI-ICU is intended to be "non-invasive" and
+thus not require detailed monitoring of individual developer behaviors.
 
 == 2.0 CI-ICU Telemetry Streams ==
 
@@ -169,7 +174,7 @@ Potential symptoms of problems:
 
 === 2.9 Size ===
 
-Description: Size sensor data indicates the number of lines of code in the system for each language type.  Size data within an individual project is not generally much of an indicator of project health.  Size data can be quite useful in figuring out whether two project "patients" are morphologically similar to each other and thus their other vital signs can be compared.  A project consisting of 2000 LOC of Java will typically have quite different vital signs to a 2 MLOC project written in six different languages.  
+Description: Size sensor data indicates the number of lines of code in the system for each language type.  Size data within an individual project is not generally much of an indicator of project health.  Size data can be quite useful in figuring out whether two project "patients" are morphologically similar to each other and thus their other vital signs can be compared.  A project consisting of 2000 LOC of Java will typically have quite different vital signs compared to a 2 MLOC project written in six different languages.  
 
 Example tools: SCLC.
 
