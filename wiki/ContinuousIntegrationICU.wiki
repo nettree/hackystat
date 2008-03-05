@@ -235,6 +235,22 @@ Potential symptoms of problems:
   * Sudden, dramatic changes in size. 
   * No change at all in size.  (He's dead, Jim.)
 
+=== 2.10 FieldFaults ===
+
+Description: Some development projects include a rapid release cycle: a version is built in Continuous Integration, then deployed into the field within hours or days.  In such cases, it can be useful to automatically monitor "field faults" from the deployed application and generate a trend line.  Field faults are highly application dependent.  Examples include: exceptions thrown, restarts, heap usage over some threshold, workstations being thrown over cubicle walls, etc. 
+
+Example tools: Java Service Wrapper (for restarts). 
+
+Potential telemetry streams:
+  * Number of field faults
+
+Indicators of health:
+  * A stable, low number of field faults. 
+
+Potential symptoms of problems:
+  * Highly variable field faults.
+  * Increasing number over time. 
+
 
 == 3.0 Making it actionable ==
 
