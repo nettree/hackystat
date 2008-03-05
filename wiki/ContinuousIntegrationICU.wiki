@@ -297,7 +297,8 @@ above serve only as a starting point.
 For some projects in some organizations, the value of telemetry can be
 increased significantly by adding more "invasive" measures, such as
 development time, measurement of use of specific practices such as test
-driven design, local testing and commit behaviors, and so forth.
+driven design, local testing and commit behaviors, and so forth.  
+
 
 === 3.4 From ICU to epidemiology ===
 
