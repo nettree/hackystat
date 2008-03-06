@@ -1,6 +1,6 @@
 #summary Our application to Google Summer of Code
 
-== Introduction ==
+== 1.0 Introduction ==
 
 This page contains the text of our application to the
 [http://code.google.com/soc/2008/ Google Summer of Code] program.  For more
@@ -9,11 +9,13 @@ information on Google Summer of Code, see the
 is the
 [http://groups.google.com/group/google-summer-of-code-announce/web/notes-on-organization-selection-criteria Notes on Organization Selection Criteria] page.
 
-== Application (draft) ==
+This application is due March 12, 2008.
 
-The following is a copy of the [http://code.google.com/soc/2008/org_signup.html Organization Application] page, used so that we can review the application prior to submission.
+== 2.0 Application (draft) ==
 
-=== About your organization ===
+The remainder of this page provides a copy of the [http://code.google.com/soc/2008/org_signup.html Organization Application] page along with our proposed answers.  
+
+=== 2.1 About your organization ===
 
 *1. What is your organization's name:*
 
@@ -21,13 +23,27 @@ Project Hackystat
 
 *2. What is your organization's home page:*
 
-http://www.hackystat.org/, which redirects to [http://code.google.com/p/hackystat/].
+http://www.hackystat.org/, which redirects to http://code.google.com/p/hackystat/.
 
 *3. Describe your organization:*
 
+The mission of Project Hackystat is to provide a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  Work on Hackystat began in 2001 as a research activity in the Collaborative Software Developmnt Laboratory (http://csdl.ics.hawaii.edu/) in the Department of Information and Computer Sciences (http://www.ics.hawaii.edu) at the University of Hawaii (http://www.hawaii.edu). 
 
+From 2001 to 2006, the project grew a substantial code base (approximately 350,000 LOC), user community (over 800 users of the "public" Version 7 Hackystat server, with an undetermined additional number of users on private servers), and developers (dozens of contributors to the code base from approximately 20 academic and industry sites). A significant number of publications occurred during this time (a partial list of which is available at http://code.google.com/p/hackystat/wiki/Publications).  In addition, there was one commercial, non-open source spin-off based upon a subset of this project called Sixth Sense Analytics (http://www.6thsenseanalytics.com/).  A summary of Project Hackystat's release history is available at http://code.google.com/p/hackystat/wiki/History.
+
+In 2007, we made the decision to reimplement the code base almost entirely from scratch as a coordinated set of RESTful web services.  This effort took nine months, and Version 8 has been in public release since January, 2008.  We also decided to move the hosting of the project from the University of Hawaii to Google Project Hosting.  The old site is still available at http://xenia.ics.hawaii.edu, although it is no longer maintained. 
 
 *4. Why is your organization applying to participate in GSoC 2008? What do you hope to gain by participating?*
+
+We are applying for participation because our current technology creates new opportunities to integrate software
+development measurement and analysis into the "cloud" of internet
+information services.  We are interested, for example, to explore how
+posting automatically generated summaries of one's developer behavior as
+Twitter "tweets" can improve developer behavior transparency in a
+distributed work setting, and create more productive and efficient
+communication among developers.  Another interesting direction is the creation of a Facebook application that can provide an automatically generated "profile" of one's software development interests and expertise, which could help create more efficient and effective social networks.   Our "Ideas" page (http://code.google.com/p/hackystat/wiki/ResearchProjects) provides more details on these and other development directions. 
+
+A first order benefit of our participation would be the involvement of students who can begin to work on extensions to the framework and evaluate them in practice.  A second order benefit of our participation would be to obtain new ideas for ways to integrate our framework with other systems, and new ideas for how such integrations can improve the efficiency, effectiveness, and fun of software development. 
 
 *5. Did your organization participate in previous GSoC years? If so, please summarize your involvement and the successes and failures of your student projects. (optional)*
 
@@ -60,16 +76,16 @@ We do not have one at present.
 
 *12. Who will be your backup organization administrator? Please enter their Google Account address. We will email them to confirm, your organization will not become active until they respond. (optional)*
 
-Dan Port <dport98@gmail.com>
+Dan Port <dport96@gmail.com>
 
-=== About your mentors ===
+=== 2.2 About your mentors ===
 
 *1. What criteria did you use to select these individuals as mentors? Please be as specific as possible.*
 
 *2. Who will your mentors be? Please enter their Google Account address separated by commas. If your organization is accepted we will email each mentor to invite them to take part. (optional)* 
 
 
-=== About the program ===
+=== 2.3 About the program ===
 
 *1. What is your plan for dealing with disappearing students?*
 
