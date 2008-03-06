@@ -103,7 +103,7 @@ This is extremely unlikely, but if one of the four mentors actually disappears, 
 
 *3. What steps will you take to encourage students to interact with your project's community before, during and after the program?* 
 
-In the past, we have facilitated student visits to Hawaii for anywhere from a week to a semester to work on the project.  This seems to have worked pretty well in terms of encouraging engagement with the community, and we would do the same this summer. 
+In the past, we have facilitated student visits to Hawaii for anywhere from a week to a semester to work on the project.  This seems to have worked pretty well in terms of encouraging engagement with the community, and we attempt to do the same this summer. 
 
 *4. What will you do to ensure that your accepted students stick with the project after GSoC concludes?* 
 
