@@ -95,18 +95,19 @@ Aaron Kagawa <kagawaa@gmail.com>
 
 *1. What is your plan for dealing with disappearing students?*
 
-When possible, we will have students working with both the mentor and other Hackystat developers on an extension or enhancement.  This will lower the risk associated with students that disappear, as well as lower the risk that students will disappear, since they will be part of a team. 
+When possible, we will have students working with both the mentor and other Hackystat developers on an extension or enhancement.  This will lower the risk associated with students that disappear to the project, as well as lower the risk that students will want to disappear, since they will be part of a team effort.
 
 *2. What is your plan for dealing with disappearing mentors?*
 
 This is extremely unlikely, but if one of the four mentors actually disappears, then the other three will take over his mentorship duties. 
 
 *3. What steps will you take to encourage students to interact with your project's community before, during and after the program?* 
+
 In the past, we have facilitated student visits to Hawaii for anywhere from a week to a semester to work on the project.  This seems to have worked pretty well in terms of encouraging engagement with the community, and we would do the same this summer. 
 
 *4. What will you do to ensure that your accepted students stick with the project after GSoC concludes?* 
 
-Be the totally coolest group of developers they've ever hung out with.  That's why we're all still here. 
+Be the totally coolest group of developers they've ever hung out with.  That's the reason we're all still here. 
 
 
 
