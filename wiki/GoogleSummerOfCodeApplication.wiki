@@ -35,15 +35,43 @@ In 2007, we made the decision to reimplement the code base almost entirely from 
 
 *4. Why is your organization applying to participate in GSoC 2008? What do you hope to gain by participating?*
 
-We are applying for participation because our current technology creates new opportunities to integrate software
-development measurement and analysis into the "cloud" of internet
-information services.  We are interested, for example, to explore how
-posting automatically generated summaries of one's developer behavior as
-Twitter "tweets" can improve developer behavior transparency in a
-distributed work setting, and create more productive and efficient
-communication among developers.  Another interesting direction is the creation of a Facebook application that can provide an automatically generated "profile" of one's software development interests and expertise, which could help create more efficient and effective social networks.   Our "Ideas" page (http://code.google.com/p/hackystat/wiki/ResearchProjects) provides more details on these and other development directions. 
+We are applying for participation because we believe Project Hackystat
+creates exciting opportunities for students who wish to participate in
+defining the next generation of software engineering technologies.
 
-A first order benefit of our participation would be the involvement of students who can begin to work on extensions to the framework and evaluate them in practice.  A second order benefit of our participation would be to obtain new ideas for ways to integrate our framework with other systems, and new ideas for how such integrations can improve the efficiency, effectiveness, and fun of software development. 
+In general, our current technology thrust is to explore the potential of
+integrating software development measurement and analysis into the "cloud"
+of internet information services.  We are interested, for example, to
+explore how posting automatically generated summaries of one's developer
+behavior to micro-blogging sites such as Jaiku or Twitter can improve
+developer behavior transparency in a distributed work setting, and create
+more productive and efficient communication among developers.  Another
+direction is the creation of a social networking plugins to
+frameworks like Facebook or Orkut to provide an automatically generated
+"profile" of one's software development interests and expertise, which
+could help create more efficient and effective software development social
+networks.  Our "Ideas" page
+(http://code.google.com/p/hackystat/wiki/ResearchProjects) provides more
+details on these and other development directions.
+
+We hope that by participating in GSoC, the participating students will
+improve their software development skills, improve their understanding of
+open source development practices and communities, and hopefully be
+inspired to incorporate some aspects of empirical software engineering into
+their future professional practices.  We strive to follow high quality
+software development practices in Project Hackystat through regular use of
+open source technologies. We employ continuous integration via Hudson, code
+quality analysis via Checkstyle, PMD, and FindBugs, unit testing via JUnit,
+code coverage via Emma, and automated builds via Ant.  We prefer, but do
+not mandate, the Eclipse IDE.  Most of our code base is written in Java,
+and most of our user interface is written using GWT, but we welcome
+participation from those who wish to extend the framework through other
+languages and technologies.
+
+We also hope that Project Hackystat will benefit from the code that they
+contribute, and from new ideas that they share with us.
+
+Finally, we hope to gain new friends and colleagues. 
 
 *5. Did your organization participate in previous GSoC years? If so, please summarize your involvement and the successes and failures of your student projects. (optional)*
 
@@ -99,11 +127,11 @@ When possible, we will have students working with both the mentor and other Hack
 
 *2. What is your plan for dealing with disappearing mentors?*
 
-This is extremely unlikely, but if one of the four mentors actually disappears, then the other three will take over his mentorship duties. 
+This is extremely unlikely, but if one of the  mentors actually disappears, then the others will take over his mentorship duties. 
 
 *3. What steps will you take to encourage students to interact with your project's community before, during and after the program?* 
 
-In the past, we have facilitated student visits to Hawaii for anywhere from a week to a semester to work on the project.  This seems to have worked pretty well in terms of encouraging engagement with the community, and we attempt to do the same this summer. 
+In the past, we have facilitated student visits to Hawaii for anywhere from a week to a semester to work on the project.  This seems to have worked pretty well in terms of encouraging engagement with the community, and we attempt to do the same this summer. (We typically can't subsidize housing, but we can offer office space and a small travel allowance.)
 
 *4. What will you do to ensure that your accepted students stick with the project after GSoC concludes?* 
 

@@ -6,6 +6,8 @@ Hackystat Version 8 provides infrastructure for a number of interesting research
 
 If you are interested in participating in one of these projects, or have an idea for a different project involving Hackystat,  please do not hesitate to contact Philip Johnson (johnson@hawaii.edu) for more information. 
 
+Note that we have applied to participate in Google Summer of Code 2008, and this page serves as the "Ideas" page for that program.
+
 = 2.0 Research and Development Projects= 
 
 Here are some project ideas, in no particular order.  Your thoughts and comments welcomed. 
@@ -151,16 +153,16 @@ these mechanisms.
 
 There is an interesting Java-based server for Nabaztag: [http://www.cs.uta.fi/hci/spi/jnabserver/]
 
-== 2.4 A Hackystat/Twitter Mashup==
+== 2.4 A Hackystat/Micro-blogging Mashup==
 
-Twitter is an interesting communication mechanism that has interesting implications for software development.  I wrote about this for the first time in 
+Micro-blogging services such as Twitter or Jaiku provide an interesting communication mechanism that has interesting implications for software development.  I wrote about this for the first time in 
 [http://johnson-engineering-log.blogspot.com/2007/08/project-proprioception.html Project Proprioception], later 
 in [http://johnson-engineering-log.blogspot.com/2007/09/twitter-hackystat-and-solving-context.html Twitter, Hackystat, and solving the context switching problem] 
 and once again in
 [http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup].   Members of the Hackystat development team have been using Twitter since Fall, 2007 as one of their communication methods, although without any direct Hackystat integration.
 
 The basic goal of this project is to create a Hackystat service that can detect  "interesting
-events" in the Hackystat data stream and then communicate them as Twitter "tweets".
+events" in the Hackystat data stream and then communicate them as Twitter or Jaiku micro-blog entries. 
 
 To understand why this might be interesting, consider the canonical question that a Twitter user is asked to answer:  "What are you doing now?".   Hackystat integration allows automated generation of a relatively rich set of software development-related tweets on behalf of a developer. Here are just a few examples:
 
@@ -181,6 +183,8 @@ A second research issue is to evaluate the impact of such a mechanism on
 software development. Does it lead to concrete improvement in developer
 communication and coordination, or is it simply a neat idea with no real
 benefit?
+
+Finally, one can compare various micro-blogging services. For example, the "channels" mechanism in Jaiku could provide a superior way to organize this information over the non-channeled approach in Twitter. 
 
 == 2.5 FFTs and Telemetry ==
 
@@ -215,7 +219,7 @@ And here are some possible research directions:
 In [http://johnson-engineering-log.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
 
 For this research project, the first step is to develop an enhancement to an existing social
-network infrastructure such as Facebook that can provide developers with
+network infrastructure such as Facebook or Orkut that can provide developers with
 the ability to publish such profile information and make queries involving
 it.
 
