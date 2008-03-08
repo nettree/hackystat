@@ -27,11 +27,34 @@ http://www.hackystat.org/, which redirects to http://code.google.com/p/hackystat
 
 *3. Describe your organization:*
 
-The mission of Project Hackystat is to provide a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  Work on Hackystat began in 2001 as a research activity in the Collaborative Software Developmnt Laboratory (http://csdl.ics.hawaii.edu/) in the Department of Information and Computer Sciences (http://www.ics.hawaii.edu) at the University of Hawaii (http://www.hawaii.edu). 
+The mission of Project Hackystat is to provide a framework for collection,
+analysis, visualization, interpretation, annotation, and dissemination of
+software development process and product data.  Work on Hackystat began in
+2001 as a research activity in the Collaborative Software Developmnt
+Laboratory (http://csdl.ics.hawaii.edu/) in the Department of Information
+and Computer Sciences (http://www.ics.hawaii.edu) at the University of
+Hawaii (http://www.hawaii.edu).
 
-From 2001 to 2006, the project grew a substantial code base (approximately 350,000 LOC), user community (over 800 users of the "public" Version 7 Hackystat server, with an undetermined additional number of users on private servers), and developers (dozens of contributors to the code base from approximately 20 academic and industry sites). A significant number of publications occurred during this time (a partial list of which is available at http://code.google.com/p/hackystat/wiki/Publications).  In addition, there was one commercial, non-open source spin-off based upon a subset of this project called Sixth Sense Analytics (http://www.6thsenseanalytics.com/).  A summary of Project Hackystat's release history is available at http://code.google.com/p/hackystat/wiki/History.
+From 2001 to 2006, the project grew a substantial code base (approximately
+350,000 LOC), user community (over 800 users of the "public" Version 7
+Hackystat server, with an undetermined additional number of users on
+private servers), and developers (dozens of contributors to the code base
+from approximately 20 academic and industry sites). A significant number of
+publications occurred during this time (a partial list of which is
+available at http://code.google.com/p/hackystat/wiki/Publications).  In
+addition, there was one commercial, non-open source spin-off based upon a
+subset of this project called Sixth Sense Analytics
+(http://www.6thsenseanalytics.com/).  A summary of Project Hackystat's
+release history is available at
+http://code.google.com/p/hackystat/wiki/History.
 
-In 2007, we made the decision to reimplement the code base almost entirely from scratch as a coordinated set of RESTful web services.  This effort took nine months, and Version 8 has been in public release since January, 2008.  We also decided to move the hosting of the project from the University of Hawaii to Google Project Hosting.  The old site is still available at http://xenia.ics.hawaii.edu, although it is no longer maintained. 
+In 2007, we made the decision to reimplement the code base almost entirely
+from scratch as a coordinated set of RESTful web services.  This effort
+took nine months, and Version 8 has been in public release since January,
+2008.  We also decided to move the hosting of the project from the
+University of Hawaii to Google Project Hosting.  The old site is still
+available at http://xenia.ics.hawaii.edu, although it is no longer
+maintained.
 
 *4. Why is your organization applying to participate in GSoC 2008? What do you hope to gain by participating?*
 
@@ -96,7 +119,7 @@ http://groups.google.com/group/hackystat-dev
 
 *10. Where is the main IRC channel for your organization?*
 
-We do not have one at present.
+Not applicable
 
 *11. Does your organization have an application template you would like to see students use? If so, please provide it now. (optional)* 
 
