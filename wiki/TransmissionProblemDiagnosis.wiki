@@ -337,4 +337,4 @@ Although each case will be different, you will want to be checking the following
   * Is the failure due to a timeout?  If so, can you fix the problem by simply increasing the values of the sensorshell.timeout and sensorshell.timeout.ping properties? 
   * Do you see differences in behavior when you use the default embedded Derby database vs. your custom database?   If so,you might need to tune your database implementation. 
   * Is the problem reproducible in the same way each time?  If not, then it may have something to do with external network loads and/or failures. 
-
+  * Does the amount of time required to send a batch of instances stay constant during the run, or does it take longer and longer as the run goes on?  
