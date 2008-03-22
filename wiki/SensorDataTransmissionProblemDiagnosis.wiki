@@ -2,7 +2,7 @@
 
 == 1.0 Introduction ==
 
-Sometimes sensor data is not transmitted efficiently or effectively from sensors to the sensorbase.  The goal of this page is to provide strategies for diagnosing problems if they occur and resolving them. 
+Upon occasion, sensor data is not transmitted efficiently or effectively from sensors to the sensorbase.  The goal of this page is to provide strategies for diagnosing problems if they occur and resolving them. 
 
 At a high level, transmission problems have only three possible causes:
   * The !SensorBase server process is not responsive.
