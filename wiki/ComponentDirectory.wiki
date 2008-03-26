@@ -41,12 +41,8 @@ The following table provides information on all currently released Hackystat too
 ||  || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data. (Under development.)   ||
 ||  || Project Trajectory || [http://code.google.com/p/hackystat-analysis-projecttrajectory/ hackystat-analysis-projecttrajectory] || (No documentation available) || Creates size and effort summaries for projects. (Under development.)   ||
 ||  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
-
-
-
-
-
-
+||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
+||  || RoR Viewer || [http://code.google.com/p/hackystat-viewer/ hackystat-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
 
 
 
