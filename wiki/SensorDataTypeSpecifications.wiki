@@ -53,7 +53,7 @@ The following table lists, for each sensor data type, the set of optional fields
 || Build || Result || 'Success', 'Failure' || (Expected) Whether the build invocation passed or failed. Must be the string 'Success' or 'Failure'. ||
 ||  || Target || 'compile' || The top-level target invoked as part of the build. ||
 || || Type || 'continuous.integration'  || Indicates the type of build event, if any. || 
-|| !CodeIssue || Type`_*` || 10 || Any property prefixed with 'Type_' indicates a type of code issue. For example '!Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
+|| !CodeIssue || Type`_*` || 10 || Any property prefixed with 'Type`_`' indicates a type of code issue. For example '!Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
 || Commit || linesDeleted || 10 || The number of lines deleted in this commit. ||
 || || linesAdded || 10 || The number of lines added in this commit. ||
 || Coupling || Type || 'class', 'package' || The type of coupling being calculated. ||
