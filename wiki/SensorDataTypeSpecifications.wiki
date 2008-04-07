@@ -18,7 +18,7 @@ The purpose of this document is to provide a reference for the current set of "s
 
 = 2.0 Required Sensor Data Fields =
 
-Every sensor data instance contains the following standard fields:
+Every sensor data instance contains the following required fields:
 
 || *Field*  || *Example* || *Description* ||
 || Timestamp || 2007-11-07T09:11:12.247-10:00 || The time instant at which the data was collected from the tool or user, in xs:dateTime (or XMLGregorianCalendar) format. ||
@@ -30,7 +30,7 @@ Every sensor data instance contains the following standard fields:
 
 = 3.0 Standard Sensor Data Types =
 
-== 3.1 Sensor Data Type Overview ==
+== 3.1 Sensor data type descriptions ==
 
 The following table lists the current set of "standard" sensor data types.
 
@@ -47,7 +47,7 @@ The following table lists the current set of "standard" sensor data types.
 
 == 3.2 Domain-specific sensor data fields ==
 
-The following table lists, for each sensor data type, the set of optional fields (properties) that sensors typically provide. 
+The following table lists, for each sensor data type, the set of optional fields (properties) that sensor instances of a given type typically provide. 
 
 || *SDT* || *Key* || *Example values* || *Description* ||
 || Build || Result || 'Success', 'Failure' || (Expected) Whether the build invocation passed or failed. Must be the string 'Success' or 'Failure'. ||
@@ -56,13 +56,14 @@ The following table lists, for each sensor data type, the set of optional fields
 || !CodeIssue || Type`_*` || 10 || Any property prefixed with 'Type`_`' indicates a type of code issue. For example '!Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. If there are none of these properties, then the file contained no code issues. ||
 || Commit || linesDeleted || 10 || (Expected) The number of lines deleted in this commit. ||
 || || linesAdded || 10 || (Expected) The number of lines added in this commit. ||
-|| Coupling || Type || (Expected) 'class', 'package' || (Expected) The type of coupling being calculated. ||
+|| Coupling || Type || 'class', 'package' || (Expected) The type of coupling being calculated. ||
 || || Afferent || 10 ||  (Expected) The number of afferent couplings (number of program units that depend on this one.) ||
 || || Efferent || 20 || (Expected) The number of efferent couplings (number of program units that this one depends upon). ||
 || Coverage || `*_`Covered || 10 || (Expected) The number of covered constructs of the given coverage type. For example, 'method_Covered' indicates the number of covered methods. ||
 || || `*_`Uncovered || 10 || (Expected) The number of uncovered constructs of the given coverage type. For example, 'method_Uncovered' indicates the number of uncovered methods. ||
 || !DevEvent || Type || '!StateChange' ||  (Expected)  The type of dev event. ||
 || !FileMetric || !TotalLines || 200 || (Expected) The total number of lines in this file. ||
+|| || `*`ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the 'CyclomaticComplexityList' property. || 
 || !UnitTest || Name || 'org.hackystat.!TestFoo' ||  (Expected) The name of the unit test. ||
 ||  || Result|| 'Pass', 'Fail' || (Expected) Whether the unit test passed or failed. ||
 
