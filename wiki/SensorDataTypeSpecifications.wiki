@@ -41,7 +41,7 @@ The following table lists the current set of "standard" sensor data types.
 || Coupling || JDepend, !DependencyFinder|| Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
 || Coverage || Clover, Emma || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
 || !DevEvent || Emacs, Eclipse, Vim || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
-|| !FileMetric || SCLC, JavaNCSS || Represents a single file and one or more measures of the size of that file. ||
+|| !FileMetric || SCLC, JavaNCSS || Represents a single file and one or more measures of the size or complexity of that file. ||
 || !UnitTest || JUnit || Represents the outcome of single unit test invocation on a source file. ||
 
 
