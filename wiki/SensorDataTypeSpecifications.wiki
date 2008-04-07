@@ -34,15 +34,15 @@ Every sensor data instance contains the following standard fields:
 
 The following table lists the current set of "standard" sensor data types.
 
-|| *Name* || *Description* ||
-|| Build || Represents the outcome of a single Ant build invocation. ||
-|| !CodeIssue || Represents a single file and contains the counts of all the types of errors in that file. ||
-|| Commit || Represents the outcome of a successful configuration management commit event on a single file. ||
-|| Coupling || Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
-|| Coverage || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
-|| !DevEvent || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
-|| !FileMetric || Represents a single file and one or more measures of the size of that file. ||
-|| !UnitTest || Represents the outcome of single unit test invocation on a source file. ||
+|| *Name* || *Example tools* || *Description* ||
+|| Build || Ant || Represents the outcome of a single Ant build invocation. ||
+|| !CodeIssue || Checkstyle, PMD, !FindBugs|| Represents a single file and contains the counts of all the types of errors in that file. ||
+|| Commit || SVN || Represents the outcome of a successful configuration management commit event on a single file. ||
+|| Coupling || !JDepend, !DependencyFinder|| Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
+|| Coverage || Clover, Emma || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
+|| !DevEvent || Emacs, Eclipse, Vim || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
+|| !FileMetric || SCLC, !JavaNCSS || Represents a single file and one or more measures of the size of that file. ||
+|| !UnitTest || !JUnit || Represents the outcome of single unit test invocation on a source file. ||
 
 
 == 3.2 Optional Sensor Data Fields ==
