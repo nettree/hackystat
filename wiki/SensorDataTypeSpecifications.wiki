@@ -2,15 +2,25 @@
 
 = 1.0 Introduction =
 
-Hackystat sensor data includes a field called "!SensorDataType", which, as its name implies, indicates the "type" of sensor data.  The meaning of "type" in this context is an expectation about the kinds of key-value pairs that will be supplied by sensors when generating sensor data instances of the given type, along with an expectation about the way these key-value pairs will be interpreted by higher level analyses. 
+One very important kind of information collected by Hackystat is called "Sensor Data".  As its name implies, this is data that is collected by "sensors", which are small software plugins attached to tools in the development environment. 
 
-The goal of this page is to document these expectations so that developers of sensors can generate data that can be meaningfully and consistently interpreted by higher level analyses on that data. 
+All sensor data instances are required to provide six required fields: timestamp, runtime, sensordatatype, resource, owner and tool. 
 
-= 2.0 Standard Sensor Data Fields =
+In addition, sensor data instances can provide any number of optional fields which provide domain-specific information. For example, a sensor attached to an editor might want to provide information about the type of editing event that triggered the sensor.  A sensor attached to a code complexity tool might want to provide information about complexity values, and so forth. 
+
+For higher level analyses to operate efficiently and effectively, they must have some way of quickly determining which sensor data instances are relevant to them, as well as some expectation about the nature of the optional fields available.   In the same way, sensors for tools with similar purposes should use the same optional fields in the same way so that analyses can interoperate.  
+
+To enable an analysis to quickly find data of relevance, Hackystat provides the "sensordatatype" field.  When a sensor generates a sensor data instance with a particular string for the sensordatatype, it is indicating that this instance will contain a certain set of optional properties.  
+
+In prior versions of Hackystat, the set of domain-specific fields were declaratively specified and could be checked automatically at run time.   During the design of Version 8, we decided that our prior approach created burdensome levels of coupling between components, and it also made evolution of structure quite difficult to manage.   We decided with Version 8 to adopt a "convention over configuration" approach to sensor data type specification.  While the required fields would still be enforced by the system, the set of sensor data types, and the optional fields associated with them, would be managed informally.
+
+The purpose of this document is to provide a reference for the current set of "standard" sensor data types and their "standard" optional fields.  This document does not prevent someone from creating sensors that gather information with a new sensor data type field and with new optional fields that they operate on with new nalyses of their own creation.  
+
+= 2.0 Required Sensor Data Fields =
 
 Every sensor data instance contains the following standard fields:
 
-|| *Property*  || *Example* || *Description* ||
+|| *Field*  || *Example* || *Description* ||
 || Timestamp || 2007-11-07T09:11:12.247-10:00 || The time instant at which the data was collected from the tool or user, in xs:dateTime (or XMLGregorianCalendar) format. ||
 || Runtime   || 2007-11-07T09:11:12.247-10:00 || When multiple sensor data instances should be aggregated together, this timestamp value can be used to indicate which sensor data instances belong to a single collection. For example, consider a size tool that generates one sensor data instance per file.  The sensor for this size tool should supply the same Runtime timestamp for each sensor data instance generated during a single run of the size tool over the system.  ||
 || !SensorDataType || !DevEvent || A string indicating the "type" of data. ||
@@ -18,73 +28,43 @@ Every sensor data instance contains the following standard fields:
 || Owner || johnson@hawaii.edu || The account associated with the owner of this sensor data. Note that while tools will send this data as a simple email address, the !SensorBase will return the contents of this property as a RESTful URI, such as http://dasha.ics.hawaii.edu:9876/sensorbase/users/johnson@hawaii.edu ||
 || Tool || Eclipse || The name of the tool that generated this data. ||
 
-In addition to these standard fields, sensor data instances can also include a list of key-value string pairs.  As a list, it is possible (and in some cases desirable) to have the same key appear multiple times in this list. These "properties" of a Sensor Data instance allow type-specific information to be provided. 
+= 3.0 Standard Sensor Data Types =
 
-The following sections indicate for each Sensor Data Type the expected (and in some cases) the optional properties that sensors should provide when generating data, and the way this data should be interpreted by higher level analyses. 
+== 3.1 Sensor Data Type Overview ==
 
+The following table lists the current set of "standard" sensor data types.
 
-= 3.0 !DevEvent =
-
-The !DevEvent sensor data type represents developer "behavioral events",
-such as the action of invoking the compiler, or opening a file for editing,
-or running a unit test, and so forth. 
-
-== 3.1 Expected properties ==
-
-None.
-
-== 3.2 Optional properties ==
-
-Sensors may add additional properties for more specialized analyses.  For example, the [http://code.google.com/p/hackystat-sensor-eclipse/ Eclipse sensor] provides properties to support test-driven design as documented in its [http://code.google.com/p/hackystat-sensor-eclipse/wiki/UserGuide User Guide].
-
-= 4.0 !UnitTest =
-
-The !UnitTest sensor data type represents the outcome of single unit test invocation on a source file.
-
-== 4.1 Expected properties ==
-
-|| *Key* || *Value* || *Description* ||
-|| Result || "pass" or "fail" || Used to determine whether the unit test passed or failed. ||
-
-== 4.2 Optional properties == 
-
-|| *Key* || *Value* || *Description* ||
-|| Type  || Production || A field indicating the type of test under way. ||
-|| !ElapsedTime || 23456 || The elapsed time for the test, in milliseconds. ||
-|| !TestName || org.hackystat.!TestFoo || The name of the test. ||
-|| !TestCaseName || testFoo || The name of the individual test case. ||
-|| !FailureString || Expected 3, was 2 || The failure string. ||
-|| !ErrorString || Null pointer exception || The exception message. ||
-
-= 5.0 !CodeIssue=
-The !CodeIssue sensor data type represents a single file and contains the counts of all the types of errors in that file.
-
-== 5.1 Expected properties ==
-
-None.
-
-== 5.2 Optional properties == 
-
-If there are any errors in the file entries prefixed with "Type:" should appear with the count of how many instances of that particular error were found in the file.
-
-For example, PMD anylyzes a file and produces and error that has !RuleSet=Design Rules and Rule=!ImmutableField.  It should append the attribute Type:Design Rules:!ImmutableField with the number of occurrences.
-
-Here is a !SensorData example with two Type: attributes:
-[Resource=Foo.java Type:Design Rules:!ImmutableField=4 Type:Basic Rules:!EmptyCatchBlock=6]
+|| *Name* || *Description* ||
+|| Build || Represents the outcome of a single Ant build invocation. ||
+|| !CodeIssue || Represents a single file and contains the counts of all the types of errors in that file. ||
+|| Commit || Represents the outcome of a successful configuration management commit event on a single file. ||
+|| Complexity || Represents a single file and a measure of complexity of the code in that file. ||
+|| Coupling || Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
+|| Coverage || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
+|| !DevEvent || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
+|| !FileMetric || Represents a single file and one or more measures of the size of that file. ||
+|| !UnitTest || Represents the outcome of single unit test invocation on a source file. ||
 
 
-= 6.0 Build =
+== 3.2 Optional Sensor Data Fields ==
 
-The Build sensor data type represents the outcome of a single Ant build invocation.
+The following table lists, for each sensor data type, the set of optional fields (properties) that sensors typically provide. 
 
-== 6.1 Expected properties ==
+|| *SDT* || *Key* || *Example values* || *Description* ||
+|| Build || Result || 'Success', 'Failure' || (Expected) Whether the build invocation passed or failed. Must be the string 'Success' or 'Failure'. ||
+||  || Target || 'compile' || The top-level target invoked as part of the build.
+|| || Type || 'continuous.integration'  || Indicates the type of build event, if any. || 
+|| !CodeIssue || Type_`*` || 10 || Any property prefixed with 'Type_' indicates a type of code issue. For example 'Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
+|| Commit || linesDeleted || 10 || The number of lines deleted in this commit. ||
+|| || linesAdded || 10 || The number of lines added in this commit. ||
+|| Coupling || Type || 'class', 'package' || The type of coupling being calculated. ||
+|| || Afferent || 10 ||  The number of afferent couplings (number of program units that depend on this one.) ||
+|| || Efferent || 20 || The number of efferent couplings (number of program units that this one depends upon). ||
+|| Coverage || `*`_Covered || 10 || The number of covered constructs of the given coverage type. For example, 'method_Covered' indicates the number of covered methods. ||
+|| || `*`_Uncovered || 10 | The number of uncovered constructs of the given coverage type. For example, 'method_Uncovered' indicates the number of uncovered methods. ||
+|| !DevEvent || Type || 'StateChange' ||  The type of dev event. ||
+|| !FileMetric || !TotalLines || 200 | The total number of lines in this file. ||
+|| !UnitTest || Name || 'org.hackystat.TestFoo' ||  The name of the unit test. ||
+||  || Result|| 'Pass', 'Fail' || Whether the unit test passed or failed. ||
 
-|| *Key* || *Value* || *Description* ||
-|| Result || "Success" or "Failure" || The build result. ||
-|| Target || checkstyle.tool || The Ant target invoked to run the build.||
 
-== 6.2 Optional properties == 
-
-|| *Key* || *Value* || *Description* ||
-|| !EndTime || 2007-11-08T03:48:32.502Z || The time that the build completed. ||
-|| Type || cruisecontrol.build || The type of the build. ||
