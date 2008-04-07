@@ -35,7 +35,7 @@ Every sensor data instance contains the following standard fields:
 The following table lists the current set of "standard" sensor data types.
 
 || *Name* || *Example tools* || *Description* ||
-|| Build || Ant || Represents the outcome of a single Ant build invocation. ||
+|| Build || Ant || Represents the outcome of a single build of a system. ||
 || !CodeIssue || Checkstyle, PMD, !FindBugs|| Represents a single file and contains the counts of all the types of errors in that file. ||
 || Commit || SVN || Represents the outcome of a successful configuration management commit event on a single file. ||
 || Coupling || JDepend, !DependencyFinder|| Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
