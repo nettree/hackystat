@@ -38,7 +38,6 @@ The following table lists the current set of "standard" sensor data types.
 || Build || Represents the outcome of a single Ant build invocation. ||
 || !CodeIssue || Represents a single file and contains the counts of all the types of errors in that file. ||
 || Commit || Represents the outcome of a successful configuration management commit event on a single file. ||
-|| Complexity || Represents a single file and a measure of complexity of the code in that file. ||
 || Coupling || Represents a single file (or directory) and a measure of the coupling between that file (directory) and other files (directories). ||
 || Coverage || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
 || !DevEvent || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
@@ -52,7 +51,7 @@ The following table lists, for each sensor data type, the set of optional fields
 
 || *SDT* || *Key* || *Example values* || *Description* ||
 || Build || Result || 'Success', 'Failure' || (Expected) Whether the build invocation passed or failed. Must be the string 'Success' or 'Failure'. ||
-||  || Target || 'compile' || The top-level target invoked as part of the build.
+||  || Target || 'compile' || The top-level target invoked as part of the build. ||
 || || Type || 'continuous.integration'  || Indicates the type of build event, if any. || 
 || !CodeIssue || Type_`*` || 10 || Any property prefixed with 'Type_' indicates a type of code issue. For example 'Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
 || Commit || linesDeleted || 10 || The number of lines deleted in this commit. ||
