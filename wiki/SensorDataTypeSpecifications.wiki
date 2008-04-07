@@ -63,7 +63,7 @@ The following table lists, for each sensor data type, the set of optional fields
 || || `*_`Uncovered || 10 || (Expected) The number of uncovered constructs of the given coverage type. For example, 'method_Uncovered' indicates the number of uncovered methods. ||
 || !DevEvent || Type || '!StateChange' ||  (Expected)  The type of dev event. ||
 || !FileMetric || !TotalLines || 200 || (Expected) The total number of lines in this file. ||
-|| || `*`ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the 'CyclomaticComplexityList' property. || 
+|| || `*`!ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the '!CyclomaticComplexityList' property. || 
 || !UnitTest || Name || 'org.hackystat.!TestFoo' ||  (Expected) The name of the unit test. ||
 ||  || Result|| 'Pass', 'Fail' || (Expected) Whether the unit test passed or failed. ||
 
