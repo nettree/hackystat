@@ -53,17 +53,17 @@ The following table lists, for each sensor data type, the set of optional fields
 || Build || Result || 'Success', 'Failure' || (Expected) Whether the build invocation passed or failed. Must be the string 'Success' or 'Failure'. ||
 ||  || Target || 'compile' || The top-level target invoked as part of the build. ||
 || || Type || 'continuous.integration'  || Indicates the type of build event, if any. || 
-|| !CodeIssue || Type_`*` || 10 || Any property prefixed with 'Type_' indicates a type of code issue. For example 'Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
+|| !CodeIssue || Type`_*` || 10 || Any property prefixed with 'Type_' indicates a type of code issue. For example '!Type_Indentation' indicates an 'Indentation' code issue.  The value is the number of occurrences in the file. ||
 || Commit || linesDeleted || 10 || The number of lines deleted in this commit. ||
 || || linesAdded || 10 || The number of lines added in this commit. ||
 || Coupling || Type || 'class', 'package' || The type of coupling being calculated. ||
 || || Afferent || 10 ||  The number of afferent couplings (number of program units that depend on this one.) ||
 || || Efferent || 20 || The number of efferent couplings (number of program units that this one depends upon). ||
-|| Coverage || `*`_Covered || 10 || The number of covered constructs of the given coverage type. For example, 'method_Covered' indicates the number of covered methods. ||
-|| || `*`_Uncovered || 10 | The number of uncovered constructs of the given coverage type. For example, 'method_Uncovered' indicates the number of uncovered methods. ||
-|| !DevEvent || Type || 'StateChange' ||  The type of dev event. ||
-|| !FileMetric || !TotalLines || 200 | The total number of lines in this file. ||
-|| !UnitTest || Name || 'org.hackystat.TestFoo' ||  The name of the unit test. ||
+|| Coverage || `*_`Covered || 10 || The number of covered constructs of the given coverage type. For example, 'method_Covered' indicates the number of covered methods. ||
+|| || `*_`Uncovered || 10 || The number of uncovered constructs of the given coverage type. For example, 'method_Uncovered' indicates the number of uncovered methods. ||
+|| !DevEvent || Type || '!StateChange' ||  The type of dev event. ||
+|| !FileMetric || !TotalLines || 200 || The total number of lines in this file. ||
+|| !UnitTest || Name || 'org.hackystat.!TestFoo' ||  The name of the unit test. ||
 ||  || Result|| 'Pass', 'Fail' || Whether the unit test passed or failed. ||
 
 
