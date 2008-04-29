@@ -43,7 +43,7 @@ The following table provides information on all currently released Hackystat too
 ||  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
 ||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
 ||  || RoR Viewer || [http://code.google.com/p/hackystat-viewer/ hackystat-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
-||  || !ProjectBrowser || [http://code.google.com/p/hackystat-ui-wicket/ hackystat-ui-wicket] ||[http://code.google.com/p/hackystat-ui-wicket/wiki/DeveloperGuide Developer Guide] ||Wicket-based UI. ||
+||  || !ProjectBrowser || [http://code.google.com/p/hackystat-ui-wicket/ hackystat-ui-wicket] ||[http://code.google.com/p/hackystat-ui-wicket/wiki/DeveloperGuide Developer Guide], [http://hackystat-ui-wicket.googlecode.com/svn/javadoc/index.html JavaDoc] ||Wicket-based UI. ||
 
 
 
