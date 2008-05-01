@@ -1,13 +1,93 @@
-#summary One-sentence summary of this page.
+#summary An overview of software project portfolio management with Hackystat
 
-= Introduction =
+= 1.0 Introduction =
 
-Add your content here.
+In large companies, it is possible to have dozens or even hundreds of
+software projects underway at any given point in time.  This kind of scale
+produces new challenges, as well as new opportunities for these companies.
+The challenges and opportunities focus on the ability of the company to
+successfully understand and exploit their ownership of a "portfolio" of
+software projects.
+
+While the principles and practices of software project portfolio management
+are not well understood, one can gain some initial insight into its
+potential through analogy with financial portfolio management, for which
+there are much better established guiding principles.  Just like a
+financial portfolio, a software project portfolio should be managed in such
+a way as to balance risk against reward, support performance assessment in
+multiple ways, and gain insight into each "investment".
+
+In the financial world, investors have a variety of ways to gain insight
+into their portfolio.  First, they have the annual reports of their
+companies, in which representatives of a company provide details about the
+current status and future directions of their organization.  Second,
+investors can use objective, standardized metrics such as share price
+appreciation (or depreciation) over time, price/earnings ratios, and so
+forth.  The standardized metrics have the advantages of being objective and
+supporting baseline comparisons.  However, the annual reports and other
+sources of subjective information about the organization provide an
+important balance to the raw metrics which can put them into perspective,
+and even lead the investor to think in terms of entirely different metrics
+for evaluating that organization.
+
+If one used only annual reports to manage one's portfolio, then one would
+probably never sell a stock they own, and one would probably never buy
+anything other than their current stocks.  For many reasons, most of them
+quite reasonable, annual reports tend to be optimistic.  So, this is a
+suboptimal strategy.  On the other hand, if one used only standard metrics
+like short-term share price change to manage one's portfolio, then one
+would quite quickly converge upon the worst-case scenario for portfolio
+management: buying at the top and selling at the bottom.
+
+Thus, the best approach for managing an investment portfolio is to gather
+and integrate together a variety of types of information.
+
+In the case of a software portfolio, the equivalent of the "annual report"
+is typically already available to senior management: it is the monthly or
+quarterly progress reports provided by the individual projects regarding
+their current status and future directions. The goal of the software
+project portfolio management is to augment this subjective information with
+an additional, objective, complementary source of information to senior
+management.  Such information would be analogous to standardized financial
+metrics like price/earnings ratios.  Just as a financial analyst combines
+together subjective and objective information to gain insight into the
+portfolio, managers in a company with a large number of projects can
+combine together subjective and objective information to gain insight into
+how individual projects, as well as the portfolio as a whole, is
+performing.
+
+This is the vision, but practical questions remain: what kinds of
+"objective" information can be gathered at low-cost, and in what ways can
+this information be made useful, not only to management, but to the
+developers themselves?  The next three sections present three concrete
+examples: benchmarks, a continuous integration ICU, and a developer
+expertise browser.
 
 
-= Details =
+= 2.0 Software Project Portfolio Management Applications =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== 2.1 Internal Benchmarking ==
+
+This section will overview the use of internal benchmarks.  The opportunity for a large company is that they do not have to rely on external benchmarks, they can use their own portfolio.  This can increase buy-in from developers since (a) all projects are being compared within the same company, reducing the charge that the comparison is unfair, and (b) if a project A compares unfavorably to project B, it is possible to investigate the differences in detail and determine why the projects differ along the chosen dimension, and what action to take, if any.  This is not possible when comparing an internal project to a published industry benchmark.
+
+Benefit to management:  better visibility into projects and their comparative performance. 
+
+Benefit to developers:  out of the dozens or hundreds of projects, which ones are comparable? Which ones are doing better?  This represents opportunities for learning, improvement, and reuse. 
+
+== 2.2 Continuous Integration ICU ==
+
+In a nutshell, provides an "early warning system" to both developers and managers regarding projects that may be in trouble. 
+More details in ContinousIntegrationICU.
+
+
+== 2.3 Developer Expertise Browser ==
+
+In a large company with dozens or hundreds of developers, there are pockets of expertise that are not exploited in a "just in time" manner. 
+
+By combining commit information with structural information, a profile of each developer in terms of the libraries they work on can be automatically built.  This enables developers to easily find others in the organization who might be able to help them solve a problem or acquire a new technology.
+
+
+
+
+
+

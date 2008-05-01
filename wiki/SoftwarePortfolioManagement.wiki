@@ -1,13 +1,123 @@
-#summary One-sentence summary of this page.
+#summary An overview of software portfolio management with Hackystat
 
-= Introduction =
+= 1.0 Introduction =
 
-Add your content here.
+In large companies, it is possible to have dozens or even hundreds of
+software projects underway at any given point in time.  This kind of scale
+produces new challenges, as well as new opportunities for these companies.
+The challenges and opportunities focus on the ability of the company to
+successfully understand and exploit their ownership of a "portfolio" of
+software projects.
+
+While the principles and practices of software project portfolio management
+are not well understood, one can gain some initial insight into its
+potential through analogy with financial portfolio management, for which
+there are much better established guiding principles.  Just like a
+financial portfolio, a software project portfolio should be managed in such
+a way as to balance risk against reward, support performance assessment in
+multiple ways, and gain insight into each "investment".
+
+In the financial world, investors have a variety of ways to gain insight
+into their portfolio.  First, they have the annual reports of their
+companies, in which representatives of a company provide details about the
+current status and future directions of their organization.  Second,
+investors can use objective, standardized metrics such as share price
+appreciation (or depreciation) over time, price/earnings ratios, and so
+forth.  The standardized metrics have the advantages of being objective and
+supporting baseline comparisons.  However, the annual reports and other
+sources of subjective information about the organization provide an
+important balance to the raw metrics which can put them into perspective,
+and even lead the investor to think in terms of entirely different metrics
+for evaluating that organization.
+
+If one used only annual reports to manage one's portfolio, then one would
+probably never sell a stock they own, and one would probably never buy
+anything other than their current stocks.  For many reasons, most of them
+quite reasonable, annual reports tend to be optimistic.  So, this is a
+suboptimal strategy.  On the other hand, if one used only standard metrics
+like short-term share price change to manage one's portfolio, then one
+would quite quickly converge upon the worst-case scenario for portfolio
+management: buying at the top and selling at the bottom.
+
+Thus, the best approach for managing an investment portfolio is to gather
+and integrate together a variety of types of information.
+
+In the case of a software portfolio, the equivalent of the "annual report"
+is typically already available to senior management: it is the monthly or
+quarterly progress reports provided by the individual projects regarding
+their current status and future directions. The goal of the software
+project portfolio management is to augment this subjective information with
+an additional, objective, complementary source of information to senior
+management.  Such information would be analogous to standardized financial
+metrics like price/earnings ratios.  Just as a financial analyst combines
+together subjective and objective information to gain insight into the
+portfolio, managers in a company with a large number of projects can
+combine together subjective and objective information to gain insight into
+how individual projects, as well as the portfolio as a whole, is
+performing.
+
+This is the vision, but practical questions remain: what kinds of
+"objective" information can be gathered at low-cost, and in what ways can
+this information be made useful, not only to management, but to the
+developers themselves?  The next three sections present three concrete
+examples: benchmarks, a continuous integration ICU, and a developer
+expertise browser.
 
 
-= Details =
+= 2.0 Software Project Portfolio Manage
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+
+
+hope is that SoftFolio metrics, when applied thoughtfully and used in
+concert with the progress reports, will provide both senior management, as
+well as the individual projects, with useful new insight into how their
+projects are performing both alone and with respect to each other.
+
+There are a number of challenges associated with the SoftFolio project:
+  * Identifying useful "standard" metrics.
+  * Gathering these metrics efficiently and effectively
+  * Interpreting them appropriately.
+
+To start, we have decided to gather three metrics on six projects for a period of one month.  The three metrics are:
+  * Statement coverage percentage
+  * Average cyclomatic complexity
+  * Average package-level afferent and efferent couplings
+
+We selected these three metrics because they can be automatically collected and because they provide three independent measures of software quality.
+
+"Statement coverage" is a measure of how much of the product code is being exercised by test cases.  If statement coverage is 100%, then every line is being executed at least once by one or more test cases.  Low statement coverage almost definitely indicates poor testing quality, while high statement coverage is a partial indicator of good testing quality. Merely executing every line in a system via a test case does not guarantee that the test cases are exercising the code with values that will reveal bugs.
+
+"Cyclomatic complexity" is a measure of the number of statements, branches, and loops in a program unit such as a method or subroutine.  Intuitively, program units with high cyclomatic complexity, such as code with high levels of nested conditionals and loops, should be harder to understand, harder to get correct initially, and harder to maintain over time.   There have been studies that indicate that program units with cyclomatic complexity over 10 are more prone to defects, although there is also disputing studies.
+
+"Afferent and efferent couplings" refers to the linkage between code in different packages.  When one package depends upon a high number of other packages, then it tends to be more susceptible to "ripple effects", where it breaks due to changes in a package that it depends upon. A package with high afferent coupling (inbound coupling) means it has a great deal of responsibility (many packages depend on it).  A package with high efferent coupling (outbound coupling) means it is not very independent. Of course, all packages must have a certain level of dependencies, but excessively high levels can indicate quality-related problems in testing and maintenance.
+
+In SoftPedia, we collect these three metrics for each of our projects on a daily basis over the course of a month.  The goal of this case study is to investigate the following questions:
+
+(1) What is the variation in each of these metrics for each project?  In other words, what is the overall range in coverage, complexity, and coupling from our sample set?
+
+(2) If a project has a high (or low) value for one of these quality indicators, does it also have a high (or low) value for the other two quality indicators?
+
+(3) Did any of these quality indicators change significantly over the course of the month for any of these projects?  Did these changes reflect underlying changes in the project structure or requirements or process?
+
+(4) If one quality indicator changed, did any of the others change as well?
+
+(5) After showing the project managers their trends in these values for the month, what was their reaction?  Do they feel these indicators represent legitimate aspects of their project's quality?
+
+(6) What barriers prevent us from scaling up SoftFolio to all 200 projects?
+
+(7) What additional measures would add new value when tracked across all 200 projects?
+
+--------------------------------------
+
+There you go.  Let me know what you think.
+
+Cheers,
+Philip
+
+
+
+
+
+
+
