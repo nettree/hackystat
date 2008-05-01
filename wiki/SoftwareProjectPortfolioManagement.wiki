@@ -77,7 +77,7 @@ Benefit to developers:  out of the dozens or hundreds of projects, which ones ar
 == 2.2 Continuous Integration ICU ==
 
 In a nutshell, provides an "early warning system" to both developers and managers regarding projects that may be in trouble. 
-More details in ContinousIntegrationICU.
+More details in [ContinuousIntegrationICU The Continuous Integration ICU].
 
 
 == 2.3 Developer Expertise Browser ==
