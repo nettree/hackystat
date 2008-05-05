@@ -5,7 +5,7 @@
 In large companies, it is possible to have dozens or even hundreds of
 software projects underway at any given point in time.  This kind of scale
 produces new challenges, as well as new opportunities for these companies.
-The challenges and opportunities focus on the ability of the company to
+Both challenges and opportunities result from the need of the company to
 successfully understand and exploit their ownership of a "portfolio" of
 software projects.
 
@@ -30,39 +30,60 @@ important balance to the raw metrics which can put them into perspective,
 and even lead the investor to think in terms of entirely different metrics
 for evaluating that organization.
 
-If one used only annual reports to manage one's portfolio, then one would
-probably never sell a stock they own, and one would probably never buy
-anything other than their current stocks.  For many reasons, most of them
+If you used only annual reports to manage your financial portfolio, then you might
+never sell a stock that you currently own, and you might never by any stocks
+other than those you currently own.  For many reasons, most of them
 quite reasonable, annual reports tend to be optimistic.  So, this is a
-suboptimal strategy.  On the other hand, if one used only standard metrics
-like short-term share price change to manage one's portfolio, then one
-would quite quickly converge upon the worst-case scenario for portfolio
+suboptimal strategy.  On the other hand, if you used only standard metrics
+like short-term share price change to manage your portfolio, then you
+might end up with the worst-case scenario for financial portfolio
 management: buying at the top and selling at the bottom.
 
-Thus, the best approach for managing an investment portfolio is to gather
-and integrate together a variety of types of information.
+Thus, the best approach for managing a financial portfolio is to gather
+and integrate together a variety of types of information, both subjective and objective.
 
 In the case of a software portfolio, the equivalent of the "annual report"
-is typically already available to senior management: it is the monthly or
+is typically already available: it is the monthly or
 quarterly progress reports provided by the individual projects regarding
 their current status and future directions. The goal of the software
-project portfolio management is to augment this subjective information with
+project portfolio management is to integrate this subjective information with
 an additional, objective, complementary source of information to senior
-management.  Such information would be analogous to standardized financial
-metrics like price/earnings ratios.  Just as a financial analyst combines
-together subjective and objective information to gain insight into the
-portfolio, managers in a company with a large number of projects can
-combine together subjective and objective information to gain insight into
-how individual projects, as well as the portfolio as a whole, is
-performing.
+management.  Such information is analogous to standardized financial
+metrics like price/earnings ratios. 
 
-This is the vision, but practical questions remain: what kinds of
-"objective" information can be gathered at low-cost, and in what ways can
-this information be made useful, not only to management, but to the
-developers themselves?  The next three sections present three concrete
-examples: benchmarks, a continuous integration ICU, and a developer
-expertise browser.
+Just as a financial analyst combines together subjective and objective
+information to gain insight into the portfolio, managers in a company with
+a large number of projects can combine together subjective and objective
+information to gain insight into how individual projects, as well as the
+portfolio as a whole, is performing.  
 
+Software project portfolio management has an important benefit for
+developers as well.  Developers wish to work more efficiently and
+effectively.  One way they do this is by learning from their current and
+prior professional experiences about what works and what doesn't work.  A
+second way is through reading technical publications which contain research
+and case studies on new tools, techniques, and practices.  However, these
+articles often do not contain sufficient detail for developers to
+understand how to apply the practices to their own circumstances, or
+whether the benefits claimed for the organization in the case study would
+occur in their own organization, which might differ in significant ways.
+
+Software project portfolio management provides a new way for developers to
+learn how to work more efficiently and effectively, because it provides
+them with new visibility into the projects within their own organization.
+First, it enables developers to become more easily aware of projects that
+are similar to their own, but that might differ along one or more objective
+or subjective dimensions.  Such projects provide a valuable opportunity to
+developers in both projects to gain insight into what is causing the
+differences between projects in the same organization that are otherwise
+similar.   
+
+This is the vision, but practical questions remain.  What kinds of
+objective information can be gathered across dozens or hundreds of projects
+without incurring excessive cost?  In what ways can this information be
+made useful both to management as well as to the developers themselves?
+The next three sections present three concrete examples: benchmarks, a
+continuous integration ICU, and a developer expertise browser.
 
 = 2.0 Software Project Portfolio Management Applications =
 
