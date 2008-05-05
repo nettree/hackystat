@@ -87,7 +87,7 @@ or subjective dimensions.  Such projects provide a valuable opportunity to
 developers in both projects to gain insight into what is causing the
 differences between projects in the same organization that are otherwise
 similar.   Specifically, developers can learn:
-  * Which projects in the company are like ours with respect to process and product measures? 
+  * Are there other projects in the company like ours that we are not aware of?    
   * Are the trends in our project over time similar to the trends in other projects?  
   * Are there other projects that have already acquired expertise with specific tools or techniques that we are just now adopting? 
 
