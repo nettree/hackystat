@@ -87,7 +87,7 @@ or subjective dimensions.  Such projects provide a valuable opportunity to
 developers in both projects to gain insight into what is causing the
 differences between projects in the same organization that are otherwise
 similar.   Specifically, developers can learn:
-  * Which projects in the company are like their own with respect to process and product measures?  
+  * Which projects in the company are like ours with respect to process and product measures? 
   * Are the trends in our project over time similar to the trends in other projects?  
   * Are there other projects that have already acquired expertise with specific tools or techniques that we are just now adopting? 
 
@@ -112,7 +112,7 @@ software project portfolio, it is necessary to trade-off some of the more
 detailed data analyses possible by intruding on the individual developer's
 environment.
 
-Given this restriction, what kinds of data can actually be collected?  The following table presents an ininitial list, organized by the source of the information.  "Build" means the continuous integration build tool such as [http://cruisecontrol.sourceforge.net/ CruiseControl] or [https://hudson.dev.java.net/ Hudson], "CM" means the configuration management tool such as [http://subversion.tigris.org/ Subversion] or [http://www.perforce.com/ Perforce], and "Issues" means the issue management system such as [http://www.atlassian.com/software/jira/ Jira] or [http://www.bugzilla.org/ Bugzilla].
+Given this restriction, what kinds of data can actually be collected?  The following table presents an ininitial list, organized by the source of the information.  "Build" refers to a continuous integration build tool such as [http://cruisecontrol.sourceforge.net/ CruiseControl] or [https://hudson.dev.java.net/ Hudson], "CM" refers to a configuration management tool such as [http://subversion.tigris.org/ Subversion] or [http://www.perforce.com/ Perforce], and "Issues" refers to an issue management system such as [http://www.atlassian.com/software/jira/ Jira] or [http://www.bugzilla.org/ Bugzilla].
 
 || *Source*  || *Data*  || *Description/Purpose* ||
 || Build     || Code Size and Type  || The overall size of the system in LOC, as well as size of the consitutent source code types (Java, C++, Ruby, JSP, C#, ASP, etc.) provides valuable contextual information about the project.  This helps identify similar projects and supports baselines for subsets of the overall portfolio.  For example, Java complexity might have a different baseline than Ruby complexity. Code size and type can be automatically collected for a wide variety of languages using the open source tool [http://code.google.com/p/sclc/ SCLC]. ||
