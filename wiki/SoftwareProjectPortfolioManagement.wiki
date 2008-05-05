@@ -2,6 +2,8 @@
 
 = 1.0 Introduction =
 
+== 1.1 Portfolio management for software projects ==
+
 In large companies, it is possible to have dozens or even hundreds of
 software projects underway at any given point in time.  This kind of scale
 produces new challenges, as well as new opportunities for these companies.
@@ -9,7 +11,7 @@ Both challenges and opportunities result from the need of the company to
 successfully understand and exploit their ownership of a "portfolio" of
 software projects.
 
-While the principles and practices of software project portfolio management
+While the principles and practices of software project portfolio management (SPPM)
 are not well understood, one can gain some initial insight into its
 potential through analogy with financial portfolio management, for which
 there are much better established guiding principles.  Just like a
@@ -45,19 +47,27 @@ and integrate together a variety of types of information, both subjective and ob
 In the case of a software portfolio, the equivalent of the "annual report"
 is typically already available: it is the monthly or
 quarterly progress reports provided by the individual projects regarding
-their current status and future directions. The goal of the software
-project portfolio management is to integrate this subjective information with
+their current status and future directions. The goal of SPPM
+is to integrate this subjective information with
 an additional, objective, complementary source of information to senior
 management.  Such information is analogous to standardized financial
 metrics like price/earnings ratios. 
+
+== 1.2 Benefits of SPPM for management ==
 
 Just as a financial analyst combines together subjective and objective
 information to gain insight into the portfolio, managers in a company with
 a large number of projects can combine together subjective and objective
 information to gain insight into how individual projects, as well as the
-portfolio as a whole, is performing.  
+portfolio as a whole, is performing.  Specifically, project managers can learn:
+  * Baseline process and product measures for the company as a whole. For example, over 200 Java projects, what is the median software structural quality (as measured by combining coverage, complexity, and coupling measures)? 
+  * Normal and abnormal variation in process and product measures.  For example, what is a "typical" number of build failures for a project in a month?  Which projects are failing their builds significantly less than average?  Which are failing their builds significantly more? 
+  * Organizational improvement.  How do our baselines for Q2 2009 compare to our baselines for Q2 2008? Are we as a company getting more efficient and effective at software development?
 
-Software project portfolio management has an important benefit for
+
+== 1.3 Benefits of SPPM for developers ==
+
+SPPM provides important benefits for
 developers as well.  Developers wish to work more efficiently and
 effectively.  One way they do this is by learning from their current and
 prior professional experiences about what works and what doesn't work.  A
@@ -76,14 +86,47 @@ are similar to their own, but that might differ along one or more objective
 or subjective dimensions.  Such projects provide a valuable opportunity to
 developers in both projects to gain insight into what is causing the
 differences between projects in the same organization that are otherwise
-similar.   
+similar.   Specifically, developers can learn:
+  * Which projects in the company are like their own with respect to process and product measures?  
+  * Are the trends in our project over time similar to the trends in other projects?  
+  * Are there other projects that have already acquired expertise with specific tools or techniques that we are just now adopting? 
 
-This is the vision, but practical questions remain.  What kinds of
-objective information can be gathered across dozens or hundreds of projects
-without incurring excessive cost?  In what ways can this information be
-made useful both to management as well as to the developers themselves?
-The next three sections present three concrete examples: benchmarks, a
-continuous integration ICU, and a developer expertise browser.
+== 1.4 Making it practical ==
+
+To be feasible and effective at the scale of hundreds of projects, SPPM
+data collection and analysis must be as automated as possible and incur
+little to no chronic overhead on developers or project teams.  The most
+reasonable way to accomplish this is by restricting data collection
+activities to what can be obtained via the continuous integration build
+process, the source code control system, and the issue management system.
+
+The benefit to this restriction is that the data collection process is
+almost entirely transparent to the development team.
+
+The cost of this approach is that certain kinds of data cannot be
+collected.  For example, it is possible to instrument the individual
+developer's editing tool (such as Eclipse or Visual Studio) in order to
+detect when and whether the individual is practicing Test-Driven Design
+techniques.  To obtain the "global" perspective on the organization's
+software project portfolio, it is necessary to trade-off some of the more
+detailed data analyses possible by intruding on the individual developer's
+environment.
+
+Given this restriction, what kinds of data can actually be collected?  The following table presents an ininitial list, organized by the source of the information.  "Build" means the continuous integration build tool such as [http://cruisecontrol.sourceforge.net/ CruiseControl] or [https://hudson.dev.java.net/ Hudson], "CM" means the configuration management tool such as [http://subversion.tigris.org/ Subversion] or [http://www.perforce.com/ Perforce], and "Issues" means the issue management system such as [http://www.atlassian.com/software/jira/ Jira] or [http://www.bugzilla.org/ Bugzilla].
+
+|| *Source*  || *Data*  || *Description/Purpose* ||
+|| Build     || Code Size and Type  || The overall size of the system in LOC, as well as size of the consitutent source code types (Java, C++, Ruby, JSP, C#, ASP, etc.) provides valuable contextual information about the project.  This helps identify similar projects and supports baselines for subsets of the overall portfolio.  For example, Java complexity might have a different baseline than Ruby complexity. Code size and type can be automatically collected for a wide variety of languages using the open source tool [http://code.google.com/p/sclc/ SCLC]. ||
+|| Build     || Complexity || Source code complexity measures like [http://en.wikipedia.org/wiki/Cyclomatic_complexity cyclomatic complexity] provide an indicator of how difficult a module is to understand, test, and enhance. Cyclomatic complexity can be determined for Java code using the open source tool [http://www.kclee.com/clemens/java/javancss/ JavaNCSS].  ||
+|| Build || Coupling || [http://en.wikipedia.org/wiki/Coupling_(computer_science) Software coupling] measures the dependencies among program modules.  Like complexity, coupling provides an indicator of how difficult a module will be to understand, test, and enhance. However, while complexity focuses on internal structure, coupling focuses on external structure. [http://depfind.sourceforge.net/ DependencyFinder] is an open source tool for obtaining coupling information. ||
+|| Build || Coverage || [http://en.wikipedia.org/wiki/Code_coverage Code coverage] measures the degree to which source code is exercised by its tests.  Coverage provides an indicator of the quality of testing, which is itself an indicator of the readiness of the code for use, as well as the adequacy of the testing procedures in use by the development team.  [http://www.atlassian.com/software/clover/ Clover] is a commercial tool for measuring coverage in Java. ||
+|| Build || CI Failures || Continuous Integration failures measures the average number of times per month that a project fails the continuous integration process.  This is an indicator of development stability.  A project with healthy development practices will tend to have a low number of CI build failures over the course of a month. || 
+|| CM  || Commits || The number of commits to the configuration management system provides an indicator of project activity. Each project will tend to have a "normal" level of commits per day and/or per developer  based upon the project's overall nature and current state. Departures from that baseline level indicate changes to the project, and projects with radically different baseline levels of commits indicate projects with significantly different development procedures. ||
+|| CM  || Churn || Associated with each commit is "churn", which is a measure of the number of lines of code added, deleted, and changed as a result of that commit.  Like commits, churn is a measure of project activity, and has similar applications to the creation of baseline values and comparison within and between projects. 
+|| Issues  || Closure rate || Closure rate measures the number of open issues that are closed by a project during a given period of time.  It is an indicator of both project activity and project "progress". Closure rate is difficult to apply across projects, since the value of closure rate is quite dependent upon the way issues are recorded in a project.  One project might track many very small tasks, while another project might track much larger tasks.  The first project might have a much higher closure rate than the second, but this does not necessarily indicate more forward progress than the second. Nevertheless, changes to the baseline closure rate within a project can indicate changes to the project state. ||
+
+
+
+
 
 = 2.0 Software Project Portfolio Management Applications =
 
