@@ -125,18 +125,30 @@ Given this restriction, what kinds of data can actually be collected?  The follo
 || Issues  || Closure rate || Closure rate measures the number of open issues that are closed by a project during a given period of time.  It is an indicator of both project activity and project "progress". Closure rate is difficult to apply across projects, since the value of closure rate is quite dependent upon the way issues are recorded in a project.  One project might track many very small tasks, while another project might track much larger tasks.  The first project might have a much higher closure rate than the second, but this does not necessarily indicate more forward progress than the second. Nevertheless, changes to the baseline closure rate within a project can indicate changes to the project state. All issue management tools provide a reporting interface for closure rate.  ||
 
 
-
-
-
 = 2.0 Software Project Portfolio Management Applications =
+
+This section presents three applications of software project portfolio management:  Internal Benchmarking, a Continuous Integration ICU, and a Developer Expertise Browser. 
 
 == 2.1 Internal Benchmarking ==
 
-This section will overview the use of internal benchmarks.  The opportunity for a large company is that they do not have to rely on external benchmarks, they can use their own portfolio.  This can increase buy-in from developers since (a) all projects are being compared within the same company, reducing the charge that the comparison is unfair, and (b) if a project A compares unfavorably to project B, it is possible to investigate the differences in detail and determine why the projects differ along the chosen dimension, and what action to take, if any.  This is not possible when comparing an internal project to a published industry benchmark.
+A very significant strategic advantage enjoyed by both developers and
+managers in companies with a large number of development projects is the
+ability to perform internal benchmarking.  Internal benchmarking, simply
+stated, is the use of company projects to obtain comparable data, rather
+than relying on external "industry standards".  It is generally easier to
+obtain developer buy-in for internal benchmarking since (a) all projects
+are being compared within the same company, reducing the charge that the
+comparison is unfair, and (b) if a project A compares unfavorably to
+project B, it is possible to investigate the differences in detail and
+determine why the projects differ along the chosen dimension, and what
+action to take, if any.  This is not possible when comparing an internal
+project to a published industry benchmark.
 
-Benefit to management:  better visibility into projects and their comparative performance. 
+The SPPM approach to internal benchmarking begins with regular, automated collection of the data presented in the table above for each of the projects under study.  Here's an example dataset for a hypothetical project A:
 
-Benefit to developers:  out of the dozens or hundreds of projects, which ones are comparable? Which ones are doing better?  This represents opportunities for learning, improvement, and reuse. 
+[http://hackystat.googlecode.com/svn/wiki/sppm.raw.data.project.a.png]
+
+
 
 == 2.2 Continuous Integration ICU ==
 
