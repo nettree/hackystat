@@ -205,13 +205,11 @@ cell of the table that results in one of three colors: red, yellow, or
 green.  Red indicates an underperforming value, green represents a highly
 performant value, and yellow indicates a value in the middle, or an
 ambiguous value.  For each measure, we will provide two evaluation rules:
-one for the latest value, and one for the trend. 
+one for the latest value, and one for the sparkline, or trend. 
 
-In many cases, the evaluation rule will simply divide the set of values for
-a given measure aggregated over all projects into quartiles, and assign
-colors based upon the quartile that the project falls in.  For example, in
-this scenario we have eight projects, so dividing into quartiles means four
-groups of two projects each.
+For this scenario, the evaluation rules for the latest values will generally assign green to the "best" projects in the group, such as those in the top quartile.  Since there are eight projects total, the top quartile represents the top two projects. 
+
+On the other hand, the evaluation rules for trends are generally independent of relative performance. For example, a project whose ccoverage is steadily increasing will get green for their trend, even if their current coverage is low.  
 
 Here is an example set of evaluation rules:
 
@@ -237,8 +235,20 @@ If we apply these rules to our sample dataset and color the latest values and th
 
 === 2.1.4 Interpretation ===
 
-Every project can achieve "green" with respect to their sparklines, because these are independent measures.  Achieving green with repect to the current value requires a project to be a top performer in its class, because the current value evaluation rules are based upon quartiles.  One could create more complex evaluation rules that incorporate absolute thresholds, such as giving a project a Green for coverage if it gets over 90% regardless of its quartile position.  By incorporating thresholds, it would be possible for the entire portfolio to attain a green status. 
+The addition of evaluation rules, and the subsequent coloring of current values and sparklines, makes it now possible to easily draw a number of conclusions from the data:
 
+  * There is no "value judgement" applied to size, in other words, there's no such thing as a "good" size or "bad" size, or a good or bad trend in size values.  Size, however, can provide important context to interpretation of the other data.  For example,  Project E, which has only around 3,000 LOC, is probably significantly different project F, which has over 90,000 LOC.  There are many other "context" measures that you might wish to monitor (team size, programming language, etc.) which can help you to interpret the evaluative measures. 
+
+  * It is now quite easy to identify high performing projects and low performing projects: just look for rows with a large amount of green (or red).  It should now be easy to see that Project A is a high performing project (its row is all green), and that Project F is a low performing project (its row is almost all red, without any green).  
+
+  * Sparklines provide valuable context for interpretation of the current value.  Consider the Coverage associated with Project C.  While the value (33) is red, indicating a low coverage value relative to other projects, the trend is green, indicating that the team is steadily increasing their coverage value.  Thus, it might be prudent as a manager to simply wait and see if this positive trend continues.  On the other hand, Projects D and H, while they have substantially higher Yellow coverage (81 and 82), both have red sparklines because their coverages are steadily dropping.  As a manager, one might want to ask these projects for more information about their test practices and why coverage has been dropping for five weeks in a row.
+
+  * As noted above, every project can achieve "green" with respect to their sparklines, because these are independent measures.  Achieving green with repect to the current value requires a project to be a top performer in its class, because the current value evaluation rules are based upon quartiles.  One could create more complex evaluation rules that incorporate absolute thresholds, such as giving a project a Green for coverage if it gets over 90% regardless of its quartile position.  By incorporating thresholds, it would be possible for the entire portfolio to attain a green status. 
+
+If one wishes, one could aggregate the colors to generate an overall color for each project as a whole.  A simple way to do this would be to provide a color to the project based upon the "average" color among the 14 colors assigned to the project (7 sparklines plus 7 current values).  Here, for example, is the result of this overall rating:
+
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.sparkline.overall.data.png]
 
 
 
