@@ -192,7 +192,7 @@ chaotic?
 
 Edward Tufte invented a visualization approach called [http://en.wikipedia.org/wiki/Sparkline sparklines] which can help us reduce the information burden significantly.  Sparklines are "data-intense, design-simple, word-sized graphics".  Using them, we can simplify our table of data considerably by representing trend information as a sparkline.  Here is what our previous table becomes with trend information represented as sparklines:
 
-[http://hackystat.googlecode.com/svn/wiki/sppm.spark.data.png]
+[http://hackystat.googlecode.com/svn/wiki/sppm.sparkline.data.png]
 
 This is much, much better: instead of 64 rows and 320 numbers, we have just 8 rows and 64 numbers.  Furthermore, we can now represent an arbitrary number of historical values without increasing the number of numbers displayed (additional history simply becomes additional bars in the sparklines.)
 
@@ -233,7 +233,7 @@ Here is an example set of evaluation rules:
 
 If we apply these rules to our sample dataset and color the latest values and the sparklines appropriately, we get the following:
 
-[http://hackystat.googlecode.com/svn/wiki/sppm.spark.data.png]
+[http://hackystat.googlecode.com/svn/wiki/sppm.sparkline.color.data.png]
 
 === 2.1.4 Interpretation ===
 
