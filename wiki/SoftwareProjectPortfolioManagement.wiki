@@ -272,8 +272,7 @@ For example, assume you have 100 projects in your portfolio.  You can use contex
 
 == 2.2 Continuous Integration ICU ==
 
-In a nutshell, provides an "early warning system" to both developers and managers regarding projects that may be in trouble. 
-More details in [ContinuousIntegrationICU The Continuous Integration ICU].
+In [ContinuousIntegrationICU The Continuous Integration ICU], I present an approach to continuous project monitoring.  
 
 
 == 2.3 Developer Expertise Browser ==
