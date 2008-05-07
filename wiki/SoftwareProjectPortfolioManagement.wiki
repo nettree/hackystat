@@ -237,8 +237,6 @@ If we apply these rules to our sample dataset and color the latest values and th
 
 The addition of evaluation rules, and the subsequent coloring of current values and sparklines, makes it now possible to easily draw a number of conclusions from the data:
 
-  * There is no "value judgement" applied to size, in other words, there's no such thing as a "good" size or "bad" size, or a good or bad trend in size values.  Size, however, can provide important context to interpretation of the other data.  For example,  Project E, which has only around 3,000 LOC, is probably significantly different from Project F, which has over 90,000 LOC.  There are many other "context" measures that you might wish to monitor (team size, programming language, etc.) which can help you to interpret the evaluative measures.  This will become very important as the number of projects in the portfolio scales to dozens or hundreds, and you will want to perform this analysis on subsets (such as all Java projects between 50,000 and 100,000 LOC) to make the comparisons more useful. 
-
   * It is now quite easy to identify high performing projects and low performing projects: just look for rows with a large amount of green (or red).  It should now be easy to see that Project A is a high performing project (its row is all green), and that Project F is a low performing project (its row is almost all red, without any green).  
 
   * Sparklines provide valuable context for interpretation of the current value.  Consider the Coverage associated with Project C.  While the value (33) is red, indicating a low coverage value relative to other projects, the trend is green, indicating that the team is steadily increasing their test coverage.  Thus, it might be prudent as a manager to simply wait and see if this positive trend continues.  On the other hand, Projects D and H, while they have substantially higher Yellow coverage (81 and 82), both have red sparklines because their coverages are steadily dropping.  As a manager, one might want to ask these projects for more information about their test practices and why coverage has been dropping for five weeks in a row.
@@ -247,13 +245,27 @@ The addition of evaluation rules, and the subsequent coloring of current values 
 
 If one wishes, one could aggregate the colors to generate an overall color for each project as a whole.  A simple way to do this would be to provide a color to the project based upon the "average" color among the 14 colors assigned to the project (7 sparklines plus 7 current values).  Here, for example, is the result of this overall rating:
 
-
 [http://hackystat.googlecode.com/svn/wiki/sppm.sparkline.overall.data.png]
 
 At a glance, one can now see that we have two green projects that are presumably doing quite well, one red project that is in trouble, and the rest are somewhere in between. 
 
+=== 2.1.5 Scaling internal benchmarking to large numbers of projects ===
 
+The table shown above seems quite reasonable for 8 projects, but what about 80?  To understand how to manage dozens or hundreds of projects, it is necessary to direct your attention to the size column, which has so far appeared to be of little interest. 
 
+Metrics such as size are not evaluative in nature, in other words, there's
+no such thing as a "good" size or "bad" size, and there's no such thing as a good or bad trend in
+size values.  Size, and metrics like it (such as programming language, team size, application type, project age, etc.) are best used as "context variables"---they tell you interesting features of the project that do not have a value judgement attached to them.
+
+Context variables such as size thus become quite useful for managing large
+numbers of projects by providing a way to organize and filter the set of
+projects under consideration.
+
+For example, assume you have 100 projects in your portfolio.  You can use context variables to help you create subsets of projects that can be compared more meaningfully to each other.  For example:
+
+  * All Java projects between 50,000 and 100,000 LOC.
+  * All web application projects. 
+  * All C++ and Java projects less than 1 year old. 
 
 
 == 2.2 Continuous Integration ICU ==
