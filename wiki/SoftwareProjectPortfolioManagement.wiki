@@ -134,19 +134,113 @@ This section presents three applications of software project portfolio managemen
 A very significant strategic advantage enjoyed by both developers and
 managers in companies with a large number of development projects is the
 ability to perform internal benchmarking.  Internal benchmarking, simply
-stated, is the use of company projects to obtain comparable data, rather
+stated, is the use of many company projects to obtain benchmarks, rather
 than relying on external "industry standards".  It is generally easier to
 obtain developer buy-in for internal benchmarking since (a) all projects
-are being compared within the same company, reducing the charge that the
-comparison is unfair, and (b) if a project A compares unfavorably to
-project B, it is possible to investigate the differences in detail and
-determine why the projects differ along the chosen dimension, and what
-action to take, if any.  This is not possible when comparing an internal
-project to a published industry benchmark.
+are being compared within the same company, reducing the likelihood that
+the comparison is unfair, and (b) if project A compares unfavorably to
+project B, it is possible to investigate the differences and determine why
+the projects differ along the chosen dimension, and what action to take, if
+any.  This is not possible when comparing data from an internal project to
+a published industry benchmark.
 
-The SPPM approach to internal benchmarking begins with regular, automated collection of the data presented in the table above for each of the projects under study.  Here's an example dataset for a hypothetical project A:
+=== 2.1.1 Collecting the raw measures ===
+
+The SPPM approach to internal benchmarking begins with regular, automated collection of data about projects.  
+For this example, we will illustrate the technique with the types of data described in the table above.
+Here's an example dataset for a hypothetical Project A:
 
 [http://hackystat.googlecode.com/svn/wiki/sppm.raw.data.project.a.png]
+
+Note that to generate this table, decisions must be made about how to
+appropriately measure a concept like "Coverage" or "Coupling".  For
+example, coverage tools generally calculate several different forms of
+coverage, such as statement coverage and branch coverage.  Similarly,
+coupling tools determine both afferent and efferent coupling, and so one
+could represent coupling as the average number of afferent and efferent
+couplings per module, or the number of modules exceeding a given threshold
+value of coupling.  Size can be measured in LOC, function points, methods,
+and so forth.  One could even track multiple measures for the same concept. 
+
+For the purpose of our example scenario, however, let us content ourselves
+with just 8 measures per project, and a time frame of five weeks, which
+gives us 40 values per project.  Let's now assume that we wish to manage
+just 8 projects.  Even with that very small number of projects, the current
+spreadsheet representation is unwieldy: it would contain 64 rows, and a
+total of 320 numbers:
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.raw.data.png]
+
+Even with just five weeks of data, eight measures, and eight projects,
+there is already an overwhelming number of numbers, and it is very
+difficult to draw any useful conclusions from this chart.  Imagine having
+50 weeks of data, 20 measures, and 100 projects. Clearly, this
+representation is not scalable nor useful. 
+
+=== 2.1.2 Data compression via sparklines ===
+
+The prior section illustrates that it is quite easy to collect an
+overwhelming amount of data for very few projects in a very short period of
+time.  How can we make this dataset manageable?  
+
+One thing we can do is to recognize that, in general, the most recent value
+of a measure is the one that we are most interested in, and the prior data
+values are useful mainly as a way of understanding how the project arrived
+at that measure.  In other words, is the current value the highest value
+yet recorded?  Is it the lowest?  Is the trend increasing, decreasing, or
+chaotic?
+
+Edward Tufte invented a visualization approach called [http://en.wikipedia.org/wiki/Sparkline sparklines] which can help us reduce the information burden significantly.  Sparklines are "data-intense, design-simple, word-sized graphics".  Using them, we can simplify our table of data considerably by representing trend information as a sparkline.  Here is what our previous table becomes with trend information represented as sparklines:
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.spark.data.png]
+
+This is much, much better: instead of 64 rows and 320 numbers, we have just 8 rows and 64 numbers.  Furthermore, we can now represent an arbitrary number of historical values without increasing the number of numbers displayed (additional history simply becomes additional bars in the sparklines.)
+
+While we have compressed the data to just one row per project, the data is still rather opaque and uninterpretable. This is where we can apply internal benchmarking.
+
+=== 2.1.3 Internal benchmarking ===
+
+To use internal benchmarking, we apply a set of evaluation rules to each
+cell of the table that results in one of three colors: red, yellow, or
+green.  Red indicates an underperforming value, green represents a highly
+performant value, and yellow indicates a value in the middle, or an
+ambiguous value.  For each measure, we will provide two evaluation rules:
+one for the latest value, and one for the trend. 
+
+In many cases, the evaluation rule will simply divide the set of values for
+a given measure aggregated over all projects into quartiles, and assign
+colors based upon the quartile that the project falls in.  For example, in
+this scenario we have eight projects, so dividing into quartiles means four
+groups of two projects each.
+
+Here is an example set of evaluation rules:
+
+|| *Measure*  || *Value/Sparkline* || *Evaluation Rule* ||
+|| Coverage   || Value     || Green: top quartile; Red: bottom quartile; otherwise Yellow. ||
+||            || Sparkline || Green: upward or stable; Red: downward; Yellow: unstable. ||
+|| Complexity || Value     || Green: top quartile; Red: bottom quartile; otherwise Yellow. ||
+||            || Sparkline || Green: downward or stable; Red: Upward; Yellow: unstable. ||
+|| Coupling   || Value     || Green: top quartile; red: bottom quartile; otherwise Yellow. ||
+||            || Sparkline || Green: downward or stable; Red: upward;  Yellow: unstable. ||
+|| Churn      || Value     || Green: Middle quartiles; Yellow: top/bottom quartiles; Red: extremes || 
+||            || Sparkline || Green: stable; Yellow: unstable ||
+|| Commits    || Value     || Green: top or middle quartiles; Yellow: third quartile; Red: bottom quartile ||
+||            || Sparkline || Green: upward or stable; Red: downward; Yellow: unstable. ||
+|| CI Success %  ||  Value || Green: top quartiles; Yellow: middle quartiles; Red: bottom quartile ||
+||            || Sparkline || Green: upward or stable; Red: downward; Yellow: unstable. ||
+|| Closure    || Value     || Green: top quartiles; Yellow: middle quartiles; Red: bottom quartile ||
+||            || Sparkline || Green: upward or stable; Red: downward; Yellow: unstable. ||
+
+If we apply these rules to our sample dataset and color the latest values and the sparklines appropriately, we get the following:
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.spark.data.png]
+
+=== 2.1.4 Interpretation ===
+
+Every project can achieve "green" with respect to their sparklines, because these are independent measures.  Achieving green with repect to the current value requires a project to be a top performer in its class, because the current value evaluation rules are based upon quartiles.  One could create more complex evaluation rules that incorporate absolute thresholds, such as giving a project a Green for coverage if it gets over 90% regardless of its quartile position.  By incorporating thresholds, it would be possible for the entire portfolio to attain a green status. 
+
+
+
 
 
 
