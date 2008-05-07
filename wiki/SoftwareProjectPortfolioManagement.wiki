@@ -243,13 +243,15 @@ The addition of evaluation rules, and the subsequent coloring of current values 
 
   * As noted above, every project can achieve "green" with respect to their sparklines, because these are independent measures.  Achieving green with repect to the current value requires a project to be a top performer in its class, because the current value evaluation rules are based upon quartiles.  One could create more complex evaluation rules that incorporate absolute thresholds, such as giving a project a Green for coverage if it gets over 90% regardless of its quartile position.  By incorporating thresholds, it would be possible for the entire portfolio to attain a green status. 
 
+=== 2.1.5 Providing an overall evaluation for each project ===
+
 If one wishes, one could aggregate the colors to generate an overall color for each project as a whole.  A simple way to do this would be to provide a color to the project based upon the "average" color among the 14 colors assigned to the project (7 sparklines plus 7 current values).  Here, for example, is the result of this overall rating:
 
 [http://hackystat.googlecode.com/svn/wiki/sppm.sparkline.overall.data.png]
 
 At a glance, one can now see that we have two green projects that are presumably doing quite well, one red project that is in trouble, and the rest are somewhere in between. 
 
-=== 2.1.5 Scaling internal benchmarking to large numbers of projects ===
+=== 2.1.6 Scaling internal benchmarking to large numbers of projects ===
 
 The table shown above seems quite reasonable for 8 projects, but what about 80?  To understand how to manage dozens or hundreds of projects, it is necessary to direct your attention to the size column, which has so far appeared to be of little interest. 
 
