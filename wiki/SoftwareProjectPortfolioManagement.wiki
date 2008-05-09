@@ -269,10 +269,34 @@ For example, assume you have 100 projects in your portfolio.  You can use contex
   * All web application projects. 
   * All C++ and Java projects less than 1 year old. 
 
+== 2.2 A Continuous Integration ICU  ==
 
-== 2.2 Continuous Integration ICU ==
+The internal benchmarking application illustrated above is designed to be
+scalable to large numbers of projects. In order to accomplish that goal, a
+high degree of abstraction is required.  For example, trends in metrics
+over time are reduced to tiny sparkline graphics that provide only a sense
+for whether the trend is increasing, decreasing, stable, or chaotic.  The
+"health" of a metric, and of the project as a whole, is reduced to one of
+three states: green, yellow, or red.  When attempting to obtain an overall
+perspective on 50, 100, or 500 software projects, such abstractions are
+unavoidable and useful.
 
-In [ContinuousIntegrationICU The Continuous Integration ICU], I present an approach to continuous project monitoring.  
+Now, however, consider the situation where internal benchmarking has been
+used to identify just a handful of projects, and now more detailed
+information is desired.  You now need a way to "drill down" into the
+particulars of just one or two projects at a time.  A situation in which just one or two projects are the focus, rather than 100, creates very different requirements:
+
+  * You might want to know more details about the metrics and how they were derived.  Instead of an aggregate statistic like "Overall coverage is 80%", you will want to know, for example, the distribution of coverage across classes.  How many classes had high coverage? How many had low?  Was the distribution of coverage bi-modal? Are there a few outliers that are dramatically affecting the overall percentage? This information is important to understanding the impact of the coverage value on quality. Do the two projects under consideration have different distributions, even though their aggregate value for the metric is essentially equal? 
+
+  * You might want to know whether different metrics for the same conceptual measure have different values.  For example, does branch coverage differ significantly than statement coverage? 
+
+  * You might want to know if two or more measures are co-varying.  For example, does the likelihood of build failure increase with the amount of churn associated with a commit? If so, this could indicate a causal relationship between these two measures. 
+
+To help make the information made available by internal benchmarking actionable, the next step is to provide details about the measures associated with a small number of projects at a time.  This is the goal of software project telemetry.  More details about this approach are provided in the [ContinuousIntegrationICU The Continuous Integration ICU] page.  A sample scenario of how software project telemetry can reveal different characteristics of development is provided in the [http://code.google.com/p/hackystat/wiki/Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial].  
+
+Finally, here are two screen shots from the ProjectBrowser application that illustrate some of these ideas:
+
+
 
 
 == 2.3 Developer Expertise Browser ==
