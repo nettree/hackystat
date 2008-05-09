@@ -294,7 +294,18 @@ particulars of just one or two projects at a time.  A situation in which just on
 
 To help make the information made available by internal benchmarking actionable, the next step is to provide details about the measures associated with a small number of projects at a time.  This is the goal of software project telemetry.  More details about this approach are provided in the [ContinuousIntegrationICU The Continuous Integration ICU] page.  A sample scenario of how software project telemetry can reveal different characteristics of development is provided in the [http://code.google.com/p/hackystat/wiki/Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial].  
 
-Finally, here are two screen shots from the ProjectBrowser application that illustrate some of these ideas:
+Finally, here are two screen shots from the !ProjectBrowser application that illustrate some of these ideas:
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.dpd.png]
+
+This screen shot shows the distribution of coverage values for a single project and day.  Clicking on a link pops up a window showing the classes in that coverage "bucket".
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.telemetry.png]
+
+This screen shot shows trends in the number of build invocations for two projects.  As the trend lines show, the build invocations for these two projects are highly correlated. 
+
+
+
 
 
 
