@@ -271,6 +271,8 @@ For example, assume you have 100 projects in your portfolio.  You can use contex
 
 == 2.2 A Continuous Integration ICU  ==
 
+=== 2.2.1  Overview ===
+
 The internal benchmarking application illustrated above is designed to be
 scalable to large numbers of projects. In order to accomplish that goal, a
 high degree of abstraction is required.  For example, trends in metrics
@@ -284,7 +286,11 @@ unavoidable and useful.
 Now, however, consider the situation where internal benchmarking has been
 used to identify just a handful of projects, and now more detailed
 information is desired.  You now need a way to "drill down" into the
-particulars of just one or two projects at a time.  A situation in which just one or two projects are the focus, rather than 100, creates very different requirements:
+particulars of just one or two projects at a time.  
+
+=== 2.2.2 Requirements for the CI-ICU ===
+
+A situation in which just one or two projects are the focus, rather than 100, creates very different requirements:
 
   * You might want to know more details about the metrics and how they were derived.  Instead of an aggregate statistic like "Overall coverage is 80%", you will want to know, for example, the distribution of coverage across classes.  How many classes had high coverage? How many had low?  Was the distribution of coverage bi-modal? Are there a few outliers that are dramatically affecting the overall percentage? This information is important to understanding the impact of the coverage value on quality. Do the two projects under consideration have different distributions, even though their aggregate value for the metric is essentially equal? 
 
@@ -293,6 +299,8 @@ particulars of just one or two projects at a time.  A situation in which just on
   * You might want to know if two or more measures are co-varying.  For example, does the likelihood of build failure increase with the amount of churn associated with a commit? If so, this could indicate a causal relationship between these two measures. 
 
 To help make the information made available by internal benchmarking actionable, the next step is to provide details about the measures associated with a small number of projects at a time.  This is the goal of software project telemetry.  More details about this approach are provided in the [ContinuousIntegrationICU The Continuous Integration ICU] page.  A sample scenario of how software project telemetry can reveal different characteristics of development is provided in the [http://code.google.com/p/hackystat/wiki/Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial].  
+
+=== 2.2.3 Example screenshots ===
 
 Finally, here are two screen shots from the !ProjectBrowser application that illustrate some of these ideas:
 
@@ -304,20 +312,124 @@ This screen shot shows the distribution of coverage values for a single project 
 
 This screen shot shows trends in the number of build invocations for two projects.  As the trend lines show, the build invocations for these two projects are highly correlated. 
 
-
-
-
-
-
-
 == 2.3 Developer Expertise Browser ==
 
-In a large company with dozens or hundreds of developers, there are pockets of expertise that are not exploited in a "just in time" manner. 
+=== 2.3.1 Overview ===
 
-By combining commit information with structural information, a profile of each developer in terms of the libraries they work on can be automatically built.  This enables developers to easily find others in the organization who might be able to help them solve a problem or acquire a new technology.
+The prior two applications show how software project portfolio management
+techniques can be used to provide new transparency into the state and
+trends associated with project processes and products.
 
+This third example, called the Java Developer Expertise Browser (JDeb),
+shows a very different application of these techniques to support better
+mining and visibility of developer expertise. (We will use Java for this
+example, but the same approach can be applied to almost all modern languages.)
 
+Java has a rich ecosystem of application libraries available for it which
+can simplify programming in domains as diverse as web application
+development, high performance computing, bioinformatics, artificial
+intelligence, and so forth.  Even the core Java language itself contains
+dozens of libraries for various purposes.  There are literally thousands of
+widely used libraries available for Java which can substantially reduce the
+time required to code new applications in a given domain.
 
+While the availability of these libraries provides the potential for
+significant productivity and quality benefits, there is a learning curve
+associated with any new library, which can sometimes be substantial.
+Furthermore, any given domain might have more than one library available
+for it, with different strengths and weaknesses associated with them.
 
+In an organizational environment with dozens or hundreds of Java projects
+under development, there is likely to be hundreds to thousands of different
+Java libraries in use across the organization.  Any given developer might
+be familiar with perhaps a dozen libraries at any given time.
+
+=== 2.3.2 Requirements ===
+
+The basic problem addressed by a JDeb is to enable developers in an organization to quickly find out who in their organization appears to have expertise with a given library.  This has a number of potential applications:
+
+  * When evaluating a number of libraries for adoption on a project, JDeb can help a developer find out if there are developers with prior experience with any of these libraries so that they can elicit feedback;
+  
+  * If a developer is taking over a code base from a departed colleague, JDeb can help them find other developers in the organization who have expertise with a library;
+
+  * When using a library for the first time, if an error is encountered, JDeb can help the developer find other developers who might be able to help them resolve the problem quickly. 
+
+=== 2.3.3 Mining source code for library references ===
+
+JDeb is built upon two kinds of data.  First, the compiled version of every Java source file can be examined to determine which libraries it references.  This roughly corresponds to the import statements associated with a Java class.  For example, here are the import statements associated with a single class in the DailyProjectDataClient class:
+
+{{{
+import java.io.StringReader;
+import java.util.Date;
+import java.util.logging.Logger;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import org.hackystat.dailyprojectdata.resource.build.jaxb.BuildDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.codeissue.jaxb.CodeIssueDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.commit.jaxb.CommitDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.complexity.jaxb.ComplexityDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.coupling.jaxb.CouplingDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.coverage.jaxb.CoverageDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.devtime.jaxb.DevTimeDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.filemetric.jaxb.FileMetricDailyProjectData;
+import org.hackystat.dailyprojectdata.resource.unittest.jaxb.UnitTestDailyProjectData;
+import org.hackystat.utilities.logger.HackystatLogger;
+import org.hackystat.utilities.tstamp.Tstamp;
+import org.hackystat.utilities.uricache.NewUriCache;
+
+import org.restlet.Client;
+import org.restlet.data.ChallengeResponse;
+import org.restlet.data.ChallengeScheme;
+import org.restlet.data.MediaType;
+import org.restlet.data.Method;
+import org.restlet.data.Preference;
+import org.restlet.data.Protocol;
+import org.restlet.data.Reference;
+import org.restlet.data.Request;
+import org.restlet.data.Response;
+import org.restlet.data.Status;
+import org.restlet.resource.Representation;
+}}}
+
+Ignoring the imports from within the hackystat project itself for a moment, you can see that the DailyProjectDataClient class imports 18 classes from external libraries.  Because of the hierarchical nature of the package naming system, you can see that DailyProjectDataClient uses three "major" libraries:  java, javax, and org.  Going down one level, you can now see that it uses four libraries: java.io, java.util, javax.xml, and org.restlet.  Each step down the package hierarchy provides more specific information about the libraries in use.
+
+Thus, by simply collecting the package import data associated with Java source code, we can find out about the libraries used by a given source code file.  Tools such as [http://depfind.sourceforge.net/ DependencyFinder] make it quite simple to collect this information automatically. 
+
+=== 2.3.4  Commit data as a proxy for developer expertise ===
+
+To make JDeb useful, we need to know more than what libraries are used by
+the Java software in the organization, we need to also know who is familiar
+with which library.  JDeb infers this information from the commit history
+associated with a file.  If a developer has committed changes to a file,
+then they are presumed to have at least some familiarity with the libraries
+associated with that file.  The more commits they have made to a file, the
+more familiarity they are assumed to have.  JDeb also takes into account
+the recency of the commits, so that if a developer made commits to a file a
+year ago, then the developer might have forgotten details about that
+library since then.
+
+Commit information can also be collected automatically from the configuration management system. 
+
+=== 2.3.5  Example use ===
+
+The use of JDeb is simple and intuitive. Assume that JDeb has been running for six months, and has regularly collected import information from files, along with the developers who have committed to those files.  It has thus accumulated a knowledge base of information about what libraries are in use by the organization, as well as who has experience with those libraries. 
+
+Now a developer has discovered a bug in their program related to the org.apache.wicket.protocol.http.WebApplication class. They bring up the JDeb interface and search on "org.apache.wicket".  
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.jdeb.1.png]
+
+This result is encouraging: there are three developers in JDeb's knowledge base with experience with the org.apache.wicket library.  
+The developer might at this point simply contact those three developers to ask a question.  Or, the developer might refine the search by seeing who has experience with the protocol sublibrary.  JDeb might respond as follows:
+
+[http://hackystat.googlecode.com/svn/wiki/sppm.jdeb.1.png]
+
+As you can see, with further refinement in the library specification, it is now clear that the developer senin@hawaii.edu might be the best person to contact initially. 
+
+There are many refinements that can be made to this initial approach.  One can become more sophisticated in the way one specifies expertise and take into account factors other than simple commits.  One can enable users to manually adjust their automatically generated expertise profile to better reflect their skill sets.  The user interface can be made more sophisticated, such as by supporting a way to browse a package hierarchy and see the users with expertise at each level.  
+
+The core concept remains the same, however. In a large organization, developers are accumulating expertise with technologies every day.  This expertise is largely hidden, and largely unavailable to the community as a whole.  By capturing this expertise automatically, the organization can makes its own intellectual resources available to itself more easily and more effectively. 
 
 
