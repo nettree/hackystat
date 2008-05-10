@@ -424,7 +424,7 @@ Now a developer has discovered a bug in their program related to the org.apache.
 This result is encouraging: there are three developers in JDeb's knowledge base with experience with the org.apache.wicket library.  
 The developer might at this point simply contact those three developers to ask a question.  Or, the developer might refine the search by seeing who has experience with the protocol sublibrary.  JDeb might respond as follows:
 
-[http://hackystat.googlecode.com/svn/wiki/sppm.jdeb.1.png]
+[http://hackystat.googlecode.com/svn/wiki/sppm.jdeb.2.png]
 
 As you can see, with further refinement in the library specification, it is now clear that the developer senin@hawaii.edu might be the best person to contact initially. 
 
