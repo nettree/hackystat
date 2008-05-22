@@ -1,6 +1,6 @@
 #summary Summer 2008 Projects, GSoC and otherwise
 
-Hackystat has four students participating in the [http://code.google.com/soc/2008/ 2008 Google Summer of Code].  As part of their responsibilities, the students will be keeping a blog and updating it once a week to summarize their progress, current issues, future plans, and anything else of interest.  This page provides links to these student projects, their associated blogs, and when their regular weekly update day. 
+Hackystat has four students participating in the [http://code.google.com/soc/2008/ 2008 Google Summer of Code].  As part of their responsibilities, the students will be keeping a blog and updating it once a week to summarize their progress, current issues, future plans, and anything else of interest.  This page provides links to these student projects, their associated blogs, and when their regular weekly update day.  The [http://code.google.com/soc/2008/hackystat/about.html project proposals] provide information about the goals of the projects. 
 
-|| Student || Blog/Update day || Project Home Page || Project Proposal ||
-|| Shaoxuan Zhang || [http://zsx-engineering-log.blogspot.com/]/Tuesday ||  [http://code.google.com/p/hackystat-ui-wicket/]  || ||
+|| Student || Blog || Blog Update Day || Project Home Page ||
+|| Shaoxuan Zhang || [http://zsx-engineering-log.blogspot.com/] || Tuesday ||  [http://code.google.com/p/hackystat-ui-wicket/]  ||
