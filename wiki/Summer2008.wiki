@@ -5,8 +5,8 @@ Hackystat has four students participating in the [http://code.google.com/soc/200
 || *Student* || *Blog* || *Status Report Day* || *Project Home Page* ||
 || Shaoxuan Zhang || [http://zsx-engineering-log.blogspot.com/] || Tuesday ||  [http://code.google.com/p/hackystat-ui-wicket/]  ||
 || Ka Yee Leung || [http://kayeeleung.blogspot.com/] || Friday || [[http://code.google.com/p/hackystat-analysis-boswell/] ||
-||Matthew Basset || [http://mbasset.wordpress.com/] || ? || ? ||
-||Eva Wong || [http://www.xanga.com/iwa_wong] || ? || ? ||
+||Matthew Basset || [http://mbasset.wordpress.com/] || Friday || [https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer] ||
+||Eva Wong || [http://www.xanga.com/iwa_wong] || ? || [https://stanley.cdf.toronto.edu/drproject/csc49x/2008summer] ||
 ||Randy Cox || [http://cox-engineering-log.blogspot.com/] || Friday || [http://code.google.com/p/hackystat-ui-wicket/]  ||
 
 Randy is not actually a GSoC participant, but he's doing a summer project so he'll come along for the ride. :)
