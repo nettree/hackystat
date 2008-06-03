@@ -18,7 +18,7 @@ A query to the sensorbase service:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.sensorbase.gif]
 
-The response:
+After pressing the "GET" button, the response is:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.sensorbase.response.gif]
 
@@ -28,7 +28,7 @@ A query to the dailyprojectdata service:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.dailyprojectdata.gif]
 
-The response:
+After pressing the "GET" button, the response is:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.dailyprojectdata.response.gif]
 
@@ -39,7 +39,7 @@ A query to the telemetry service:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.telemetry.gif]
 
-The response:
+After pressing the "GET" button, the response is:
 
 [http://hackystat.googlecode.com/svn/wiki/poster.telemetry.response.gif]
 
