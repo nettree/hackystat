@@ -2,7 +2,7 @@
 
 == 1.0 Motivation ==
 
-Several Hackystat services provides REST APIs, such as the [http://code.google.com/p/hackystat-sensorbase-uh/wiki/RestApiSpecification SensorBase REST API], the [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/RestApiSpecification DailyProjectData REST API], and the [http://code.google.com/p/hackystat-analysis-telemetry/wiki/RestApiSpecification Telemetry REST API].  These services return XML representations of Hackystat data and analyses, which are then transformed into more user-friendly HTML representations by such user interface services as the ProjectBrowser or TelemetryViewer. 
+Several Hackystat services provides REST APIs, such as the [http://code.google.com/p/hackystat-sensorbase-uh/wiki/RestApiSpecification SensorBase REST API], the [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/RestApiSpecification DailyProjectData REST API], and the [http://code.google.com/p/hackystat-analysis-telemetry/wiki/RestApiSpecification Telemetry REST API].  These services return XML representations of Hackystat data and analyses, which are then transformed into more user-friendly HTML representations by such user interface services as the !ProjectBrowser or !TelemetryViewer. 
 
 In many situations, such as writing new services or clients, it is useful to become acquainted with the REST API directly, and learn how to send and receive XML data with a given service.  To do this, one could write a simple program such as a Java application that uses the various Java-based client classes, but a much simpler and faster approach is to use the [https://addons.mozilla.org/en-US/firefox/addon/2691 Poster plugin for Firefox]. The advantages to using Poster are:
 
