@@ -428,3 +428,31 @@ Here's some interesting links:  [http://dev.aol.com/article/2007/04/second-life 
 [http://vital.cs.ohiou.edu/vitalwiki/index.php/Second_Life_Development Second Life Software Engineering Process Game].
 
  
+== 2.14 Exploration To Publication: From Wicket to Swivel Business ==
+
+One pattern of use in Hackystat is:
+
+  # Collect data.
+  # Explore various analyses on that data.
+  # Find an analysis of interest, and initiate a conversation about that analysis with colleagues.
+  # Repeat.
+
+Over the years, we have worked hard to provide flexibility, generality, and efficiency with respect to data collection.  Analysis mechanisms such as Software Project Telemetry and Daily Project Data provide a large space for exploration of alternative analyses.  Our [http://code.google.com/p/hackystat-ui-wicket/ ProjectBrowser] provides a nice UI for configuration and exploration of the space of analyses.  
+
+Where we continue to struggle is in finding effective ways to support "conversations" once an interesting analysis result has been discovered.   One of the important findings of Hackystat is that effective use of the empirical data generally requires human interpretation. 
+
+The recent release of [https://business.swivel.com/ Swivel Business] provides an interesting platform to explore the "publication" phase. Swivel allows you to upload datasets, and then allow a wide variety of ways to visualize and annotate the results. 
+
+A very interesting research project would explore this pattern of use, by designing some sort of "bridge" between Hackystat analyses and Swivel Business.  Some issues to explore:
+
+  * What kinds of analyses are useful to "publish"?  Some might be "static" (such as a dataset that shows some sort of anomaly in development during a single month). Others might be "dynamic" (such as an automatically updated dataset that shows trends in coverage for a set of projects.)
+
+  * What kind of user interface provides an efficient and effective means for bridging the gap between "exploration" and "publication"?  It is pretty trivial to write a little script that gets some DPD data and uploads it in CSV format to Swivel.  It is less trivial to design an easy to use interface that does not require custom coding for every possible analysis alternative. 
+
+  * What kinds of conversations result from "publication"?  Once the data can be annotated, what do users write about?  Does the Swivel Business annotation mechanism provide useful features for our domain? What kinds of changes would make it more useful? 
+
+  * What are the privacy implications of "publication"?  
+
+
+
+
