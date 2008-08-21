@@ -1,6 +1,8 @@
 #summary Directory of Hackystat services and systems.
 
-The following table provides information on all currently released Hackystat tools and services. 
+== Released ==
+
+The following table provides information on Hackystat components that are available as part of the Hackystat download packages. 
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
 || Sensor || Ant Build Sensor (listener) || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference], [http://hackystat-sensor-ant.googlecode.com/svn/javadoc/index.html JavaDoc] || Collects Build sensor data from [http://ant.apache.org Ant] using a Hackystat listener. ||
@@ -24,10 +26,7 @@ The following table provides information on all currently released Hackystat too
 ||  || Vim || [http://code.google.com/p/hackystat-sensor-vim/ hackystat-sensor-vim] || [http://code.google.com/p/hackystat-sensor-vim/wiki/UserGuide User Guide] || Collects !DevEvent sensor data from [http://www.vim.org Vim]. ||
 ||  || Visual Studio || [http://code.google.com/p/hackystat-sensor-visualstudio/ hackystat-sensor-visualstudio] || [http://code.google.com/p/hackystat-sensor-vim/wiki/UserGuide User Guide] || Collects !DevEvent sensor data from [http://msdn2.microsoft.com/en-us/vstudio/default.aspx Visual Studio]. ||
 ||  || !XmlData Sensor || [http://code.google.com/p/hackystat-sensor-xmldata/ hackystat-sensor-xmldata] || [http://code.google.com/p/hackystat-sensor-xmldata/wiki/UserGuide User Guide] || A "generic" sensor for XML-based data.  ||
-|| User Interface || Sensor Data Viewer || [http://code.google.com/p/hackystat-ui-sensordataviewer/ hackystat-ui-sensordataviewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide User Guide], [http://hackystat-ui-sensordataviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides near-real time display of arriving sensor data. ||
-||  || Sensor Data Browser || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ hackystat-ui-sensordatabrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide User Guide], [http://hackystat-ui-sensordatabrowser.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a browser for sensor data. ||
-||  || Project Viewer || [http://code.google.com/p/hackystat-ui-projectviewer2/ hackystat-ui-projectviewer2] || (Documentation not yet available) || Provides support for creating, managing, and viewing project definitions. ||
-||  || Telemetry Viewer || [http://code.google.com/p/hackystat-ui-telemetryviewer/ hackystat-ui-telemetryviewer] || [http://code.google.com/p/hackystat-ui-telemetryviewer/wiki/UserGuide User Guide], [http://hackystat-ui-telemetryviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a visual interface to telemetry charts. ||
+|| User Interface || Project Browser || [http://code.google.com/p/hackystat-ui-wicket/ hackystat-ui-wicket] || [http://hackystat-ui-wicket.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a web-app interface to basic Hackystat functionality. ||
 || Repository || Sensorbase || [http://code.google.com/p/hackystat-sensorbase-uh/ hackystat-sensorbase-uh] || [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensorbase-uh/wiki/RestApiSpecification REST API], [http://code.google.com/p/hackystat-sensorbase-uh/wiki/SensorBaseProperties sensorbase.properties], [http://hackystat-sensorbase-uh.googlecode.com/svn/javadoc/index.html JavaDoc], [http://code.google.com/p/hackystat-sensorbase-uh/wiki/UsingADifferentDatabaseBackend Alternative DB] || Storage for sensor data, sensor data types, users, and projects. ||
 || Analysis || Daily Project Data || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ hackystat-analysis-dailyprojectdata] || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/RestApiSpecification REST API], [http://hackystat-analysis-dailyprojectdata.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides abstractions of sensor data for a given project and day. ||
 ||  || Telemetry || [http://code.google.com/p/hackystat-analysis-telemetry/ hackystat-analysis-telemetry] || [http://code.google.com/p/hackystat-analysis-telemetry/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-telemetry/wiki/RestApiSpecification REST API], [http://hackystat-analysis-telemetry.googlecode.com/svn/javadoc/index.html JavaDoc], [http://code.google.com/p/hackystat-analysis-telemetry/wiki/TelemetryPrefetch Telemetry Prefetch] || Provides abstractions of project trends over time. ||
@@ -38,13 +37,33 @@ The following table provides information on all currently released Hackystat too
 || Java Client || !SensorBaseClient || [http://code.google.com/p/hackystat-sensorbase-uh/ hackystat-sensorbase-uh] || [http://hackystat-sensorbase-uh.googlecode.com/svn/javadoc/org/hackystat/sensorbase/client/SensorBaseClient.html JavaDoc] || A Java-based client for connecting to the !SensorBase. ||
 ||  || !DailyProjectDataClient || [http://code.google.com/p/hackystat-analysis-dailyprojectdata/ hackystat-analysis-dailyprojectdata] || [http://hackystat-analysis-dailyprojectdata.googlecode.com/svn/javadoc/org/hackystat/dailyprojectdata/client/DailyProjectDataClient.html JavaDoc] || A Java-based client for connecting to the !DailyProjectData service. ||
 ||  || !TelemetryClient || [http://code.google.com/p/hackystat-analysis-telemetry/ hackystat-analysis-telemetry] || [http://hackystat-analysis-telemetry.googlecode.com/svn/javadoc/org/hackystat/telemetry/service/client/TelemetryClient.html JavaDoc] || A Java-based client for connecting to the !Telemetry service. ||
-|| Experimental  || Pavel Viewer || [http://code.google.com/p/hackystat-ui-projectviewer/ hackystat-ui-projectviewer] || (Documentation not yet available) || Experimental !ProjectViewer developed by Pavel Senin.  ||
-||  || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data. (Under development.)   ||
-||  || Project Trajectory || [http://code.google.com/p/hackystat-analysis-projecttrajectory/ hackystat-analysis-projecttrajectory] || (No documentation available) || Creates size and effort summaries for projects. (Under development.)   ||
-||  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
-||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
+
+
+== Experimental ==
+
+The following table provides information on Hackystat components that are under development but not yet released for general use. 
+
+|| *Category* || *Name* || *Google Project* || *Links* || *Description* ||
+|| Analysis  || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data.  ||
+|| User Interface || Project Trajectory || [http://code.google.com/p/hackystat-analysis-projecttrajectory/ hackystat-analysis-projecttrajectory] || (No documentation available) || Creates size and effort summaries for projects.   ||
 ||  || RoR Viewer || [http://code.google.com/p/hackystat-viewer/ hackystat-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
-||  || !ProjectBrowser || [http://code.google.com/p/hackystat-ui-wicket/ hackystat-ui-wicket] ||[http://code.google.com/p/hackystat-ui-wicket/wiki/DeveloperGuide Developer Guide], [http://hackystat-ui-wicket.googlecode.com/svn/javadoc/index.html JavaDoc], [http://code.google.com/p/hackystat-ui-wicket/wiki/ProjectBrowserProperties projectbrowser.properties] ||Wicket-based UI. ||
+
+
+== Archive ==
+
+The following table provides information on Hackystat components that have been worked on in the past, but are no longer under active development. 
+
+|| *Category* || *Name* || *Google Project* || *Links* || *Description* ||
+|| User Interface || Sensor Data Viewer || [http://code.google.com/p/hackystat-ui-sensordataviewer/ hackystat-ui-sensordataviewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide User Guide], [http://hackystat-ui-sensordataviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides near-real time display of arriving sensor data. ||
+||  || Sensor Data Browser || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ hackystat-ui-sensordatabrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide User Guide], [http://hackystat-ui-sensordatabrowser.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a browser for sensor data. ||
+||  || Project Viewer2 || [http://code.google.com/p/hackystat-ui-projectviewer2/ hackystat-ui-projectviewer2] || (Documentation not yet available) || Provides support for creating, managing, and viewing project definitions. ||
+||  || Project Viewer || [http://code.google.com/p/hackystat-ui-projectviewer/ hackystat-ui-projectviewer] || (Documentation not yet available) || Another !ProjectViewer.  ||
+||  || Telemetry Viewer || [http://code.google.com/p/hackystat-ui-telemetryviewer/ hackystat-ui-telemetryviewer] || [http://code.google.com/p/hackystat-ui-telemetryviewer/wiki/UserGuide User Guide], [http://hackystat-ui-telemetryviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a visual interface to telemetry charts. ||
+||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
+|| Analysis  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
+
+
+
 
 
 
