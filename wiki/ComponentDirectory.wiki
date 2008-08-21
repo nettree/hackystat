@@ -44,9 +44,12 @@ The following table provides information on Hackystat components that are availa
 The following table provides information on Hackystat components that are under development but not yet released for general use. 
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
-|| Analysis  || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data.  ||
 || User Interface || Project Trajectory || [http://code.google.com/p/hackystat-analysis-projecttrajectory/ hackystat-analysis-projecttrajectory] || (No documentation available) || Creates size and effort summaries for projects.   ||
 ||  || RoR Viewer || [http://code.google.com/p/hackystat-viewer/ hackystat-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
+||  || Sensor Data Visualizer || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/ hackystat-ui-sensordatavisualizer] || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/wiki/UserGuide User Guide] || Sensor Data display using Flex/Flare. ||
+|| Repository  || Postgres DB || [http://code.google.com/p/hackystat-sensorbase-postgres/ hackystat-sensorbase-postgres] || [http://code.google.com/p/hackystat-sensorbase-postgres/wiki/InstallationGuide Installation Guide]  || An alternative DB backend. ||
+|| Sensor || Team Foundation Server || [http://code.google.com/p/hackystat-sensor-tfs/ hackystat-sensor-tfs] || [http://code.google.com/p/hackystat-sensor-tfs/wiki/InstallationGuide Installation Guide] || Sensor for Microsoft Team Foundation Server. ||
+|| Analysis || Boswell || [http://code.google.com/p/hackystat-analysis-boswell/ hackystat-analysis-boswell] || [http://code.google.com/p/hackystat-analysis-boswell/wiki/UserGuide User Guide] || Support for developer biographies.  ||
 
 
 == Archive ==
@@ -54,13 +57,19 @@ The following table provides information on Hackystat components that are under 
 The following table provides information on Hackystat components that have been worked on in the past, but are no longer under active development. 
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
-|| User Interface || Sensor Data Viewer || [http://code.google.com/p/hackystat-ui-sensordataviewer/ hackystat-ui-sensordataviewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide User Guide], [http://hackystat-ui-sensordataviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides near-real time display of arriving sensor data. ||
+|| Analysis  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
+|| || FFT Analysis || [http://code.google.com/p/hackystat-analysis-fft/ hackystat-analysis-fft] || (No documentation available) || FFT spectrum analysis of telemetry data.  ||
+|| || Ambient Devices || [http://code.google.com/p/ambienthackystat/ Ambient Hackystat] || [http://code.google.com/p/ambienthackystat/wiki/GuidedTour Guided Tour], [http://code.google.com/p/ambienthackystat/wiki/InstallationGuide Installation Guide] || Ambient device interface ||
+|| User Interface || Ambient Device UI || [http://code.google.com/p/ambienthackystat-ui-wicket/ Ambient Hackystat UI] || [http://code.google.com/p/ambienthackystat-ui-wicket/wiki/UserGuide User Guide] || UI for the Ambient Device analysis service. ||
+|| || Facebook || [http://code.google.com/p/ihacky/ iHacky] || [http://code.google.com/p/ihacky/wiki/InstallationGuide Installation Guide] || Hackystat interace to FaceBook. || 
+|| || Orb Manager || [http://code.google.com/p/hackystat-ui-orbmanager/ Orb Manager || (No documentation available) || Interface to ambient orbs. ||
+||  || Sensor Data Viewer || [http://code.google.com/p/hackystat-ui-sensordataviewer/ hackystat-ui-sensordataviewer] || [http://code.google.com/p/hackystat-ui-sensordataviewer/wiki/UserGuide User Guide], [http://hackystat-ui-sensordataviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides near-real time display of arriving sensor data. ||
 ||  || Sensor Data Browser || [http://code.google.com/p/hackystat-ui-sensordatabrowser/ hackystat-ui-sensordatabrowser] || [http://code.google.com/p/hackystat-ui-sensordatabrowser/wiki/UserGuide User Guide], [http://hackystat-ui-sensordatabrowser.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a browser for sensor data. ||
 ||  || Project Viewer2 || [http://code.google.com/p/hackystat-ui-projectviewer2/ hackystat-ui-projectviewer2] || (Documentation not yet available) || Provides support for creating, managing, and viewing project definitions. ||
 ||  || Project Viewer || [http://code.google.com/p/hackystat-ui-projectviewer/ hackystat-ui-projectviewer] || (Documentation not yet available) || Another !ProjectViewer.  ||
 ||  || Telemetry Viewer || [http://code.google.com/p/hackystat-ui-telemetryviewer/ hackystat-ui-telemetryviewer] || [http://code.google.com/p/hackystat-ui-telemetryviewer/wiki/UserGuide User Guide], [http://hackystat-ui-telemetryviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a visual interface to telemetry charts. ||
 ||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
-|| Analysis  || SDSA || [http://code.google.com/p/hackystat-analysis-sdsa/ hackystat-analysis-sdsa] || [http://code.google.com/p/hackystat-analysis-sdsa/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-analysis-sdsa/wiki/RestApiSpecification REST API], [http://hackystat-analysis-sdsa.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides an abstraction called Software Development Stream Analysis. ||
+
 
 
 
