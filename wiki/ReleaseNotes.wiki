@@ -22,7 +22,3 @@ Finally, I want to publicly and very gratefully acknowledge the following people
 contributed to the development of this first public release of Hackystat 8:  Austen Ito,
 Cam Moore, David Nickles, Dan Port, Hongbing Kou, Julie Sakuda, Aaron Kagawa, Qin Zhang,
 Robert Brewer, and Pavel Senin.
-
-Work on release 8.1 begins first thing tomorrow morning.  I am happy to be able to
-promise you that this next public release will take an order of magnitude less time to
-complete than the last one! 
