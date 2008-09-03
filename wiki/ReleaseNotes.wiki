@@ -9,11 +9,6 @@ improvements.  Version 8 is significantly more scalable and enterprise-ready tha
 7. For example, we have measured throughput rates of over 1.2M sensor data instances per
 hour.  We also find it to be both simpler and more fun to use than its predecessor.
 
-Hackystat is now hosted at Google Project Hosting as a set of 12 projects. The following
-URL will redirect you to the "umbrella" project site:
-
-<http://www.hackystat.org/>
-
 We invite you to peruse the four tutorials linked to the home page, or any of the other
 links that you find of interest.   Binary distributions of this release are available
 there as "Featured Downloads", and of course the full source is available in the
