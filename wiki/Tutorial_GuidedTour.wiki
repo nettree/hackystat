@@ -2,7 +2,7 @@
 
 == 1.0 What is Hackystat? ===
 
-Hackystat is a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  This is an ambitious goal, and in order to address it, Hackystat is organized as a collection of loosely coupled software services that communicate using [http://en.wikipedia.org/wiki/Representational_State_Transfer REST architectural principles].  The following diagram shows a standard set of Hackystat services that are organized together in a standard way:
+Hackystat is a framework for collection, analysis, visualization, interpretation, annotation, and dissemination of software development process and product data.  This is an ambitious goal, and in order to address it, Hackystat is organized as a collection of loosely coupled software services that communicate using [http://en.wikipedia.org/wiki/Representational_State_Transfer REST architectural principles].  The following diagram shows a small set of Hackystat services and how they communicate with each other:
 
 [http://hackystat.googlecode.com/svn/wiki/architecture.gif]
 
@@ -61,22 +61,23 @@ When you click on a link, the !ProjectBrowser pops up a modal window displaying 
 
 == 4.0 Organizing your data using Projects ==
 
-Most developers work on more than one project at a time, and many developers work as a team on one or more projects.  Hackystat provides "Projects" as a way to support both those work practices; a given Project can both filter which of your sensor data should be associated with that project, as well as aggregate your data with the sensor data from other users when performing Project-based analyses. 
+Most developers work on more than one project at a time, and many developers work as a team on one or more projects.  Hackystat provides "Projects" as a way to support both those work practices; a given Project filters which of your sensor data should be associated with that project, as well as aggregate your filtered data with the filtered sensor data from other users to support analyses of the overall team's behavior. 
 
-The !ProjectViewer provides an interface for viewing, creating, deleting, and modifying project definitions. Here is an example screenshot of the !ProjectViewer for the user joe.simpletelemetry@hackystat.org:
+The !ProjectBrowser provides an interface for viewing, creating, deleting, and modifying project definitions:
 
-[http://hackystat.googlecode.com/svn/wiki/projectviewer.gif]
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.4.gif]
 
-Among other things, the !ProjectViewer indicates that the user joe.simpletelemetry@hackystat.org has two Projects, one called "Default", and one called "simpletelemetry".  
+This page lists the two  projects that I participate in.    The first project is called "Default", which is a Project that is automatically defined for all users and cannot be edited.  The Default project is specified to match all of the sensor data that you have sent, and only that sensor data.  
 
-The simpletelemetry Project illustrates some of the important components of a Project definition. Projects have:
-  * a single owner (in this case, joe.simpletelemetry@hackystat.org).
-  * zero or more members (in this case, bob.simpletelemetry@hackystat.org)
-  * a start and end date (in this case, 2007-07-02 to 2007-08-02)
-  * one or more "URI Patterns", which filter sensor data based upon their Resource field (in this case, `*`/simpletelemetry/`*`).
+The second project is called "Hackystat", and unlike the Default project which always has only a single participant, the Hackystat project has around a dozen participants. 
 
-Projects have other interesting components, such as Properties and Invitations, that we will not discuss here. 
-Every user automatically gets an implicitly defined Project called "Default".  The Default project matches all of the user's sensor data.  In some situations, the Default Project is the only Project you will ever need to make use of Hackystat. 
+This page illustrates some of the important components of a Hackystat Project:
+  * The owner.  There can be only one. 
+  * Zero or more members, invitees, or spectators. 
+  * A start and end date for the project.
+  * One or more "URI Patterns", which filter sensor data based upon their Resource field.
+
+To learn more about Project definition and management, see the [Tutorial_Projects Projects Tutorial].
 
 == 5.0 Understanding your development data with Hackystat analyses ==
 
