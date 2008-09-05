@@ -81,43 +81,39 @@ To learn more about Project definition and management, see the [Tutorial_Project
 
 == 5.0 Understanding your development data with Hackystat analyses ==
 
-Collecting a bunch of sensor data is all very well and good, but how can you actually make sense of it? As the illustration of the !SensorDataBrowser showed above, it is quite possible for a single user to generate several thousand sensor data instances in a single day.  To make this low-level data useful, it needs to be abstracted and/or analyzed in some way. 
+Collecting a bunch of sensor data is all very well and good, but how can you actually make sense of it? As the screen dump of the !ProjectBrowser showed above, most users will generate thousands of sensor data instances every few days.   To make this low-level data useful, it needs to be abstracted and/or analyzed in some way. 
 
 A primary design goal of the Hackystat framework is to make it easy for software engineering researchers and practitioners to explore different approaches to analyzing low-level sensor data.  Since the Hackystat Project began in 2001, researchers have developed a number of approaches to analyzing sensor data, including:
 
-  # Priority-ranked inspection, developed by Aaron Kagawa, which determines which modules are most in need of software inspection;
-  # Zorro, developed by Hongbing Kou, which determines if a developer is adhering to Test-Drive Design practices; 
-  # Continuous GQM, developed by Christoph Lofi, which determines degree of satisfaction of the measures, questions, and goals in a GQM network;
+  # [http://csdl.ics.hawaii.edu/Plone/research/PriorityRankedInspection Priority-ranked Inspection], developed by Aaron Kagawa, which determines which modules are most in need of software inspection;
+  # [http://csdl.ics.hawaii.edu/Plone/research/Zorro Zorro], developed by Hongbing Kou, which determines if a developer is adhering to Test-Drive Design practices; 
+  # [http://csdl.ics.hawaii.edu/Plone/research/ContinuousGQM Continuous GQM], developed by Christoph Lofi, which determines degree of satisfaction of the measures, questions, and goals in a GQM network;
 
-In this section, we will briefly introduce a fourth approach to analyzing sensor data called Software Project Telemetry. Software Project Telemetry was developed by Qin Zhang. 
+In this section, we will briefly introduce a fourth approach to analyzing sensor data called [http://csdl.ics.hawaii.edu/Plone/research/SoftwareProjectTelemetry Software Project Telemetry]. Software Project Telemetry was developed by Qin Zhang for his Ph.D. thesis. 
 
-Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !TelemetryViewer application provides a high level interface to some of the features of Software Project Telemetry.  The following screen shot illustrates a telemetry chart for joe.simpletelemetry@hackystat.org:
+Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !ProjectBrowser application provides a high level interface to some of the features of Software Project Telemetry.  Here is an example of a Telemetry chart for a simulated project called "simpletelemetry":
 
-[http://hackystat.googlecode.com/svn/wiki/telemetryviewer.gif]
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.5.gif]
 
-This screenshot shows that joe.simpletelemetry@hackystat.org has logged in to the !TelemetryViewer and is displaying the ProductQATrends chart for the simpletelemetry project  This chart presents three "streams" of data, Coverage percentage, !UnitTest invocations, and !CodeIssue counts.
+There is a lot going on in this screen image, so let's start with a general overview:
 
-The chart shows that durng this week of development, development is actually going pretty well with respect to these three measures:  coverage is high (above 90%), unit testing occurs on a daily basis, and the number of !CodeIssues is stable and low (below 10 on each day).  
+First, the left hand side contains a column of parameters that allow you to specify the kind of Chart you want to see.  In this case, we're specifying that we want to see the ProductQATrends chart from July 7 to 27, 2007.  We want to see data for a single project called "simpletelemetry", and we want to see the data on a day-by-day basis.
 
-Now consider the same ProductQATrends telemetry chart, for the same project, but during a diffeent week. To save space, I've cropped the display of the page to include only the chart:
+Second, the upper right hand side contains a table with a set of "streams" of metric values for all the projects and days of interest.  The ProductQATrends chart generates three streams: CoverageStream, UnitTestStream, and CodeIssueStream.  The Coverage stream indicates the percentage of test cases that were passing on that day.  The UnitTest stream indicates the number of test invocations on that day.  Finally, the CodeIssue stream indicates the number of warnings generated about the code by static analysis tools like PMD, Checkstyle, or !FindBugs during that day. 
 
-[http://hackystat.googlecode.com/svn/wiki/telemetryviewer2.gif]
+Third, and finally, the lower right hand side contains a graphical chart containing the selected rows from the table. In this image, all of the rows were selected, so the table and graphic are equivalent. When generating complicated charts for multiple projects at once, the table could have dozens of rows, rendering a graphic containing all of those trends unusable.  In these cases, the user will select some subset of the table's rows to chart depending upon their interests. 
 
-This chart, compared to the other one, is a bit alarming:  coverage is falling, code issues are rising, and unit testing seems extremely low.  Software Project Telemetry can thus function as a kind of "early warning system" when a collection of metrics all provide evidence, for example, that project quality is degrading. 
+Now that you understand the structure of the table, let's take a look at what the data reveals:
 
-An important strength of Software Project Telemetry is that it includes a specialized domain specific language for chart definition. This enables an organization to determine which measures they want to monitor over time, and which measures they want to visualize together in a single chart. 
+  * 07-07 to 07-11:  During this week, development looks pretty good.  Coverage is relatively high and stable, unit tests are invoked regularly, and there is a low level of code issues being detected. 
 
-For example, the following screen shot shows another chart called !ProductDevTrends. 
+  * 07-12 to 07-16:  During this week, development does not look as good. Coverage and unit testing is quite low, though there do not appear to be many code issues.  
 
-[http://hackystat.googlecode.com/svn/wiki/telemetryviewer3.gif]
+  * 07-17 to 07-21:  During this week, we appear to be paying the piper for last week.  Coverage is still quite low, but the number of code issues is steadily rising.  Developers are invoking tests more and more but without any positive impact on coverage or code issues. 
 
-This chart displays five streams of product and process data: Total LOC, Churn (lines added plus lines deleted from the configuration management repository), the number of commits to the configuration management repository, the number of builds of the system, and the total number of hours spent by developers actively manipulating project files. 
+  * 07-22 to 07-27: During this week, test invocations are quite low, and coverage is steadily decreasing while the number of code issues is steadily rising.  This may indicate a "death march" mentality, in which developers are throwing all resources into adding functionality without regard to the impact on system quality. 
 
-For this period of development illustrated above, things  seem quite "stable":  churn, commits, builds, and devtime are reasonable and consistent, and the Total LOC rises steadily upward.  This is in stark contrast to the following chart, which seems to indicate the beginning of a project "death march":
-
-[http://hackystat.googlecode.com/svn/wiki/telemetryviewer4.gif]
-
-Software Project Telemetry is a powerful, but complicated technology.  We hope this brief introduction has given you a taste for its potential, and has also helped you understand one way in which Hackystat can support the transformation of low-level sensor data into high-level project insights. 
+Software Project Telemetry is a powerful, but complicated technology.  We hope this brief introduction has given you a taste for its potential, and has also helped you understand one way in which Hackystat can support the transformation of low-level sensor data into high-level project insights.   For more information, see the [http://code.google.com/p/hackystat/wiki/Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial].
 
 == 6.0 Where to go from here ==
 
