@@ -151,17 +151,13 @@ Interestingly, the !ProductDevTrends chart does not reveal anything unusual.
 
 For this final example, let's return to the !MemberTrends charts.  First, let's take a look at Bob's !MemberTrends chart:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4.gif]
-
 
 Bob does not appear to be working on the project at all; he must be allocated elsewhere.  What impact does that have on Joe?
-
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4b.gif]
 
 
 Joe is overworked and trying to hard to accomplish two developer's worth of work.  Let's see what impact this has on project quality:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry-qa-sprint4.75.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4.gif]
 
 It's not good. Coverage is too low, code issues are too high and steadily rising, and this is despite a significant amount of daily unit testing. 
 
@@ -169,7 +165,11 @@ It's not good. Coverage is too low, code issues are too high and steadily rising
 
 The goal of this introductory tutorial is to give you a sense for how telemetry can be used to gain insight into software development project characteristics.  Of course, real life projects won't generate telemetry as simple as these simulated examples.  The challenge is to determine what kinds of telemetry are useful for your own development situation, and when changes in telemetry values indicate important changes in your development process.   
 
-As you gain experience with the built-in charts, you will likely start to become interested in defining your own custom telemetry.  Contact the Hackystat developers group for support in that process. 
+As you gain experience with the built-in charts, you will likely start to become interested in defining your own custom telemetry.  Contact the Hackystat developers group for support in that process. We plan to publish a tutorial on writing custom telemetry in the near future. 
+
+Finally, this example focusses on the use of telemetry to monitor and manage a single development project.  As noted at the beginning of this tutorial, you can select multiple projects in order to perform comparative analyses of different projects.  For a related approach to multiple project management, we have developed a project "portfolio" analysis mechanism.
+
+Finally, both telemetry and project portfolios enable you to compare projects that are co-occurring.  However, in some cases you might want to compare the characteristics of projects that occurred at different points in time.  We have a project "trajectory" analysis mechanism under way that can provide a means to accomplish this.  Details will be forthcoming. 
 
 
 
