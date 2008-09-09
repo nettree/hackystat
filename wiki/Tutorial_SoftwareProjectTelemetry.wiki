@@ -45,9 +45,11 @@ This page has a variety of controls that enable you to specify what telemetry yo
 
 Once you have specified all values, you press "Display Telemetry" to generate a table containing the Telemetry Data.  Here is an example:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.build.table.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.productdevtrends.table.gif]
 
 You can see that we selected two projects (Default and simpletelemetry), and the Chart called "ProductDevTrends".  This built a table with 10 rows, five rows for the project "Default" and five rows for the project "simpletelemetry".  
+
+
 
 This !DevTime telemetry chart is a very simple chart that displays only a single telemetry stream, called !DevTime.  !DevTime is a proxy for developer effort that is based upon analysis of !DevEvent data.   The visualization is created using the [http://timepedia.org/chronoscope/ Timepedia Chronoscope] visualization platform for time series data sets.  This platform provides a great deal of capability that we are just beginning to explore, but you will already be able to appreciate the ability to pan back and forth and zoom in and out of the dataset using the arrow keys.   
 
