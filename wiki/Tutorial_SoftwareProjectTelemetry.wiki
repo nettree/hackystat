@@ -17,29 +17,37 @@ language that allows the creation of custom trend lines (called telemetry
 "chart".  
 
 The goal of this introductory tutorial is to show how telemetry can be
-visualized in Hackystat using the !TelemetryViewer application, and how
+visualized in Hackystat using the !ProjectBrowser  application, and how
 telemetry can reveal interesting characteristics of the software
 development process.  To facilitate this presentation, will we present
 "simulated" telemetry data, and use the pre-existing telemetry definitions
 that come with the public distribution of Hackystat.  
 
-== 2.0 The Telemetry Viewer application ==
+== 2.0 The Telemetry page in the Project Browser ==
 
-The public telemetry viewer application is available at [http://dasha.ics.hawaii.edu:9875/telemetryviewer/].  You need to login to the !TelemetryViewer using your Hackystat user name and password.  Once you are logged in, you will see a screen similar to the following:
+The basic telemetry viewer in Hackystat is available as a page within the !ProjectBrowser application.  You can find the public Hackystat !ProjectBrowser at [http://dasha.ics.hawaii.edu:9879/projectbrowser/].  You need to login to the public !ProjectBrowser using your public Hackystat username and password.  Once you are logged in, you can click on the "Telemetry" tab to be taken to a page that looks like the following:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry-devtime1.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.startscreen.gif]
 
-There are several things to observe about this screen:
+This page has a variety of controls that enable you to specify what telemetry you are interested in:
 
-  * Each !TelemetryViewer instance connects to a given Telemetry analysis service and a given !SensorBase service for its information.  This instance is configured to connect to the public Telemetry analysis and !SensorBase services. 
+*Chart*: The Chart menu enables you to pick what kind of chart to generate.  Each Telemetry Analysis service can be configured with a set of charts defined using the Software Project Telemetry definition language.  (This language allows organizations to define their own custom charts, but is beyond the scope of this introductory tutorial.) To see documentation on the available charts, you can click on the "?" icon beside the Chart pull-down menu, which will pop up a modal dialog box similar to the following:
 
-  * Each !TelemetryViewer instance allows you to specify what telemetry  to see using  a pull-down list of pre-defined charts. These charts are defined using the Software Project Telemetry domain specific language, and those definitions are read in from definition files at the time that the !TelemetryViewer starts up.  The details of defining custom charts are beyond the scope of this introductory tutorial.
+[http://hackystat.googlecode.com/svn/wiki/telemetry.chart.help.gif]
 
-  * To specify a telemetry chart to display, you specify a Project from a pull-down list that contains all of the Projects you are associated with as either an Owner or a Member.  You must also specify a time interval, either as an "absolute" time interval with a specific  start day and end day, or as a "relative" date whose end day is always the current day.  Finally, a given telemetry chart can be defined such that it requests additional parameters. These will also appear in the viewer, and they will always be prefilled with default values. 
+*Start/End Date*:  You specify the interval of time of interest using the Start Date and End Date fields.  Remember that aeach project is specified with a start and end date, and the dates you enter here must fall within the Start and End dates for the Projects you specify next.
 
-Once you have specified the parameters, you press "Update" to see the telemetry chart.  Here is an example result:
+*Project*:  You can specify one or more projects in this multi-selection list window.  
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry-devtime2.gif]
+*Granularity*:  Telemetry can be specified at the granularity of Days, Weeks, or Months.  Some telemetry data turns out to be "noisy" when viewed at the Day granularity, and thus you get a more accurate perspective by viewing it at a higher granularity of weeks or months.  For example, DevTime data might be quite variable at the Day granularity, since developers might work a large number of hours on code one day, then not much the next.  But at the granularity of a Week, this variability should smooth out and trends in terms of rising or lowering DevTime should become more apparent. 
+
+*Chart-specific parameters*:  Following the Granularity pull-down menu are zero or more context-sensitive menus that change depending upon the selected Chart.  These menu items enable you to provide additional parameters to the chart of interest.  Each of these chart-specific parameters has an associated "?" icon that provides documentation on what the parameter means. 
+
+Once you have specified all values, you press "Display Telemetry" to generate a table containing the Telemetry Data.  Here is an example:
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry.build.table.gif]
+
+You can see that we selected two projects (Default and simpletelemetry), and the Chart called "ProductDevTrends".  This built a table with 10 rows, five rows for the project "Default" and five rows for the project "simpletelemetry".  
 
 This !DevTime telemetry chart is a very simple chart that displays only a single telemetry stream, called !DevTime.  !DevTime is a proxy for developer effort that is based upon analysis of !DevEvent data.   The visualization is created using the [http://timepedia.org/chronoscope/ Timepedia Chronoscope] visualization platform for time series data sets.  This platform provides a great deal of capability that we are just beginning to explore, but you will already be able to appreciate the ability to pan back and forth and zoom in and out of the dataset using the arrow keys.   
 
