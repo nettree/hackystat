@@ -99,13 +99,13 @@ development scenarios:
 
 Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends telemetry chart for the time period associated with the first sprint: 
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.1.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum1.gif]
 
 As you can see, coverage is above 90%, unit tests are invoked consistently every day around 10 times, and code issues are quite low. 
 
 The !ProductDevTrends for a "healthy" project shows similar consistency:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.1b.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum1b.gif]
 
 Churn, Commits, Builds, and !DevTime hours are fairly stable.  The only line trending upward is the total code size, which is growing almost linearly.  (Of course, a project can be "healthy" with a non-linear, or even decreasing code size, but it is important that the other metrics show a certain level of stability in a healthy project.)
 
@@ -120,13 +120,13 @@ Bob's individual telemetry chart is similar to Joe's, so we will not show it her
 
 Now let's look at the telemetry for a scenario where a project gets a late start and then the developers try to play "catch up".  Let's start this time with the !ProductDevTrends chart:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.2.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2.gif]
 
 Here you can see that there are very low levels of project activity for the first half of the sprint, and then frenetic activity for the last five days. 
 
 What impact does such a late start have on project quality?  Let's look at the ProductQATrends chart for a perspective:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.2b.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2b.gif]
 
 
 Although unit testing increased dramatically at the end of the sprint, it didn't have the same "yield" as in the healthy project: code issues went upward, and coverage never increased to a very high level.
@@ -137,26 +137,26 @@ The !MemberTrends charts for both Joe and Bob also illustrate the late start, th
 
 Now take a look at the following chart. What do you see? 
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.3.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum3.gif]
 
 
 This looks worrisome:  unit test invocations appear quite low, coverage is decreasing, and code issues are increasing!  Clearly, there is something wrong with this project. 
 
 Interestingly, the !ProductDevTrends chart does not reveal anything unusual.
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.3b.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum3b.gif]
 
 
 === 3.4 Sprint 4: Resource mismanagement ===
 
 For this final example, let's return to the !MemberTrends charts.  First, let's take a look at Bob's !MemberTrends chart:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.4.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4.gif]
 
 
 Bob does not appear to be working on the project at all; he must be allocated elsewhere.  What impact does that have on Joe?
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum.4b.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4b.gif]
 
 
 Joe is overworked and trying to hard to accomplish two developer's worth of work.  Let's see what impact this has on project quality:
