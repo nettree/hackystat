@@ -46,9 +46,9 @@ Once you have specified all values, you press "Display Telemetry" to generate a 
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry.productdevtrends.table.gif]
 
-As you can see,  we selected two projects (Default and simpletelemetry), and the Chart called "!ProductDevTrends".  This built a table with 10 rows, five rows for the project "Default" and five rows for the project "simpletelemetry".  
+As you can see,  we selected two projects (Default and simpletelemetry), and the Chart called "!ProductDevTrends".  This built a table with 10 rows, five rows for the project "Default" and five rows for the project "simpletelemetry".  Each row represents a single telemetry "stream", or trend line. 
 
-Using this table, we can select one or more of the telemetry streams to be presented in a graphical chart using the checkboxes.  The top-most checkbox selects all of the streams.  In general, charts containing more than five or six telemetry streams tend to be hard to interpret, so we will pick a subset to display.  We could select streams within a single project, for example, DevTime Hours and Total LOC within the simpletelemetry project, which would enable us to visualize how DevTime and Size relate over time.  Alternatively, we could select streams across multiple projects, for example DevTime for Default and simpletelemetry, which would enable us to visualize how the developer's total DevTime relates to their time on the simpletelemetry project.  Let's visualize that one:
+Using this table, we can select one or more of the telemetry streams to be presented in a graphical chart using the checkboxes.  The top-most checkbox selects all of the streams.  In general, charts containing more than five or six telemetry streams tend to be hard to interpret, so we will pick a subset to display.  We could select streams within a single project, for example, !DevTime Hours and Total LOC within the simpletelemetry project, which would enable us to visualize how !DevTime and Size relate over time.  Alternatively, we could select streams across multiple projects, for example !DevTime for Default and simpletelemetry, which would enable us to visualize how the developer's total !DevTime relates to their time on the simpletelemetry project.  Let's visualize that one:
 
 (Need the screen shot here)
 
@@ -86,9 +86,9 @@ commits, and churn.
 The telemetry for the four simulated sprints illustrates the following
 development scenarios:
 
-    * "Healthy Development" (Sprint 1, July 2-11, 2007). This first sprint shows what telemetry looks like in an idealized, healthy project development scenario. Coverage is consistently high; overall code size changes smoothly; Churn and Code Issues are low relative to code size; Commits, Builds, and Unit tests occur regularly; and DevTime is consistent, and at a "Goldilocks" level (not too high, not too low.) 
+    * "Healthy Development" (Sprint 1, July 2-11, 2007). This first sprint shows what telemetry looks like in an idealized, healthy project development scenario. Coverage is consistently high; overall code size changes smoothly; Churn, Complexity, and Code Issues are low relative to code size; Commits, Builds, and Unit tests occur regularly; and !DevTime is consistent, and at a "Goldilocks" level (not too high, not too low.) 
 
-    * "Late Start" (Sprint 2, July 12-21, 2007). This sprint shows how telemetry can reveal a late start and its potential impact. For the first half of the sprint, there is very little movement on the project. Then all of the indicators (!DevTime, Churn, Commits, Size) show a dramatic spike upward. However, the negative impact of the late start manifests itself in quality: coverage is low, and code issues are high. 
+    * "Late Start" (Sprint 2, July 12-21, 2007). This sprint shows how telemetry can reveal a late start and its potential impact. For the first half of the sprint, there is very little movement on the project. Then all of the indicators (!DevTime, Churn, Complexity, Commits, Size) show a dramatic spike upward. However, the negative impact of the late start manifests itself in quality: coverage is low, and code issues are high. 
 
     * "Design Trouble" (Sprint 3, July 22-31, 2007). This sprint shows how telemetry can provide an early warning signal. The telemetry shows decreasing coverage, increasing code issues, and high levels of churn. If a project has been generating telemetry similar to Sprint 1 and then shifts to these trends, it indicates that something fundamental about the project has changed, either in personnel, requirements, or management. 
 
@@ -101,7 +101,7 @@ Let's begin with telemetry for a "healthy" project.  Here is the ProductQATrends
 
 [http://hackystat.googlecode.com/svn/wiki/telemetry.scrum1.gif]
 
-As you can see, coverage is above 90%, unit tests are invoked consistently every day around 10 times, and code issues are quite low. 
+As you can see, coverage is around  90%, unit tests are invoked consistently every day around 10 times, and code issues are quite low. 
 
 The !ProductDevTrends for a "healthy" project shows similar consistency:
 
@@ -120,13 +120,13 @@ Bob's individual telemetry chart is similar to Joe's, so we will not show it her
 
 Now let's look at the telemetry for a scenario where a project gets a late start and then the developers try to play "catch up".  Let's start this time with the !ProductDevTrends chart:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2b.gif]
 
 Here you can see that there are very low levels of project activity for the first half of the sprint, and then frenetic activity for the last five days. 
 
 What impact does such a late start have on project quality?  Let's look at the ProductQATrends chart for a perspective:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2b.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum2.gif]
 
 
 Although unit testing increased dramatically at the end of the sprint, it didn't have the same "yield" as in the healthy project: code issues went upward, and coverage never increased to a very high level.
