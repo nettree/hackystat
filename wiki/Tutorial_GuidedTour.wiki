@@ -82,7 +82,7 @@ To learn more about Project definition and management, see the [Tutorial_Project
 
 == 5.0 Understanding your sensor data: Daily Project Data ==
 
-Looking at the raw sensor data rarely allows you to gain insight into your software development practices and how to improve them.  Hackystat provides a variety of abstractions and analyses based upon the raw sensor data.  One very useful set of abstractions are referred to as "Daily Project Data".  These abstractions, as the name suggests, provide a perspective on process or product measures for a given project on a given day.  
+Looking at the raw sensor data rarely allows you to gain insight into your software development practices and how to improve them.  Hackystat provides a variety of abstractions and analyses based upon the raw sensor data.  One very useful set of abstractions are referred to as "Daily Project Data".  These abstractions, as the name suggests, provide a perspective on process or product measures for a given project on a given day.   Generating a Daily Project Data analysis requires the system to merge together and/or filter raw sensor data from all developers associated with the project for the given day. 
 
 The !ProjectBrowser application provides a page with a user interface to many of the Daily Project Data analyses. Here is an example screen shot showing information about the complexity of a Hackystat project called "simpletelemetry" on a single day:
 
