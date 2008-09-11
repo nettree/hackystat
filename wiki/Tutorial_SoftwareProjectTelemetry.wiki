@@ -48,9 +48,10 @@ Once you have specified all values, you press "Display Telemetry" to generate a 
 
 As you can see,  we selected two projects (Default and simpletelemetry), and the Chart called "!ProductDevTrends".  This built a table with 10 rows, five rows for the project "Default" and five rows for the project "simpletelemetry".  Each row represents a single telemetry "stream", or trend line. 
 
-Using this table, we can select one or more of the telemetry streams to be presented in a graphical chart using the checkboxes.  The top-most checkbox selects all of the streams.  In general, charts containing more than five or six telemetry streams tend to be hard to interpret, so we will pick a subset to display.  We could select streams within a single project, for example, !DevTime Hours and Total LOC within the simpletelemetry project, which would enable us to visualize how !DevTime and Size relate over time.  Alternatively, we could select streams across multiple projects, for example !DevTime for Default and simpletelemetry, which would enable us to visualize how the developer's total !DevTime relates to their time on the simpletelemetry project.  Let's visualize that one:
+Using this table, we can select one or more of the telemetry streams to be presented in a graphical chart using the checkboxes.  The top-most checkbox selects all of the streams.  In general, charts containing more than five or six telemetry streams tend to be hard to interpret, so we will pick a subset to display.  We could select streams within a single project, for example, !DevTime Hours and Total LOC within the simpletelemetry project, which would enable us to visualize how !DevTime and Size relate over time.  Alternatively, we could select streams across multiple projects, for example !DevTime for Default and simpletelemetry, which would enable us to visualize how the developer's total !DevTime relates to the total !DevTime on the simpletelemetry project.  Let's visualize that one:
 
-(Need the screen shot here)
+[http://hackystat.googlecode.com/svn/wiki/telemetry.productdevtrends.compare.gif]
+
 
 Now that you understand the basics of the telemetry display mechanism, let's look at an example. 
 
