@@ -143,6 +143,8 @@ This page enables her to change various fields.  Note that to delete any existin
 
 To change the list of Invited members or Spectators, she can just edit those text boxes directly, adding and subtracting usernames, one per line. 
 
+Remember: only the owner of a project can edit its definition. 
+
 
 == 4.0 Miscellaneous issues ==
 
