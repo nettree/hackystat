@@ -58,6 +58,7 @@ When you click on a link, the !ProjectBrowser pops up a modal window displaying 
 
 [http://hackystat.googlecode.com/svn/wiki/projectbrowser.3.gif]
 
+For more about sensor data display, see the [Tutorial_SensorDataCollection Sensor Data Collection Tutorial].
 
 == 4.0 Organizing your data using Projects ==
 
@@ -99,6 +100,7 @@ This telemetry interface allows you to select a "Chart", which defines a set of 
 
 This telemetry illustrates a hypothetical project that is "in trouble":  test coverage is decreasing, complexity and code issues are increasing, and test invocation frequency is low. 
 
+For more about telemetry, see the [Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial]. 
 
 == 6.0 Where to go from here ==
 
@@ -106,7 +108,7 @@ This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Dep
 
   * [Tutorial_SensorDataCollection Sensor Data Collection Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data.   
   * [Tutorial_Projects  Project Management Tutorial], which provides instructions on how to define and use Projects in Hackystat. 
-  * [Tutorial_SoftwareProjectTelemetry Software ProjectTelemetry Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
+  * [Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
   * [Community Community], which summarizes some of the ways Hackystat has been used in the past. 
   * [ResearchProjects Research Projects], which overviews some interesting future applications of the Hackystat Framework.
   * [Publications Publications], which overviews some of the research publications involving Hackystat. 
