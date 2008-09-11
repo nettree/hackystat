@@ -111,7 +111,7 @@ Churn, Commits, Builds, and !DevTime hours are fairly stable.  The only line tre
 
 Finally, we can take a look at the !MemberTrends chart to get a perspective on the development behavior of individual developers.  Here's Joe's !MemberTrends chart:
 
-[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum1c.80.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum1c.gif]
 
 Joe's individual telemetry is quite similar to the project as a whole: all of the indicator are stable and within reasonable values. 
 Bob's individual telemetry chart is similar to Joe's, so we will not show it here. 
