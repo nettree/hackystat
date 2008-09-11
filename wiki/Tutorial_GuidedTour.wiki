@@ -93,33 +93,20 @@ In this section, we will briefly introduce a fourth approach to analyzing sensor
 
 Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !ProjectBrowser application provides a high level interface to some of the features of Software Project Telemetry.  Here is an example of a Telemetry chart for a simulated project called "simpletelemetry":
 
-[http://hackystat.googlecode.com/svn/wiki/projectbrowser.5.gif]
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum3.gif]
 
-There is a lot going on in this screen image, so let's start with a general overview:
+This telemetry interface allows you to select a "Chart", which defines a set of trend lines, or "streams" to display.  You must also specify one or more projects and a time interval for the telemetry.  
 
-First, the left hand side contains a column of parameters that allow you to specify the kind of Chart you want to see.  In this case, we're specifying that we want to see the ProductQATrends chart from July 7 to 27, 2007.  We want to see data for a single project called "simpletelemetry", and we want to see the data on a day-by-day basis.
+This telemetry illustrates a hypothetical project that is "in trouble":  test coverage is decreasing, complexity and code issues are increasing, and test invocation frequency is low. 
 
-Second, the upper right hand side contains a table with a set of "streams" of metric values for all the projects and days of interest.  The ProductQATrends chart generates three streams: CoverageStream, UnitTestStream, and CodeIssueStream.  The Coverage stream indicates the percentage of test cases that were passing on that day.  The UnitTest stream indicates the number of test invocations on that day.  Finally, the CodeIssue stream indicates the number of warnings generated about the code by static analysis tools like PMD, Checkstyle, or !FindBugs during that day. 
-
-Third, and finally, the lower right hand side contains a graphical chart containing the selected rows from the table. In this image, all of the rows were selected, so the table and graphic are equivalent. When generating complicated charts for multiple projects at once, the table could have dozens of rows, rendering a graphic containing all of those trends unusable.  In these cases, the user will select some subset of the table's rows to chart depending upon their interests. 
-
-Now that you understand the structure of the table, let's take a look at what the data reveals:
-
-  * 07-07 to 07-11:  During this week, development looks pretty good.  Coverage is relatively high and stable, unit tests are invoked regularly, and there is a low level of code issues being detected. 
-
-  * 07-12 to 07-16:  During this week, development does not look as good. Coverage and unit testing is quite low, though there do not appear to be many code issues.  
-
-  * 07-17 to 07-21:  During this week, we appear to be paying the piper for last week.  Coverage is still quite low, but the number of code issues is steadily rising.  Developers are invoking tests more and more but without any positive impact on coverage or code issues. 
-
-  * 07-22 to 07-27: During this week, test invocations are quite low, and coverage is steadily decreasing while the number of code issues is steadily rising.  This may indicate a "death march" mentality, in which developers are throwing all resources into adding functionality without regard to the impact on system quality. 
-
-Software Project Telemetry is a powerful, but complicated technology.  We hope this brief introduction has given you a taste for its potential, and has also helped you understand one way in which Hackystat can support the transformation of low-level sensor data into high-level project insights.   For more information, see the [http://code.google.com/p/hackystat/wiki/Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial].
 
 == 6.0 Where to go from here ==
 
 This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Depending upon your interests, you might also want to take a look at one or more of the following pages:
 
-  * [Tutorial_SensorDataCollection Sensor Data Collection Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
+  * [Tutorial_SensorDataCollection Sensor Data Collection Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data.   
+  * [Tutorial_Projects  Project Management Tutorial], which provides instructions on how to define and use Projects in Hackystat. 
+  * [Tutorial_SoftwareProjectTelemetry Software ProjectTelemetry Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
   * [Community Community], which summarizes some of the ways Hackystat has been used in the past. 
   * [ResearchProjects Research Projects], which overviews some interesting future applications of the Hackystat Framework.
   * [Publications Publications], which overviews some of the research publications involving Hackystat. 
