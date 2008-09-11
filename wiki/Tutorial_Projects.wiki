@@ -68,7 +68,8 @@ By joining a project, you implicitly agree to allow your sensor data to be acces
   * When you have been invited to a Project by its Owner, then that Project will show up in the Projects page of your !ProjectBrowser. You will be listed as an "Invitee".   You now have the option of "accepting" that invitation and becoming a Project member, or "declining" the invitation, and thus being removed from the invitation list. 
 
   * Once you are a member of a Project, you can perform analyses using data from that Project. Your data will now be used in Project analyses along with other Project members (and the Project owner).  At any time, you can remove yourself from the Project.
-Note that the Default project is, in a sense, read-only.  You cannot make any changes to that Project. 
+
+  * Note that the Default project is, in a sense, read-only.  You cannot make any changes to that Project. 
 
   * A Project owner can also add "Spectators".  Spectators are Hackystat users who can run analyses related to a Project but whose sensor data is not utilized in the analysis.  Spectators do not go through the "invitation" process; a Project owner can add (or delete) Spectators at any time and they immediately get (or rescind) that capability.
 
@@ -106,7 +107,7 @@ As you can see, Kim owns her own Default project, and is a spectator on the simp
 
 === 3.2 Defining new projects and inviting members ===
 
-Let's say that Kim and Bob are working on a new travel website project and they want to perform Hackystat analyses over their combined data.  They decide that Kim will define the project and invite Bob as a member. Joe is interested in following their progress , but will not be doing any work, so he will be listed as a spectator.  Kim presses the "New" button to define a new Project, and the following screen appears:
+Let's say that Kim and Bob are working on a new travel website project and they want to perform Hackystat analyses over their combined data.  They decide that Kim will define the project and invite Bob as a member. Joe is interested in following their progress, but will not be doing any work, so he will be listed as a spectator.  Kim presses the "New" button to define a new Project, and the following screen appears:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer04.gif]
 
@@ -118,7 +119,7 @@ After pressing the Save button, the newly created Project is listed:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer06.gif]
 
-Kim now sends Bob an IM to tell him that he's been invited to the AwayWeGoWebsite project and to please login and accept the invitation.  Bob gets the IM, logs in, and sees the following on his Projects page:
+Kim now sends Bob an IM to tell him that he's been invited to the !AwayWeGoWebsite project and to please login and accept the invitation.  Bob gets the IM, logs in, and sees the following on his Projects page:
 
 [http://hackystat.googlecode.com/svn/wiki/projectviewer07.gif]
 
@@ -131,6 +132,17 @@ He presses the "accept" button, which establishes him as a Member and returns hi
 [http://hackystat.googlecode.com/svn/wiki/projectviewer09.gif]
 
 As you can see, Bob is now a member of the project with an "(m)" following his name.  The button associated with that project is now "leave", which reflects the action associated with that role. 
+
+=== 3.3 Editing an existing project ===
+
+If Kim wishes to change the details of the !AwayWeGoWebsite project, she can press the "edit" button to get the following page:
+
+[http://hackystat.googlecode.com/svn/wiki/projectviewer09.gif]
+
+This page enables her to change various fields.  Note that to delete any existing members, she can highlight their names and then click the "Delete selected members(s)" link.
+
+To change the list of Invited members or Spectators, she can just edit those text boxes directly, adding and subtracting usernames, one per line. 
+
 
 == 4.0 Miscellaneous issues ==
 
