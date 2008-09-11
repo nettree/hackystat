@@ -80,17 +80,19 @@ This page illustrates some of the important components of a Hackystat Project:
 
 To learn more about Project definition and management, see the [Tutorial_Projects Projects Tutorial].
 
-== 5.0 Understanding your development data with Hackystat analyses ==
+== 5.0 Understanding your sensor data: Daily Project Data ==
 
-Collecting a bunch of sensor data is all very well and good, but how can you actually make sense of it? As the screen dump of the !ProjectBrowser showed above, most users will generate thousands of sensor data instances every few days.   To make this low-level data useful, it needs to be abstracted and/or analyzed in some way. 
+Looking at the raw sensor data rarely allows you to gain insight into your software development practices and how to improve them.  Hackystat provides a variety of abstractions and analyses based upon the raw sensor data.  One very useful set of abstractions are referred to as "Daily Project Data".  These abstractions, as the name suggests, provide a perspective on process or product measures for a given project on a given day.  
 
-A primary design goal of the Hackystat framework is to make it easy for software engineering researchers and practitioners to explore different approaches to analyzing low-level sensor data.  Since the Hackystat Project began in 2001, researchers have developed a number of approaches to analyzing sensor data, including:
+The !ProjectBrowser application provides a page with a user interface to many of the Daily Project Data analyses. Here is an example screen shot showing information about the complexity of a Hackystat project called "simpletelemetry" on a single day:
 
-  # [http://csdl.ics.hawaii.edu/Plone/research/PriorityRankedInspection Priority-ranked Inspection], developed by Aaron Kagawa, which determines which modules are most in need of software inspection;
-  # [http://csdl.ics.hawaii.edu/Plone/research/Zorro Zorro], developed by Hongbing Kou, which determines if a developer is adhering to Test-Drive Design practices; 
-  # [http://csdl.ics.hawaii.edu/Plone/research/ContinuousGQM Continuous GQM], developed by Christoph Lofi, which determines degree of satisfaction of the measures, questions, and goals in a GQM network;
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.6.gif]
 
-In this section, we will briefly introduce a fourth approach to analyzing sensor data called [http://csdl.ics.hawaii.edu/Plone/research/SoftwareProjectTelemetry Software Project Telemetry]. Software Project Telemetry was developed by Qin Zhang for his Ph.D. thesis. 
+You can select multiple projects if you want to perform a comparative analysis of them for a single day. 
+
+== 6.0 Understanding your sensor data: Software Project Telemetry ==
+
+The Daily Project Data analyses can be interesting and useful by themselves, but Hackystat builds on this analysis with a higher level abstraction called [http://csdl.ics.hawaii.edu/research/SoftwareProjectTelemetry Software Project Telemetry].  Software Project Telemetry was developed by Qin Zhang for his Ph.D. thesis. 
 
 Software Project Telemetry is an approach to in-process software project management based upon the generation and analysis of process and product measures and their trends over time.    The !ProjectBrowser application provides a high level interface to some of the features of Software Project Telemetry.  Here is an example of a Telemetry chart for a simulated project called "simpletelemetry":
 
@@ -102,7 +104,16 @@ This telemetry illustrates a hypothetical project that is "in trouble":  test co
 
 For more about telemetry, see the [Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial]. 
 
-== 6.0 Where to go from here ==
+== 7.0 Understanding your sensor data: previous Hackystat research ==
+
+Over the years, the Hackystat Project has investigated a number of different approaches to analysis of sensor data.  Here are a few of these projects:
+
+  # [http://csdl.ics.hawaii.edu/research/PriorityRankedInspection Priority-ranked Inspection], developed by Aaron Kagawa, which determines which modules are most in need of software inspection;
+  # [http://csdl.ics.hawaii.edu/research/Zorro Zorro], developed by Hongbing Kou, which determines if a developer is adhering to Test-Drive Design practices; 
+  # [http://csdl.ics.hawaii.edu/research/ContinuousGQM Continuous GQM], developed by Christoph Lofi, which determines degree of satisfaction of the measures, questions, and goals in a GQM network;
+
+
+== 8.0 Where to go next? ==
 
 This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Depending upon your interests, you might also want to take a look at one or more of the following pages:
 
