@@ -56,7 +56,7 @@ Once you have followed the directions for installing the sensor, you will want t
 
 [http://hackystat.googlecode.com/svn/wiki/projectbrowser.1.gif]
 
- Select the current month and year and the "Default" project, which is predefined to show all (and only) your own personal sensor data, and click submit.  The system will provide you with links to all of your sensor data for that month, as illustrated here:
+Select the current month and year and the "Default" project, which is predefined to show all (and only) your own personal sensor data, and click submit.  The system will provide you with links to all of your sensor data for that month, as illustrated here:
 
 [http://hackystat.googlecode.com/svn/wiki/projectbrowser.2.gif]
 
