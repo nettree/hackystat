@@ -52,9 +52,25 @@ All sensors need access to the URL associated with your !SensorBase, as well as 
 
 == 4.0 Verify that your sensors are sending data ==
 
-Once you have followed the directions for installing the sensor, you will want to verify that it is sending data to the !SensorBase.  The easiest way to do that is with the !SensorDataBrowser.  If you are sending data to the public !SensorBase, you can login to the public !SensorDataBrowser at [http://dasha.ics.hawaii.edu:9875/sensordatabrowser/] to see what data has been sent to your account.    Here is an example:
+Once you have followed the directions for installing the sensor, you will want to verify that it is sending data to the !SensorBase.  The easiest way to do that is with the !ProjectBrowser.  If you are sending data to the public !SensorBase, you can login to the public !ProjectBrowser at [http://dasha.ics.hawaii.edu:9879/projectbrowser/]. Once logged in, you will be taken to the !SensorData page, as illustrated here:
 
-[http://hackystat.googlecode.com/svn/wiki/sensordatabrowser.gif]
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.1.gif]
+
+ Select the current month and year and the "Default" project, which is predefined to show all (and only) your own personal sensor data, and click submit.  The system will provide you with links to all of your sensor data for that month, as illustrated here:
+
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.2.gif]
+
+You can further drill down to see the individual sensor data instances by clicking on a link:
+
+[http://hackystat.googlecode.com/svn/wiki/projectbrowser.3.gif]
+
+If you are not seeing sensor data from a tool, it is typically due to some sort of misconfiguration.  Some things to check:
+
+  * Did you specify the Hackystat !SensorBase host correctly?
+  * Did you specify your Hackystat account correctly? 
+  * Did you type your Hackystat password correctly? 
+
+If all of those appear OK, please contact a Hackystat administrator for help. 
 
 == 5.0 Where to go from here? ==
 
