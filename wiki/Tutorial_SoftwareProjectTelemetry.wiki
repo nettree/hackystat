@@ -151,8 +151,11 @@ Interestingly, the !ProductDevTrends chart does not reveal anything unusual.
 
 For this final example, let's return to the !MemberTrends charts.  First, let's take a look at Bob's !MemberTrends chart:
 
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4.bob.gif]
 
 Bob does not appear to be working on the project at all; he must be allocated elsewhere.  What impact does that have on Joe?
+
+[http://hackystat.googlecode.com/svn/wiki/telemetry.scrum4.joe.gif]
 
 
 Joe is overworked and trying to hard to accomplish two developer's worth of work.  Let's see what impact this has on project quality:
