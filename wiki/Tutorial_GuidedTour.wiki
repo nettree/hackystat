@@ -90,7 +90,7 @@ The !ProjectBrowser application provides a page with a user interface to many of
 
 You can select multiple projects if you want to perform a comparative analysis of them for a single day. 
 
-== 6.0 Understanding your sensor data: Software Project Telemetry ==
+== 6.0 Understanding your sensor data: Software Project Telemetry == 
 
 The Daily Project Data analyses can be interesting and useful by themselves, but Hackystat builds on this analysis with a higher level abstraction called [http://csdl.ics.hawaii.edu/research/SoftwareProjectTelemetry Software Project Telemetry].  Software Project Telemetry was developed by Qin Zhang for his Ph.D. thesis. 
 
