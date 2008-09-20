@@ -171,7 +171,7 @@ The goal of this introductory tutorial is to give you a sense for how telemetry 
 
 As you gain experience with the built-in charts, you will likely start to become interested in defining your own custom telemetry.  Contact the Hackystat developers group for support in that process. We plan to publish a tutorial on writing custom telemetry in the near future. 
 
-Finally, this example focusses on the use of telemetry to monitor and manage a single development project.  As noted at the beginning of this tutorial, you can select multiple projects in order to perform comparative analyses of different projects.  For a related approach to multiple project management, we have developed a project "portfolio" analysis mechanism.
+Finally, this example focusses on the use of telemetry to monitor and manage a single development project.  As noted at the beginning of this tutorial, you can select multiple projects in order to perform comparative analyses of different projects.  For a related approach to multiple project management, we have developed a [Tutorial_ProjectPortfolio project "portfolio" analysis mechanism].
 
 Finally, both telemetry and project portfolios enable you to compare projects that are co-occurring.  However, in some cases you might want to compare the characteristics of projects that occurred at different points in time.  We have a project "trajectory" analysis mechanism under way that can provide a means to accomplish this.  Details will be forthcoming. 
 
