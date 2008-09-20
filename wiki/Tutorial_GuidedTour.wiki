@@ -110,7 +110,7 @@ Software Project Telemetry provides a way to visualize trends in your process an
 
 A second issue with telemetry is that the visualization is "value-neutral": it does not provide any indication of whether the trend direction (or trend data values) are good or bad.  However, in many organizations, it is possible to establish generally useful interpretations such as "coverage below 50% is bad, coverage above 95% is good", and "decreasing complexity is good, increasing complexity is bad".  
 
-To support visualization of large numbers of projects and their associated trends, Hackystat provides Software Project Portfolio Analysis (SPPA).   For illustrative purposes, here is a screen shot of the Portfolio page from the ProjectBrowser on three simulated projects:
+To support visualization of large numbers of projects and their associated trends, Hackystat provides Software Project Portfolio Analysis (SPPA).   For illustrative purposes, here is a screen shot of the Portfolio page from the !ProjectBrowser UI on three simulated projects:
 
 [http://hackystat.googlecode.com/svn/wiki/projectportfolio.1.gif]
 
@@ -118,7 +118,7 @@ Without even understanding the details, you should be able to tell that the firs
 
 This is the first important feature of SPPA: an interpretation is being made of the data values.  Looking a little bit more closely, you can see that each column containing a data type (such as "Coverage", "Complexity", or "Coupling") contains two kinds of data per project: a [http://en.wikipedia.org/wiki/Sparkline Sparkline] histogram showing the trend, and a numeric value indicating the most recent value. Each of these are colored independently: the histogram is colored to reflect whether the trend is good or not, while the numeric value is colored to reflect whether that specific value is good or not.  
 
-The second feature of SPPA is that not all data values are colored. In the example, Commit, Build, !UnitTest, !FileMetric, and !DevTime data is displayed in white.  This indicates that not all Hackystat data has a simple interpretation: it is not clear, for example, what a "good" size for a system is, or that increasing size is necessarily a positive thing.  On the other hand, these data values might provide important contextual information: for example, a system that is 5,000,000 LOC might have very different characteristics than one that is 5,000 LOC.  
+The second feature of SPPA is that not all data values are colored red, yellow, or green. In the example, Commit, Build, !UnitTest, !FileMetric, and !DevTime data is displayed in white.  This indicates that not all Hackystat data has a simple interpretation: it is not clear, for example, what a "good" size for a system is, or that increasing size is necessarily a positive thing.  On the other hand, these data values might provide important contextual information: for example, a system that is 5,000,000 LOC might have very different characteristics than one that is 5,000 LOC, and thus those two systems should not be compared to each other.  
 
 Finally, SPPA provides a kind of "information compression" not present in Telemetry.  Even this very simple example illustrates the equivalent of 30 telemetry streams (10 telemetry streams for each of 3 projects).  It is easy to see that this table could easily grow to 20 or 30 projects without any loss of usability, which corresponds to 200 to 300 telemetry streams. 
 
