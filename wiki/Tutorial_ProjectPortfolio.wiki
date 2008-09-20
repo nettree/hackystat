@@ -1,8 +1,10 @@
-#summary One-sentence summary of this page.
+#summary A tutorial on basic use of Project Portfolio analysis
 
-= Introduction =
+== 1.0 Motivation ==
 
-Add your content here.
+If you read the [http://code.google.com/p/hackystat/wiki/Tutorial_GuidedTour Guided Tour], you know that Hackystat is a system in which users install sensors, collect raw data, define projects, and then run analyses to better understand the state of their project(s), potential issues, and potential opportunities for improvement. 
+
+
 
 
 = Details =
