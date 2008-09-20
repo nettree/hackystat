@@ -104,25 +104,25 @@ This telemetry illustrates a hypothetical project that is "in trouble":  test co
 
 For more about telemetry, see the [Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial]. 
 
-== 7.0 Understanding your sensor data: project portfolio analysis ==
+== 7.0 Understanding your sensor data: software project portfolio analysis ==
 
 Software Project Telemetry provides a way to visualize trends in your process and product data, and to see how several trends relate to each other at once.  However, there is an upper limit to the number of trend lines that can be displayed at once.  Beyond, say, 10 or 15 trend lines, telemetry data tends to be difficult to read and interpret.  This makes telemetry unsuited to organizations that might want to compare 20, 30, or more individual projects and their trends.
 
 A second issue with telemetry is that the visualization is "value-neutral": it does not provide any indication of whether the trend direction (or trend data values) are good or bad.  However, in many organizations, it is possible to establish generally useful interpretations such as "coverage below 50% is bad, coverage above 95% is good", and "decreasing complexity is good, increasing complexity is bad".  
 
-To support visualization of large numbers of projects and their associated trends, Hackystat provides Project Portfolio analysis.   For illustrative purposes, here is a screen shot of Project Portfolio on three simulated projects:
+To support visualization of large numbers of projects and their associated trends, Hackystat provides Software Project Portfolio Analysis (SPPA).   For illustrative purposes, here is a screen shot of the Portfolio page from the ProjectBrowser on three simulated projects:
 
 [http://hackystat.googlecode.com/svn/wiki/projectportfolio.1.gif]
 
 Without even understanding the details, you should be able to tell that the first row of data associated with the project named "!GoodProject" is "good", in the sense that this project's data is colored almost all green.  Similarly, you should be able to see that the second row of data associated with "!BadProject" is "bad", in the sense that this project's data is colored almost all red.  Finally, the last row, for "!UnstableProject", is colored yellow, which means that it is neither good nor bad at the moment, but somewhere in between.  
 
-This is the first important feature of Project Portfolio analysis: an interpretation is being made of the data values.  Looking a little bit more closely, you can see that each column containing a data type (such as "Coverage", "Complexity", or "Coupling") contains two kinds of data per project: a [http://en.wikipedia.org/wiki/Sparkline Sparkline] histogram showing the trend, and a numeric value indicating the most recent value. Each of these are colored independently: the histogram is colored to reflect whether the trend is good or not, while the numeric value is colored to reflect whether that specific value is good or not.  
+This is the first important feature of SPPA: an interpretation is being made of the data values.  Looking a little bit more closely, you can see that each column containing a data type (such as "Coverage", "Complexity", or "Coupling") contains two kinds of data per project: a [http://en.wikipedia.org/wiki/Sparkline Sparkline] histogram showing the trend, and a numeric value indicating the most recent value. Each of these are colored independently: the histogram is colored to reflect whether the trend is good or not, while the numeric value is colored to reflect whether that specific value is good or not.  
 
-The second feature of Project Portfolio analysis is that not all data values are colored. In the example, Commit, Build, !UnitTest, !FileMetric, and !DevTime data is displayed in white.  This indicates that not all Hackystat data has a simple interpretation: it is not clear, for example, what a "good" size for a system is, or that increasing size is necessarily a positive thing.  On the other hand, these data values might provide important contextual information: for example, a system that is 5,000,000 LOC might have very different characteristics than one that is 5,000 LOC.  
+The second feature of SPPA is that not all data values are colored. In the example, Commit, Build, !UnitTest, !FileMetric, and !DevTime data is displayed in white.  This indicates that not all Hackystat data has a simple interpretation: it is not clear, for example, what a "good" size for a system is, or that increasing size is necessarily a positive thing.  On the other hand, these data values might provide important contextual information: for example, a system that is 5,000,000 LOC might have very different characteristics than one that is 5,000 LOC.  
 
-Finally, Project Portfolio analysis provides a kind of "information compression" not present in Telemetry.  Even this very simple example illustrates the equivalent of 30 telemetry streams (10 telemetry streams for each of 3 projects).  It is easy to see that this table could easily grow to 20 or 30 projects without any loss of usability, which corresponds to 200 to 300 telemetry streams. 
+Finally, SPPA provides a kind of "information compression" not present in Telemetry.  Even this very simple example illustrates the equivalent of 30 telemetry streams (10 telemetry streams for each of 3 projects).  It is easy to see that this table could easily grow to 20 or 30 projects without any loss of usability, which corresponds to 200 to 300 telemetry streams. 
 
-There are a number of interesting details regarding Project Portfolio analysis, including how to configure the interpretation, and how to "drill down" to the telemetry associated with a particular Sparkline.  For these details, please see the [Tutorial_ProjectPortfolio Project Portfolio tutorial].
+There are a number of interesting details regarding SPPA, including how to configure the interpretation, and how to "drill down" to the telemetry associated with a particular Sparkline.  For these details, please see the [Tutorial_ProjectPortfolio Software Project Portfolio Analysis tutorial].
 
 == 8.0 Understanding your sensor data: previous Hackystat research ==
 
@@ -140,7 +140,7 @@ This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Dep
   * [Tutorial_SensorDataCollection Sensor Data Collection Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data.   
   * [Tutorial_Projects  Project Management Tutorial], which provides instructions on how to define and use Projects in Hackystat. 
   * [Tutorial_SoftwareProjectTelemetry Software Project Telemetry Tutorial], which provides detailed instructions on downloading sensors and collecting sensor data. 
-  * [Tutorial_ProjectPortfolio Project Portfolio Tutorial], which provides detailed instructions on using Project Portfolio analysis.
+  * [Tutorial_ProjectPortfolio Software Project Portfolio Analysis Tutorial], which provides detailed instructions on using Project Portfolio analysis.
   * [Community Community], which summarizes some of the ways Hackystat has been used in the past. 
   * [ResearchProjects Research Projects], which overviews some interesting future applications of the Hackystat Framework.
   * [Publications Publications], which overviews some of the research publications involving Hackystat. 
