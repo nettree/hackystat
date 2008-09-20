@@ -29,7 +29,7 @@ Finally, SPPA displays the data using one of four colors:  red, yellow, green, o
 
 The most recent values are colored according to thresholds. An organization might decide that coverage over 80% is "good", coverage under 50% is "bad", leaving anything in between as "unstable".  
 
-With this in mind, you can hopefully see why the hypothetical projects have their names.  Looking at the GoodProject row, almost all of the data values with interpretations are green and there are no red values.  Conversely, the BadProject row has almost all red values with no green. 
+With this in mind, you can hopefully see why the hypothetical projects have their names.  Looking at the !GoodProject row, almost all of the data values with interpretations are green and there are no red values.  Conversely, the !BadProject row has almost all red values with no green. 
 
 Independently evaluating the trend and most recent values can provide useful insight.  For example, consider two projects, A and B, both with exactly the same current test coverage of 81%.  SPPA would of course color these values the same.  Assume that project A's trend in coverage was 55%, 65%, 78%, 81%.   SPPA would color the Sparkline histogram green, to reflect the fact that Project A's coverage was steadily increasing.  Now let's assume that Project B's coverage trend was 100%, 95%, 85%, 81%.  SPPA would color this project's Sparkline red, indicating that the trend was negative.  Thus, SPPA can distinguish an interesting difference between these two projects, even though their current coverage is the same. 
 
@@ -55,7 +55,7 @@ Using the configuration screen, one can tailor the portfolio analysis with the f
 
 == 4.0 Telemetry drill down ==
 
-Because the Sparkline is based upon telemetry, you can click on any Sparkline to retrieve the corresponding telemetry chart.   For example, if you click on the Coverage Sparkline associated with the GoodProject, the following Telemetry chart will be displayed in the Telemetry page of the !ProjectBrowser. 
+Because the Sparkline is based upon telemetry, you can click on any Sparkline to retrieve the corresponding telemetry chart.   For example, if you click on the Coverage Sparkline associated with the !GoodProject, the following Telemetry chart will be displayed in the Telemetry page of the !ProjectBrowser. 
 
 [http://hackystat.googlecode.com/svn/wiki/projectportfolio.3.gif]
 
