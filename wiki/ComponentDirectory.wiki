@@ -47,8 +47,6 @@ The following table provides information on Hackystat components that are under 
 || User Interface || Project Trajectory || [http://code.google.com/p/hackystat-ui-trajectory/ hackystat-ui-trajectory] || (No documentation available.)  || Support time-independent project trajectories using 3D visualization.  ||
 ||  || RoR Viewer || [http://code.google.com/p/hackystat-ui-ror-viewer/ hackystat-ui-ror-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
 ||  || Sensor Data Visualizer || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/ hackystat-ui-sensordatavisualizer] || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/wiki/UserGuide User Guide] || Sensor Data display using Flex/Flare. ||
-||  || Chart || [http://code.google.com/p/hackystat-ui-chart/ hackystat-ui-chart] || [http://code.google.com/p/hackystat-ui-chart/wiki/UserGuide User Guide] || Service implementing interface to [http://www.jfree.org/jfreechart/ JFreeChart]. ||
-||  || Timeline || [http://code.google.com/p/hackystat-ui-timeline/ hackystat-ui-timeline] || [http://code.google.com/p/hackystat-ui-timeline/wiki/UserGuide User Guide] || Service implementing interface to [http://code.google.com/p/simile-widgets/ Simile/Timeline]. ||
 || Repository  || Postgres DB || [http://code.google.com/p/hackystat-sensorbase-postgres/ hackystat-sensorbase-postgres] || [http://code.google.com/p/hackystat-sensorbase-postgres/wiki/InstallationGuide Installation Guide]  || An alternative DB backend. ||
 || Sensor || Team Foundation Server || [http://code.google.com/p/hackystat-sensor-tfs/ hackystat-sensor-tfs] || [http://code.google.com/p/hackystat-sensor-tfs/wiki/InstallationGuide Installation Guide] || Sensor for Microsoft Team Foundation Server. ||
 || Analysis || Boswell || [http://code.google.com/p/hackystat-analysis-boswell/ hackystat-analysis-boswell] || [http://code.google.com/p/hackystat-analysis-boswell/wiki/UserGuide User Guide] || Support for developer biographies.  ||
@@ -72,6 +70,8 @@ The following table provides information on Hackystat components that have been 
 ||  || Project Viewer || [http://code.google.com/p/hackystat-ui-projectviewer/ hackystat-ui-projectviewer] || (Documentation not yet available) || Another !ProjectViewer.  ||
 ||  || Telemetry Viewer || [http://code.google.com/p/hackystat-ui-telemetryviewer/ hackystat-ui-telemetryviewer] || [http://code.google.com/p/hackystat-ui-telemetryviewer/wiki/UserGuide User Guide], [http://hackystat-ui-telemetryviewer.googlecode.com/svn/javadoc/index.html JavaDoc] || Provides a visual interface to telemetry charts. ||
 ||  || GWT Elements || [http://code.google.com/p/hackystat-ui-gwt-elements/ hackystat-ui-gwt-elements] || (No documentation yet available) || Provides abstractions for GWT development. ||
+||  || Chart || [http://code.google.com/p/hackystat-ui-chart/ hackystat-ui-chart] || [http://code.google.com/p/hackystat-ui-chart/wiki/UserGuide User Guide] || Service implementing interface to [http://www.jfree.org/jfreechart/ JFreeChart]. ||
+||  || Timeline || [http://code.google.com/p/hackystat-ui-timeline/ hackystat-ui-timeline] || [http://code.google.com/p/hackystat-ui-timeline/wiki/UserGuide User Guide] || Service implementing interface to [http://code.google.com/p/simile-widgets/ Simile/Timeline]. ||
 
 
 
