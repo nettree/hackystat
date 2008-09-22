@@ -1,5 +1,4 @@
 #summary Standard library versions and environment variables
-#labels Phase-Implementation,Phase-QA
 
 == Standard External Libraries, Variable Names, Versions ==
 
