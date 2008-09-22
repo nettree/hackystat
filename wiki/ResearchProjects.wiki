@@ -454,5 +454,26 @@ A very interesting research project would explore this pattern of use, by design
   * What are the privacy implications of "publication"?  
 
 
+== 2.15 Supporting the "Scatter Plot Quick Select" visualization ==
+
+One of the interesting applications of Software Project Telemetry is the discovery of co-variances in trend lines.  For example, it can be interesting to know that in your organization, commit frequency is correlated with build failure, or that test coverage is correlated with field-reported defects, or that coupling is correlated with unit test invocation failure rate. 
+
+The problem is that there are typically dozens of possible telemetry streams, leading to hundreds or thousands of possible pair-wise combinations. Given this moderately large space of possibilities, the question is how to enable the user to eeasily understand and explore it.  
+
+Enter "Scatter Plot Quick Select", a visualization created by Ben Schneiderman.  A nice example of the use of this visualization approach is provided in the [http://blog.palantirtech.com/2008/09/16/scatter-plot-quick-select/ Palantir Tech Blog for 9/16/2008].  Their example visualization shows pairwise combinations for 10 financial metrics, and how one could drill down.   
+
+One way to provide this visualization within Hackystat would involve the following:
+
+  * Create the UI within the !ProjectBrowser as its own tabbed page. 
+
+  * Upon visiting the page, the user selects a time interval, granularity, one or more projects,  and a set of Telemetry Charts. 
+
+  * The system then retrieves all of the telemetry charts for all of the selected projects, and extracts the constitutent "streams" which form the basic unit of analysis. 
+
+  * Pairwise combinations of all telemetry streams are formed, and correlations are calculated.  If the correlation is close to +1.0, then the pairwise combination is associated with dark green.  If the correlation is close to -1.0, then the pair-wise combination is associated with dark red.  Intermediate values get intermediate colors.  
+
+  * A triangular matrix is generated with a single box, appropriately colored, for each pairwise combination, and presented to the user.  
+  * Clicking on a given box generates a chart with the two telemetry streams so the user can better understand the correlation. 
+
 
 

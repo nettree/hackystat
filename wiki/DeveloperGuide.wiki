@@ -2,7 +2,7 @@
 
 = 1.0 Introduction =
 
-The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ProjectDirectory Project Directory].  Some of these projects are inter-dependent. For example, the Eclipse Sensor project depends upon the Sensor Shell project; the Sensor Shell project depends upon the !SensorBase project, and the !SensorBase Project depends upon the Utilities project. 
+The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ComponentDirectory Component Directory].  Some of these projects are inter-dependent. For example, the Eclipse Sensor project depends upon the Sensor Shell project; the Sensor Shell project depends upon the !SensorBase project, and the !SensorBase Project depends upon the Utilities project. 
 
 In addition, most Hackystat projects have a number of external dependencies; in other words, to build the system, you will have to download and install a third party library.  For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  You will need to consult individual packages to determine exactly which external libraries it requires. However, to support integration builds containing all of the Hackystat components, we do require a "standard" version for each external library that all Hackystat projects be compatible with.  The [LibraryStandards Library Standards] page lists all third party libraries used across all of the Hackystat projects, along with their Standard Version.  Not all Hackystat packages require all of these libraries, of course. 
 
@@ -359,9 +359,7 @@ If you are building individual projects at a time, you need to be aware of depen
   * The !SensorBase project depends upon the Utilities project.
   * The !DailyProjectData project depends upon the !SensorBase project.
   * The Telemetry project depends upon the !DailyProjectData project.
-  * The !SensorDataViewer and !SensorDataBrowser projects depends upon the !SensorBase project.
-  * The !ProjectViewer project depends upon the !DailyProjectData and !SensorBase projects.
-  * The !TelemetryViewer project depends upon the Telemetry project. 
+  * The !ProjectBrowser project depends upon the Telemetry, !DailyProjectData and !SensorBase projects.
 
 Of course, dependencies are transitive. 
 

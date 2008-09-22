@@ -41,17 +41,17 @@ At present, documentation snapshots are not packaged in these distributions. Ins
 
 If you are a new user of Hackystat, we recommend that you evaluate the system by using the publicly available services maintained by the Collaborative Software Development Laboratory at the University of Hawaii.  Using the public services does not mean your data is public, it just means that your data will be stored and analyzed by the services hosted at the University of Hawaii. This simplifies things for you, since you only need to download and install sensors. 
 
-To use the public services, you must register to obtain an account at the following URL:
+To use the public services, you must register to obtain an account. The easiest way to do this is by using the public service !ProjectBrowser, available at:
 
- * [http://dasha.ics.hawaii.edu:9876/sensorbase/register http://dasha.ics.hawaii.edu:9876/sensorbase/register]
+ * [http://dasha.ics.hawaii.edu:9879/projectbrowser http://dasha.ics.hawaii.edu:9879/projectbrowser]
 
-Supply an email address to which you have access, and the system will establish an account whose name is that email address and generate a password. The system will send information about the password immediately to this email address. 
+Supply an email address to which you have access in the Register area, and the system will establish an account whose name is that email address and generate a password. The system will send information about the password immediately to this email address. 
 
 Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. See the [ComponentDirectory Component Directory] for a list of currently available sensors. 
 
-It is quite helpful to go through the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide StackyHack User Guide] when first starting to use Hackystat.  This sample system, provided with the Sensors binary distribution, contains sample sensor implementations in Ant that illustrate how a variety of process and product data can be sent to Hackystat. 
+It is quite helpful to go through the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide StackyHack User Guide] when first starting to use Hackystat sensors.  This sample system, provided with the Sensors binary distribution, contains sample sensor implementations in Ant that illustrate how a variety of process and product data can be sent to Hackystat. 
 
-Once you have installed the sensors and are successfully sending data, you can see your sensor data using the Sensor Data Browser, or look at analysis trends using the Telemetry Viewer.  
+Once you have installed the sensors and are successfully sending data, you can see your sensor data using the !ProjectBrowser by logging in. 
 
 == Using locally installed services ==
 
