@@ -473,6 +473,7 @@ One way to provide this visualization within Hackystat would involve the followi
   * Pairwise combinations of all telemetry streams are formed, and correlations are calculated.  If the correlation is close to +1.0, then the pairwise combination is associated with dark green.  If the correlation is close to -1.0, then the pair-wise combination is associated with dark red.  Intermediate values get intermediate colors.  
 
   * A triangular matrix is generated with a single box, appropriately colored, for each pairwise combination, and presented to the user.  
+
   * Clicking on a given box generates a chart with the two telemetry streams so the user can better understand the correlation. 
 
 
