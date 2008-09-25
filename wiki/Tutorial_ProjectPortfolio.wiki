@@ -25,7 +25,9 @@ On the right hand side, the black table shows the results of running SPPA on the
 
 For each type of process/product data, SPPA provides two kinds of information:  a Sparkline histogram showing the trend in that data over time, and a number showing its most recent value.  For example, in the !GoodProject, Coverage is rising slightly over time, and its most recent value is 93.
 
-Finally, SPPA displays the data using one of four colors:  red, yellow, green, or white.  Red means "bad", green means "good", yellow means "unstable", and white means "no interpretation for this kind of data".   Trends and most recent values are colored independently.   For example, when analyzing Coverage, an increasing trend is "good" and a decreasing trend is "bad".  When analyzing Complexity, on the other hand, a decreasing trend is "good" and an increasing trend is "bad".  Finally, Size trends have no general interpretation: increasing is not necessarily good, and decreasing is not necessarily bad, nor vice-versa.  
+Finally, SPPA displays the data using one of four colors:  red, yellow, green, or white.  Red means "bad", green means "good", yellow means "unstable", and white means "no interpretation for this kind of data".   Trends and most recent values are colored independently.   For example, when analyzing Coverage, an increasing trend is "good" and a decreasing trend is "bad".  When analyzing Complexity, on the other hand, a decreasing trend is "good" and an increasing trend is "bad".  Finally, Size trends have no general interpretation: increasing is not necessarily good, and decreasing is not necessarily bad, nor vice-versa.    
+
+While some data values have no interpretation, they can provide useful contextual information.  For example, you can see that the size of !UnstableProject is an order of magnitude larger than the other projects. One should take care when comparing a project of 30,000 LOC to a project with 600,000 LOC. 
 
 The most recent values are colored according to thresholds. An organization might decide that coverage over 80% is "good", coverage under 50% is "bad", leaving anything in between as "unstable".  
 
