@@ -10,6 +10,12 @@ If you're still reading, that means you are interested in running Hackystat serv
 
 = 2.0 Downloading and configuration =
 
+== 2.1 Install Java 6 and JavaMail ==
+
+Although not a requirement of Hackystat, all of the current public Hackystat services are written in Java.  Thus, you should install [http://java.sun.com/javase/6/ Java 6].  (It is possible, but more error-prone, to use Java 5, and we will soon discontinue support for Java 5, so do yourself a favor and install Java 6.)  
+
+In addition, you must install JavaMail so that the !SensorBase can send registration information.  Instructions are available [http://code.google.com/p/hackystat/wiki/InstallingJavaMail here]. 
+
 == 2.1 Downloading the latest binary distribution ==
 
 We provide a link to the latest binary distribution of all "released" Hackystat services on the home page:
@@ -42,11 +48,6 @@ Define HACKYSTAT_SERVICE_DIST to point to the directory containing the installat
 
 [http://hackystat.googlecode.com/svn/wiki/installation.4.gif]
 
-Unfortunately, I cannot resize the window, to display the entire variable value, but it looks like this:
-{{{
-c:\public_hackystat\hackystat-%HACKYSTAT_VERSION%-services-bin
-}}}
-
 On Windows, you enclose an environment variable with '%'.
 
 On a Macintosh, you achieve the same effect by editing the .profile file and using the export command as follows:
@@ -54,6 +55,12 @@ On a Macintosh, you achieve the same effect by editing the .profile file and usi
 export HACKYSTAT_VERSION=8.1.1002
 export HACKYSTAT_SERVICE_DIST=/Users/johnson/public_hackystat/hackystat-$HACKYSTAT_VERSION-services-bin
 }}}
+
+Once you have defined these variables, check your work by bringing up a new console window and changing directory to HACKYSTAT_SERVICE_DIST.  Here what it looks like in Windows:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.4.1.gif]
+
+If you don't get to the right directory, then fix your environment variables and try again. 
 
 == 2.3 Create and populate the ~/.hackystat/ directory ==
 
