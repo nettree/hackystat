@@ -103,7 +103,7 @@ Here is what you should see when bringing up the Sensorbase service:
 
 [http://hackystat.googlecode.com/svn/wiki/installation.6.gif]
 
-Note that no errors or warnings are printed, and that it ends with "SensorBase (Version 8.1.1002 now running)". 
+Note that no errors or warnings are printed, and that it ends with "!SensorBase (Version 8.1.1002 now running)". 
 
 Once you see that the sensorbase is running, you can bring up !DailyProjectData by invoking its startup script, which produces a new console window:
 
@@ -125,7 +125,7 @@ To check this service, bring up the URL noted at the bottom of the window (in th
 
 [http://hackystat.googlecode.com/svn/wiki/installation.10.gif]
 
-Note that the bottom of the screen indicates that the Sensorbase, !DailyProjectData, and Telemetry services were all succesfully contacted. 
+Note that the bottom of the screen indicates that the Sensorbase, !DailyProjectData, and Telemetry services were all successfully contacted. 
 
 == 4.0 Advanced configuration ==
 
@@ -138,3 +138,12 @@ If you have been able to replicate the above, you will have successfully install
 
 See the documentation for the individual services for more details on these capabilities. 
 
+
+== 5.0 Upgrading ==
+
+Once you have successfully installed Hackystat, upgrading to a new binary release is extremely simple:
+
+  * Download the new service binary distribution into your public_hackystat directory, and unzip it. 
+  * Edit your HACKYSTAT_VERSION environment variable to the new version value.
+  * Bring down currently running services (type control-c in their windows).
+  * Reinvoke your scripts to bring up the new versions of the services. 
