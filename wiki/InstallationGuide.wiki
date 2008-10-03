@@ -26,7 +26,7 @@ It is a good idea to not download files into a directory path containing spaces.
 
 The next screen image shows the basic structure of the services binary distribution.  The binary distribution consists of a number of subdirectories, each containing a service.  For example, this binary distribution contains the following services: hackystat-analysis-dailyprojectdata, hackystat-analysis-telemetry, hackystat-sensorbase-postgres, hackystat-sensorbase-uh, hackystat-ui-systemstatus, and hackystat-ui-wicket. 
 
-[http://hackystat.googlecode.com/svn/wiki/installation.2.gif]
+[http://hackystat.googlecode.com/svn/wiki/installation.2.1.gif]
 
 Inside each subdirectory are files (and possibly directories) supporting that service.  In the screen image above, you see the contents of the hackystat-sensorbase-uh service folder.  It contains a number of jar files, some "startup" batch files, a properties file, and so forth.  We will explain these in more detail below. 
 
