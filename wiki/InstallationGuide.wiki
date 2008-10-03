@@ -18,7 +18,7 @@ In addition, you must install !JavaMail so that the !SensorBase can send registr
 
 == 2.2 Downloading the latest binary distribution ==
 
-We provide a link to the latest binary distribution of all "released" Hackystat services on the home page:
+We provide a link to the latest binary distribution of all "released" Hackystat services on the home page under "Featured Downloads":
 
 [http://hackystat.googlecode.com/svn/wiki/installation.1.gif]
 
