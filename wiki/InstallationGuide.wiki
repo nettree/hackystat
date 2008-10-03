@@ -51,7 +51,7 @@ On Windows, you enclose an environment variable with '%'.
 
 On a Macintosh, you achieve the same effect by editing the .profile file and using the export command as follows:
 {{{
-export HACKYSTAT_VERSION=8.1.1001
+export HACKYSTAT_VERSION=8.1.1002
 export HACKYSTAT_SERVICE_DIST=/Users/johnson/public_hackystat/hackystat-$HACKYSTAT_VERSION-services-bin
 }}}
 
@@ -69,10 +69,11 @@ On the right hand side, you can see that the sensorbase/ directory contains a fi
 
 Each service contains a file called "sample.<service>.properties", which you can use as a template.  The next step is to copy these sample files to the appropriate .hackystat subdirectory, and remove "sample." from their name. In other words:
 
-  * Copy HACKYSTAT_SERVICE_DIST/hackystat-sensorbase-uh/sample.sensorbase.properties to ~/.hackystat/sensorbase/sensorbase.properties
-  * Copy HACKYSTAT_SERVICE_DIST/hackystat-analysis-dailyprojectdata/sample.dailyprojectdata.properties to ~/.hackystat/dailyprojectdata/dailyprojectdata.properties
-  * Copy HACKYSTAT_SERVICE_DIST/hackystat-analysis-telemetry/sample.telemetry.properties to ~/.hackystat/telemetry/telemetry.properties
-  * Copy HACKYSTAT_SERVICE_DIST/hackystat-ui-wicket/sample.projectbrowser.properties to ~/.hackystat/projectbrowser/projectbrowser.properties
+|| *Copy this file* || *to here and rename it* || 
+||HACKYSTAT_SERVICE_DIST/hackystat-sensorbase-uh/sample.sensorbase.properties || ~/.hackystat/sensorbase/sensorbase.properties ||
+|| HACKYSTAT_SERVICE_DIST/hackystat-analysis-dailyprojectdata/sample.dailyprojectdata.properties || ~/.hackystat/dailyprojectdata/dailyprojectdata.properties ||
+|| HACKYSTAT_SERVICE_DIST/hackystat-analysis-telemetry/sample.telemetry.properties || ~/.hackystat/telemetry/telemetry.properties ||
+|| HACKYSTAT_SERVICE_DIST/hackystat-ui-wicket/sample.projectbrowser.properties || ~/.hackystat/projectbrowser/projectbrowser.properties ||
 
 You must check each of these property files and change any properties as required to suit your local installation.  The properties files are documented here:
   * [http://code.google.com/p/hackystat-sensorbase-uh/wiki/SensorBaseProperties sensorbase.properties]
