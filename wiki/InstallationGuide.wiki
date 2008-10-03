@@ -10,13 +10,13 @@ If you're still reading, that means you are interested in running Hackystat serv
 
 = 2.0 Downloading and configuration =
 
-== 2.1 Install Java 6 and JavaMail ==
+== 2.1 Install Java 6 and !JavaMail ==
 
 Although not a requirement of Hackystat, all of the current public Hackystat services are written in Java.  Thus, you should install [http://java.sun.com/javase/6/ Java 6].  (It is possible, but more error-prone, to use Java 5, and we will soon discontinue support for Java 5, so do yourself a favor and install Java 6.)  
 
-In addition, you must install JavaMail so that the !SensorBase can send registration information.  Instructions are available [http://code.google.com/p/hackystat/wiki/InstallingJavaMail here]. 
+In addition, you must install !JavaMail so that the !SensorBase can send registration information.  Instructions are available [http://code.google.com/p/hackystat/wiki/InstallingJavaMail here]. 
 
-== 2.1 Downloading the latest binary distribution ==
+== 2.2 Downloading the latest binary distribution ==
 
 We provide a link to the latest binary distribution of all "released" Hackystat services on the home page:
 
@@ -36,7 +36,7 @@ The next screen image shows the basic structure of the services binary distribut
 
 Inside each subdirectory are files (and possibly directories) supporting that service.  In the screen image above, you see the contents of the hackystat-sensorbase-uh service folder.  It contains a number of jar files, some "startup" batch files, a properties file, and so forth.  We will explain these in more detail below. 
 
-== 2.2 Define HACKYSTAT_VERSION and HACKYSTAT_SERVICE_DIST environment variables ==
+== 2.3 Define HACKYSTAT_VERSION and HACKYSTAT_SERVICE_DIST environment variables ==
 
 It is convenient to define two environment variables when installing Hackystat services, since these will simplify upgrading your system to future releases of the services. 
 
@@ -62,7 +62,7 @@ Once you have defined these variables, check your work by bringing up a new cons
 
 If you don't get to the right directory, then fix your environment variables and try again. 
 
-== 2.3 Create and populate the ~/.hackystat/ directory ==
+== 2.4 Create and populate the ~/.hackystat/ directory ==
 
 All Hackystat services refer to the .hackystat subdirectory in the user's home directory for local configuration information.  There are four "standard" services that you will typically set up: the sensorbase, dailyprojectdata, telemetry, and projectbrowser.  
 
