@@ -1,63 +1,139 @@
-#summary How to install Hackystat from a binary distribution.
+#summary How to install Hackystat services from a binary distribution.
 
 = 1.0 Introduction =
 
-This page provides a guide to installing Hackystat from a "Binary Distribution" found in the [http://code.google.com/p/hackystat/downloads/list Downloads] area of this Google Project.  
+This page provides a guide to installing Hackystat services from a "Binary Distribution".  
 
-A Hackystat "Binary Distribution" consists of a set of zip files with a common version number. Together, they provide a snapshot of all releasable Hackystat sensors and services built at one time and tested against each other whenever possible. It is also possible to download and install individual Hackystat sensors and services by going to their individual Google Project Hosting pages, but most users will find it more convenient and less failure-prone to download the most recent Binary Distribution and use that as the basis for their activities. 
+Note that most users do not need to install Hackystat services; instead, they will install Hackystat sensors and send their data to the public Hackystat services.  For information on how to install Hackystat sensors, see the [http://code.google.com/p/hackystat/wiki/Tutorial_SensorDataCollection Sensor Data Collection Tutorial].
 
-= 2.0 Structure of the Binary Distribution =
+If you're still reading, that means you are interested in running Hackystat services, such as the !SensorBase, in your local environment. 
 
-Currently, a Hackystat Binary distribution consists of two zip files. For example, the January 11, 2008 Binary Distribution consists of the following files:
+= 2.0 Downloading and configuration =
 
-|| *File Name* || *Contents* ||
-|| hackystat-8.0.111-sensors-bin.zip  || Binaries for the (client side) Hackystat sensors ||
-|| hackystat-8.0.111-services-bin.zip || Binaries for the (server side) Hackystat services ||
+== 2.1 Downloading the latest binary distribution ==
 
-The binary distributions expand into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor or service contained within the distribution. For example:
+We provide a link to the latest binary distribution of all "released" Hackystat services on the home page:
 
+[http://hackystat.googlecode.com/svn/wiki/installation.1.gif]
+
+You can see that there are two files listed as "Featured Downloads": one for sensors, and one for services.  You will want to download the "services" zip file. 
+
+We recommend that you create a top-level directory called "public_hackystat" and store all binary downloads in it.  For example, this screen image shows the results of downloading these featured releases and unzipping them:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.2.gif]
+
+It is a good idea to not download files into a directory path containing spaces. Thus, avoid directories like "Program Files". 
+
+The next screen image shows the basic structure of the services binary distribution.  The binary distribution consists of a number of subdirectories, each containing a service.  For example, this binary distribution contains the following services: hackystat-analysis-dailyprojectdata, hackystat-analysis-telemetry, hackystat-sensorbase-postgres, hackystat-sensorbase-uh, hackystat-ui-systemstatus, and hackystat-ui-wicket. 
+
+[http://hackystat.googlecode.com/svn/wiki/installation.2.gif]
+
+Inside each subdirectory are files (and possibly directories) supporting that service.  In the screen image above, you see the contents of the hackystat-sensorbase-uh service folder.  It contains a number of jar files, some "startup" batch files, a properties file, and so forth.  We will explain these in more detail below. 
+
+== 2.2 Define HACKYSTAT_VERSION and HACKYSTAT_SERVICE_DIST environment variables ==
+
+It is convenient to define two environment variables when installing Hackystat services, since these will simplify upgrading your system to future releases of the services. 
+
+Define HACKYSTAT_VERSION as the current version you have downloaded.  On Windows, you define an environment variable by right-clicking on My Computer, then selecting Properties, then selecting the "Advanced" tab, then clicking the "Environment Variables" button, then clicking "New".   Here is an example:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.3.gif]
+
+Define HACKYSTAT_SERVICE_DIST to point to the directory containing the installation, and define that path using the value of HACKYSTAT_VERSION.  Here is an example:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.4.gif]
+
+Unfortunately, I cannot resize the window, to display the entire variable value, but it looks like this:
 {{{
-hackystat-8.0.111-sensors-bin/
-                              README.html
-                              hackystat-sensor-ant/
-                                                   antsensors.jar
-                              hackystat-sensor-emacs/
-                                                     sensor-package.el
-                              hackystat-sensor-eclipse/
-                                                       org.hackystat.sensor.eclipse_8.0.v20080111.jar
-   :
-   :
+c:\public_hackystat\hackystat-%HACKYSTAT_VERSION%-services-bin
 }}}
 
-The README.html file simply points you to this page. 
+On Windows, you enclose an environment variable with '%'.
 
-Note that the version number, 8.0.111, indicates the major release (8), the minor release (0), and the month/day of this build (111, or January 11).                                                                  
+On a Macintosh, you achieve the same effect by editing the .profile file and using the export command as follows:
+{{{
+export HACKYSTAT_VERSION=8.1.1001
+export HACKYSTAT_SERVICE_DIST=/Users/johnson/public_hackystat/hackystat-$HACKYSTAT_VERSION-services-bin
+}}}
 
-At present, documentation snapshots are not packaged in these distributions. Instead, see the [ComponentDirectory Component Directory] for links to User Guides and other documentation.
+== 2.3 Create and populate the ~/.hackystat/ directory ==
 
-= 3.0 Using a Binary Distribution =
+All Hackystat services refer to the .hackystat subdirectory in the user's home directory for local configuration information.  There are four "standard" services that you will typically set up: the sensorbase, dailyprojectdata, telemetry, and projectbrowser.  
 
-== 3.1 If you are using the "public" services ==
+To start, create a directory called ".hackystat" in your home directory, and create four subdirectories in that directory called sensorbase, dailyprojectdata, telemetry, and projectbrowser.  The following screen image shows you what this looks like:
 
-If you are a new user of Hackystat, we recommend that you evaluate the system by using the publicly available services maintained by the Collaborative Software Development Laboratory at the University of Hawaii.  Using the public services does not mean your data is public, it just means that your data will be stored and analyzed by the services hosted at the University of Hawaii. This simplifies things for you, since you only need to download and install sensors. 
+[http://hackystat.googlecode.com/svn/wiki/installation.5.gif]
 
-To use the public services, you must register to obtain an account. The easiest way to do this is by using the public service !ProjectBrowser, available at:
+In the left hand pane above, you can see the contents of the .hackystat directory. In this case, there is a fifth subdirectory called "sensorshell", which is present since I have sensors installed on this computer as well. 
 
- * [http://dasha.ics.hawaii.edu:9879/projectbrowser http://dasha.ics.hawaii.edu:9879/projectbrowser]
+On the right hand side, you can see that the sensorbase/ directory contains a file named "sensorbase.properties".  In addition, the dailyprojectdata/ directory contains a file called dailyprojectdata.properties, the telemetry/ directory contains telemetry.properties, and projectbrowser/ contains projectbrowser.properties.  
 
-Supply an email address to which you have access in the Register area, and the system will establish an account whose name is that email address and generate a password. The system will send information about the password immediately to this email address. 
+Each service contains a file called "sample.<service>.properties", which you can use as a template.  The next step is to copy these sample files to the appropriate .hackystat subdirectory, and remove "sample." from their name. In other words:
 
-Next, download the binary "sensors" distribution, and install whichever sensors are appropriate for your development environment. See the [ComponentDirectory Component Directory] for a list of currently available sensors. 
+  * Copy HACKYSTAT_SERVICE_DIST/hackystat-sensorbase-uh/sample.sensorbase.properties to ~/.hackystat/sensorbase/sensorbase.properties
+  * Copy HACKYSTAT_SERVICE_DIST/hackystat-analysis-dailyprojectdata/sample.dailyprojectdata.properties to ~/.hackystat/dailyprojectdata/dailyprojectdata.properties
+  * Copy HACKYSTAT_SERVICE_DIST/hackystat-analysis-telemetry/sample.telemetry.properties to ~/.hackystat/telemetry/telemetry.properties
+  * Copy HACKYSTAT_SERVICE_DIST/hackystat-ui-wicket/sample.projectbrowser.properties to ~/.hackystat/projectbrowser/projectbrowser.properties
 
-It is quite helpful to go through the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide StackyHack User Guide] when first starting to use Hackystat sensors.  This sample system, provided with the Sensors binary distribution, contains sample sensor implementations in Ant that illustrate how a variety of process and product data can be sent to Hackystat. 
+You must check each of these property files and change any properties as required to suit your local installation.  The properties files are documented here:
+  * [http://code.google.com/p/hackystat-sensorbase-uh/wiki/SensorBaseProperties sensorbase.properties]
+  * [http://code.google.com/p/hackystat-analysis-dailyprojectdata/wiki/DailyProjectDataProperties dailyprojectdata.properties]
+  * [http://code.google.com/p/hackystat-analysis-telemetry/wiki/TelemetryProperties telemetry.properties]
+  * [http://code.google.com/p/hackystat-ui-wicket/wiki/ProjectBrowserProperties projectbrowser.properties]
 
-Once you have installed the sensors and are successfully sending data, you can see your sensor data using the !ProjectBrowser by logging in. 
+== 3.0 Bringing up services ==
 
-== Using locally installed services ==
+Each of the services comes with a pair of startup scripts to simplify bringing up the associated service.  They are named startup.<service>.bat (for Windows) and startup.<service>.command (for Macintosh).  These scripts are extremely simple. Here, for example, is the startup.sensorbase.bat script:
+{{{
+title = Sensorbase %HACKYSTAT_VERSION%
+java -Xmx512M -jar %HACKYSTAT_SERVICE_DIST%\hackystat-sensorbase-uh\sensorbase.jar
+}}}
 
-If you wish to install and run the Hackystat services locally, then in addition to downloading the binary "sensors" distribution, you must also download the binary "services" distribution.  The services distribution includes both "analysis" services, which normally provide only a REST API as their interface, and "ui" services, which provide a browser-based or other human-oriented user interface. 
+All service scripts are essentially the same: they set the title of the associated console window, and then invoke the jar file associated with the specified service while increasing the maximum heap size to 512M.  
 
-See the [ComponentDirectory Component Directory] for a listing of the analyses and user interface packages currently available.
+It is nice (though not essential) to bring up the services in the following order:
+  * Sensorbase
+  * !DailyProjectData
+  * Telemetry
+  * !ProjectBrowser
 
+This is because later services require connections to each of the earlier services, and test this connection on startup.  By bringing them up in order, you can ensure that you have configured things correctly.  (That said, it is perfectly reasonable to bring down any service temporarily and bring it back up without having to restart the other ones.)
 
+Here is what you should see when bringing up the Sensorbase service:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.6.gif]
+
+Note that no errors or warnings are printed, and that it ends with "SensorBase (Version 8.1.1002 now running)". 
+
+Once you see that the sensorbase is running, you can bring up !DailyProjectData by invoking its startup script, which produces a new console window:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.7.gif]
+
+Note that the service indicates that it contacted the Sensorbase successfully, and that it is now running. 
+
+Next, Telemetry:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.8.gif]
+
+The telemetry startup process is a little more complicated, but you can see near the bottom that it successfully contacted both the Sensorbase and the !DailyProjectData services. 
+
+Finally, !ProjectBrowser:
+
+[http://hackystat.googlecode.com/svn/wiki/installation.9.gif]
+
+To check this service, bring up the URL noted at the bottom of the window (in this case, http://localhost:9879/projectbrowser):
+
+[http://hackystat.googlecode.com/svn/wiki/installation.10.gif]
+
+Note that the bottom of the screen indicates that the Sensorbase, !DailyProjectData, and Telemetry services were all succesfully contacted. 
+
+== 4.0 Advanced configuration ==
+
+If you have been able to replicate the above, you will have successfully installed the four basic Hackystat services.  Congratulations!  Note that each service can have its own specialized configuration options:
+
+ * The sensorbase can be configured to rely on a different backend database, such as Postgres, instead of the default (Derby).
+ * !DailyProjectData and Telemetry can be configured to use caching. 
+ * Telemetry can support prefetching and user defined charts. 
+ * !ProjectBrowser can support optional pages and Portfolio configuration.
+
+See the documentation for the individual services for more details on these capabilities. 
 
