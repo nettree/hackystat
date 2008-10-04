@@ -12,7 +12,7 @@ Sensors send their data to a repository called the !SensorBase, represented here
 
 Sensor data tends to be quite low-level and voluminous, and in most cases needs to be analyzed and abstracted in some way in order for it to be of use to developers.  The green boxes represent examples of Hackystat analysis services.  The !DailyProjectData analysis provides a set of abstractions generated from all of the raw sensor data for a given day and project. The Telemetry analysis takes !DailyProjectData analyses along with raw data from the !SensorBase and produces trend-based information about software development. Boswell is an experimental analysis that supports awareness in distributed work groups as well as a kind of developer "biography". 
 
-Finally, the gold boxes represent user interface services, which provide information from the Framework to the user, and in some cases allow the user to feed information back into the Framework.  For example, the !ProjectViewer displays both data from the !SensorBase and !DailyProjectData analyses, and allows the user to create and modify Project definitions stored in the !SensorBase.  Hackystat user interfaces need not be limited to web browsers, and we are exploring alternative user interface mechanisms such as ambient devices. 
+Finally, the gold boxes represent user interface services, which provide information from the Framework to the user, and in some cases allow the user to feed information back into the Framework.  For example, the !ProjectBrowser displays both data from the !SensorBase and !DailyProjectData analyses, and allows the user to create and modify Project definitions stored in the !SensorBase.  Hackystat user interfaces need not be limited to web browsers, and we are exploring alternative user interface mechanisms such as ambient devices. 
 
 In keeping with REST architectural principles, all of the arrows in this
 diagram represent communication among services using standard HTTP GET,
@@ -144,5 +144,3 @@ This concludes the Guided Tour of Hackystat, and we hope you've enjoyed it.  Dep
   * [Community Community], which summarizes some of the ways Hackystat has been used in the past. 
   * [ResearchProjects Research Projects], which overviews some interesting future applications of the Hackystat Framework.
   * [Publications Publications], which overviews some of the research publications involving Hackystat. 
-
-
