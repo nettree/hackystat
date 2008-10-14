@@ -1,4 +1,5 @@
 #summary A brief introduction to Hackystat, with pictures.
+#labels Featured
 
 == 1.0 What is Hackystat? ===
 
