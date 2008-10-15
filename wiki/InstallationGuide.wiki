@@ -24,6 +24,8 @@ We provide a link to the latest binary distribution of all "released" Hackystat 
 
 You can see that there are two files listed as "Featured Downloads": one for sensors, and one for services.  You will want to download the "services" zip file. 
 
+||Note: If the home page does not provide any "Featured Downloads", click on the "Downloads" tab instead to obtain links to the downloads. ||
+
 We recommend that you create a top-level directory called "public_hackystat" and store all binary downloads in it.  For example, this screen image shows the results of downloading these featured releases and unzipping them:
 
 [http://hackystat.googlecode.com/svn/wiki/installation.2.gif]
