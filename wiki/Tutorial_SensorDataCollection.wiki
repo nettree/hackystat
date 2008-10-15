@@ -25,6 +25,8 @@ Note that the Hackystat binary distribution is packaged as two downloadable file
 
 You only need to download the "sensors" distribution in order to install a prebuilt sensor.
 
+||Note: If the Hackystat home page does not specify Featured Downloads, click on the "Downloads" tab instead to access them. ||
+
 The binary distribution expands into a top-level directory with the same name as the file (except for the .zip suffix), with a subdirectory for each sensor. For example:
 
 {{{
@@ -81,4 +83,3 @@ Once you are successfully sending data to the !SensorBase, the next step is to a
 If you are working in a group, or are working on multiple tasks that you would like to analyze separately, then you will want to learn more about Hackystat Projects.  More details on Projects are available at:
 
   * [Tutorial_Projects Hackystat Projects Tutorial]
-
