@@ -4,6 +4,7 @@ The Hackystat Project, initiated in 2001, is an open source community of researc
 
 We gratefully acknowledge the following organizations for their financial support.
 
+ * Google, Inc
  * The National Science Foundation
  * SUN Microsystems
  * NASA
