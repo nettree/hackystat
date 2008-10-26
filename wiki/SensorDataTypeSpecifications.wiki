@@ -65,6 +65,13 @@ type-specific information.
 
 Sensor Data is transmitted and received using RESTful principles.  See [http://code.google.com/p/hackystat-sensorbase-uh/wiki/RestApiSpecification Sensor Data REST API] for details. 
 
+You can, of course, generate and send this XML using the language of your choice. If you happen to be using Java, we have developed two libraries that can be helpful:
+
+  * !SensorBaseClient ([http://hackystat-sensorbase-uh.googlecode.com/svn/javadoc/org/hackystat/sensorbase/client/SensorBaseClient.html JavaDoc], [http://code.google.com/p/hackystat-sensorbase-uh/wiki/WritingSensorBaseClients Examples]) provides useful facilities for sensor data retrieval, and basic facilities for transmission.
+  * !SensorShell ([http://hackystat-sensor-shell.googlecode.com/svn/javadoc/index.html JavaDoc], [http://code.google.com/p/hackystat-sensor-shell/wiki/UserGuide UserGuide]) provides more sophisticated facilities for sensor data transmission.
+
+
+
 
 = 3.0 Required Sensor Data Fields =
 
