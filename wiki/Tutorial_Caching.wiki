@@ -53,7 +53,7 @@ Unfortunately, for the entire portfolio analysis shown above, we have to get ten
 
 == 2.0 Caching to the rescue ==
 
-Fortunately, one of the beautiful things about the RESTful architecture used in Hackystat 8 is that it is well suited to caching.  Basically, the Telemetry service caches any !DailyProjectData instances it requests from the !DailyProjectData service.  Similarly, the !DailyProjectData service caches any !SensorData instances it requests from the !SensorBase. 
+Fortunately, one of the beautiful things about the [http://en.wikipedia.org/wiki/Representational_State_Transfer RESTful architecture] used in Hackystat 8 is that it is well suited to caching.  Basically, the Telemetry service caches any !DailyProjectData instances it requests from the !DailyProjectData service.  Similarly, the !DailyProjectData service caches any !SensorData instances it requests from the !SensorBase. 
 
 What this means is the following: the first time anyone in a project requests data, they have to pay the "full price" in terms of HTTP requests, but from that point on, everyone else can exploit the cached data to eliminate most of the computation and HTTP requests.   
 
