@@ -2,12 +2,7 @@
 
 == Executive Summary ==
 
-  _Hackystat implements caching to improve performance.  Cached values can
-   become invalid if you change the project membership or !UriPatterns.  They
-   can also become invalid if you send sensor data with timestamps more than a
-   day old.  In either of these cases, use the Projects page of the
-   !ProjectBrowser to clear the caches associated with the Project that has
-   been changed._
+  _Hackystat implements caching to improve performance.  Cached values can become invalid if you change the project membership or !UriPatterns.  They can also become invalid if you send sensor data with timestamps more than a day old.  In either of these cases, use the Projects page of the !ProjectBrowser to clear the caches associated with the Project that has been changed._
 
 ----------------------------------------------------------------
 
