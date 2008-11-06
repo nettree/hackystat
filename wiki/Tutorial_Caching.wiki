@@ -15,7 +15,7 @@ a set of services communicating via HTTP:
 
 [http://hackystat.googlecode.com/svn/wiki/caching.2.gif]
 
-This architecture is in many ways a huge improvement.  For example, if you want to build a new Hackystat feature called "Foo" that depends only on, say, DailyProjectData, you can communicate with that service directly through HTTP:
+This architecture is in many ways a huge improvement.  For example, if you want to build a new Hackystat feature called "Foo" that depends only on, say, !DailyProjectData, you can communicate with that service directly through HTTP:
 
 [http://hackystat.googlecode.com/svn/wiki/caching.3.gif]
 
@@ -39,11 +39,11 @@ Let's look at how that translates into HTTP calls.  To start, let's watch the fi
 
 [http://hackystat.googlecode.com/svn/wiki/caching.6.gif]
 
-So far, not bad: just two HTTP requests.  Now, to build that trend data, the telemetry service needs to get some DailyProjectData instances.  In fact, it needs to get one DPD instance per day for the analysis interval.  I said that this analysis was for five weeks, so that's 35 days, or 35 HTTP request/response cycles to the DailyProjectData service for that single trend:
+So far, not bad: just two HTTP requests.  Now, to build that trend data, the telemetry service needs to get some !DailyProjectData instances.  In fact, it needs to get one DPD instance per day for the analysis interval.  I said that this analysis was for five weeks, so that's 35 days, or 35 HTTP request/response cycles to the !DailyProjectData service for that single trend:
 
 [http://hackystat.googlecode.com/svn/wiki/caching.7.gif]
 
-Not good, but it gets worse:  for each of these 35 DailyProjectData instances, the service might needs to retrieve dozens to hundreds of sensor data instances from the SensorBase:
+Not good, but it gets worse:  for each of these 35 !DailyProjectData instances, the service might needs to retrieve dozens to hundreds of sensor data instances from the !SensorBase:
 
 [http://hackystat.googlecode.com/svn/wiki/caching.8.gif]
 
