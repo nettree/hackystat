@@ -52,7 +52,7 @@ So far, not bad: just two HTTP requests.  Now, to build that trend data, the tel
 
 [http://hackystat.googlecode.com/svn/wiki/caching.7.gif]
 
-Now we're up to a total of 37 HTTP requests.  This is already a terrible increase, but it gets even worse:  for each of these 35 !DailyProjectData instances, the service might needs to retrieve dozens to hundreds of sensor data instances from the !SensorBase:
+Now we're up to a total of 37 HTTP requests.  This is already a terrible increase, but it gets even worse:  for each of these 35 !DailyProjectData instances, the service might need to retrieve dozens to hundreds of sensor data instances from the !SensorBase:
 
 [http://hackystat.googlecode.com/svn/wiki/caching.8.gif]
 
