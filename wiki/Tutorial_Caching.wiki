@@ -48,7 +48,7 @@ Not good, but it gets worse:  for each of these 35 DailyProjectData instances, t
 [http://hackystat.googlecode.com/svn/wiki/caching.8.gif]
 
 Let's assume each DPD instance requires 20 sensor data instances on average.  That means that for just one of the trend lines in the portfolio analysis, we have to get 1 (web interface) + 1 (Telemetry) + 35 (DPD) + 700 (SensorBase) = 737 HTTP requests.
-Unfortunately, we have to get ten trend lines for each of ten projects, so we actually have 100 trend lines to retrieve.  That means a single portfolio analysis could require 73,700 HTTP requests.  Holy Smokes! 
+Unfortunately, we have to get ten trend lines for each of ten projects, so we actually have 100 trend lines to retrieve.  That means that this single simple portfolio analysis could require 73,700 HTTP requests.  Holy Smokes! 
 
 
 
