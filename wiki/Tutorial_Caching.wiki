@@ -1,13 +1,64 @@
-#summary One-sentence summary of this page.
+#summary Caching in Hackystat
 
-= Introduction =
+== 1.0 Motivation ==
 
-Add your content here.
+In Hackystat Versions 1 to 7, the system provided a standard two-tier client server architecture:
 
 
-= Details =
+[http://hackystat.googlecode.com/svn/wiki/caching.1.gif]
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+This architecture was simple, and as long as the system remained simple, it
+worked quite well.  Unfortunately, by Version 7, the system had become
+quite complex, with many different extension points, and we recognized that
+in order to better support future development, we should decompose the "server" into
+a set of services communicating via HTTP:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.2.gif]
+
+This architecture is in many ways a huge improvement.  For example, if you want to build a new Hackystat feature called "Foo" that depends only on, say, DailyProjectData, you can communicate with that service directly through HTTP:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.3.gif]
+
+You can write your Foo feature using virtually any language or framework you want, since it communicates with Hackystat through HTTP. 
+
+The new architecture is also more scalable.  Let's say that the web interface is getting bogged down.  Well, just bring up a second one on a different machine and tell some of your users to go there instead:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.4.gif]
+
+Basically any of the services can be replicated, leading to all sorts of different distributed architectures. 
+
+While the "service-oriented architecture" in Hackystat 8 has a number of strengths, it also has one substantial weakness: what used to be accomplished with a single HTTP request in the old client-server architecture might now require dozens, hundreds, or even thousands of HTTP requests!  
+
+To see why this is so, let's consider an important Hackystat use case:  the Project Portfolio analysis:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.5.gif]
+
+In general, each histogram/sparkline in the portfolio analysis corresponds to one telemetry chart providing trend data for a certain period of time. In the above display, the analysis is showing ten projects and ten trend lines, where each trend line corresponds to five weeks.   
+
+Let's look at how that translates into HTTP calls.  To start, let's watch the first project attempt to get the first historgram. It begins by the user in their browser requesting the portfolio page from the web interface.  To build it, the web interface requests the trend data for the first analysis (Coverage) on the first project (hackystat-analysis-dailyprojectdata):
+
+[http://hackystat.googlecode.com/svn/wiki/caching.6.gif]
+
+So far, not bad: just two HTTP requests.  Now, to build that trend data, the telemetry service needs to get some DailyProjectData instances.  In fact, it needs to get one DPD instance per day for the analysis interval.  I said that this analysis was for five weeks, so that's 35 days, or 35 HTTP request/response cycles to the DailyProjectData service for that single trend:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.7.gif]
+
+Not good, but it gets worse:  for each of these 35 DailyProjectData instances, the service might needs to retrieve dozens to hundreds of sensor data instances from the SensorBase:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.8.gif]
+
+Let's assume each DPD instance requires 20 sensor data instances on average.  That means that for just one of the trend lines in the portfolio analysis, we have to get 1 (web interface) + 1 (Telemetry) + 35 (DPD) + 700 (SensorBase) = 737 HTTP requests.
+Unfortunately, we have to get ten trend lines for each of ten projects, so we actually have 100 trend lines to retrieve.  That means a single portfolio analysis could require 73,700 HTTP requests.  Holy Smokes! 
+
+
+
+
+
+
+
+
+
+
+
+
+
