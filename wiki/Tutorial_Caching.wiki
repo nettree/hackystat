@@ -81,11 +81,15 @@ Are our problems over?  Have we achieved the speed of a monolithic server along 
 
 == 3.0 The problem with caching ==
 
-To understand the problem with caching, it helps to think of it this way:  when you cache the results of a computation, such as a !DailyProjectData instance or a Telemetry trend line, you are essentially taking a "snapshot" of the system at a single point in time and freezing it.  The benefit of the snapshot is that you can now save a tremendous amount of computation later.  The cost of the snapshot is the possibility that the state of the system could change in some way that if you were to run the computation again, you would obtain a different result.  If that's the case, then your cached object has become "stale".
+To understand the problem with caching, it helps to think of it this way:  when you cache the results of a computation, such as a !DailyProjectData instance or a Telemetry trend line, you are essentially taking a "snapshot" of the system at a single point in time and "freezing" it.  The benefit of the snapshot is that you can now save a tremendous amount of computation later.  The cost of the snapshot is the possibility that the state of the system could change in some way such that if you were to run the computation again, you would obtain a different result.  If that's the case, then your cached object has become "stale", or invalid.
 
-There are many approaches to determining and/or minimizing the possibility of stale cached objects.  In the case of Hackystat, there are two kinds of objects that we currently cache:
+There are many approaches to determining and/or minimizing the possibility of stale or invalid cached objects.  In the case of Hackystat, there are two kinds of objects that we currently cache: sensor data and !DailyProjectData instances.
 
-The first kind of object is sensor data.  Cached sensor data instances are extremely unlikely to become stale, because that happens only when a sensor data instance is overwritten with a new value.  In the seven years that we have been running Hackystat servers, overwriting sensor data instances has happened only a handful of times, and only when we as administrators were updating internal representations under controlled and monitored conditions.  We are not aware of any times that a user has intentionally overwritten their own sensor data instances with new values. 
+=== 3.1 Cached sensor data: a non-problem ===
+
+The first kind of object is sensor data.  Cached sensor data instances are extremely unlikely to become stale, because that happens only when an existing sensor data instance is overwritten with a new value.  In the seven years that we have been running Hackystat servers, overwriting sensor data instances has happened only a handful of times, and only when we as administrators were updating internal representations under controlled and monitored conditions.  We are not aware of any times that a user has intentionally overwritten their own sensor data instances with new values. 
+
+=== 3.2 Cached DPD data: a big problem ===
 
 The second kind of object is a !DailyProjectData (DPD) instance.  As its name implies, a DPD instance summarizes the value of a certain kind of data about a project on a single day.  For example, one kind of DPD represents the number of times the project has been built on a single day.  
 
@@ -105,11 +109,15 @@ A similar situation can occur when changing the !UriPattern: if we changed the !
 
 There is a third situation in which a DPD instance can become invalid even when it's not the current day and when the project definition hasn't changed.  This is when a project member sends sensor data from the past to the server!  You might think this would require time travel, but it doesn't.  All it requires is a period during which you work in a manner disconnected from the Internet.  Let's say you go visit your relatives for the weekend and they don't have Internet access.  You continue to work on your code while you're there.  All this time, Hackystat sensors are storing your sensor data locally.  Once you return to civilization (and network access), your locally stored sensor data will be sent off to the server with the timestamps associated with the time of collection.  If another project member had been running analyses over the weekend, they could have cached DPD instances for Saturday or Sunday which are now invalid because upon your return on Monday morning, your computer sent off sensor data with timestamps for Saturday and Sunday. 
 
+=== 3.3 When you need to worry about your caches ===
+
 To summarize, there are two situations in which cached DPD data can become invalid:
   * When you change the membership or !UriPatterns associated with a Project;
   * When you send data from more than a day in the past.  (It has to be over a day old, since Hackystat does not cache DPD instances from the current day).
 
-== 4.0 Emptying the cache ==
+Fortunately, both of these situations are infrequent in practice. 
+
+== 4.0 How to clear the DPD caches when you suspect they are bad ==
 
 As of now, we do not have any automated mechanisms in place to detect when DPD caches need to be cleared.  Instead, we have simply implemented a way for users to clear their own caches.  On the Project page of the !ProjectBrowser, there is a button associated with each project called "Clear Cache": 
 
