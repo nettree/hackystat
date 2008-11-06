@@ -53,6 +53,28 @@ Unfortunately, for the entire portfolio analysis shown above, we have to get ten
 
 == 2.0 Caching to the rescue ==
 
+Fortunately, one of the beautiful things about the RESTful architecture used in Hackystat 8 is that it is well suited to caching.  Basically, the Telemetry service caches any !DailyProjectData instances it requests from the !DailyProjectData service.  Similarly, the !DailyProjectData service caches any !SensorData instances it requests from the !SensorBase. 
+
+What this means is the following: the first time anyone in a project requests data, they have to pay the "full price" in terms of HTTP requests, but from that point on, everyone else can exploit the cached data to eliminate most of the computation and HTTP requests.  
+
+Hackystat is well suited to this approach, since any given project member will typically run an analysis like Portfolio every few days over the past several weeks of data.  That means that most of the trend data will have been computed previously and be stored in one of the caches.  In the best case, all of it will have been previously cached, resulting in just 100 HTTP requests:
+
+[http://hackystat.googlecode.com/svn/wiki/caching.9.gif]
+
+If each HTTP request takes about a half second, so that's about 50 seconds to display the above portfolio analysis, which is displaying trends in 10 measures for 10 projects for 35 days, or about 3,500 data points.  
+
+As this diagram illustrates, we could easily reduce the number of HTTP requests to zero (for this best case scenario where all of the computation has been done previously) simply by adding a cache to the web interface service.  However, we have not yet felt the need to do this. 
+
+== 3.0 The problem with caching ==
+
+
+
+
+
+
+
+
+
 
 
 
