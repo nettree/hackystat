@@ -123,9 +123,9 @@ The following table lists, for each sensor data type, the set of optional fields
 || !FileMetric || !TotalLines || 200 || (Expected) The total number of lines in this file. ||
 || || `*`!ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the '!CyclomaticComplexityList' property. || 
 || Issue || ID || 'Issue-19' ||  (Expected) The unique ID assigned by the issue management system for this issue. ||
-|| || Type || 'Defect' ||  (Expected) The type of issue, such as Defect, Enhancement, etc. ||
-|| || Priority || 'Critical' ||  (Expected) The importance of this issue.  ||
-|| || Status || 'Open' ||  (Expected) The state of this issue.  ||
+|| || Type || 'Defect' ||  (Expected) The current, possibly updated type of this issue, such as Defect, Enhancement, etc. ||
+|| || Priority || 'Critical' ||  (Expected) The current, possibly updated importance of this issue, such as Critical, Major, or Minor.  ||
+|| || Status || 'Open' ||  (Expected) The current, possibly updated state of this issue, such as Open, Started, Fixed, or WontFix.  ||
 || !UnitTest || Name || 'org.hackystat.!TestFoo' ||  (Expected) The name of the unit test. ||
 ||  || Result|| 'Pass', 'Fail' || (Expected) Whether the unit test passed or failed. ||
 
