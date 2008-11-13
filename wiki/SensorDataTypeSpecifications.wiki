@@ -99,6 +99,7 @@ The following table lists the current set of "standard" sensor data types.
 || Coverage || Clover, Emma || Represents a single file and one or more measures of the coverage of test cases on the code on that file. ||
 || !DevEvent || Emacs, Eclipse, Vim || Represents developer "behavioral events", such as the action of invoking the compiler, or opening a file for editing, or running a unit test, and so forth.  ||
 || !FileMetric || SCLC, JavaNCSS || Represents a single file and one or more measures of the size or complexity of that file. ||
+|| Issue || Bugzilla, Trac, Jira, Google Project Hosting || Represents the creation of (or change in properties to) an issue in an Issue Management System.  ||
 || !UnitTest || JUnit || Represents the outcome of single unit test invocation on a source file. ||
 
 
@@ -121,6 +122,10 @@ The following table lists, for each sensor data type, the set of optional fields
 || !DevEvent || Type || '!StateChange' ||  (Expected)  The type of dev event. ||
 || !FileMetric || !TotalLines || 200 || (Expected) The total number of lines in this file. ||
 || || `*`!ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the '!CyclomaticComplexityList' property. || 
+|| Issue || ID || 'Issue-19' ||  (Expected) The unique ID assigned by the issue management system for this issue. ||
+|| || Type || 'Defect' ||  (Expected) The type of issue, such as Defect, Enhancement, etc. ||
+|| || Priority || 'Critical' ||  (Expected) The importance of this issue.  ||
+|| || Status || 'Open' ||  (Expected) The state of this issue.  ||
 || !UnitTest || Name || 'org.hackystat.!TestFoo' ||  (Expected) The name of the unit test. ||
 ||  || Result|| 'Pass', 'Fail' || (Expected) Whether the unit test passed or failed. ||
 
