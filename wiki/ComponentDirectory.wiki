@@ -45,7 +45,7 @@ The following table provides information on Hackystat components that are availa
 The following table provides information on Hackystat components that are under development but not yet released for general use. 
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
-|| User Interface || Tickertape || [http://code.google.com/p/hackystat-ui-tickertape/ hackystat-ui-tickertape] || [http://code.google.com/p/hackystat-ui-tickertape/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-ui-tickertape/wiki/ProjectProprioception Project Proprioception Research Proposal] || Support real-time awareness using Twitter, Nabaztag, Facebook.  ||
+|| User Interface || Tickertape || [http://code.google.com/p/hackystat-ui-tickertape/ hackystat-ui-tickertape] || [http://code.google.com/p/hackystat-ui-tickertape/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-ui-tickertape/wiki/TickertapeResearch Research Proposal] || Support real-time awareness using Twitter, Nabaztag, Facebook, etc.  ||
 ||  || Project Trajectory || [http://code.google.com/p/hackystat-ui-trajectory/ hackystat-ui-trajectory] || (No documentation available.)  || Support time-independent project trajectories using 3D visualization.  ||
 ||  || RoR Viewer || [http://code.google.com/p/hackystat-ui-ror-viewer/ hackystat-ui-ror-viewer] || (No documentation yet available) || Ruby on Rails UI. ||
 ||  || Sensor Data Visualizer || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/ hackystat-ui-sensordatavisualizer] || [http://code.google.com/p/hackystat-ui-sensordatavisualizer/wiki/UserGuide User Guide] || Sensor Data display using Flex/Flare. ||
