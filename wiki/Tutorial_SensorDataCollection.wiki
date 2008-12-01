@@ -50,7 +50,7 @@ Problems can arise if you unzip this package into a file path containing spaces 
 
 To install and configure a sensor, follow the instructions in its User Guide. Pointers to the User Guides for each sensor in the binary distribution can be found in the [ComponentDirectory Component Directory page].  
 
-All sensors need access to the URL associated with your !SensorBase, as well as your account and password.  In some cases, such as the Eclipse sensor, you will provide this information using an internal facility, such as the Eclipse preferences page.  In most cases, however, the sensor will access this information from the [http://code.google.com/p/hackystat-sensor-shell/wiki/SensorPropertiesFile sensorshell.properties file].  The User Guide for the sensor will indicate what method is required. 
+All sensors need access to the URL associated with your !SensorBase, as well as your account and password.  In some cases, such as the Eclipse sensor, you will provide this information using an internal facility, such as the Eclipse preferences page.  In most cases, however, the sensor will access this information from the [http://code.google.com/p/hackystat-sensor-shell/wiki/SensorShellProperties sensorshell.properties file].  The User Guide for the sensor will indicate what method is required. 
 
 == 4.0 Verify that your sensors are sending data ==
 
