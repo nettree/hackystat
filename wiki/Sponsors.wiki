@@ -21,6 +21,7 @@ In addition, we'd like to thank the following academic/research institutions who
     * Free University of Bozen
     * International Software Engineering Research Network
     * Jet Propulsion Laboratory
+    * Los Alamos National Laboratory
     * Massachusetts Institute of Technology
     * Michigan State University
     * National Research Council of Canada
@@ -33,6 +34,7 @@ In addition, we'd like to thank the following academic/research institutions who
     * University of Sheffield
     * University of Southern California
     * University of Torino
+    * University of Toronto
     * Vanderbilt University 
 
 Please let us know if we have forgotten to add your name to either of the above lists!
