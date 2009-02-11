@@ -1,4 +1,4 @@
-#summary Part One of Introduction to Hackystat Programming
+#summary Introduction to Hackystat Programming, Part 1
 
 = Screencast = 
 
