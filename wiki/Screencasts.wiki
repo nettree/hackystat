@@ -8,7 +8,7 @@
 || *Running time* || 45 minutes ||
 || *Audience* || Java developers building applications based on Hackystat data ||
 || *Synopsis* || Simple use of !SensorBaseClient and !SensorShellProperties class to retrieve data from the public Hackystat server. ||
-|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.01.mov] (High Quality Streaming, 300MB, Quicktime)||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.01.mov QuickTime]||
 
 = Hackystat Programming 02 = 
 
@@ -18,4 +18,14 @@
 || *Running time* || 35 minutes ||
 || *Audience* || Java developers building applications based on Hackystat data ||
 || *Synopsis* || Timeouts, !SensorDataReferences and caching, getting data from other services ||
-|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.02.mov] (Moderate Quality Streaming, 100 MB, Quicktime)||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.02.mov QuickTime]||
+
+= Hackystat Programming 03 = 
+
+|| *Title* || Introduction to Hackystat Programming, Part 3 ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || February 12, 2009 ||
+|| *Running time* || 28 minutes ||
+|| *Audience* || Java developers building applications based on Hackystat data ||
+|| *Synopsis* || Writing test cases, bringing up services inside a running application. ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.03.mov QuickTime]||
