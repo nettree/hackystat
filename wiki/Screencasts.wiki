@@ -1,6 +1,8 @@
 #summary Hackystat Screencast Directory
 
-= Hackystat Programming 01 = 
+= Developer Screencasts = 
+
+== Hackystat Programming 01 ==
 
 || *Title* || Introduction to Hackystat Programming, Part 1 ||
 || *Presenter* || Philip Johnson ||
@@ -10,7 +12,7 @@
 || *Synopsis* || Simple use of !SensorBaseClient and !SensorShellProperties class to retrieve data from the public Hackystat server. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.01.mov QuickTime]||
 
-= Hackystat Programming 02 = 
+== Hackystat Programming 02 ==
 
 || *Title* || Introduction to Hackystat Programming, Part 2 ||
 || *Presenter* || Philip Johnson ||
@@ -20,7 +22,7 @@
 || *Synopsis* || Timeouts, !SensorDataReferences and caching, getting data from other services ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.02.mov QuickTime]||
 
-= Hackystat Programming 03 = 
+== Hackystat Programming 03 ==
 
 || *Title* || Introduction to Hackystat Programming, Part 3 ||
 || *Presenter* || Philip Johnson ||
