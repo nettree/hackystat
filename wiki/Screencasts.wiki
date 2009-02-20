@@ -31,3 +31,15 @@
 || *Audience* || Java developers building applications based on Hackystat data ||
 || *Synopsis* || Writing test cases, bringing up services inside a running application. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.03.mov QuickTime]||
+
+
+== Devcathlon Programming 01 ==
+
+|| *Title* || Introduction to Devcathlon Programming ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || February 20, 2009 ||
+|| *Running time* || 59 minutes ||
+|| *Audience* || Java developers building applications based on Hackystat data ||
+|| *Synopsis* || An introduction to the Devcathlon Event processing infrastructure. Useful to Devcathlon developers as well as those interested in seeing a "real world" example of Hackystat programming.  ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.Devcathlon.mov QuickTime]||
+
