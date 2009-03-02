@@ -32,6 +32,16 @@
 || *Synopsis* || Writing test cases, bringing up services inside a running application. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.03.mov QuickTime]||
 
+== Hackystat Programming 04 ==
+
+|| *Title* || Introduction to Hackystat Programming, Part 4 ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || March 2, 2009 ||
+|| *Running time* || 25 minutes ||
+|| *Audience* || Java developers building applications based on Hackystat data ||
+|| *Synopsis* || Intermittent timeout errors and heap size ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/Hackystat.Programming.04.mov QuickTime]||
+
 
 == Devcathlon Programming 01 ==
 
