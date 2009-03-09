@@ -53,3 +53,19 @@
 || *Synopsis* || An introduction to the Devcathlon Event processing infrastructure. Useful to Devcathlon developers as well as those interested in seeing a "real world" example of Hackystat programming.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.Devcathlon.mov QuickTime]||
 
+
+== ICS Wicket Examples 05 ==
+
+|| *Title* || ICS Wicket Example 05: CSS, Wicket, and Menu Bars ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || March 9, 2009 ||
+|| *Running time* || 35 minutes ||
+|| *Audience* || Java developers building menu bars using CSS and Wicket ||
+|| *Synopsis* || Provides an example of a menu and submenu implemented in CSS and integrated with Wicket. The CSS is based upon an  [http://kalsey.com/tools/csstabs/ example by Adam Kalsey] ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.ics.wicket.examples.05.mov QuickTime]||
+
+
+
+
+
+
