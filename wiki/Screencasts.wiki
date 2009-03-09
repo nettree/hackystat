@@ -62,7 +62,7 @@
 || *Running time* || 35 minutes ||
 || *Audience* || Java developers building menu bars using CSS and Wicket ||
 || *Synopsis* || Provides an example of a menu and submenu implemented in CSS and integrated with Wicket. The CSS is based upon an  [http://kalsey.com/tools/csstabs/ example by Adam Kalsey].  Some ICS 414 specific material at the end.  ||
-|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.ics.wicket.examples.05.mov QuickTime]||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.ics.wicket.examples.mov QuickTime]||
 
 
 
