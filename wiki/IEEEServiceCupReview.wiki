@@ -1,13 +1,16 @@
-#summary One-sentence summary of this page.
+#summary Instructions for IEEE Service Cup reviewers
 
-= Introduction =
+Thank you for agreeing to review the Hackystat system for 2009 IEEE Service
+Cup. This page provides a step-by-step guide for logging in to the public
+!ProjectBrowser service with a test account in order to get a feel for the
+system.
 
-Add your content here.
+== Bring up the !ProjectBrowser home page ==
+
+To access the public instance of the !ProjectBrowser service, click [http://dasha.ics.hawaii.edu:9879/projectbrowser/ here].
+
+You should see the following page:
+
+[http://hackystat.googlecode.com/svn/wiki/IEEEServiceCupReview.pb.gif]
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
