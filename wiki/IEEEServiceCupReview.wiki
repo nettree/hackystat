@@ -78,7 +78,9 @@ To see the Portfolio analysis in action, go to the Portfolio page by clicking on
 
 [http://hackystat.googlecode.com/svn/wiki/IEEEServiceCupReview.pb.9.gif]
 
-An explanation of Portfolio analysis goes beyond the scope of this demo; for details you can read the [http://code.google.com/p/hackystat/wiki/Tutorial_ProjectPortfolio Portfolio Tutorial].  What you can see from this image is that a great many Telemetry trends (as represented by the sparkline histograms) and !DailyProjectData instances (as represented by the numeric values) are being retrieved.   If you look at the three rows, you can see that the Good project is colored green, Troubled project is colored mostly red, and the Unstable project is colored mostly yellow.
+An explanation of Portfolio analysis goes beyond the scope of this demo; for details you can read the [http://code.google.com/p/hackystat/wiki/Tutorial_ProjectPortfolio Portfolio Tutorial].  What you can see from this image is that a great many Telemetry trends (as represented by the sparkline histograms) and !DailyProjectData instances (as represented by the numeric values) are being retrieved.  Note that the Portfolio analysis needs some custom configuration in order to display all of the demo data, which is why (for example) Coverage data does not appear. (Custom configuration goes beyond the scope of this simple demo.) 
+
+If you look at the three rows, you can see that the Good project is colored green, Troubled project is colored mostly red, and the Unstable project is colored mostly yellow.
 
 == Thanks for your interest ==
 
