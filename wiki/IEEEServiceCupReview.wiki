@@ -5,6 +5,9 @@ Cup. This page provides a step-by-step guide for logging in to the public
 !ProjectBrowser service with a test account in order to get a feel for the
 system.
 
+<wiki:toc max_depth="3"/>
+
+
 == Bring up the !ProjectBrowser home page ==
 
 To access the public instance of the !ProjectBrowser service, go to [http://dasha.ics.hawaii.edu:9879/projectbrowser/ http://dasha.ics.hawaii.edu:9879/projectbrowser/].
