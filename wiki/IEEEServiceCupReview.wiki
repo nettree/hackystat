@@ -22,7 +22,7 @@ Next, supply "joe.simpleportfolio@hackystat.org" as both the username and the pa
 
 [http://hackystat.googlecode.com/svn/wiki/IEEEServiceCupReview.pb.2.gif]
 
-Upon successful login, you should see the SensorData page:
+Upon successful login, you should see the !SensorData page:
 
 [http://hackystat.googlecode.com/svn/wiki/IEEEServiceCupReview.pb.3.gif]
 
