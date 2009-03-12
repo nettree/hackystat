@@ -84,8 +84,11 @@ If you look at the three rows, you can see that the Good project is colored gree
 
 == Thanks for your interest ==
 
-We hope you enjoyed this quick demo of Hackystat services.  If you have any questions, feel free to contact Philip Johnson (johnson@hawaii.edu).
+We hope you enjoyed this quick demo of Hackystat services.  If you have any questions, feel free to contact Philip Johnson (johnson@hawaii.edu).  The following chart provides a quick review of the services used in this demo. The arrows indicate the general direction of data flow.  
 
+[http://hackystat.googlecode.com/svn/wiki/IEEEServiceCupReview.arch.gif]
+
+Note that this demo does not include information about how sensor data gets into the system, nor about other Hackystat services such as Tickertape.  
 
 
 
