@@ -1,8 +1,6 @@
 #summary Google Summer of Code Student Application
 
-Thanks for your interest in participating in the Hackystat Project as part of the [http://code.google.com/soc/2008/ Google Summer of Code] program.  For more
-information on Google Summer of Code, see their
-[http://code.google.com/soc/2008/faqs.html FAQ] page.
+Thanks for your interest in participating in the Hackystat Project as part of the [http://code.google.com/soc/ Google Summer of Code] program.  
 
 To apply, please answer the following questions:
 

@@ -1,5 +1,19 @@
 #summary Hackystat Screencast Directory
 
+<wiki:toc max_depth="3"/>
+
+= User Screencasts =
+
+== Hackystat in a Nutshell ==
+
+|| *Title* || Hackystat in a Nutshell ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || March 12, 2009 ||
+|| *Running time* || 9 minutes ||
+|| *Audience* || Anyone interested in an overview of Hackystat. ||
+|| *Synopsis* || Quick overview of the system and services.  ||
+|| *Link* || [http://www.youtube.com/watch?v=NrLFIpm0wps YouTube]||
+
 = Developer Screencasts = 
 
 == Hackystat Programming 01 ==
