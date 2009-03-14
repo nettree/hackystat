@@ -1,5 +1,72 @@
 #summary Research publications on Hackystat.
 
+
+[http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, Submitted to the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
+
+For empirical software engineering to reach its fullest potential, we must
+develop effective, experiential approaches to learning about it in a
+classroom setting.  In this paper, we report on a case study involving a
+new approach to classroom-based empirical software engineering called the
+``Software ICU''.  In this approach, students learn about nine empirical
+project ``vital signs'' and use the Hackystat Framework to put their
+projects into a virtual ``intensive care unit'' where these vital signs can
+be assessed and monitored.  We used both questionnaire and log data to gain
+insight into the strengths and weaknesses of this approach. Our evaluation
+provides both quantitative and qualitative evidence concerning the overhead
+of the system; the relative utility of different vital signs; the frequency
+of use; and the perceived appropriateness outside of the classroom
+setting. In addition to benefits, we found evidence of measurement
+dysfunction induced directly by the presence of the Software ICU. We
+compare these results to case studies we performed in 2003 and 2006 using
+the Hackystat Framework but not the Software ICU.  We use these findings to
+orient future research on empirical software engineering both inside and
+outside of the classroom.
+
+[http://csdl.ics.hawaii.edu/techreports/09-07/09-07.pdf Experiences with Hackystat as a service-oriented architecture], Philip M. Johnson, Shaoxuan Zhang, and Pavel Senin, Submitted to the 2009 IEEE Service Cup, Los Angeles, California, July, 2009.
+
+Hackystat is an open source framework for automated collection and analysis
+of software engineering process and product data.  Hackystat has been in
+development since 2001, and has gone through eight major architectural
+revisions during that time.  In 2007, we performed the latest architectural
+revision, whose primary goal was to reimplement Hackystat as a
+service-oriented architecture (SOA).  This version has now been in
+public release for a year, and this paper reports on our experiences:
+the motivations that led us to reimplement the system as a SOA, the
+costs and benefits of that conversion, and our lessons learned. 
+
+[http://csdl.ics.hawaii.edu/techreports/09-01/09-01.pdf Operational Definition and Automated Inference of Test-Driven Development with Zorro], Hongbing Kou, Philip M. Johnson and Hakan Erdogmus, Submitted to Automated Software Engineering, 2009.
+
+Test-driven development (TDD) is a style of development named for its most
+visible characteristic: the design and implementation of test cases prior
+to the implementation of the code required to make them pass. Many claims
+have been made for TDD: that it can improve implementation as well as
+design quality, that it can improve productivity, that it results in 100\%
+coverage, and so forth.  However, research to validate these claims has
+yielded mixed and sometimes contradictory results.  We believe that at
+least part of the reason for these results stems from differing
+interpretations of the TDD development style, along with an inability to
+determine whether programmers actually follow whatever definition of
+TDD is in use.
+
+Zorro is a system designed to automatically determine whether a developer
+is complying with an operational definition of Test-Driven Development
+(TDD) practices.  Automated recognition of TDD can benefit the software
+development community in a variety of ways, from inquiry into the ``true
+nature'' of TDD, to pedagogical aids to support the practice of test-driven
+development, to support for more rigorous empirical studies on the
+effectiveness of TDD in both laboratory and real world settings.
+
+This paper describes the Zorro system, its operational definition of TDD,
+the analyses made possible by Zorro, and two empirical evaluations of the
+system.  Our research shows that it is possible to define an operational
+definition of TDD that is amenable to automated recognition, and
+illustrates the architectural and design issues that must be addressed in
+order to do so.  Zorro has implications not only for the practice of TDD,
+but also for software engineering ``micro-process'' definition and
+recognition through its parent framework, Software Development Stream
+Analysis.
+
+
 [http://csdl.ics.hawaii.edu/techreports/06-06/06-06.pdf Requirement and Design Trade-offs in Hackystat: An in-process software engineering measurement and analysis system], Philip M. Johnson, Proceedings of the 2007 International Symposium on Empirical Software Engineering and Measurement, Madrid, Spain, September, 2007.
 
 For five years, the Hackystat Project has incrementally developed and evaluated a generic framework for in-process software engineering measurement and analysis (ISEMA). At least five other independent ISEMA system development projects have been initiated during this time, indicating growing interest and investment in this approach by the software engineering community. This paper presents 12 important requirement and design tradeoffs made in the Hackystat system, some of their implications for organizations wishing to introduce ISEMA, and six directions for future research and development. The three goals of this paper are to: (1) help potential users of ISEMA systems to better evaluate the relative strengths and weaknesses of current and future systems, (2) help potential developers of ISEMA systems to better understand some of the important requirement and design trade-offs that they must make, and (3) help accelerate progress in ISEMA by identifying promising directions for future research and development.
