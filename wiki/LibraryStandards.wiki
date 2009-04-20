@@ -20,7 +20,7 @@ The following libraries may be required for Hackystat projects that are classifi
 || [http://www.mortbay.org/jetty-6/ Jetty] || 6.1.9 || JETTY_HOME || c:\java-tools\jetty-6.1.9 ||
 || [http://www.junit.org JUnit] || 4.5 || JUNIT_HOME ||   c:\java-tools\junit4.5 ||
 || [http://pmd.sourceforge.net/ PMD] || 4.2.3 || PMD_HOME ||   c:\java-tools\pmd-4.2.3 ||
-|| [http://www.restlet.org/ Restlet] || 1.0.8 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.8 ||
+|| [http://www.restlet.org/ Restlet] || 1.0.11 || RESTLET_HOME ||   c:\java-tools\restlet-1.0.11 ||
 || [http://code.google.com/p/sclc/ SCLC] || 2.6.1116 || SCLC_HOME || c:\java-tools\sclc-2.6.1116 ||
 || [http://www.slf4j.org/ Slf4j] || 1.5.0 || SLF4J_HOME || c:\java-tools\slf4j-1.5.0 ||
 || [http://svnkit.com/download/ SVNKit (Standalone)] || 1.1.4 || SVNKIT_HOME || c:\java-tools\svnkit-1.1.4 ||
