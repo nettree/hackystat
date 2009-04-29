@@ -1,5 +1,4 @@
 #summary Design Notes on Ivy integration with Hackystat
-#labels Featured
 
 *Table of Contents*
 <wiki:toc max_depth="2" />
