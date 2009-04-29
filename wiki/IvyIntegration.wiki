@@ -26,8 +26,8 @@ This manual approach is resulting in the following problems:
   * Version problems, when the version in the LibraryStandards page is no longer maintained.
 
 There are two primary technologies for dependency management in Java:
-[Maven http://maven.apache.org/] (a project management tool that includes
-dependency management) and [Ivy http://ant.apache.org/ivy/] (a pure
+[http://maven.apache.org/ Maven] (a project management tool that includes
+dependency management) and [http://ant.apache.org/ivy/ Ivy] (a pure
 dependency management tool).  I have looked at both of these technologies
 in the past.  In the case of Maven, I feared that the overhead of requiring
 Hackystat developers to learn this new system would outweigh its
@@ -58,11 +58,14 @@ hackystat-dev mailing list.
 
 = Resources =
 
-  * [Ivy http://ant.apache.org/ivy/], currently at 2.1.0-rc1, which includes [Tutorials http://ant.apache.org/ivy/history/2.1.0-rc1/tutorial.html], a [Reference Guide http://ant.apache.org/ivy/history/2.1.0-rc1/reference.html], an [FAQ http://ant.apache.org/ivy/faq.html]. 
+  * [http://ant.apache.org/ivy/ Ivy], currently at 2.1.0-rc1, which includes [http://ant.apache.org/ivy/history/2.1.0-rc1/tutorial.html Tutorials], a [http://ant.apache.org/ivy/history/2.1.0-rc1/reference.html Reference Guide], and an [http://ant.apache.org/ivy/faq.html FAQ]. 
 
-  * [Automation for the people: manage dependencies with Ivy http://www.ibm.com/developerworks/java/library/j-ap05068/index.html], a nice introductory article on Ivy. (May, 2008)
+  * [http://www.ibm.com/developerworks/java/library/j-ap05068/index.html Automation for the people: manage dependencies with Ivy ], a nice introductory article on Ivy. (May, 2008)
 
-  * [Ivy in 4.2 steps http://www.testearly.com/2007/06/24/ivy-in-42-steps/], another intro article (from 2007, so dated)
+  * [http://www.testearly.com/2007/06/24/ivy-in-42-steps/ Ivy in 4.2 steps], another intro article (from 2007, so dated)
 
-  * [ApacheCon 2007 presentation on Ivy http://ant.apache.org/ivy/presentations/apache-con-2007/]
+  * [http://ant.apache.org/ivy/presentations/apache-con-2007/ ApacheCon 2007 presentation on Ivy]
+
+
+
 
