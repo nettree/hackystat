@@ -22,6 +22,7 @@ Currently, dependency management is done manually.  This implies that each user 
 
 This manual approach is resulting in the following problems:
   * One to two hours of painstaking configuration overhead to set up a new environment;
+  * Difficulties understanding the dependencies associated with various projects. 
   * Version problems, when the LibraryStandards page is out of date. 
   * Version problems, when the version in the LibraryStandards page is no longer maintained.
 
@@ -37,9 +38,10 @@ immature.
 I now believe the time is right to move to Ivy, because: (a) as of two
 months ago, Ivy had its first non-beta release (2.0.0), and now provides
 reasonably good documentation and tutorials; (b) dependency management is
-now a significant source of overhead, particularly for new developers; and
+now a significant source of overhead, particularly for new developers; 
 (c) we have at least five new Hackystat developers starting up in a month
-due to the Google Summer of Code program.
+due to the Google Summer of Code program; and (d) a large number of our libraries are
+out of date and require updating. 
 
 I've spent a day looking at Ivy, and the remainder of this document
 summarizes my thoughts so far.  Please feel free to send your thoughts to the 
@@ -48,13 +50,63 @@ hackystat-dev mailing list.
 
 = Ivy in a nutshell =
 
+The basic idea of Ivy can be understood in terms of: ivy.xml, ivysettings.xml, and local and remote repositories.
 
+== ivy.xml ==
 
+Each project contains a file called ivy.xml.  This file basically defines the project for Ivy and specifies what libraries this project depends upon.  For example:
 
-  
+{{{
+<ivy-module version="2.0">
+    <info organisation="org.apache" module="hello-ivy"/>
+    <dependencies>
+        <dependency org="commons-lang" name="commons-lang" rev="2.0"/>
+        <dependency org="commons-cli" name="commons-cli" rev="1.0"/>
+    </dependencies>
+</ivy-module>
+}}}
 
+This ivy.xml defines a project (module) called "hello-ivy".  It also specifies that the hello-ivy project depends upon two libraries: commons-lang and commons-cli.
 
-= Design Issues =
+Note that the ivy.xml specifies _what_ dependencies (and what versions), but nothing about _where_ these dependencies should be found.  That information is provided by an entirely separate file, typically called ivysettings.xml.
+
+== ivysettings.xml ==
+
+The ivysettings.xml file provides a delarative way to specify how to search local or online repositories for libraries.  Here is an example ivysettings.xml file:
+
+{{{
+<ivysettings>
+  <settings defaultResolver="chained"/>
+  <resolvers>
+    <chain name="chained" returnFirst="true">
+      <filesystem name="libraries">
+        <artifact pattern="${ivy.conf.dir}/repository/[artifact]-[revision].[type]" />
+      </filesystem>
+      <url name="integratebutton">
+        <artifact pattern="http://www.integratebutton.com/repo/[organisation]/[module]/
+           [revision]/[artifact]-[revision].[ext]" />
+      </url>
+      <ibiblio name="ibiblio" />
+      <url name="ibiblio-mirror">
+        <artifact pattern="http://mirrors.ibiblio.org/pub/mirrors/maven2/[organisation]/
+           [module]/[branch]/[revision]/[branch]-[revision].[ext]" />
+      </url>
+    </chain>
+  </resolvers>
+</ivysettings>
+}}}
+
+This is a "chained" set of "resolvers", which means that it first tries the libraries filesystem for a given library specified in ivy.xml, then if it can't find it there, it will go on to try the integratebutton website, and so forth. 
+
+You can see that the ivysettings.xml file allows you to specify how the repository directory structure is laid out, as well as how the file names are structured. 
+
+== local and remote repositories ==
+
+The ivysettings.xml file specifies how the system can query external repositories to look for a library of interest.  By default, it will consult the [http://mvnrepository.com/ Maven repository], but Ivy is designed to make it easy to support any kind of online repository.  For example, [http://code.google.com/p/ivyroundup/ Ivy Roundup] is an independent Ivy repository.  
+
+Ivy uses a local cache, typically located at ~/.ivy2/cache, to store downloaded files.  It then copies those files into your project directory, by default the lib/ directory.  This is very nice in the case of Hackystat where there are a large number of projects that depend upon the same set of libraries (Checkstyle, FindBugs, PMD, etc.) 
+
+= Ivy-Hackystat Integration Issues =
 
 = Resources =
 
