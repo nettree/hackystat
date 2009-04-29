@@ -1,14 +1,68 @@
-#summary One-sentence summary of this page.
+#summary Design Notes on Ivy integration with Hackystat
 #labels Featured
 
-= Introduction =
+<wiki:toc max_depth="1" />
 
-Add your content here.
+= Motivation =
+
+The Hackystat system requires almost 20 third party libraries, as
+summarized in the LibraryStandards page. Some libraries, such as
+Checkstyle, are used by virtually every Hackystat system. Others, such as
+Restlet, are used by only a few.  In addition, Hackystat itself is split up
+into approximately 20 separate components, as summarized in the
+ComponentDirectory page.  There are dependencies amongst these components
+as well. For example, many components depend upon hackystat-utilities,
+while none depend upon hackystat-sensor-emacs.
+
+Currently, dependency management is done manually.  This implies that each user must manually:
+  * Download 15-20 libraries;
+  * Create and set an environment variable that provides the path to the library;
+  * Create and set a classpath variable for each environment variable (if using Eclipse);
+  * Ensure that they are using the correct version of each library.
+
+This manual approach is resulting in the following problems:
+  * One to two hours of painstaking configuration overhead to set up a new environment;
+  * Version problems, when the LibraryStandards page is out of date. 
+  * Version problems, when the version in the LibraryStandards page is no longer maintained.
+
+There are two primary technologies for dependency management in Java:
+[Maven http://maven.apache.org/] (a project management tool that includes
+dependency management) and [Ivy http://ant.apache.org/ivy/] (a pure
+dependency management tool).  I have looked at both of these technologies
+in the past.  In the case of Maven, I feared that the overhead of requiring
+Hackystat developers to learn this new system would outweigh its
+advantages.  In the case of Ivy, the tool seemed promising but too
+immature.
+
+I now believe the time is right to move to Ivy, because: (a) as of two
+months ago, Ivy had its first non-beta release (2.0.0), and now provides
+reasonably good documentation and tutorials; (b) dependency management is
+now a significant source of overhead, particularly for new developers; and
+(c) we have at least five new Hackystat developers starting up in a month
+due to the Google Summer of Code program.
+
+I've spent a day looking at Ivy, and the remainder of this document
+summarizes my thoughts so far.  Please feel free to send your thoughts to the 
+hackystat-dev mailing list.  
 
 
-= Details =
+= Ivy in a nutshell =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+
+
+  
+
+
+= Design Issues =
+
+= Resources =
+
+  * [Ivy http://ant.apache.org/ivy/], currently at 2.1.0-rc1, which includes [Tutorials http://ant.apache.org/ivy/history/2.1.0-rc1/tutorial.html], a [Reference Guide http://ant.apache.org/ivy/history/2.1.0-rc1/reference.html], an [FAQ http://ant.apache.org/ivy/faq.html]. 
+
+  * [Automation for the people: manage dependencies with Ivy http://www.ibm.com/developerworks/java/library/j-ap05068/index.html], a nice introductory article on Ivy. (May, 2008)
+
+  * [Ivy in 4.2 steps http://www.testearly.com/2007/06/24/ivy-in-42-steps/], another intro article (from 2007, so dated)
+
+  * [ApacheCon 2007 presentation on Ivy http://ant.apache.org/ivy/presentations/apache-con-2007/]
+
