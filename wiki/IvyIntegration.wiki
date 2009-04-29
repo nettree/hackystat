@@ -1,7 +1,8 @@
 #summary Design Notes on Ivy integration with Hackystat
 #labels Featured
 
-<wiki:toc max_depth="1" />
+*Table of Contents*
+<wiki:toc max_depth="2" />
 
 = Motivation =
 
@@ -14,14 +15,14 @@ ComponentDirectory page.  There are dependencies amongst these components
 as well. For example, many components depend upon hackystat-utilities,
 while none depend upon hackystat-sensor-emacs.
 
-Currently, dependency management is done manually.  This implies that each user must manually:
-  * Download 15-20 libraries;
-  * Create and set an environment variable that provides the path to the library;
-  * Create and set a classpath variable for each environment variable (if using Eclipse);
-  * Ensure that they are using the correct version of each library.
+Currently, dependency management is done manually.  This means that users must manually:
+  # Download 15-20 libraries;
+  # Create and set an environment variable that provides the path to the library;
+  # Create and set a classpath variable for each environment variable (if using Eclipse);
+  # Ensure that they are using the correct version of each library.
 
 This manual approach is resulting in the following problems:
-  * One to two hours of painstaking configuration overhead to set up a new environment;
+  * One to two hours of painstaking configuration overhead to set up a new environment for Ant and Eclipse;
   * Difficulties understanding the dependencies associated with various projects. 
   * Version problems, when the LibraryStandards page is out of date. 
   * Version problems, when the version in the LibraryStandards page is no longer maintained.
@@ -104,9 +105,39 @@ You can see that the ivysettings.xml file allows you to specify how the reposito
 
 The ivysettings.xml file specifies how the system can query external repositories to look for a library of interest.  By default, it will consult the [http://mvnrepository.com/ Maven repository], but Ivy is designed to make it easy to support any kind of online repository.  For example, [http://code.google.com/p/ivyroundup/ Ivy Roundup] is an independent Ivy repository.  
 
-Ivy uses a local cache, typically located at ~/.ivy2/cache, to store downloaded files.  It then copies those files into your project directory, by default the lib/ directory.  This is very nice in the case of Hackystat where there are a large number of projects that depend upon the same set of libraries (Checkstyle, FindBugs, PMD, etc.) 
+Ivy uses a local cache, typically located at ~/.ivy2/cache, to store downloaded files.  It then copies those files into your project directory, by default the lib/ directory.  This is very nice in the case of Hackystat where there are a large number of projects that depend upon the same set of libraries (Checkstyle, !FindBugs, PMD, etc.) 
 
 = Ivy-Hackystat Integration Issues =
+
+== Third party vs. Hackystat libraries ==
+
+There are two very different kinds of dependencies to manage.  Third party libraries (checkstyle, etc.) change rather infrequently, while Hackystat libraries change quite frequently.  Furthermore, some Hackystat developers will prefer to use publically released binaries for libraries like hackystat-sensorbase-uh, while other developers will want to build this library from sources.  
+
+Ivy provides a "configuration" feature which enables control over things like whether you want a locally built version of a library vs. a publicly released one.  
+
+It might be the case that we migrate to Ivy in stages: first we support only third party libraries, then move to support for Hackystat libraries and configurations. 
+
+== Hackystat library repository ==
+
+We will want Ivy to be able to download the binary distributions and unpack them.  Apparently the [http://ant.apache.org/ivy/history/2.0.0-rc1/resolver/packager.html Packager Resolver] facility can allow this to happen, but I haven't looked at it yet. 
+
+== Eclipse integration ==
+
+Ivy is an Ant-based mechanism, and so does not automate the configuration of Eclipse.  There are two approaches I hav found so far.  [http://ant.apache.org/ivy/ivyde/ !IvyDE] is an Eclipse plugin which read the ivy.xml file and add dependencies to your classpath.  [http://code.google.com/p/ivy-eclipse/ Ivy-Eclipse] is an Ant task that creates the Eclipse .classpath file based upon the ivy.xml file.  Another Ant task that does roughly the same thing is available in java source [http://www.digizenstudio.com/blog/2009/02/13/ivy-ant-task-to-maintain-eclipse-classpaths/ here].
+
+== Where to put dependent libraries in projects? ==
+
+Currently, our approach is for developers to download third party libraries to a single location that is published to Ant via an environment variable and published to Eclipse via a classpath variable.   Thus, individual project directories do not contain copies of third party libraries. 
+
+Under Ivy, this will probably change, as it wants to copy libraries out of its cache and into the local project directory structure.  
+
+The question is, where should these libraries go? By default, Ivy puts them in the project's lib/ directory, creating it if necessary.   Unfortunately, Hackystat projects typically have a lib/ directory with subdirectories for library-specific files (checkstyle, pmd, etc.), and this directory structure is under SVN control. 
+
+It is generally bad practice to have a directory hierarchy that mixes files that are under SVN control with files that are not.  One reason is because it can often lead to the files that are not under SVN control being accidentally committed to the repository.   More generally, the resulting directory structure is harder to understand. 
+
+We could tell Ivy to put these files somewhere under build/, such as in build/ivy or build/lib or build/jar.  This is good because it cleanly separates the files under SVN control from the files that aren't.  The problem is that if you run 'clean', you delete your third party libraries and have to regenerate them again.  This is not the end of the world, since those files are already locally cached, but it might confuse Eclipse. 
+
+I think the approach with the least amount of problems for us is to tell Ivy to put the files into a top-level project directory called "ivy".  This directory will not be under SVN control, and will not disappear when someone runs clean.  Let me know if you see problems with that or a better approach. 
 
 = Resources =
 
