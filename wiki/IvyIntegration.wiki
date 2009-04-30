@@ -148,6 +148,4 @@ I think the approach with the least amount of problems for us is to tell Ivy to 
 
   * [http://ant.apache.org/ivy/presentations/apache-con-2007/ ApacheCon 2007 presentation on Ivy]
 
-  * [http://blog.bdarfler.com/2008/11/11/pimpin-your-ant-build-with-ivy/ Pimpin your ant build with Ivy], interesting post that talks about problems with FindBugs. 
-
-
+  * [http://blog.bdarfler.com/2008/11/11/pimpin-your-ant-build-with-ivy/ Pimpin your ant build with Ivy], interesting post that talks about problems with !FindBugs. 
