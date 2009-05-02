@@ -142,7 +142,7 @@ I think the approach with the least amount of problems for us is to tell Ivy to 
 
   * [http://ant.apache.org/ivy/ Ivy], currently at 2.1.0-rc1, which includes [http://ant.apache.org/ivy/history/2.1.0-rc1/tutorial.html Tutorials], a [http://ant.apache.org/ivy/history/2.1.0-rc1/reference.html Reference Guide], and an [http://ant.apache.org/ivy/faq.html FAQ]. 
 
-  * [http://code.google.com/p/ivyroundup/ IvyRoundup], an Ivy repository.
+  * [http://code.google.com/p/ivyroundup/ IvyRoundup], an Ivy repository, and its [http://ivyroundup.googlecode.com/svn/trunk/repo/modules.xml module directory].
 
   * [http://www.ibm.com/developerworks/java/library/j-ap05068/index.html Automation for the people: manage dependencies with Ivy ], a nice introductory article on Ivy. (May, 2008)
 
