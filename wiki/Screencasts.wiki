@@ -14,6 +14,18 @@
 || *Synopsis* || Quick overview of the system and services.  ||
 || *Link* || [http://www.youtube.com/watch?v=NrLFIpm0wps YouTube]||
 
+== Hackystat-Sensor-Example ==
+
+|| *Title* || hackystat-sensor-example ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || May 25, 2009 ||
+|| *Running time* || 20 minutes ||
+|| *Audience* || Hackystat users who want to understand the hackystat-sensor-example package, and it's redesign using Ivy. ||
+|| *Synopsis* || Overview of package and its Ivy integration.  ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/07.hackystat-sensor-example.mov QuickTime]||
+
+
+
 = Developer Screencasts = 
 
 == Hackystat Programming 01 ==
@@ -77,6 +89,17 @@
 || *Audience* || Java developers building menu bars using CSS and Wicket ||
 || *Synopsis* || Provides an example of a menu and submenu implemented in CSS and integrated with Wicket. The CSS is based upon an  [http://kalsey.com/tools/csstabs/ example by Adam Kalsey].  Some ICS 414 specific material at the end.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.ics.wicket.examples.mov QuickTime]||
+
+== Hackystat-Developer-Example ==
+
+|| *Title* || hackystat-developer-example ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || May 27, 2009 ||
+|| *Running time* || 20 minutes ||
+|| *Audience* || Hackystat developers who want to understand the hackystat-developer-example package. ||
+|| *Synopsis* || Overview of package and its Ivy integration.  ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/08.hackystat-developer-example.mov QuickTime]||
+
 
 
 
