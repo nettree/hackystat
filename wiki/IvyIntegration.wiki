@@ -155,3 +155,5 @@ I think the approach with the least amount of problems for us is to tell Ivy to 
   * [http://blogs.steeplesoft.com/dependency-management-with-ant-and-ivy/ Dependency management with Ant and Ivy]
 
   * [http://vbossica.blogspot.com/2009/01/handling-missing-ivyoundup.html Handling missing IvyRoundup files]
+
+  * [http://docs.google.com/Doc?id=dd56f98r_25hjnjg6g7&hl=en My IvyRoundup Management Notes]
