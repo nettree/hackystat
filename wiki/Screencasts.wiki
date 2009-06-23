@@ -101,6 +101,17 @@
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/08.hackystat-developer-example.mov QuickTime]||
 
 
+== Hackystat-SensorBase-UH ==
+
+|| *Title* || Introduction to hackystat-sensorbase-uh ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || June 20, 2009 ||
+|| *Running time* || 60 minutes ||
+|| *Audience* || Developers who want to use the sensorbase implementation as a template for defining their own REST-based service. ||
+|| *Synopsis* || Overview of the design and implementation of hackystat-sensorbase-uh.  ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/09.hackystat-sensorbase-uh.mov QuickTime]||
+
+
 
 
 
