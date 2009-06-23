@@ -101,7 +101,7 @@
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/08.hackystat-developer-example.mov QuickTime]||
 
 
-== Hackystat-SensorBase-UH ==
+== Hackystat-Sensorbase-UH ==
 
 || *Title* || Introduction to hackystat-sensorbase-uh ||
 || *Presenter* || Philip Johnson ||
