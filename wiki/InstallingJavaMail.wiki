@@ -38,18 +38,7 @@ The location to which you copy these files depends upon your operating system.
 
 Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory.
 
-= 3. Define JAVAMAIL_HOME (if building Hackystat) =
-
-If you are just downloading a binary distribution of Hackystat and running sensorbase.jar, you do not have to define JAVAMAIL_HOME.
-
-If you are building Hackystat from sources, you will need to define JAVAMAIL_HOME to point to the downloaded distribution of the system. 
-
-Example:
-{{{
-JAVAMAIL_HOME = c:\java-tools\javamail-1.4
-}}}
-
-= 4. Verifying your installation =
+= 3. Verifying your installation =
 
 Unfortunately, we don't currently have a simple way to verify that you have installed !JavaMail correctly.  What we do know is that if you don't have !JavaMail installed, then Hackystat services like the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] will print the following error message on startup:
 
