@@ -116,12 +116,10 @@
 || *Title* || Building Hackystat From Source ||
 || *Presenter* || Philip Johnson ||
 || *Date* || June 24, 2009 ||
-|| *Running time* || 35 minutes ||
+|| *Running time* || 20 minutes ||
 || *Audience* || Developers who want to understand how to build the Hackystat system from source. ||
 || *Synopsis* || Overview of the various dependencies in Hackystat components, how Ivy is used in Hackystat to manage dependencies, and the various Ant tasks used to build Hackystat components from source. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/10.building.hackystat.from.source.mov QuickTime]||
-
-
 
 
 
