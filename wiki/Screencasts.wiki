@@ -109,7 +109,7 @@
 || *Running time* || 60 minutes ||
 || *Audience* || Developers who want to use the sensorbase implementation as a template for defining their own REST-based service. ||
 || *Synopsis* || Overview of the design and implementation of hackystat-sensorbase-uh. Note: the first section on compiling the !SensorBase is now obsolete. See the Building Hackystat From Source Screencast for details. ||
-|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/09.hackystat-sensorbase-uh.mov QuickTime]||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/09.hackystat-sensorbase-uh.mov QuickTime] [http://csdl.ics.hawaii.edu/~johnson/screencasts/09.hackystat-sensorbase-uh.ppt PowerPoint slides]||
 
 == Building Hackystat From Source ==
 
@@ -120,8 +120,6 @@
 || *Audience* || Developers who want to understand how to build the Hackystat system from source. ||
 || *Synopsis* || Overview of the various dependencies in Hackystat components, how Ivy is used in Hackystat to manage dependencies, and the various Ant tasks used to build Hackystat components from source. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/10.building.hackystat.from.source.mov QuickTime]||
-
-
 
 
 
