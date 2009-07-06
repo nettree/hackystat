@@ -27,11 +27,11 @@ Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variab
 
 Install [http://ant.apache.org/ Ant], and define the ANT_HOME environment variable.  Hackystat requires Ant 1.7 or above.
 
-== 2.2 Download Hackystat Download Script ==
+== 2.2 Download the Hackystat top-level build.xml file ==
 
-Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat-projects".  Due to Ant, please make sure the path to this directory does not contain spaces.  For example, "C:\Documents and Settings\hackystat-projects" would not be acceptable.
+Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat-projects".  Due to Ant, please make sure the path to this directory does not contain spaces.  For example, "C:\Documents and Settings\hackystat-projects" would *not* be acceptable.
 
-Download [http://hackystat.googlecode.com/svn/trunk/build.xml] into this directory. 
+Download [http://hackystat.googlecode.com/svn/trunk/build.xml] into this directory. (Right-click this URL followed by "Save Link As.." should do the trick.)
 
 This script defines a set of Ant targets with the following syntax: {Command}.{Project}.  Command is one of:  checkout, checkout.anonymous, commit, or status, and corresponds to the associated SVN command.  Project is the name of a released Hackystat project, such as hackystat-utilities, hackystat-sensorbase-uh, etc. Project can also be "all", which refers to all released projects. 
 
@@ -128,7 +128,7 @@ If you invoke this command again, it has the effect of SVN update, so you can us
 You cannot commit changes to projects that you have checked out anonymously. If you want to commit changes, you must delete these projects (or create a new directory) and checkout the projects with your SVN credentials, as discussed in the next section.
 
 
-=== 2.3.2 Checkout sources with read-write access to your local workspace===
+=== 2.3.2 Checkout sources with read-write access ===
 
 To checkout sources with read-write (commit) access, you must first create a file called "svn.properties" and place it in your hackystat-projects directory.  This file should look like this:
 
@@ -429,4 +429,157 @@ configfiles/		derby/			hackystat-utilities/	junit/			restlet/
 }}}
 
 Ivy has now populated this directory with both the internal (hackystat-utilities) and external (derby, junit, and restlet) dependencies for the hackystat-sensorbase-uh project.
+
+== 3.2 Building multiple projects ==
+
+If you are making changes to multiple interdependent projects simultaneously, it can be tedious and error prone to manually rebuild and republish each project in the correct order.  Each Hackystat project has a "publish-all" target in the jar.build.xml file that forces all dependent projects to be published in order, thus guaranteeing that each project sees the latest version of each dependent project. 
+
+For example, when we failed to compile the hackystat-sensorbase-uh project above, we did not need to manually cd to the hackystat-utilities directory and publish it, then cd back to the hackystat-sensorbase-uh directory to invoke the build. Instead, we could have stayed in the hackystat-sensorbase-uh directory and invoked publish-all:
+
+{{{
+philip-johnsons-computer-2:hackystat-sensorbase-uh johnson$ ant -f jar.build.xml publish-all
+Buildfile: jar.build.xml
+
+publish-all:
+Duplicated project name in import. Project build defined first in /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build.xml and again in /Users/johnson/hackystat-projects-example/hackystat-utilities/build.xml
+Duplicated project name in import. Project ivy defined first in /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/ivy.build.xml and again in /Users/johnson/hackystat-projects-example/hackystat-utilities/ivy.build.xml
+Duplicated project name in import. Project hackystat.sensors defined first in /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/hackystat.build.xml and again in /Users/johnson/hackystat-projects-example/hackystat-utilities/hackystat.build.xml
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar
+
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-utilities/ivysettings.xml
+
+compile:
+
+jar-validate-email:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar
+     [copy] Copying 2 files to /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+      [jar] Building jar: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar/validate.email.lib.jar
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+   (deleted)
+
+jar:
+     [copy] Copying 7 files to /Users/johnson/hackystat-projects-example/hackystat-utilities
+
+publish:
+[ivy:resolve] :: resolving dependencies :: org.hackystat#hackystat-utilities;working@admin01.ics.hawaii.edu
+[ivy:resolve] 	confs: [default]
+[ivy:resolve] 	found org.junit#junit;4.5 in chained
+[ivy:resolve] 	found edu.oswego.cs#concurrent;1.3.4 in chained
+[ivy:resolve] 	found org.apache.commons#commons-logging;1.1.1 in chained
+[ivy:resolve] 	found org.apache.jcs#jcs;1.3 in chained
+[ivy:resolve] :: resolution report :: resolve 41ms :: artifacts dl 7ms
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   4   |   0   |   0   |   0   ||   12  |   0   |
+	---------------------------------------------------------------------
+:: delivering :: org.hackystat#hackystat-utilities;working@admin01.ics.hawaii.edu :: 2009.07.06.12.57.30 :: integration :: Mon Jul 06 12:57:30 HST 2009
+	delivering ivy file to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar/ivy.xml
+:: publishing :: org.hackystat#hackystat-utilities
+	published hackystatlogger.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/hackystatlogger.lib-2009.07.06.12.57.30.jar
+	published hackystatuserhome.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/hackystatuserhome.lib-2009.07.06.12.57.30.jar
+	published stacktrace.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/stacktrace.lib-2009.07.06.12.57.30.jar
+	published time.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/time.lib-2009.07.06.12.57.30.jar
+	published tstamp.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/tstamp.lib-2009.07.06.12.57.30.jar
+	published uricache.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/uricache.lib-2009.07.06.12.57.30.jar
+	published validate.email.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/validate.email.lib-2009.07.06.12.57.30.jar
+	published ivy to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part/hackystat-utilities-2009.07.06.12.57.30.xml
+	publish commited: moved /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30.part 
+		to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30
+
+publish-all:
+
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/ivysettings.xml
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/stacktrace.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (2kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!stacktrace.lib.jar (4ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/validate.email.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (6kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!validate.email.lib.jar (4ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/uricache.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] ............ (672kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!uricache.lib.jar (34ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/hackystatlogger.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (6kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!hackystatlogger.lib.jar (3ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/tstamp.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (8kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!tstamp.lib.jar (3ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/hackystatuserhome.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (2kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!hackystatuserhome.lib.jar (4ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.57.30/time.lib-2009.07.06.12.57.30.jar ...
+[ivy:retrieve] .. (31kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.57.30!time.lib.jar (6ms)
+
+compile:
+
+jar-standalone:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build/jar
+     [copy] Copying 108 files to /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp
+    [unjar] Expanding: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/lib/hackystat-utilities/hackystatlogger.lib.jar into /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp
+
+    (deleted)
+
+jar-lib:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp-lib
+     [copy] Copying 108 files to /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp-lib
+      [jar] Building jar: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build/jar/sensorbase.lib.jar
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/tmp-lib
+
+jar:
+     [copy] Copying 3 files to /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh
+
+publish:
+[ivy:resolve] :: resolving dependencies :: org.hackystat#hackystat-sensorbase-uh;working@admin01.ics.hawaii.edu
+[ivy:resolve] 	confs: [default]
+[ivy:resolve] 	found org.junit#junit;4.5 in chained
+[ivy:resolve] 	found org.restlet#restlet;1.1.5 in chained
+[ivy:resolve] 	found org.apache.derby#derby;10.5.1.1 in chained
+[ivy:resolve] 	found org.hackystat#hackystat-utilities;2009.07.06.12.57.30 in local-repository
+[ivy:resolve] 	[2009.07.06.12.57.30] org.hackystat#hackystat-utilities;latest.integration
+[ivy:resolve] 	found edu.oswego.cs#concurrent;1.3.4 in chained
+[ivy:resolve] 	found org.apache.commons#commons-logging;1.1.1 in chained
+[ivy:resolve] 	found org.apache.jcs#jcs;1.3 in chained
+[ivy:resolve] :: resolution report :: resolve 610ms :: artifacts dl 75ms
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   7   |   1   |   0   |   0   ||   99  |   0   |
+	---------------------------------------------------------------------
+:: delivering :: org.hackystat#hackystat-sensorbase-uh;working@admin01.ics.hawaii.edu :: 2009.07.06.12.57.45 :: integration :: Mon Jul 06 12:57:45 HST 2009
+	delivering ivy file to /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build/jar/ivy.xml
+:: publishing :: org.hackystat#hackystat-sensorbase-uh
+	published sensorbase to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45.part/sensorbase-2009.07.06.12.57.45.jar
+	published sensorbaseclient to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45.part/sensorbaseclient-2009.07.06.12.57.45.jar
+	published sensorbase.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45.part/sensorbase.lib-2009.07.06.12.57.45.jar
+	published ivy to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45.part/hackystat-sensorbase-uh-2009.07.06.12.57.45.xml
+	publish commited: moved /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45.part 
+		to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-sensorbase-uh/2009.07.06.12.57.45
+
+BUILD SUCCESSFUL
+Total time: 18 seconds
+}}} 
+
+The publish-all command not only publishes the hackystat-utilities project, it also compiles, jars, and publishes the hackystat-sensorbase-uh project for use by any project that depends upon it.
+
+
+
+
 
