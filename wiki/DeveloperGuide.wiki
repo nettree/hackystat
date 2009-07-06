@@ -137,7 +137,7 @@ svn.username=johnsmith
 svn.password=v8f4k2a9
 }}}
 
-Where "johnsmith" is your Google account and "v8f4k2a9" is the SVN password (not your google password!).  Find your SVN password in your settings page: [http://code.google.com/hosting/settings]
+Where "johnsmith" is your Google account and "v8f4k2a9" is the SVN password (not your Google password!).  Find your SVN password in your settings page: [http://code.google.com/hosting/settings]
 
 For example, here is the top-level directory just before checking out a project with read-write access:
 {{{
@@ -191,7 +191,7 @@ BUILD SUCCESSFUL
 Total time: 1 second
 }}}
 
-This command reveals that the file SensorBaseClient.java has been modified.  It also checks the status of the dependent project (hackystat-utilities) which has not been changed.
+This command reveals that the file !SensorBaseClient.java has been modified.  It also checks the status of the dependent project (hackystat-utilities) which has not been changed.
 
 == 2.5 Committing changes to your local workspace ==
 
@@ -229,7 +229,7 @@ This section documents the simplest possible approach to building, which is the 
 
 == 3.1 Building an individual Hackystat Project ==
 
-|| Note: Before building a project, you may wish to invoke the checkout or checkout.anonymous command documented above to ensure that you have the latest version of the sources. ||
+|| Note: Before building a project, you may wish to invoke a checkout or checkout.anonymous command documented above to ensure that you have the latest version of the sources. ||
 
 The released Hackystat projects all tend to have a similar build system structure. In particular, the following commands are essential for building Hackystat projects.
 
@@ -579,7 +579,18 @@ Total time: 18 seconds
 
 The publish-all command not only publishes the hackystat-utilities project, it also compiles, jars, and publishes the hackystat-sensorbase-uh project for use by any project that depends upon it.
 
+= 4.0 Miscellaneous Information =
 
+== 4.1 You still need an SVN client ==
 
+Although the top-level build.xml file provides facilities to checkout, commit, and assess the status of projects, it does not replace all the required SVN commands you will need to maintain a project. For example, it does not implement an SVN 'add' command, which is necessary if you are creating new files.   So, you will still need an SVN client for certain capabilities. 
 
+== 4.2 Cleaning the local repository ==
 
+The build system publishes Hackystat projects to the ~/.ivy2/local-repository directory.  Each invocation of the "publish" target results in a new copy of the jar files associated with that project in the local-repository directory.  
+
+Eventually, quite a bit of space can be taken up by out of date versions of these files.  At present, we have not implemented any automated garbage collection on this directory; you'll have to occasionally clean it up yourself.   You can simply delete the entire directory and run "publish-all" as a simple form of management. 
+
+== 4.3 Screencast ==
+
+A screencast covering much of this information is available at: [http://code.google.com/p/hackystat/wiki/Screencasts#Building_Hackystat_From_Source].
