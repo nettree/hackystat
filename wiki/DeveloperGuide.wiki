@@ -1,389 +1,432 @@
 #summary System Build information for Hackystat developers
 
+*Table of Contents*
+<wiki:toc max_depth="3" />
+
 = 1.0 Introduction =
 
-The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ComponentDirectory Component Directory].  Some of these projects are inter-dependent. For example, the Eclipse Sensor project depends upon the Sensor Shell project; the Sensor Shell project depends upon the !SensorBase project, and the !SensorBase Project depends upon the Utilities project. 
+The Hackystat Framework is built from over a dozen independent Google Projects, as detailed in the [ComponentDirectory Component Directory]. Most of these projects have internal dependencies. For example, the Eclipse Sensor project depends upon the Sensor Shell project; the Sensor Shell project depends upon the !SensorBase project, and the !SensorBase Project depends upon the Utilities project. 
 
-In addition, most Hackystat projects have a number of external dependencies; in other words, to build the system, you will have to download and install a third party library.  For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  You will need to consult individual packages to determine exactly which external libraries it requires. However, to support integration builds containing all of the Hackystat components, we do require a "standard" version for each external library that all Hackystat projects be compatible with.  The [LibraryStandards Library Standards] page lists all third party libraries used across all of the Hackystat projects, along with their Standard Version.  Not all Hackystat packages require all of these libraries, of course. 
+In addition to internal dependencies, many Hackystat projects also have external dependencies to third-party libraries. For example, the [http://code.google.com/p/hackystat-sensorbase-uh/ SensorBase] project uses libraries from the [http://www.restlet.org/ Restlet] system.  
+
+The Hackystat system uses [http://ant.apache.org/ Apache Ant] and [http://ant.apache.org/ivy/ Apache Ivy] to support the downloading, installation, and maintenance of these internal and external dependencies. 
+
+The [Dependencies] page provides a listing of the current internal and external dependencies associated with the "released" Hackystat projects. 
+
+The remainder of this page documents the steps required to download and build the "released" Hackystat projects. 
 
 = 2.0 Downloading Hackystat Sources =
 
 || Note: if you simply want to use Hackystat, you may find it easier to download a binary distribution rather than downloading sources and building locally.  See the [InstallationGuide Installation Guide] for details. ||
 
-Hackystat sources can be downloaded from Google Project Hosting using Subversion.  Because downloading over a dozen projects individually can be irritating, we have developed a set of Ant scripts that can simplify this process.  Here are the steps involved:
+Hackystat sources can be downloaded from Google Project Hosting using Subversion.  Because downloading over multiple projects individually can be irritating, we have developed an Ant script to simplify this process.  Here are the steps involved:
 
-== 2.1 Install Java, Ant, and SVNKit ==
+== 2.1 Install Java and Ant ==
 
-Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variable.
+Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variable.  Hackystat requires Java 1.5 or above. 
 
-Install [http://ant.apache.org/ Ant], and define the ANT_HOME environment variable. 
+Install [http://ant.apache.org/ Ant], and define the ANT_HOME environment variable.  Hackystat requires Ant 1.7 or above.
 
-Install [http://svnkit.com/download/ SVNKit], Standalone edition, and define the SVNKIT_HOME environment variable.
+== 2.2 Download Hackystat Download Script ==
 
-Consult the [LibraryStandards Library Standards] page for the correct version of these packages.
+Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat-projects".  Due to Ant, please make sure the path to this directory does not contain spaces.  For example, "C:\Documents and Settings\hackystat-projects" would not be acceptable.
 
-== 2.2 Download Hackystat Download Scripts ==
+Download [http://hackystat.googlecode.com/svn/trunk/build.xml] into this directory. 
 
-Create a top-level hackystat directory in which all of your hackystat sources will live.  This is typically called something like "hackystat-projects".
+This script defines a set of Ant targets with the following syntax: {Command}.{Project}.  Command is one of:  checkout, checkout.anonymous, commit, or status, and corresponds to the associated SVN command.  Project is the name of a released Hackystat project, such as hackystat-utilities, hackystat-sensorbase-uh, etc. Project can also be "all", which refers to all released projects. 
 
-Download the following files into your newly created top-level hackystat directory:
+These Ant targets incorporate the internal Hackystat project dependencies documented in the [Dependencies Page]. 
 
-  * [http://hackystat.googlecode.com/svn/trunk/build.xml]
-  * [http://hackystat.googlecode.com/svn/trunk/dist.build.xml]
-  * [http://hackystat.googlecode.com/svn/trunk/macros.build.xml]
+So, for example: 
+  * 'ant checkout.anonymous.hackystat-utilities' will SVN checkout (or update) just the hackystat-utilities project with read-only access.
+  * 'ant checkout.anonymous.hackystat-sensorbase-uh' will SVN checkout (or update) both the hackystat-sensorbase-uh project and its dependent project, hackystat-utilities with read-only access.
+  * 'ant checkout.all' will SVN checkout (or update) all released hackystat projects with commit access.
+  * 'ant status.hackystat-utilities' will provide information on added and modified files in the hackystat-utilities workspace. 
+  * 'ant -Dsvn.message="Fix typos" commit.all' will commit all changes to all Hackystat projects with the log message "Fix typos".
 
-== 2.3 Checkout sources anonymously ==
+The checkout.anonymous and status commands do not require SVN credentials, but the checkout and commit commands do.  To provide these credentials, you must create a file called svn.properties containing these credentials (documented below).
 
-If you wish to build the system from sources, but are not a member of the Hackystat project, then you can check out all of the sources with the command "ant checkout.anonymous".  This will check out all of the current sources into the current directory.  Here is what the execution of this command looks like:
+The first time you invoke this script, you must invoke the "install" target, which will download various files necessary for SVN and Ivy.  If you forget to do this, the script will fail with an error message indicating you need to invoke 'ant install'.  Here is an example of the output from running that command:
 
 {{{
-C:\hackystat-projects>ant checkout.anonymous
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ant install
 Buildfile: build.xml
 
-checkout.anonymous:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities
-     [java] A    hackystat-utilities\sclc.build.xml
-      :
-     [java] Checked out revision 125.
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-sensorbase-uh
-     [java] A    hackystat-sensorbase-uh\sample.sensorbase.properties
-      :
-    [java] Checked out revision 404.
-   [mkdir] Created dir: C:\hackystat-projects\hackystat-sensor-shell
-    [java] A    hackystat-sensor-shell\sclc.build.xml
-      :
-      :
-      :
+install:
+
+install.library.versions.properties:
+      [get] Getting: http://hackystat.googlecode.com/svn/trunk/configfiles/library.versions.properties
+      [get] To: /Users/johnson/.hackystat/library.versions.properties
+      [get] Not modified - so not downloaded
+
+install.ivy:
+      [get] Getting: http://repo1.maven.org/maven2/org/apache/ivy/ivy/2.1.0-rc1/ivy-2.1.0-rc1.jar
+      [get] To: /Users/johnson/.ivy2/ivyjar/ivy.jar
+      [get] Not modified - so not downloaded
+
+install.ivysettings.xml:
+      [get] Getting: http://hackystat.googlecode.com/svn/trunk/configfiles/ivysettings.xml
+      [get] To: /Users/johnson/hackystat-projects-example/ivysettings.xml
+
+install.svnkit:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/ivysettings.xml
 
 BUILD SUCCESSFUL
-Total time: 7 minutes 5 seconds
+Total time: 2 seconds
+philip-johnsons-computer-2:hackystat-projects-example johnson$ 
 }}}
 
-As you can see, an initial checkout can take a while--in this case, a bit more than 7 minutes. 
+Running this install target will download a file called library.versions.properties that provides the version numbers for third party libraries used by Hackystat. It also downloads the Ivy binary, as well as the Ivy file (ivysettings.xml) that indicates what repositories are accessed by Ivy for Hackystat dependent libraries. Finally, it downloads the SVNkit library and stores it in lib/svnkit.
 
-However, once you have downloaded the files for the first time, you can later download updates to any of the projects by issuing the same command (which is equivalent to an SVN 'update').  Here's what this looks like:
+Here is what the top-level directory looks like after running the install target:
 
 {{{
-C:\hackystat-projects>ant checkout.anonymous
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ls
+build.xml	ivysettings.xml	     lib/
+}}}
+
+
+== 2.3 Checkout sources to your local workspace ==
+
+If you simply want to build the sources without committing any changes, you can checkout the source "anonymously" using the checkout.anonymous command. 
+
+=== 2.3.1 Checkout sources with read-only access ===
+
+For example, here is the result of running the checkout.anonymous command for the hackystat-sensorbase-uh project. Note that checking out this project results in its dependent Hackystat project being checked out as well:
+
+{{{
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ant checkout.anonymous.hackystat-sensorbase-uh
 Buildfile: build.xml
 
-checkout.anonymous:
-     [java] Checked out revision 125.
-     [java] Checked out revision 404.
-     [java] Checked out revision 120.
-     [java] Checked out revision 116.
-     [java] Checked out revision 118.
-     [java] Checked out revision 196.
-     [java] Checked out revision 116.
-     [java] Checked out revision 29.
-     [java] Checked out revision 35.
-     [java] Checked out revision 67.
-     [java] Checked out revision 293.
-     [java] Checked out revision 66.
-     [java] Checked out revision 172.
-     [java] Checked out revision 63.
-     [java] Checked out revision 140.
+check-install:
+
+checkout.anonymous.hackystat-utilities:
+     [java] A    hackystat-utilities/sclc.build.xml
+     [java] A    hackystat-utilities/.project
+     [java] A    hackystat-utilities/junit.build.xml
+     (deleted)
+     [java]  U   hackystat-utilities
+     [java] Checked out revision 217.
+
+checkout.anonymous.hackystat-sensorbase-uh:
+     [java] A    hackystat-sensorbase-uh/sample.sensorbase.properties
+     [java] A    hackystat-sensorbase-uh/python
+     [java] A    hackystat-sensorbase-uh/python/Sensorbase
+     (deleted)
+     [java]  U   hackystat-sensorbase-uh
+     [java] Checked out revision 598.
 
 BUILD SUCCESSFUL
-Total time: 2 minutes 49 seconds
+Total time: 33 seconds
+philip-johnsons-computer-2:hackystat-projects-example johnson$ 
 }}}
 
-As you can see, it took much less time, and in this case, no differences were found between the local copies and those in the Subversion repository at Google Project hosting. 
+If you invoke this command again, it has the effect of SVN update, so you can use this same command for initial checkout and to ensure your local workspace is consistent with the Google Project Hosting repository.
 
-Note that, due to network irregularities, a checkout may occasionally fail midway through with an error like the following:
+You cannot commit changes to projects that you have checked out anonymously. If you want to commit changes, you must delete these projects (or create a new directory) and checkout the projects with your SVN credentials, as discussed in the next section.
 
-{{{
-[java] svn: PROPFIND of '/svn/!svn/vcc/default': 502 Bad Gateway (http://hackystat-sensor-shell.googlecode.com)
-}}}
 
-If that occurs, just re-invoke the "ant checkout.anonymous" command. It will effectively start up again where it left off. 
+=== 2.3.2 Checkout sources with read-write access to your local workspace===
 
-Since you are checking out the sources anonymously, you cannot commit any changes you make back to the repository. 
-
-Here is what the directory structure will look like after you have checked out the projects:
-
-{{{
-C:\svn-google\hackystat>dir
- Volume in drive C has no label.
- Volume Serial Number is 0891-1F61
-
- Directory of C:\hackystat-projects
-
-12/20/2007  11:11 AM    <DIR>          .
-12/20/2007  11:11 AM    <DIR>          ..
-12/20/2007  11:03 AM            14,585 build.xml
-12/13/2007  10:11 AM             4,904 dist.build.xml
-12/20/2007  11:08 AM    <DIR>          hackystat-analysis-dailyprojectdata
-12/20/2007  11:08 AM    <DIR>          hackystat-analysis-telemetry
-12/20/2007  11:09 AM    <DIR>          hackystat-sensor-ant
-12/20/2007  11:11 AM    <DIR>          hackystat-sensor-eclipse
-12/20/2007  11:09 AM    <DIR>          hackystat-sensor-emacs
-12/20/2007  11:09 AM    <DIR>          hackystat-sensor-example
-12/20/2007  11:07 AM    <DIR>          hackystat-sensor-shell
-12/20/2007  11:09 AM    <DIR>          hackystat-sensor-vim
-12/20/2007  11:09 AM    <DIR>          hackystat-sensor-xmldata
-12/20/2007  11:07 AM    <DIR>          hackystat-sensorbase-uh
-12/20/2007  11:11 AM    <DIR>          hackystat-ui-projectviewer
-12/20/2007  11:10 AM    <DIR>          hackystat-ui-sensordatabrowser
-12/20/2007  11:10 AM    <DIR>          hackystat-ui-sensordataviewer
-12/20/2007  11:10 AM    <DIR>          hackystat-ui-telemetryviewer
-12/20/2007  11:05 AM    <DIR>          hackystat-utilities
-12/20/2007  09:23 AM             5,316 macros.build.xml
-               7 File(s)         26,150 bytes
-              21 Dir(s)  40,942,211,072 bytes free
-}}}
-
-== 2.3 Checkout sources with commit privileges (for Project Members) ==
-
-If you are listed as a member of the Hackystat projects, then you can check out the project sources with authentication.  This enables you to later commit your changes. 
-
-|| Note: If you wish to check out the sources with commit privileges, and if you have previously checked out the sources anonymously, you must first delete the project directories that were checked out anonymously.  Otherwise, SVN will get very confused. ||
-
-Now create a file called "svn.properties" in your top-level Hackystat directory. It should contain two lines like the following:
+To checkout sources with read-write (commit) access, you must first create a file called "svn.properties" and place it in your hackystat-projects directory.  This file should look like this:
 
 {{{
 svn.username=johnsmith
 svn.password=v8f4k2a9
 }}}
 
-Substitute your Google Project Hosting user name (your gmail account) and the password that Google generates for you (see the [http://code.google.com/hosting/settings Google Project Hosting Settings Page]). 
+Where "johnsmith" is your Google account and "v8f4k2a9" is the SVN password (not your google password!).  Find your SVN password in your settings page: [http://code.google.com/hosting/settings]
 
-This svn.properties file will be read by the Ant script and used to perform an authenticated checkout of the Hackystat projects.  
-
-To perform the authenticated checkout, you can now invoke "ant checkout".  The output from Ant will look exactly like the output from the anonymous checkout shown in the last section ("ant checkout.anonymous"). The difference is that you can now commit your changes back to the SVN repository.
-
-== 2.4 The Google Credential Problem ==
-
-At least in my environment, Google generates some kind of weird credential problem the first time that a project is checked out.  A message similar to the following  gets written out:
-
+For example, here is the top-level directory just before checking out a project with read-write access:
 {{{
-[java] Error validating server certificate for 'https://hackystat-sensorbase-uh.googlecode.com:443':
-[java]  - The certificate is not issued by a trusted authority. Use the
-[java]    fingerprint to validate the certificate manually!
-[java]  - The certificate hostname does not match.
-[java] Certificate information:
-[java]  - Subject: CN=*.googlecode.com, O=Google Inc, L=Mountain View, ST=California, C=US
-[java]  - Valid: from Fri Jun 23 06:05:41 HST 2006 until Sat Jun 21 01:45:36 HST 2008
-[java]  - Issuer: EMAILADDRESS=premium-server@thawte.com, CN=Thawte Premium Server CA, OU=Certification Services Division, O=Thawte Consulting cc, L=Cape Town, ST=Western Cape, C=ZA
-[java]  - Fingerprint: 89:87:5e:ca:0b:03:d2:83:db:7b:3f:20:5d:d0:76:c7:76:6b:cb:b2
-[java] (R)eject, accept (t)emporarily or accept (p)ermanently? 
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ls
+build.xml	ivysettings.xml	lib		svn.properties
 }}}
 
-If you get this message, you should just type 'p' and hit Return as soon as possible after it appears.  If you respond within, say 10 seconds or so, then the checkout will proceed and you will not get this message again for this project. Otherwise, the build will fail and you'll have to start over again. 
-
-== 2.5 Checking out the Project wiki directory for local editing of wiki pages ==
-
-If you are a Hackystat developer who must create and edit wiki pages, you might find it more convenient to edit the files locally using an editor like Eclipse or Emacs, rather than use the browser-based editor provided when clicking on the "Edit" link in the Wiki page of a Project. 
-
-To edit a wiki page locally, you must first create it using the browser-based "New Page" link. 
-
-Once you have created your wiki page using the browser, Google will place it in your Project's SVN repository in a directory called wiki/.   
-
-The "ant checkout.wiki" command will download all wiki directories.  Here is what the execution of that command looks like:
+Now we invoke the "checkout" command with a project:
 
 {{{
-C:\hackystat-projects>ant checkout-wiki
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ant checkout.hackystat-utilities
 Buildfile: build.xml
 
-checkout-wiki:
-    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-utilities
-     [java] A    wiki-hackystat-utilities\UriCache.wiki
-      :
-     [java] Checked out revision 125.
-    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-sensorbase-uh
-     [java] A    hackystat-sensorbase-uh-wiki\firefox-poster-2.gif
-      :
-     [java] Checked out revision 404.
-    [mkdir] Created dir: C:\hackystat-projects\wiki-hackystat-sensor-shell
-      :
-      :
-      :
+check-install:
+
+check-svn-properties:
+
+checkout.hackystat-utilities:
+     [java] A    hackystat-utilities/sclc.build.xml
+     [java] A    hackystat-utilities/.project
+     [java] A    hackystat-utilities/junit.build.xml
+     (deleted)
+     [java]  U   hackystat-utilities
+     [java] Checked out revision 217.
 
 BUILD SUCCESSFUL
-Total time: 1 minute 55 seconds
+Total time: 9 seconds
+philip-johnsons-computer-2:hackystat-projects-example johnson$ 
 }}}
 
-All of the wiki pages will be checked out into newly created project directories prefixed with "wiki-". 
+If you invoke this command again, it has the effect of SVN update, so you can use this same command for initial checkout and to ensure your local workspace is consistent with the Google Project Hosting repository.
+
+== 2.4 Getting the status of your local workspace ==
+
+It is often useful to know the status of your local workspace: whether you have made changes to files or added new ones.  The build script provides a "status" command to facilitate this.  
+
+Let's assume that you've been working on the sensorbase and want to know about any changes you have made to this (or any dependent) projects.  You can invoke the status command as follows:
+
+{{{
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ant status.hackystat-sensorbase-uh
+Buildfile: build.xml
+
+check-install:
+
+status.hackystat-utilities:
+
+status.hackystat-sensorbase-uh:
+     [java] M       hackystat-sensorbase-uh/src/org/hackystat/sensorbase/client/SensorBaseClient.java
+
+BUILD SUCCESSFUL
+Total time: 1 second
+}}}
+
+This command reveals that the file SensorBaseClient.java has been modified.  It also checks the status of the dependent project (hackystat-utilities) which has not been changed.
+
+== 2.5 Committing changes to your local workspace ==
+
+To commit changes, invoke the commit command.  As with all the other commands, it will do a commit of all dependent targets.  You must always supply the -Dsvn.message argument on the command line with a string that will be used as the commit log message. 
+
+Here is an example:
+
+{{{
+philip-johnsons-computer-2:hackystat-projects-example johnson$ ant -Dsvn.message="Fix javadoc typos" commit.hackystat-sensorbase-uh 
+Buildfile: build.xml
+
+check-install:
+
+check-svn-properties:
+
+check-svn-message:
+
+commit.hackystat-utilities:
+
+commit.hackystat-sensorbase-uh:
+     [java] Sending        hackystat-sensorbase-uh/src/org/hackystat/sensorbase/client/SensorBaseClient.java
+     [java] Transmitting file data .
+     [java] Committed revision 599.
+
+BUILD SUCCESSFUL
+Total time: 6 seconds
+}}}
+
 
 = 3.0 Building Hackystat Projects =
 
-Once you have checked out the sources, whether anonymously, or as a Project member, the next step is to build them.  There are many ways to build the projects depending upon your goals as a developer.  In general, you will want to read the Developer Guide pages associated with a given project in order to understand what libraries must be installed and so forth. 
+Once you have checked out the sources, whether anonymously or with commit access, the next step is to build them.  There are many ways to build the projects depending upon your goals as a developer.  In general, you will want to read the Developer Guide pages associated with a given project.
 
 This section documents the simplest possible approach to building, which is the "standard" approach used for integration builds.  Every Hackystat Project must provide an Ant file called "verify.build.xml" which is called by the integration build scripts in order to compile and test the project. Every Hackystat project must also provide an Ant file called "dist.build.xml" which creates binary executables (such as .jar or .war files) and packages them for distribution.  
 
 == 3.1 Building an individual Hackystat Project ==
 
-|| Note: Before building a project, you may wish to invoke "ant checkout" or "ant checkout.anonymous" to make sure you have the most recent sources. ||
+|| Note: Before building a project, you may wish to invoke the checkout or checkout.anonymous command documented above to ensure that you have the latest version of the sources. ||
 
-The Ant scripts provide a "build" target for each Hackystat Project that invokes the verify and distribution Ant targets within the given Project.  For example, the "build.utilities" target has the effect of invoking "ant -f verify.build.xml" and "ant -f dist.build.xml" within the hackystat-utilities project directory.  
+The released Hackystat projects all tend to have a similar build system structure. In particular, the following commands are essential for building Hackystat projects.
 
-The Ant scripts do one more useful thing: they provide local definitions of the following environment variables: HACKYSTAT_UTILITIES_HOME, HACKYSTAT_SENSORBASE_HOME, HACKYSTAT_SENSORSHELL_HOME, HACKYSTAT_DAILYPROJECTDATA_HOME, and HACKYSTAT_TELEMETRY_HOME. These environment variables are set to the associated directories that you have just checked out. 
+|| *Command* || *Description* ||
+|| ant || The default build command, which invokes Ivy to obtain all internal and external dependencies, then compiles the current system. ||
+|| ant -f jar.build.xml publish || Compiles the current system, builds the jar file, then invokes Ivy to "publish" the jar file to a local Ivy repository. The most recent "published" version of a Hackystat internal dependency is used by all dependent projects.||
+|| ant -f jar.build.xml publish-all || Invoke "publish" on all dependent projects in order, and finally compile and publish the current project. ||
 
-What this means is the following:
+Let's illustrate how this works with some simple examples.  
 
-  * When building individual Hackystat projects, you must always ensure that any Hackystat projects that it depends upon have been previously built. 
-
-  * You do not have to set these environment variables yourself; they will default appropriately. 
-
-Here is an example invocation of the build target for the Hackystat Utilities project, which is generally the first project you will want to build because it is dependent upon no other projects, and many other project depend upon it. 
-
-Note that I set `hackystat.enable=false` as part of the command in order to disable Hackystat data collection.  This is helpful for external developers who want to build the system locally but not install the sensors just for this purpose. 
+First, let's build the hackystat-utilities project by cd'ing to its directory and invoking "ant":
 
 {{{
-C:\hackystat-projects>ant -Dhackystat.enable=false build.utilities
+philip-johnsons-computer-2:hackystat-projects-example johnson$ cd hackystat-utilities
+philip-johnsons-computer-2:hackystat-utilities johnson$ ant
 Buildfile: build.xml
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/configfiles
 
-build.utilities:
-     [echo]
-     [echo]     Hackystat Utilities Verification Task
-      :
-      :
-clean:
-   [delete] Deleting directory C:\hackystat-projects\hackystat-utilities\build
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-utilities/ivysettings.xml
 
 compile:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\classes
-    [javac] Compiling 39 source files to C:\hackystat-projects\hackystat-utilities\build\classes
-
-checkstyle.tool:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\checkstyle
-[checkstyle] Running Checkstyle 4.3 on 39 files
-    :
-    :
-
-junit.tool:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\junit
-    [junit] Running org.hackystat.utilities.home.TestHackystatUserHome
-     :
-     :
-
-javadoc:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\javadoc
-  [javadoc] Generating Javadoc
-  [javadoc] Javadoc execution
-  [javadoc] Loading source files for package org.hackystat.utilities.home...
-    :
-
-findbugs.tool:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\findbugs
- [findbugs] Running FindBugs...
- [findbugs] Output saved to C:\hackystat-projects\hackystat-utilities\build\findbugs/findbugs.xml
-
-      :
-      :
-
-pmd.tool:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\pmd
-      [pmd] No problems found!
-
-      :
-      :
-
-sclc.tool:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\sclc
-     [exec]  Lines  Blank  Cmnts   NCSL TPtoks
-     [exec] ====== ====== ====== ====== ====== ============================================
-      :
-     [exec]     26      0      0     26    152 ----- HTML -----  (8 files)
-     [exec]   4455    524   1741   2194  16964 ----- Java -----  (39 files)
-     [exec]   4481    524   1741   2220  17116 ***** TOTAL *****  (47 files)
-
-     :
-     :
-
-jar-home:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\tmp-lib
-     [copy] Copying 2 files to C:\hackystat-projects\hackystat-utilities\tmp-lib
-      [jar] Building jar: C:\hackystat-projects\hackystat-utilities\hackystatuserhome.lib.jar
-   [delete] Deleting directory C:\hackystat-projects\hackystat-utilities\tmp-lib
-      :
-      :
-
-dist:
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
-     [copy] Copying 74 files to C:\hackystat-projects\hackystat-utilities\dist-tmp\hackystat-utilities-8.0.1220
-    [mkdir] Created dir: C:\hackystat-projects\hackystat-utilities\build\dist
-      [zip] Building zip: C:\hackystat-projects\hackystat-utilities\build\dist\hackystat-utilities-8.0.1220.zip
-       :
-       :
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/classes
+    [javac] Compiling 37 source files to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/classes
 
 BUILD SUCCESSFUL
-Total time: 42 seconds
+Total time: 2 seconds
 }}}
 
-By changing directories to hackystat-utilities, you'll see that the result of this build.utilities target is to create several jar files, including hackystatlogger.lib.jar, hackystatuserhome.lib.jar, and so on.  Now that these library files have been created, you will be able to build projects that depend upon hackystat utilities, such as hackystat-sensorbase-uh. 
+The default target invokes compile, which depends upon install-libraries.  The install-libraries target installs any external dependencies. In the case of hackystat-utilities, it will install Apache JCS, util.concurrent, commons-logging, and junit into subdirectories of the lib directory:
 
 {{{
-C:\hackystat-projects\hackystat-utilities>dir
- Volume in drive C has no label.
- Volume Serial Number is 0891-1F61
-
- Directory of C:\hackystat-projects\hackystat-utilities
-
-12/20/2007  12:24 PM    <DIR>          .
-12/20/2007  12:24 PM    <DIR>          ..
-12/20/2007  11:43 AM               572 .classpath
-12/20/2007  11:43 AM               395 .project
-12/20/2007  12:24 PM    <DIR>          build
-12/20/2007  11:43 AM             4,092 build.xml
-12/20/2007  11:43 AM             2,583 checkstyle.build.xml
-12/20/2007  11:43 AM             1,164 dist.build.xml
-12/20/2007  11:43 AM             5,043 emma.build.xml
-12/20/2007  11:43 AM             2,220 findbugs.build.xml
-12/20/2007  11:43 AM             3,506 hackystat.build.xml
-12/20/2007  12:24 PM             5,885 hackystatlogger.lib.jar
-12/20/2007  12:24 PM             2,224 hackystatuserhome.lib.jar
-12/20/2007  11:43 AM             5,840 jar.build.xml
-12/20/2007  11:43 AM    <DIR>          javadoc
-12/20/2007  11:43 AM             1,335 javadoc.build.xml
-12/20/2007  11:43 AM             2,026 junit.build.xml
-12/20/2007  11:43 AM    <DIR>          lib
-12/20/2007  11:43 AM             2,357 pmd.build.xml
-12/20/2007  11:43 AM             1,420 sclc.build.xml
-12/20/2007  11:43 AM    <DIR>          src
-12/20/2007  12:24 PM             2,193 stacktrace.lib.jar
-12/20/2007  12:24 PM            35,242 time.lib.jar
-12/20/2007  12:24 PM             6,193 tstamp.lib.jar
-12/20/2007  12:24 PM           739,984 uricache.lib.jar
-12/20/2007  11:43 AM             2,028 verify.build.xml
-              20 File(s)        826,302 bytes
-               6 Dir(s)  40,862,126,080 bytes free
+philip-johnsons-computer-2:hackystat-utilities johnson$ ls lib/
+commons-logging/	concurrent/	configfiles/	jcs/		junit/
 }}}
 
-== 3.2 Dependencies ==
+After installing these dependencies, it invokes the compile command, which succeeds. 
 
-If you are building individual projects at a time, you need to be aware of dependencies between projects so you can rebuild them in the right order when things change.  Here are a list of rules that summarize the dependencies:
+Now that we've built hackystat-utilities, it would seem to be correct to cd to the hackystat-sensorbase-uh directory and build it:
 
-  * All Sensor projects depend upon the Sensor Shell project.
-  * The Sensor Shell project depends upon the !SensorBase project.
-  * The !SensorBase project depends upon the Utilities project.
-  * The !DailyProjectData project depends upon the !SensorBase project.
-  * The Telemetry project depends upon the !DailyProjectData project.
-  * The !ProjectBrowser project depends upon the Telemetry, !DailyProjectData and !SensorBase projects.
+{{{
+philip-johnsons-computer-2:hackystat-utilities johnson$ cd ../hackystat-sensorbase-uh/
+philip-johnsons-computer-2:hackystat-sensorbase-uh johnson$ ant
+Buildfile: build.xml
 
-Of course, dependencies are transitive. 
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/ivysettings.xml
+[ivy:retrieve] 
+[ivy:retrieve] :: problems summary ::
+[ivy:retrieve] :::: WARNINGS
+[ivy:retrieve] 		module not found: org.hackystat#hackystat-utilities;latest.integration
+[ivy:retrieve] 	==== roundup: tried
+[ivy:retrieve] 	  http://ivyroundup.googlecode.com/svn/trunk/repo/modules/org.hackystat/hackystat-utilities/[revision]/ivy.xml
+[ivy:retrieve] 	  -- artifact org.hackystat#hackystat-utilities;latest.integration!hackystat-utilities.jar:
+[ivy:retrieve] 	  http://ivyroundup.googlecode.com/svn/trunk/repo/modules/org.hackystat/hackystat-utilities/[revision]/packager.xml
+[ivy:retrieve] 	==== local-repository: tried
+[ivy:retrieve] 	  /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/[revision]/hackystat-utilities-[revision].xml
+[ivy:retrieve] 	  -- artifact org.hackystat#hackystat-utilities;latest.integration!hackystat-utilities.jar:
+[ivy:retrieve] 	  /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/[revision]/hackystat-utilities-[revision].jar
+[ivy:retrieve] 		::::::::::::::::::::::::::::::::::::::::::::::
+[ivy:retrieve] 		::          UNRESOLVED DEPENDENCIES         ::
+[ivy:retrieve] 		::::::::::::::::::::::::::::::::::::::::::::::
+[ivy:retrieve] 		:: org.hackystat#hackystat-utilities;latest.integration: not found
+[ivy:retrieve] 		::::::::::::::::::::::::::::::::::::::::::::::
+[ivy:retrieve] 
+[ivy:retrieve] :: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
 
-== 3.3 Building the entire system ==
+BUILD FAILED
+/Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build.xml:62: impossible to resolve dependencies:
+	resolve failed - see output for details
 
-|| Note: Before building all projects, you may wish to invoke "ant checkout" or "ant checkout.anonymous" to make sure you have the most recent sources. ||
-
-It is also possible to build the system with one command: "ant build.all".  The advantage to this command is that it guarantees the projects are built in an order that satisfies their dependencies.  
-
-The output of running this command is quite long, so I will not show it here.  However, it basically just calls all of the individual build.<project> targets in an appropriate order. 
-
-Building the entire system typically takes about 10 minutes. 
-
-= 4.0 Committing changes =
-
-The command "ant -Dsvn.message=<commit message>" will commit all changed files in all of the regular (non-wiki) modules. 
-
-If you forget to supply the svn.message command line parameter, it will fail.  
-
-This only works, of course, when you have checked out the files with authentication and the svn.properties file exists. 
-
-Note that this doesn't tell you if you've created new files that need to be SVN added, so use this command with care. 
+Total time: 1 second
+}}}
 
 
+Unfortunately, we get an error because we failed to "publish" the hackystat-utilities project.  That is easy to fix by invoking 'ant -f jar.build.xml publish' in the hackystat-utilities project:
 
+{{{
+philip-johnsons-computer-2:hackystat-sensorbase-uh johnson$ cd ../hackystat-utilities
+philip-johnsons-computer-2:hackystat-utilities johnson$ ant -f jar.build.xml publish
+Buildfile: jar.build.xml
 
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-utilities/ivysettings.xml
+
+compile:
+
+jar-validate-email:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar
+     [copy] Copying 2 files to /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+      [jar] Building jar: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar/validate.email.lib.jar
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+
+   (deleted)
+
+jar-time:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+     [copy] Copying 23 files to /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+      [jar] Building jar: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar/time.lib.jar
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-utilities/tmp-lib
+
+jar:
+     [copy] Copying 7 files to /Users/johnson/hackystat-projects-example/hackystat-utilities
+
+publish:
+[ivy:resolve] :: resolving dependencies :: org.hackystat#hackystat-utilities;working@admin01.ics.hawaii.edu
+[ivy:resolve] 	confs: [default]
+[ivy:resolve] 	found org.junit#junit;4.5 in chained
+[ivy:resolve] 	found edu.oswego.cs#concurrent;1.3.4 in chained
+[ivy:resolve] 	found org.apache.commons#commons-logging;1.1.1 in chained
+[ivy:resolve] 	found org.apache.jcs#jcs;1.3 in chained
+[ivy:resolve] :: resolution report :: resolve 60ms :: artifacts dl 8ms
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   4   |   0   |   0   |   0   ||   12  |   0   |
+	---------------------------------------------------------------------
+:: delivering :: org.hackystat#hackystat-utilities;working@admin01.ics.hawaii.edu :: 2009.07.06.12.37.57 :: integration :: Mon Jul 06 12:37:57 HST 2009
+	delivering ivy file to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/jar/ivy.xml
+:: publishing :: org.hackystat#hackystat-utilities
+	published hackystatlogger.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/hackystatlogger.lib-2009.07.06.12.37.57.jar
+	published hackystatuserhome.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/hackystatuserhome.lib-2009.07.06.12.37.57.jar
+	published stacktrace.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/stacktrace.lib-2009.07.06.12.37.57.jar
+	published time.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/time.lib-2009.07.06.12.37.57.jar
+	published tstamp.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/tstamp.lib-2009.07.06.12.37.57.jar
+	published uricache.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/uricache.lib-2009.07.06.12.37.57.jar
+	published validate.email.lib to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/validate.email.lib-2009.07.06.12.37.57.jar
+	published ivy to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part/hackystat-utilities-2009.07.06.12.37.57.xml
+	publish commited: moved /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57.part 
+		to /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57
+
+BUILD SUCCESSFUL
+Total time: 3 seconds
+}}}
+
+Now that the hackystat-utilities project has been published, we can build the hackystat-sensorbase-uh project:
+
+{{{
+philip-johnsons-computer-2:hackystat-utilities johnson$ cd ../hackystat-sensorbase-uh
+philip-johnsons-computer-2:hackystat-sensorbase-uh johnson$ ant
+Buildfile: build.xml
+
+install-libraries:
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/ivysettings.xml
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/hackystatlogger.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (6kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!hackystatlogger.lib.jar (5ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/time.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (31kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!time.lib.jar (12ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/hackystatuserhome.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (2kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!hackystatuserhome.lib.jar (6ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/uricache.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] ............ (672kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!uricache.lib.jar (48ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/validate.email.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (6kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!validate.email.lib.jar (4ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/stacktrace.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (2kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!stacktrace.lib.jar (3ms)
+[ivy:retrieve] downloading /Users/johnson/.ivy2/local-repository/org.hackystat/hackystat-utilities/2009.07.06.12.37.57/tstamp.lib-2009.07.06.12.37.57.jar ...
+[ivy:retrieve] .. (8kB)
+[ivy:retrieve] .. (0kB)
+[ivy:retrieve] 	[SUCCESSFUL ] org.hackystat#hackystat-utilities;2009.07.06.12.37.57!tstamp.lib.jar (3ms)
+
+compile:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build/classes
+    [javac] Compiling 106 source files to /Users/johnson/hackystat-projects-example/hackystat-sensorbase-uh/build/classes
+
+BUILD SUCCESSFUL
+Total time: 3 seconds
+}}}
+
+Let's look at the lib/ directory:
+
+{{{
+philip-johnsons-computer-2:hackystat-sensorbase-uh johnson$ ls lib/
+configfiles/		derby/			hackystat-utilities/	junit/			restlet/
+}}}
+
+Ivy has now populated this directory with both the internal (hackystat-utilities) and external (derby, junit, and restlet) dependencies for the hackystat-sensorbase-uh project.
 
