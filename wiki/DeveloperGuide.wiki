@@ -21,11 +21,13 @@ The remainder of this page documents the steps required to download and build th
 
 Hackystat sources can be downloaded from Google Project Hosting using Subversion.  Because downloading over multiple projects individually can be irritating, we have developed an Ant script to simplify this process.  Here are the steps involved:
 
-== 2.1 Install Java and Ant ==
+== 2.1 Install Java, Ant, and JavaMail ==
 
-Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variable.  Hackystat requires Java 1.5 or above. 
+Install [http://java.sun.com/ Java], and define the JAVA_HOME environment variable.  Hackystat requires Java 1.5 or above, but please use Java 1.6. 
 
 Install [http://ant.apache.org/ Ant], and define the ANT_HOME environment variable.  Hackystat requires Ant 1.7 or above.
+
+Since hackystat-sensorbase-uh requires JavaMail, and since almost almost all Hackystat projects require hackystat-sensorbase-uh, you will also need to install JavaMail.  See [InstallingJavaMail] for instructions. 
 
 == 2.2 Download the Hackystat top-level build.xml file ==
 
@@ -788,3 +790,8 @@ Eventually, quite a bit of space can be taken up by out of date versions of thes
 == 5.3 Screencast ==
 
 A screencast covering much of this information is available at: [http://code.google.com/p/hackystat/wiki/Screencasts#Building_Hackystat_From_Source].
+
+== 5.4 Eclipse ==
+
+Most Java-based Hackystat projects come with .project and .classpath files for use with Eclipse. Note that the .classpath files point to files in the project's lib/ directory for dependencies.  Thus, after checking out the sources, you must run Ant to build the system and populate he lib/ directory.  Only then can you open the Hackystat Eclipse project without build errors. Each time you "publish" dependent projects, use the Ecipse "refresh" command to load those changes into your Eclipse session.  
+
