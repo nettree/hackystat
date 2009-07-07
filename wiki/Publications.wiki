@@ -1,7 +1,7 @@
 #summary Research publications on Hackystat.
 
 
-[http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, Submitted to the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
+[http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
 
 For empirical software engineering to reach its fullest potential, we must
 develop effective, experiential approaches to learning about it in a
@@ -107,7 +107,7 @@ Abstract: Measurement is an important aspect of Software Engineering as it is th
 
 The work performed in this thesis is based on Hackystat, a fully automated measurement framework for software engineering processes and products. Hackystat is designed to unobtrusively measure a wide range of metrics relevant to software development and collect them in a centralized data repository. Unfortunately, it is not easy to interpret, analyze and visualize the vast data collected by Hackystat in such way that it can effectively be used for software project control.
 
-A potential solution to that problem is to integrate Hackystat with the GQM (Goal / Question / Metric) Paradigm, a popular approach for goal-oriented, systematic definition of measurement programs for software-engineering processes and products. This integration should allow the goal-oriented use of the metric data collected by Hackystat and increase it’s usefulness for project control. During the course of this work, this extension to Hackystat which is later called hackyCGQM is implemented. As a result, hackyCGQM enables Hackystat to be used as a Software Project Control Center (SPCC) by providing purposeful high-level representations of the measurement data.
+A potential solution to that problem is to integrate Hackystat with the GQM (Goal / Question / Metric) Paradigm, a popular approach for goal-oriented, systematic definition of measurement programs for software-engineering processes and products. This integration should allow the goal-oriented use of the metric data collected by Hackystat and increase itï¿½s usefulness for project control. During the course of this work, this extension to Hackystat which is later called hackyCGQM is implemented. As a result, hackyCGQM enables Hackystat to be used as a Software Project Control Center (SPCC) by providing purposeful high-level representations of the measurement data.
 
 Another interesting side-effect of the combination of Hackystat and hackyCGQM is that this system is able to perform fully automated measurement and analysis cycles. This leads to the development of cGQM, a specialized method for fully automated, GQM based measurement programs. As a summary, hackyCGQM seeks to implement a completely automated GQMbased measurement framework. This high degree of automation is made possible by limiting the implemented measurement programs to metrics which can be measured automatically, thus sacrificing the ability to use arbitrary metrics.
 
@@ -152,8 +152,6 @@ My research employed a very simple exploratory study, which includes inspecting 
 [http://csdl.ics.hawaii.edu/techreports/02-07/02-07.pdf Beyond the Personal Software Process: Metrics collection and analysis for the differently disciplined], Philip M. Johnson and Hongbing Kou and Joy M. Agustin and Christopher Chan and Carleton A. Moore and Jitender Miglani and Shenyan Zhen and William E. Doane, Proceedings of the 2003 International Conference on Software Engineering, Portland, Oregon, May, 2003.
 
 Pedagogies such as the Personal Software Process (PSP) shift metrics definition, collection, and analysis from the organizational level to the individual level. While case study research indicates that the PSP can provide software engineering students with empirical support for improving estimation and quality assurance, there is little evidence that many students continue to use the PSP when no longer required to do so. Our research suggests that this "PSP adoption problem" may be due to two problems: the high overhead of PSP-style metrics collection and analysis, and the requirement that PSP users "context switch" between product development and process recording. This paper overviews our initial PSP experiences, our first attempt to solve the PSP adoption problem with the LEAP system, and our current approach called Hackystat. This approach fully automates both data collection and analysis, which eliminates overhead and context switching. However, Hackystat changes the kind of metrics data that is collected, and introduces new privacy-related adoption issues of its own.
-
-
 
 
 
