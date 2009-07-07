@@ -579,18 +579,212 @@ Total time: 18 seconds
 
 The publish-all command not only publishes the hackystat-utilities project, it also compiles, jars, and publishes the hackystat-sensorbase-uh project for use by any project that depends upon it.
 
-= 4.0 Miscellaneous Information =
+= 4.0 Static analysis and verification =
 
-== 4.1 You still need an SVN client ==
+== 4.1 Static analysis ==
+
+Most Java-based Hackystat projects provide a set of build targets that perform various kinds of static analysis on the system. The following table describes the standard static analyses and how they are invoked:
+
+|| *Invocation* || *Description* ||
+|| ant -f checkstyle.build.xml || Runs the checkstyle tool over the sources. See lib/configfiles for checkstyle configuration. ||
+|| ant -f dependencyfinder.build.xml || Runs the dependencyfinder tool over sources, generating coupling information. ||
+|| ant -f emma.build.xml || Runs the Emma code coverage tool to generate testing coverage data. ||
+|| ant -f findbugs.build.xml || Runs the !FindBugs tool to perform bytecode static analysis. See lib/configfiles for findbugs configuration. ||
+|| ant -f junit.build.xml || Runs the JUnit tool, failing the build if any unit tests fail. ||
+|| ant -f pmd.build.xml || Runs the PMD tool to perform source level static analysis. See lib/configfiles for PMD configuration. ||
+|| ant -f sclc.build.xml || Runs the SCLC tool to generate source code size information.  Note that this system requires Active Python to be installed. ||
+
+The build system uses Ivy to automatically install the associated tool when you run the command for the first time.  For example, here is the result of invoking Checkstyle:
+
+{{{
+philip-johnsons-computer-2:hackystat-utilities johnson$ ant -f checkstyle.build.xml 
+Buildfile: checkstyle.build.xml
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-utilities/ivysettings.xml
+
+install-libraries:
+
+compile:
+
+checkstyle.install.config.file:
+      [get] Getting: http://hackystat.googlecode.com/svn/trunk/configfiles//hackystat.checkstyle.xml
+      [get] To: /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/configfiles/hackystat.checkstyle.xml
+
+checkstyle.tool:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle
+[checkstyle] Running Checkstyle 5.0 on 37 files
+
+checkstyle.report:
+     [xslt] Processing /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle/checkstyle.xml to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle/index.html
+     [xslt] Loading stylesheet /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/checkstyle/checkstyle-noframes.xsl
+
+checkstyle.sensor:
+[hacky-checkstyle] 37 Checkstyle sensor data instances created.
+[hacky-checkstyle] These instances were transmitted to: http://dasha.ics.hawaii.edu:9876/sensorbase/ (0 secs.)
+
+checkstyle:
+
+BUILD SUCCESSFUL
+Total time: 6 seconds
+}}}
+
+This command downloaded the Checkstyle configuration file into lib/configfiles/hackystat.checkstyle.xml.  It also downloaded the Checkstyle binaries into lib/checkstyle.  Finally, it invoked the checkstyle tool.  
+
+== 4.2 Verification ==
+
+Hackystat uses a Hudson server at [http://dasha.ics.hawaii.edu:9870/] for continuous integration.  When you commit files associated with a released Hackystat project, the Hudson server will notice these commits within 5 minutes and invoke "ant -f verify.build.xml" to see if various static analysis tools can find problems.   If so, the build fails.  
+
+To avoid embarrassment, it is always best to invoke "ant -f verify.build.xml" prior to committing changes in order to ensure the code is clean.   For example:
+
+{{{
+philip-johnsons-computer-2:hackystat-utilities johnson$ ant -f verify.build.xml 
+Buildfile: verify.build.xml
+No ivy:settings found for the default reference 'ivy.instance'.  A default instance will be used
+[ivy:retrieve] :: Ivy 2.1.0-rc1 - 20090319213629 :: http://ant.apache.org/ivy/ ::
+:: loading settings :: file = /Users/johnson/hackystat-projects-example/hackystat-utilities/ivysettings.xml
+
+clean:
+   [delete] Deleting directory /Users/johnson/hackystat-projects-example/hackystat-utilities/build
+
+install-libraries:
+
+compile:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/classes
+    [javac] Compiling 37 source files to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/classes
+
+checkstyle.install.config.file:
+
+checkstyle.tool:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle
+[checkstyle] Running Checkstyle 5.0 on 37 files
+
+checkstyle.report:
+     [xslt] Processing /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle/checkstyle.xml to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/checkstyle/index.html
+     [xslt] Loading stylesheet /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/checkstyle/checkstyle-noframes.xsl
+
+checkstyle.sensor:
+[hacky-checkstyle] 37 Checkstyle sensor data instances created.
+[hacky-checkstyle] These instances were transmitted to: http://dasha.ics.hawaii.edu:9876/sensorbase/ (0 secs.)
+
+checkstyle:
+
+junit.tool:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/junit
+    [junit] Running org.hackystat.utilities.email.TestValidateEmailSyntax
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.22 sec
+    [junit] Running org.hackystat.utilities.home.TestHackystatUserHome
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.081 sec
+    [junit] Running org.hackystat.utilities.logger.TestHackystatLogger
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.122 sec
+    [junit] Error: 
+    [junit] 07/06 14:00:09  (Test message2)
+    [junit] 
+    [junit] Running org.hackystat.utilities.stacktrace.TestStackTrace
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.08 sec
+    [junit] Running org.hackystat.utilities.time.interval.TestDayInterval
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.196 sec
+    [junit] Running org.hackystat.utilities.time.interval.TestIntervalUtility
+    [junit] Tests run: 11, Failures: 0, Errors: 0, Time elapsed: 0.207 sec
+    [junit] Running org.hackystat.utilities.time.interval.TestMonthInterval
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.106 sec
+    [junit] Running org.hackystat.utilities.time.interval.TestWeekInterval
+    [junit] Tests run: 2, Failures: 0, Errors: 0, Time elapsed: 0.2 sec
+    [junit] Running org.hackystat.utilities.time.period.TestDay
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.917 sec
+    [junit] Running org.hackystat.utilities.time.period.TestMonth
+    [junit] Tests run: 4, Failures: 0, Errors: 0, Time elapsed: 0.133 sec
+    [junit] Running org.hackystat.utilities.time.period.TestWeek
+    [junit] Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.092 sec
+    [junit] Running org.hackystat.utilities.tstamp.TestTstamp
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.286 sec
+    [junit] Running org.hackystat.utilities.tstamp.TestTstampSet
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.079 sec
+    [junit] Running org.hackystat.utilities.uricache.TestUriCache
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 3.974 sec
+    [junit] Shutting down TestSimpleCache cache.
+    [junit] Shutting down GroupedKeyCache cache.
+    [junit] Shutting down TestDisposeCache cache.
+    [junit] Shutting down TestDiskCache cache.
+    [junit] Shutting down TestExpiration cache.
+
+junit.report:
+[junitreport] Processing /Users/johnson/hackystat-projects-example/hackystat-utilities/build/junit/TESTS-TestSuites.xml to /var/folders/Ie/IexkyPe7HJ4viaAX-AXBYU+++TI/-Tmp-/null1277213914
+[junitreport] Loading stylesheet jar:file:/Users/johnson/java/apache-ant-1.7.1/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+[junitreport] Transform time: 2670ms
+[junitreport] Deleting: /var/folders/Ie/IexkyPe7HJ4viaAX-AXBYU+++TI/-Tmp-/null1277213914
+
+junit.sensor:
+[hacky-junit] 40 UnitTest sensor data instances created.
+[hacky-junit] These instances were transmitted to: http://dasha.ics.hawaii.edu:9876/sensorbase/ (0 secs.)
+
+junit:
+
+pmd.install.rulesets.file:
+      [get] Getting: http://hackystat.googlecode.com/svn/trunk/configfiles//hackystat.pmd.xml
+      [get] To: /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/configfiles/hackystat.pmd.xml
+
+pmd.tool:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/pmd
+     [echo] PMD found 0 problem(s).
+
+pmd.report:
+     [xslt] Processing /Users/johnson/hackystat-projects-example/hackystat-utilities/build/pmd/pmd.xml to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/pmd/pmd-report-per-class.html
+     [xslt] Loading stylesheet /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/pmd/pmd-report-per-class.xslt
+
+pmd.sensor:
+[hacky-pmd] 37 Code Issue sensor data instances created.
+[hacky-pmd] These instances were transmitted to: http://dasha.ics.hawaii.edu:9876/sensorbase/ (0 secs.)
+
+pmd:
+
+findbugs.install.filter.file:
+      [get] Getting: http://hackystat.googlecode.com/svn/trunk/configfiles//hackystat.findbugs.exclude.xml
+      [get] To: /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/configfiles/hackystat.findbugs.exclude.xml
+
+findbugs.tool:
+    [mkdir] Created dir: /Users/johnson/hackystat-projects-example/hackystat-utilities/build/findbugs
+ [findbugs] Executing findbugs from ant task
+ [findbugs] Running FindBugs...
+ [findbugs] The following classes needed for analysis were missing:
+ [findbugs]   javax.mail.internet.InternetAddress
+ [findbugs]   javax.mail.internet.AddressException
+ [findbugs] Missing classes: 2
+ [findbugs] Calculating exit code...
+ [findbugs] Setting 'missing class' flag (2)
+ [findbugs] Exit code set to: 2
+ [findbugs] Java Result: 2
+ [findbugs] Classes needed for analysis were missing
+ [findbugs] Output saved to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/findbugs/findbugs.xml
+
+findbugs.report:
+     [xslt] Processing /Users/johnson/hackystat-projects-example/hackystat-utilities/build/findbugs/findbugs.xml to /Users/johnson/hackystat-projects-example/hackystat-utilities/build/findbugs/findbugs-default.html
+     [xslt] Loading stylesheet /Users/johnson/hackystat-projects-example/hackystat-utilities/lib/findbugs/default.xsl
+
+findbugs.sensor:
+[hacky-findbugs] 37 CodeIssues sensor data instances created.
+[hacky-findbugs] These instances were transmitted to: http://dasha.ics.hawaii.edu:9876/sensorbase/ (0 secs.)
+
+findbugs:
+
+verify:
+
+BUILD SUCCESSFUL
+Total time: 43 seconds
+}}}
+
+= 5.0 Miscellaneous Information =
+
+== 5.1 You still need an SVN client ==
 
 Although the top-level build.xml file provides facilities to checkout, commit, and assess the status of projects, it does not replace all the required SVN commands you will need to maintain a project. For example, it does not implement an SVN 'add' command, which is necessary if you are creating new files.   So, you will still need an SVN client for certain capabilities. 
 
-== 4.2 Cleaning the local repository ==
+== 5.2 Cleaning the local repository ==
 
 The build system publishes Hackystat projects to the ~/.ivy2/local-repository directory.  Each invocation of the "publish" target results in a new copy of the jar files associated with that project in the local-repository directory.  
 
 Eventually, quite a bit of space can be taken up by out of date versions of these files.  At present, we have not implemented any automated garbage collection on this directory; you'll have to occasionally clean it up yourself.   You can simply delete the entire directory and run "publish-all" as a simple form of management. 
 
-== 4.3 Screencast ==
+== 5.3 Screencast ==
 
 A screencast covering much of this information is available at: [http://code.google.com/p/hackystat/wiki/Screencasts#Building_Hackystat_From_Source].
