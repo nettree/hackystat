@@ -1,7 +1,7 @@
 #summary Research publications on Hackystat.
 
 
-[http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
+[http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, Proceedings of the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
 
 For empirical software engineering to reach its fullest potential, we must
 develop effective, experiential approaches to learning about it in a
@@ -22,7 +22,7 @@ the Hackystat Framework but not the Software ICU.  We use these findings to
 orient future research on empirical software engineering both inside and
 outside of the classroom.
 
-[http://csdl.ics.hawaii.edu/techreports/09-07/09-07.pdf Experiences with Hackystat as a service-oriented architecture], Philip M. Johnson, Shaoxuan Zhang, and Pavel Senin, Submitted to the 2009 IEEE Service Cup, Los Angeles, California, July, 2009.
+[http://csdl.ics.hawaii.edu/techreports/09-07/09-07.pdf Experiences with Hackystat as a service-oriented architecture], Philip M. Johnson, Shaoxuan Zhang, and Pavel Senin.
 
 Hackystat is an open source framework for automated collection and analysis
 of software engineering process and product data.  Hackystat has been in
@@ -152,8 +152,6 @@ My research employed a very simple exploratory study, which includes inspecting 
 [http://csdl.ics.hawaii.edu/techreports/02-07/02-07.pdf Beyond the Personal Software Process: Metrics collection and analysis for the differently disciplined], Philip M. Johnson and Hongbing Kou and Joy M. Agustin and Christopher Chan and Carleton A. Moore and Jitender Miglani and Shenyan Zhen and William E. Doane, Proceedings of the 2003 International Conference on Software Engineering, Portland, Oregon, May, 2003.
 
 Pedagogies such as the Personal Software Process (PSP) shift metrics definition, collection, and analysis from the organizational level to the individual level. While case study research indicates that the PSP can provide software engineering students with empirical support for improving estimation and quality assurance, there is little evidence that many students continue to use the PSP when no longer required to do so. Our research suggests that this "PSP adoption problem" may be due to two problems: the high overhead of PSP-style metrics collection and analysis, and the requirement that PSP users "context switch" between product development and process recording. This paper overviews our initial PSP experiences, our first attempt to solve the PSP adoption problem with the LEAP system, and our current approach called Hackystat. This approach fully automates both data collection and analysis, which eliminates overhead and context switching. However, Hackystat changes the kind of metrics data that is collected, and introduces new privacy-related adoption issues of its own.
-
-
 
 
 
