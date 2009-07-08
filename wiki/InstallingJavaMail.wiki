@@ -22,7 +22,7 @@ It will contain a lib/ directory with the jar files that you will need to instal
 
 If you are using Java 5, you must also download the !JavaBeans Activation Framework 1.1 from [http://java.sun.com/products/javabeans/jaf/index.jsp http://java.sun.com/products/javabeans/jaf/index.jsp]. 
 
-If you are using Java 6, this comes pre-installed. 
+If you are using Java 6, the activation framework comes pre-installed. 
 
 = 2. Copy !JavaMail jar files to the {java}/lib/ext directory =
 
@@ -30,13 +30,13 @@ To install !JavaMail, you need to copy mail.jar to the lib/ext directory.
 
 If you are using Java 5, you also need to copy activation.jar from the !JavaBeans Activation Framework library. 
 
-The location to which you copy these files depends upon your operating system.
+The location to which you copy these files depends upon your operating system. 
 
 || *OS* || *Typical location of lib/ext directory* ||
 || Mac OS/X || /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/lib/ext  ||
-|| Windows || C:\Java\jre1.5.0_7\lib\ext ||
+|| Windows || C:\Java\jre1.6.0_1\lib\ext, C:\Java\jdk1.6.0_1\jre\lib\ext ||
 
-Note that in Windows, you must be careful to install it in the "JRE" directory, not the "JDK" directory.
+Note that in Windows, to be safe, you should install it in both the JRE and JDK lib/ext directories. 
 
 = 3. Verifying your installation =
 
