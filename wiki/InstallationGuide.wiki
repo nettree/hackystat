@@ -76,7 +76,7 @@ In the left hand pane above, you can see the contents of the .hackystat director
 
 On the right hand side, you can see that the sensorbase/ directory contains a file named "sensorbase.properties".  In addition, the dailyprojectdata/ directory contains a file called dailyprojectdata.properties, the telemetry/ directory contains telemetry.properties, and projectbrowser/ contains projectbrowser.properties.  
 
-Each service contains a file called "sample.<service>.properties", which you can use as a template.  The next step is to copy these sample files to the appropriate .hackystat subdirectory, and remove "sample." from their name. In other words:
+Each service contains a file called "sample.{service}.properties", which you can use as a template.  The next step is to copy these sample files to the appropriate .hackystat subdirectory, and remove "sample." from their name. In other words:
 
 || *Copy this file* || *to here and rename it* || 
 ||HACKYSTAT_SERVICE_DIST/hackystat-sensorbase-uh/sample.sensorbase.properties || ~/.hackystat/sensorbase/sensorbase.properties ||
@@ -92,7 +92,7 @@ You must check each of these property files and change any properties as require
 
 == 3.0 Bringing up services ==
 
-Each of the services comes with a pair of startup scripts to simplify bringing up the associated service.  They are named startup.<service>.bat (for Windows) and startup.<service>.command (for Macintosh).  These scripts are extremely simple. Here, for example, is the startup.sensorbase.bat script:
+Each of the services comes with a pair of startup scripts to simplify bringing up the associated service.  They are named startup.{service}.bat (for Windows) and startup.{service}.command (for Macintosh).  These scripts are extremely simple. Here, for example, is the startup.sensorbase.bat script:
 {{{
 title = Sensorbase %HACKYSTAT_VERSION%
 java -Xmx512M -jar %HACKYSTAT_SERVICE_DIST%\hackystat-sensorbase-uh\sensorbase.jar
