@@ -93,7 +93,7 @@ You must check each of these property files and change any properties as require
   * [http://code.google.com/p/hackystat-analysis-telemetry/wiki/TelemetryProperties telemetry.properties]
   * [http://code.google.com/p/hackystat-ui-wicket/wiki/ProjectBrowserProperties projectbrowser.properties]
 
-== 3.0 Bringing up services ==
+= 3.0 Bringing up services =
 
 Each of the services comes with a pair of startup scripts to simplify bringing up the associated service.  They are named startup.{service}.bat (for Windows) and startup.{service}.command (for Macintosh).  These scripts are extremely simple. Here, for example, is the startup.sensorbase.bat script:
 {{{
@@ -139,7 +139,7 @@ To check this service, bring up the URL noted at the bottom of the window (in th
 
 Note that the bottom of the screen indicates that the Sensorbase, !DailyProjectData, and Telemetry services were all successfully contacted. 
 
-== 4.0 Advanced configuration ==
+= 4.0 Advanced configuration =
 
 If you have been able to replicate the above, you will have successfully installed the four basic Hackystat services.  Congratulations!  Note that each service can have its own specialized configuration options:
 
@@ -151,7 +151,7 @@ If you have been able to replicate the above, you will have successfully install
 See the documentation for the individual services for more details on these capabilities. 
 
 
-== 5.0 Upgrading ==
+= 5.0 Upgrading =
 
 Once you have successfully installed Hackystat, upgrading to a new binary release is extremely simple:
 
