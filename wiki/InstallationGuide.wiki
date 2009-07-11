@@ -1,5 +1,8 @@
 #summary How to install Hackystat services from a binary distribution.
 
+*Table of contents*
+<wiki:toc max_depth="3" />
+
 = 1.0 Introduction =
 
 This page provides a guide to installing Hackystat services from a "Binary Distribution".  
