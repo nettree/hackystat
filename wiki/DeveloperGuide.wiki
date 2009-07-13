@@ -794,3 +794,8 @@ A screencast covering much of this information is available at: [http://code.goo
 == 5.4 Eclipse ==
 
 Most Java-based Hackystat projects come with .project and .classpath files for use with Eclipse. Note that the .classpath files point to files in the project's lib/ directory for dependencies.  Thus, after checking out the sources, you must run Ant to build the system and populate the lib/ directory.  Only then can you open the Hackystat Eclipse project without build errors. Each time you "publish" dependent projects, use the Ecipse "refresh" command to load those changes into your Eclipse session.  
+
+== 5.5 From anonymous to commit access ==
+
+One might initially check out the sources anonymously, then become a member and want to get the sources with read-write (commit) access.  Note that you cannot convert anonymously checked out sources to read-write "in place". Instead, you need to delete your read-only directories (or move them elsewhere), then check out a fresh version of the system, supplying the appropriate credentials. 
+
