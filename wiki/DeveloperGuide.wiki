@@ -773,6 +773,7 @@ BUILD SUCCESSFUL
 Total time: 43 seconds
 }}}
 
+Note that running verify could take many minutes if the build system has not previously downloaded JUnit, Checkstyle, FindBugs, or PMD.
 
 = 5.0 Miscellaneous Information =
 
