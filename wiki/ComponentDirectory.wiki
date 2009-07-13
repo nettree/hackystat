@@ -2,7 +2,7 @@
 
 == Released ==
 
-The following table provides information on Hackystat components that are available as part of the Hackystat download packages. 
+The following table provides information on Hackystat components that are available as part of the Hackystat binary distribution.
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
 || Sensor || Ant Build Sensor (listener) || [http://code.google.com/p/hackystat-sensor-ant/ hackystat-sensor-ant] || [http://code.google.com/p/hackystat-sensor-ant/wiki/UserGuide User Guide], [http://code.google.com/p/hackystat-sensor-ant/wiki/AntSensorTasksReference Ant Task Reference], [http://hackystat-sensor-ant.googlecode.com/svn/javadoc/index.html JavaDoc] || Collects Build sensor data from [http://ant.apache.org Ant] using a Hackystat listener. ||
@@ -44,7 +44,7 @@ The following table provides information on Hackystat components that are availa
 
 == Experimental ==
 
-The following table provides information on Hackystat components that are under development but not yet released for general use. 
+The following table provides information on Hackystat components that are under development but not part of the binary distribution.
 
 || *Category* || *Name* || *Google Project* || *Links* || *Description* ||
 || User Interface || Project Trajectory || [http://code.google.com/p/hackystat-ui-trajectory/ hackystat-ui-trajectory] || (No documentation available.)  || Support time-independent project trajectories using 3D visualization.  ||
@@ -53,9 +53,9 @@ The following table provides information on Hackystat components that are under 
 ||  || Devcathlon || [http://code.google.com/p/hackystat-ui-devcathlon/ hackystat-ui-devcathlon] ||  || A "game" for software development. ||
 || Sensor || Team Foundation Server || [http://code.google.com/p/hackystat-sensor-tfs/ hackystat-sensor-tfs] || [http://code.google.com/p/hackystat-sensor-tfs/wiki/InstallationGuide Installation Guide] || Sensor for Microsoft Team Foundation Server. ||
 || Analysis || Boswell || [http://code.google.com/p/hackystat-analysis-boswell/ hackystat-analysis-boswell] || [http://code.google.com/p/hackystat-analysis-boswell/wiki/UserGuide User Guide] || Support for developer biographies.  ||
-||  || LinkedSensorData  || [http://code.google.com/p/hackystat-linked-sensor-data/ hackystat-linked-sensor-data] || [http://code.google.com/p/hackystat-linked-sensor-data/wiki/UserGuide User Guide] || Support for RDF linking to sensor data.  ||
+||  || !LinkedSensorData  || [http://code.google.com/p/hackystat-linked-sensor-data/ hackystat-linked-sensor-data] || [http://code.google.com/p/hackystat-linked-sensor-data/wiki/UserGuide User Guide] || Support for RDF linking to sensor data.  ||
 ||  || Service Management  || [http://code.google.com/p/hackystat-service-manager/ hackystat-service-manager] || [http://code.google.com/p/hackystat-service-manager/wiki/UserGuide User Guide] || Support for Hackystat service management.  ||
-||  || SocNet || [http://code.google.com/p/hackystat-analysis-socnet/ hackystat-analysis-socnet] || [http://code.google.com/p/hackystat-analysis-socnet/wiki/UserGuide User Guide] || Support for social network analysis.  ||
+||  || !SocNet || [http://code.google.com/p/hackystat-analysis-socnet/ hackystat-analysis-socnet] || [http://code.google.com/p/hackystat-analysis-socnet/wiki/UserGuide User Guide] || Support for social network analysis.  ||
 
 
 == Archive ==
