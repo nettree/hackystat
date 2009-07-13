@@ -13,11 +13,9 @@ If you're still reading, that means you are interested in running Hackystat serv
 
 = 2.0 Downloading and configuration =
 
-== 2.1 Install Java 6 and !JavaMail ==
+== 2.1 Install Java 6 ==
 
 Although not a requirement of Hackystat, all of the current public Hackystat services are written in Java.  Thus, you should install [http://java.sun.com/javase/6/ Java 6].  (It is possible, but more error-prone, to use Java 5, and we will soon discontinue support for Java 5, so do yourself a favor and install Java 6.)  
-
-In addition, you must install !JavaMail so that the !SensorBase can send registration information.  Instructions are available [http://code.google.com/p/hackystat/wiki/InstallingJavaMail here]. 
 
 == 2.2 Downloading the latest binary distribution ==
 

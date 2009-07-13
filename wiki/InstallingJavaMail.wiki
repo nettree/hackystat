@@ -1,5 +1,7 @@
 #summary How to install JavaMail
 
+|| *NOTE: As of Hackystat 8.3.713, JavaMail is installed using Ivy. This wiki page will remain temporarily as reference for prior versions.*||
+
 *Table of Contents*
 
 <wiki:toc max_depth="3" />
