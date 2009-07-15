@@ -90,7 +90,7 @@
 || *Synopsis* || Provides an example of a menu and submenu implemented in CSS and integrated with Wicket. The CSS is based upon an  [http://kalsey.com/tools/csstabs/ example by Adam Kalsey].  Some ICS 414 specific material at the end.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/05.ics.wicket.examples.mov QuickTime]||
 
-== Hackystat-Developer-Example ==
+== Hackystat-Developer-Example Part 1 ==
 
 || *Title* || hackystat-developer-example ||
 || *Presenter* || Philip Johnson ||
@@ -99,6 +99,16 @@
 || *Audience* || Hackystat developers who want to understand the hackystat-developer-example package. ||
 || *Synopsis* || Overview of package and its Ivy integration.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/08.hackystat-developer-example.mov QuickTime]||
+
+== Hackystat-Developer-Example Part 2 ==
+
+|| *Title* || hackystat-developer-example-build-system ||
+|| *Presenter* || Philip Johnson ||
+|| *Date* || July 14, 2009 ||
+|| *Running time* || 25 minutes ||
+|| *Audience* || Hackystat developers who want to understand the hackystat-developer-example build system as a template for their own projects. ||
+|| *Synopsis* || Overview of the Ant build files.  ||
+|| *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/11.hackystat-developer-example-build-system.mov QuickTime]||
 
 
 == Hackystat-Sensorbase-UH ==
