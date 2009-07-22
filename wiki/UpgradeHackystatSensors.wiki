@@ -20,22 +20,7 @@ The offline directory should not contain any files unless you have just been wor
 
 == 3. Update Ant Sensors ==
 
-  * Edit your ANT_ARGS environment variable to refer the latest release, such as:
-{{{
--lib C:\public_hackystat\hackystat-8.1.218-sensors-bin\hackystat-sensor-ant\antsensors.jar -listener org.hackystat.sensor.ant.antbuild.BuildSensorAntListener
-}}}
-
-  * Edit your HACKYSTAT_ANTSENSORS_HOME to refer to the latest release, such as:
-{{{
-C:\public_hackystat\hackystat-8.1.218-sensors-bin\hackystat-sensor-ant
-}}}
-
-  * Edit your HACKYSTAT_XMLDATA_HOME to refer to the latest release, such as:
-{{{
-C:\public_hackystat\hackystat-8.1.218-sensors-bin\hackystat-sensor-xmldata
-}}}
-
-  * On Windows, close all your console windows and restart them to make these environment variable changes take effect.  On Unix, 'source ~/.profile' or analogous.
+  * Update your ~/.ant/lib directory with the new version of antsensors.jar, which is found in the hackystat-sensor-ant subdirectory of the binary distribution. 
 
 == 4. Update Eclipse ==
 
@@ -54,7 +39,6 @@ C:\public_hackystat\hackystat-8.1.218-sensors-bin\hackystat-sensor-xmldata
 (defvar hackystat*sensorshell*file-path (concat system-distribution "hackystat-sensor-shell/"))
 (load-file (concat system-distribution "hackystat-sensor-emacs/sensor-package.el"))
 }}}
-
 
   * Restart Emacs.
 
