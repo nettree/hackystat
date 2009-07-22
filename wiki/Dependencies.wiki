@@ -19,8 +19,6 @@ Note that the external dependencies listed below are "run-time" dependencies; li
 || hackystat-sensor-emacs || hackystat-sensor-ant || (none) ||
 || hackystat-sensor-vim || hackystat-sensor-shell || (none) ||
 || hackystat-ui-tickertape || hackystat-analysis-telemetry || (none) ||
-|| hackystat-ui-wicket || hackystat-analysis-telemetry || Apache Wicket ||
-
-
+|| hackystat-ui-wicket || hackystat-analysis-telemetry || Apache Wicket, Slf4J, Jetty ||
 
 
