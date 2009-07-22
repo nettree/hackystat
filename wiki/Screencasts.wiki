@@ -21,7 +21,7 @@
 || *Date* || May 25, 2009 ||
 || *Running time* || 20 minutes ||
 || *Audience* || Hackystat users who want to understand the hackystat-sensor-example package, and it's redesign using Ivy. ||
-|| *Synopsis* || Overview of package and its Ivy integration.  ||
+|| *Synopsis* || Overview of package and its Ivy integration. *Note:* The build system has been updated since this screencast. Please consult the [http://code.google.com/p/hackystat-sensor-example/wiki/UserGuide User Guide] for current behavior.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/07.hackystat-sensor-example.mov QuickTime]||
 
 
@@ -97,7 +97,7 @@
 || *Date* || May 27, 2009 ||
 || *Running time* || 20 minutes ||
 || *Audience* || Hackystat developers who want to understand the hackystat-developer-example package. ||
-|| *Synopsis* || Overview of package and its Ivy integration.  ||
+|| *Synopsis* || Overview of package and its Ivy integration. *Note:* The build system has been updated since this screencast. Please consult the [http://code.google.com/p/hackystat-developer-example/wiki/UserGuide User Guide] for current behavior. ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/08.hackystat-developer-example.mov QuickTime]||
 
 == Hackystat-Developer-Example Part 2 ==
@@ -106,7 +106,7 @@
 || *Presenter* || Philip Johnson ||
 || *Date* || July 14, 2009 ||
 || *Running time* || 25 minutes ||
-|| *Audience* || Hackystat developers who want to understand the hackystat-developer-example build system as a template for their own projects. ||
+|| *Audience* || Hackystat developers who want to understand the hackystat-developer-example build system as a template for their own projects. *Note:* The build system has been updated since this screencast and has a slightly different structure and organization. Please consult the sources for changes.  ||
 || *Synopsis* || Overview of the Ant build files.  ||
 || *Link* || [http://csdl.ics.hawaii.edu/~johnson/screencasts/11.hackystat-developer-example-build-system.mov QuickTime]||
 
