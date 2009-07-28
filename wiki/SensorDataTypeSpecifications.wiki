@@ -122,7 +122,7 @@ The following table lists, for each sensor data type, the set of optional fields
 || !DevEvent || Type || '!StateChange' ||  (Expected)  The type of dev event. ||
 || !FileMetric || !TotalLines || 200 || (Expected) The total number of lines in this file. ||
 || || `*`!ComplexityList || '12, 13, 23' || Tools such as JavaNCSS can calculate measures of complexity as well as size.  This data is stored as a comma-separated list of values.  The property name indicates the type of complexity. For example, JavaNCSS provides the '!CyclomaticComplexityList' property. || 
-|| Issue || IssueId || '19' ||  (Expected) The unique ID assigned by the issue management system for this issue. ||
+|| Issue || !IssueId || '19' ||  (Expected) The unique ID assigned by the issue management system for this issue. ||
 || || Type || 'Defect--2008-09-07T11:00:00' ||  The types of the issue with the time when the type updated from previous value to this value. Values of Type include Defect, Enhancement, Task, etc. D Can be multiple properties with this key. ||
 || || Status || 'Open--2008-09-07T11:00:00' ||  The status of the issue with the time when the type updated from previous value to this value. Values of Status include New, Accepted, Start, Fixed, Wontfix, etc. Can be multiple properties with this key.  ||
 || || Priority || 'Critical--2008-09-07T11:00:00' ||  The priority of the issue with the time when the type updated from previous value to this value. Values of Priority include Low, Medium, High and Critical. Can be multiple properties with this key.  ||
