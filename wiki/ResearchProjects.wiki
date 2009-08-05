@@ -33,7 +33,7 @@ UML-oriented design metrics.
 
 == 2.2 Investigating Crap4J ==
 
-The good folks at Artima have created a plugin for Eclipse called [http://www.crap4j.org/ Crap4J].  The idea behind this plugin is to combine a measure of complexity with a measure for testing coverage, such that code with high complexity and low coverage is viewed as "crappy".  I wrote a little bit about this in [http://johnson-engineering-log.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J].
+The good folks at Artima have created a plugin for Eclipse called [http://www.crap4j.org/ Crap4J].  The idea behind this plugin is to combine a measure of complexity with a measure for testing coverage, such that code with high complexity and low coverage is viewed as "crappy".  I wrote a little bit about this in [http://philipmjohnson.blogspot.com/2007/10/hackystat-and-crap4j.html Hackystat and Crap4J].
 
 There are several limitations of Crap4J:
   * It works only within Eclipse.
@@ -156,10 +156,10 @@ There is an interesting Java-based server for Nabaztag: [http://www.cs.uta.fi/hc
 == 2.4 A Hackystat/Micro-blogging Mashup==
 
 Micro-blogging services such as Twitter or Jaiku provide an interesting communication mechanism that has interesting implications for software development.  I wrote about this for the first time in 
-[http://johnson-engineering-log.blogspot.com/2007/08/project-proprioception.html Project Proprioception], later 
-in [http://johnson-engineering-log.blogspot.com/2007/09/twitter-hackystat-and-solving-context.html Twitter, Hackystat, and solving the context switching problem] 
+[http://philipmjohnson.blogspot.com/2007/08/project-proprioception.html Project Proprioception], later 
+in [http://philipmjohnson.blogspot.com/2007/09/twitter-hackystat-and-solving-context.html Twitter, Hackystat, and solving the context switching problem] 
 and once again in
-[http://johnson-engineering-log.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup].   Members of the Hackystat development team have been using Twitter since Fall, 2007 as one of their communication methods, although without any direct Hackystat integration.
+[http://philipmjohnson.blogspot.com/2007/11/measurement-as-mashup-ambient-devices.html Measurement as Mashup].   Members of the Hackystat development team have been using Twitter since Fall, 2007 as one of their communication methods, although without any direct Hackystat integration.
 
 The basic goal of this project is to create a Hackystat service that can detect  "interesting
 events" in the Hackystat data stream and then communicate them as Twitter or Jaiku micro-blog entries. 
@@ -188,14 +188,14 @@ Finally, one can compare various micro-blogging services. For example, the "chan
 
 == 2.5 FFTs and Telemetry ==
 
-One interesting question about telemetry streams is whether there is "signal" in the trend line variations.  Dan Port suggested that we try running Fast Fourier Transforms over telemetry data to look for patterns, which I wrote about in  [http://johnson-engineering-log.blogspot.com/2007/10/fast-fourier-telemetry-transforms.html FFT of Telemetry Streams] . 
+One interesting question about telemetry streams is whether there is "signal" in the trend line variations.  Dan Port suggested that we try running Fast Fourier Transforms over telemetry data to look for patterns, which I wrote about in  [http://philipmjohnson.blogspot.com/2007/10/fast-fourier-telemetry-transforms.html FFT of Telemetry Streams] . 
 
 This research project would involve first implementing an FFT-based analyses, then performing an empirical investigation to see if meaningful patterns in the telemetry streams can be identified.
 
 == 2.6 The Semantic Web and Software Development ==
 
 I wrote some initial thoughts on how the Semantic Web (a.k.a. Web 3.0) could apply to software development in 
-[http://johnson-engineering-log.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web].
+[http://philipmjohnson.blogspot.com/2007/07/empirical-software-engineering-and-web.html Hackystat and the semantic web].
 
 As I noted in this article: It seems to me that Hackystat sensors are, in
 some sense, an attempt to take a software development artifact (the sensor
@@ -216,7 +216,7 @@ And here are some possible research directions:
 
 == 2.7 Social Networks and Software Development == 
 
-In [http://johnson-engineering-log.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
+In [http://philipmjohnson.blogspot.com/2007/12/social-networks-for-software-engineers.html Social Networks for Software Engineers], I provide examples of how Hackystat sensor data can be used to develop relatively detailed representations of the skills and capabilities of software developers, and how these representations could be used within a social network to support question answering, community building, and professional development. 
 
 For this research project, the first step is to develop an enhancement to an existing social
 network infrastructure such as Facebook or Orkut that can provide developers with
