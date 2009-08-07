@@ -45,3 +45,14 @@ The offline directory should not contain any files unless you have just been wor
 == 6. Verify ==
 
   * Use your tools, make sure that data is being sent. 
+
+== Appendix A: Upgrading Ant Sensors for Hackystat developers ==
+
+If you are a developer of Hackystat (or using the standard Hackystat build file structure which includes common.build.xml), then you can auto-update your Ant sensors with the following two Ant commands:
+
+{{{
+ant update-library-versions-properties
+ant install-sensors
+}}}
+
+Note that these two tasks cannot be combined in a single call to Ant, since the library.versions.properties update does not take effect until the next invocation of Ant.
