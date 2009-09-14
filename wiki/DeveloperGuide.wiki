@@ -33,7 +33,7 @@ Create a top-level hackystat directory in which all of your hackystat sources wi
 
 Download [http://hackystat.googlecode.com/svn/trunk/build.xml] into this directory. (Right-click this URL followed by "Save Link As.." should do the trick.)
 
-This script defines a set of Ant targets with the following syntax: {Command}.{Project}.  Command is one of:  checkout, checkout.anonymous, commit, or status, and corresponds to the associated SVN command.  Project is the name of a released Hackystat project, such as hackystat-utilities, hackystat-sensorbase-uh, etc. Project can also be "all", which refers to all released projects. 
+This script defines a set of Ant targets with the following syntax: {CommandPrefix}.{Project}.  CommandPrefix is one of:  checkout, checkout.anonymous, commit, or status, and corresponds to the associated SVN command.  Project is the name of a released Hackystat project, such as hackystat-utilities, hackystat-sensorbase-uh, etc. Project can also be "all", which refers to all released projects. 
 
 These Ant targets incorporate the internal Hackystat project dependencies documented in the [Dependencies Page]. 
 
@@ -41,10 +41,11 @@ So, for example:
   * 'ant checkout.anonymous.hackystat-utilities' will SVN checkout (or update) just the hackystat-utilities project with read-only access.
   * 'ant checkout.anonymous.hackystat-sensorbase-uh' will SVN checkout (or update) both the hackystat-sensorbase-uh project and its dependent project, hackystat-utilities with read-only access.
   * 'ant checkout.all' will SVN checkout (or update) all released hackystat projects with commit access.
+  * 'ant checkout.anonymous.all' will SVN checkout (or update) all released hackystat projects without commit access.
   * 'ant status.hackystat-utilities' will provide information on added and modified files in the hackystat-utilities workspace. 
   * 'ant -Dsvn.message="Fix typos" commit.all' will commit all changes to all Hackystat projects with the log message "Fix typos".
 
-The checkout.anonymous and status commands do not require SVN credentials, but the checkout and commit commands do.  To provide these credentials, you must create a file called svn.properties containing these credentials (documented below).
+The checkout.anonymous.`*` and status.`*` commands do not require SVN credentials, but the checkout.`*` and commit.`*` commands do.  To provide these credentials, you must create a file called svn.properties containing these credentials (documented below).
 
 The first time you invoke this script, you must invoke the "install" target, which will download various files necessary for SVN and Ivy.  If you forget to do this, the script will fail with an error message indicating you need to invoke 'ant install'.  Here is an example of the output from running that command:
 
@@ -90,11 +91,11 @@ build.xml	ivysettings.xml	     lib/
 
 == 2.3 Checkout sources to your local workspace ==
 
-If you simply want to build the sources without committing any changes, you can checkout the source "anonymously" using the checkout.anonymous command. 
+If you simply want to build the sources without committing any changes, you can checkout the source "anonymously" using one of the checkout.anonymous.`*` commands. 
 
 === 2.3.1 Checkout sources with read-only access ===
 
-For example, here is the result of running the checkout.anonymous command for the hackystat-sensorbase-uh project. Note that checking out this project results in its dependent Hackystat project being checked out as well:
+For example, here is the result of running the checkout.anonymous.hackystat-sensorbase-uh command. Note that checking out this project results in its dependent Hackystat project being checked out as well:
 
 {{{
 philip-johnsons-computer-2:hackystat-projects-example johnson$ ant checkout.anonymous.hackystat-sensorbase-uh
@@ -145,7 +146,7 @@ philip-johnsons-computer-2:hackystat-projects-example johnson$ ls
 build.xml	ivysettings.xml	lib		svn.properties
 }}}
 
-Now we invoke the "checkout" command with a project:
+Now we invoke the "checkout.hackystat-utilities" command:
 
 {{{
 philip-johnsons-computer-2:hackystat-projects-example johnson$ ant checkout.hackystat-utilities
@@ -172,9 +173,9 @@ If you invoke this command again, it has the effect of SVN update, so you can us
 
 == 2.4 Getting the status of your local workspace ==
 
-It is often useful to know the status of your local workspace: whether you have made changes to files or added new ones.  The build script provides a "status" command to facilitate this.  
+It is often useful to know the status of your local workspace: whether you have made changes to files or added new ones.  The build script provides a set of  "status" commands to facilitate this.  
 
-Let's assume that you've been working on the sensorbase and want to know about any changes you have made to this (or any dependent) projects.  You can invoke the status command as follows:
+Let's assume that you've been working on the sensorbase and want to know about any changes you have made to this (or any dependent) projects.  Here is an example of the status.hackystat-sensorbase-uh command:
 
 {{{
 philip-johnsons-computer-2:hackystat-projects-example johnson$ ant status.hackystat-sensorbase-uh
@@ -195,7 +196,7 @@ This command reveals that the file !SensorBaseClient.java has been modified.  It
 
 == 2.5 Committing changes to your local workspace ==
 
-To commit changes, invoke the commit command.  As with all the other commands, it will do a commit of all dependent targets.  You must always supply the -Dsvn.message argument on the command line with a string that will be used as the commit log message. 
+To commit changes, invoke one of the commit.`*` commands.  As with all the other commands, it will do a commit of all dependent targets.  You must always supply the -Dsvn.message argument on the command line with a string that will be used as the commit log message. 
 
 Here is an example:
 
@@ -229,7 +230,7 @@ This section documents the simplest possible approach to building, which is the 
 
 == 3.1 Building an individual Hackystat Project ==
 
-|| Note: Before building a project, you may wish to invoke a checkout or checkout.anonymous command documented above to ensure that you have the latest version of the sources. ||
+|| Note: Before building a project, you may wish to invoke one of the checkout or checkout.anonymous commands documented above to ensure that you have the latest version of the sources. ||
 
 The released Hackystat projects all tend to have a similar build system structure. In particular, the following commands are essential for building Hackystat projects.
 
