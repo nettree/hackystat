@@ -34,7 +34,7 @@ public release for a year, and this paper reports on our experiences:
 the motivations that led us to reimplement the system as a SOA, the
 costs and benefits of that conversion, and our lessons learned. 
 
-[http://csdl.ics.hawaii.edu/techreports/09-01/09-01.pdf Operational Definition and Automated Inference of Test-Driven Development with Zorro], Hongbing Kou, Philip M. Johnson and Hakan Erdogmus, Submitted to Automated Software Engineering, 2009.
+[http://csdl.ics.hawaii.edu/techreports/09-01/09-01.pdf Operational Definition and Automated Inference of Test-Driven Development with Zorro], Hongbing Kou, Philip M. Johnson and Hakan Erdogmus, Automated Software Engineering, 2009.
 
 Test-driven development (TDD) is a style of development named for its most
 visible characteristic: the design and implementation of test cases prior
@@ -152,6 +152,4 @@ My research employed a very simple exploratory study, which includes inspecting 
 [http://csdl.ics.hawaii.edu/techreports/02-07/02-07.pdf Beyond the Personal Software Process: Metrics collection and analysis for the differently disciplined], Philip M. Johnson and Hongbing Kou and Joy M. Agustin and Christopher Chan and Carleton A. Moore and Jitender Miglani and Shenyan Zhen and William E. Doane, Proceedings of the 2003 International Conference on Software Engineering, Portland, Oregon, May, 2003.
 
 Pedagogies such as the Personal Software Process (PSP) shift metrics definition, collection, and analysis from the organizational level to the individual level. While case study research indicates that the PSP can provide software engineering students with empirical support for improving estimation and quality assurance, there is little evidence that many students continue to use the PSP when no longer required to do so. Our research suggests that this "PSP adoption problem" may be due to two problems: the high overhead of PSP-style metrics collection and analysis, and the requirement that PSP users "context switch" between product development and process recording. This paper overviews our initial PSP experiences, our first attempt to solve the PSP adoption problem with the LEAP system, and our current approach called Hackystat. This approach fully automates both data collection and analysis, which eliminates overhead and context switching. However, Hackystat changes the kind of metrics data that is collected, and introduces new privacy-related adoption issues of its own.
-
-
 
