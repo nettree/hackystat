@@ -34,7 +34,7 @@ avoid searching or analyzing search results.  Finally, metadata about users
 including quality measures coming from a trustworthy source such as
 Telemetry can allow the user to trust the actual developer's
 expertise. Such RDF metadata and links, together with HTTP URIs, is
-provided by the Hackystat LinkedSensorData (LiSeD) service.
+provided by the Hackystat !LinkedSensorData (LiSeD) service.
 
 
 [http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, Proceedings of the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
