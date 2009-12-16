@@ -1,5 +1,41 @@
 #summary Research publications on Hackystat.
 
+[http://csdl.ics.hawaii.edu/techreports/09-17/09-17.pdf Applying Case-Based Reasoning for Building Autonomic Service-Oriented Systems], Herve Weitz, MS Thesis, University of Limerick, September, 2009.
+
+This dissertation discusses autonomic computing in service-oriented
+computing. We present a framework that builds a foundation for
+self-healing, self-reconfiguration, self-optimization and self-protecting
+service-oriented systems. We apply and implement the framework to
+Hackystat, an Open Source Software developed at University of
+Hawaii. Furthermore, we discuss the role of service-oriented computing in
+autonomic computing, which plays a fundamental role for the relationship
+between autonomic elements.  We implemented an open source
+framework called Hackystat Service Manager for achieving an autonomic
+service-oriented architecture in Hackystat.
+
+[http://csdl.ics.hawaii.edu/techreports/09-16/09-16.pdf Linked Data applied to Collaborative Software Development: A case study of Hackystat], Myriam Leggieri, MS Thesis, University of Bari, December, 2009.
+
+This thesis investigates a new way to take advantage of Linked Data to
+support Collaborative Software Development. Linked Data helps developers
+overcome typical problems in iterative software development, such as:
+exceptions thrown at run-time; making design and implementation decisions
+within previously unknown domains; and usage of previously unknown tools or
+libraries. Solutions usually consist of searching for suggestions from
+forum posts, source code of similar projects, direct contact with specific
+experts, etc.  The main problems with this approach are the time wasted in
+manually detecting the searched info from unstructured documents, the low
+effectiveness of search engines, and the lack of information about the
+actual expertise of the directly contacted people.
+
+In contrast, having info about projects and issues semantically structured
+with RDF metadata can speed up detection of the searched details.  Dynamic
+creation of RDF links with external similar RDF metadata allows users to
+avoid searching or analyzing search results.  Finally, metadata about users
+including quality measures coming from a trustworthy source such as
+Telemetry can allow the user to trust the actual developer's
+expertise. Such RDF metadata and links, together with HTTP URIs, is
+provided by the Hackystat LinkedSensorData (LiSeD) service.
+
 
 [http://csdl.ics.hawaii.edu/techreports/09-02/09-02.pdf We need more coverage, stat!  Classroom experiences with the Software ICU], Philip M. Johnson and Shaoxuan Zhang, Proceedings of the 2009 International Symposium on Empirical Software Engineering and Measurement, Orlando Florida, October, 2009.
 
