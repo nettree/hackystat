@@ -15,8 +15,8 @@ service-oriented architecture in Hackystat.
 
 [http://csdl.ics.hawaii.edu/techreports/09-16/09-16.pdf Linked Data applied to Collaborative Software Development: A case study of Hackystat], Myriam Leggieri, MS Thesis, University of Bari, December, 2009.
 
-This thesis investigates a new way to take advantage of Linked Data to
-support Collaborative Software Development. Linked Data helps developers
+This thesis investigates a new way to take advantage of RDF metadata to
+support Collaborative Software Development. RDF metadata helps developers
 overcome typical problems in iterative software development, such as:
 exceptions thrown at run-time; making design and implementation decisions
 within previously unknown domains; and usage of previously unknown tools or
